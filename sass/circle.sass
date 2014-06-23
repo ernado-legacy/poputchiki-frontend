@@ -1,0 +1,52 @@
+.wrapper
+	position: absolute
+	top: 0
+	left: 0
+	width: 144px
+	height: 144px
+	clip: rect(0px, 144px, 144px, 72px)
+	z-index: 101
+	.circle
+		width: 140px
+		height: 140px
+		+border-radius(72px, 72px, 72px, 72px)
+		border: 2px solid #50c500
+		position: absolute
+		clip: rect(0px, 72px, 144px, 0px)
+
+div[data-anim~=base]
+	-webkit-animation-iteration-count: 1 /* Only run once */
+	-webkit-animation-fill-mode: forwards /* Hold the last keyframe */
+	-webkit-animation-timing-function: linear /* Linear animation */
+
+.wrapper1
+	-webkit-animation-duration: 0.01s /* Complete keyframes asap */
+	-webkit-animation-delay: 1s /* Wait half of the animation */
+	-webkit-animation-name: close-wrapper /* Keyframes name */
+
+.circle1
+	-webkit-animation-duration: 2s /* Full animation time */
+	-webkit-animation-name: left-spin
+
+.circle2
+	-webkit-animation-duration: 1s /* Half animation time */
+	-webkit-animation-name: right-spin
+
+/* Rotate the right side of the progress bar from 0 to 180 degrees */
+@-webkit-keyframes right-spin
+	from
+		-webkit-transform: rotate(0deg)
+	to
+		-webkit-transform: rotate(180deg)
+
+/* Rotate the left side of the progress bar from 0 to 360 degrees */
+@-webkit-keyframes left-spin
+	from
+		-webkit-transform: rotate(0deg)
+	to
+		-webkit-transform: rotate(360deg)
+
+/* Set the wrapper clip to auto, effectively removing the clip */
+@-webkit-keyframes close-wrapper
+	to
+		clip: rect(auto, auto, auto, auto)

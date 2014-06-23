@@ -1,0 +1,44 @@
+.leftBox
+  .profileBox
+    img(src='../static/img/b_userpic.png')
+    #profile-rating 96%
+  .searchBox
+    .searchBody.clearfix
+      h1 мои предпочтения
+      .greenDots
+      #search-age Возраст
+      .ageBox.clearfix
+        span От
+        .ageFrom
+          input#search-age-from(type='text',  maxlength="2")
+        span до
+        .ageTo
+          input#search-age-to(type='text',  maxlength="2")
+      .greenDots
+      #search-sex Пол
+      .sexBox.clearfix
+        .manBox
+          .box
+          span Мужчины
+        .womanBox
+          .box.checked
+          span Женщины
+      .greenDots
+      span#search-places Cтраны/города
+      .mainSelectElement.searchCountry.withShadow
+        input#search-select(placeholder='...', type='text',  maxlength="20")
+        .dd
+        .du
+        ul.droped.withShadow
+          li.dl Россия
+          li.dl Африка
+          li.dl Европа
+      .nearBox.clearfix
+        .box.checked
+        span Искать рядом
+      .tagsBox.clearfix
+        .mainSelectElement.searcTagPlaces.withShadow
+          span.tagCountry Россия
+          .close
+      .greenDots
+      .slideDown#search-slidedown Дополнительные параметры

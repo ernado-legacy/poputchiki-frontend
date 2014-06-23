@@ -1,0 +1,204 @@
+.profileContainer.clearfix
+  include guest_leftbox
+  .rightBox
+    .profileInfoBox.pIBTitle
+      .name-in-profile Мария, 36
+      .money-icon
+      .house-icon
+      .city-in-profile Москва
+    .wantToTravelBox.clearfix
+      .newStatus Новый статус
+      .statusBoxCompleted.clearfix
+        .statusBox#main-status
+          .status Завтра вылетаю, есть билет на халяву, кто со мной? Время поджимает, давайте поторопитесь. Бла-бла          
+          .comments.clearfix
+            span#delete-comments удалить
+            span#share-comments поделиться
+        .statusBoxEdit.clearfix
+          h1 добавить новый статус
+          .greenDots
+          input#new-status(placeholder='...', type='text',  maxlength="140")
+          .writeBtn#write-new-main-status
+    .tagBox
+      h1 Путешествия
+
+      .tagsLine#profile-tags
+        .mainSelectElement.profileTagPlaces.withShadow
+          span.tagCountry Россия
+          span.tagSeason весна/
+          span.tagYear 14
+          .close
+        .mainSelectElement.profileTagPlaces.withShadow
+          span.tagCountry Европа
+          span.tagSeason весна/
+          span.tagYear 14
+          .close
+        .mainSelectElement.profileTagPlaces.withShadow
+          span.tagCountry Африка
+          span.tagSeason весна/
+          span.tagYear 14
+          .close
+      
+    .profileInfoBox      
+      h1 о себе
+      .greenDots
+      p.description#about-in-info Если вы никогда не видели? нашей грозы, вы никогда не поймете нас! Cпособностей наших безумных душ к падению на самое дно бездны, где все законы мироздания теряют свой первоначальный смысл, Кто-то непостижимо великий сплетает полотно реальности!
+      .infoBox.infoView
+        #birtday-in-info.clearfix
+          span.lp День рождения:
+          span.rp 19 августа 1983 г.
+        #zodiac-in-info.clearfix
+          span.lp Знак зодиака:
+          span.rp лев
+        #city-in-info.clearfix
+          span.lp Город:
+          span.rp Москва
+        #skype-in-info.clearfix
+          span.lp Skype:
+          span.rp skype
+        #interests-in-info.clearfix
+          span.lp Интересы:
+          span.rp Велотуризм, яхтинг, скалолазание, серфинг, виндсерфинг, дайвинг, воздухоплавание, конный спорт, теннис, путешествия, музыка, йога, общение
+        #music-in-info.clearfix
+          span.lp Любимая музыка:
+          span.rp Jazz, Rock '70 '80, Trance
+        #films-in-info.clearfix
+          span.lp Любимые фильмы:
+          span.rp Боги сошли с ума
+        #quote-in-info.clearfix
+          span.lp Любимые цитаты:
+          span.rp 
+            p если существует несколько логически непротиворечивых объяснений какого-либо явления, объясняющих его одинаково хорошо, то следует, при прочих равных условиях, считать верным самое простое из них
+            p ------
+            p бритва Оккама
+      .infoBox.infoEdit
+        
+        #birtday-edit.clearfix
+          span.lp День рождения:
+          span.rp
+            .mainSelectElement.dayEdit.withShadow#day-select
+              span#day-edit-select 20
+              .dd
+              .du
+              ul.droped.withShadow
+                li.dl 21
+                li.dl 22
+                li.dl 23
+                li.dl 24
+            .mainSelectElement.monthEdit.withShadow#month-select
+              span#month-edit-select Август
+              .dd
+              .du
+              ul.droped.withShadow
+                li.dl Сентябрь
+                li.dl Октябрь
+                li.dl Ноябрь
+                li.dl Декабрь
+              .statusDrop
+            .mainSelectElement.yearEdit.withShadow#year-select
+              span#year-edit-select 1983
+              .dd
+              .du
+              ul.droped.withShadow
+                li.dl 1984
+                li.dl 1985
+                li.dl 1986
+                li.dl 1987
+        //- #zodiac-edit.clearfix
+        //-   span.lp Знак зодиака:
+        //-   span.rp
+        //-     .mainSelectElement.zodiacEdit.withShadow#zodiac-select
+        //-       span#zodiac-edit-select Лев
+        //-       .dd
+        //-       .du
+        //-       ul.droped.withShadow
+        //-         li.dl Дева
+        //-         li.dl Весы
+        //-         li.dl Скорпион
+        //-         li.dl Стрелец
+        #country-edit.clearfix
+          span.lp Страна:
+          span.rp
+            .mainSelectElement.countryEdit.withShadow#country-select
+              span#country-edit-select Россия
+              .dd
+              .du
+              ul.droped.withShadow
+                li.dl Россия
+                li.dl Украина
+                li.dl США
+
+        #city-edit.clearfix
+          span.lp Город:
+          span.rp
+            .mainSelectElement.cityEdit.withShadow#city-select
+              span#city-edit-select Санкт-Петербург
+              .dd
+              .du
+              ul.droped.withShadow
+                li.dl Москва
+                li.dl Киев
+                li.dl Екатеринбург
+                li.dl Пермь
+
+        #about-edit.clearfix
+          span.lp О себе:
+          span.rp
+            textarea Если вы никогда не видели? нашей грозы, вы никогда не поймете нас! Cпособностей наших безумных душ к падению на самое дно бездны, где все законы мироздания теряют свой первоначальный смысл, Кто-то непостижимо великий сплетает полотно реальности!
+        #num-value-edit.clearfix
+          span.lp Рост:
+          span.rp
+            input(type='text', value='186')
+        #num-value-edit.clearfix
+          span.lp Вес:
+          span.rp
+            input(type='text', value='33')
+        #interests-edit.clearfix
+          span.lp Интересы:
+          span.rp
+            textarea Велотуризм, яхтинг, скалолазание, серфинг, виндсерфинг, дайвинг, воздухоплавание, конный спорт, теннис, путешествия, музыка, йога, общение
+        #music-edit.clearfix
+          span.lp Любимая музыка:
+          span.rp
+            textarea Jazz, Rock '70 '80, Trance
+        #films-edit.clearfix
+          span.lp Любимые фильмы:
+          span.rp
+            textarea Боги сошли с ума
+        #quote-edit.clearfix
+          span.lp Любимые цитаты:
+          span.rp
+            textarea если существует несколько логически непротиворечивых объяснений какого-либо явления, объясняющих его одинаково хорошо, то следует, при прочих равных условиях, считать верным самое простое из них ------ бритва Оккама
+        div
+          span.lp
+          span.rp
+            .profile-edit-slideup#profile-edit-slideup
+              span сохранить
+      .slideDown#profile-slidedown показать все
+      .slideUp#profile-slideup скрыть
+
+    .statuses.wantToTravelBox.clearfix        
+        .title СТАТУСЫ
+
+        .statusBoxCompleted.clearfix
+          .statusBox#main-status
+            .status Завтра вылетаю, есть билет на халяву, кто со мной? Время поджимает, давайте поторопитесь. Бла-бла        
+            .comments.clearfix
+              .right
+                span#delete-comments удалить
+                span#share-comments поделиться
+              .left
+                span.count 12
+                span#show-all   показать все
+
+    .statuses.wantToTravelBox.clearfix        
+        .statusBoxCompleted.clearfix
+          .statusBox#main-status
+            .status Завтра вылетаю, есть билет на халяву, кто со мной? Время поджимает, давайте поторопитесь. Бла-бла        
+            .comments.clearfix
+              .right
+                span#delete-comments удалить
+                span#share-comments поделиться
+              .left
+                span.count 12
+                span#show-all   показать все
