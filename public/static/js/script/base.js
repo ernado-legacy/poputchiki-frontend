@@ -2,6 +2,29 @@ $(window).load(function() {
 	if (window.pageYOffset == 0) {
 		$('.leftMenu').addClass('onload');
 	}
+
+	//code for registration form 2 (choose sex)
+	var sex_checkbox = $('.step .box');
+	$(sex_checkbox).click(function() {
+		$(sex_checkbox).removeClass('checked');
+		$(this).addClass('checked');
+	});
+	//registration 3st step photo upload
+	$('.photo-load .button button').click(function() {
+		$('.photo-load .button input').click();
+	})
+	//reg drop
+	$('.step .mainSelectElement').click(function() {
+		var drop_list = $(this).parent().find('.droped');
+		if ($(drop_list).hasClass('hide')) {
+			$(drop_list).removeClass('hide');
+			$(drop_list).addClass('show');
+		}
+		else {
+			$(drop_list).removeClass('show');
+			$(drop_list).addClass('hide');
+		}
+	})
 });
 
 $(window).scroll(function() {
@@ -150,5 +173,5 @@ $(function(){
 		});
 	};
 	activeAgeBox('.ageFrom');
-	activeAgeBox('.ageTo');
+	activeAgeBox('.ageTo');	
 });

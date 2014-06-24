@@ -1,0 +1,59 @@
+body.loginRegisterBody
+  header
+    .hLogo
+      span попутчики.ru
+    ul.navigation
+      li#header-profile
+        span войти
+  .loginRegisterBlock.step
+    .enterContainer.clearfix
+      .title РЕГИСТРАЦИЯ. ШАГ 2
+      .greenDots
+      .fill-form Присоединяйтесь к сообществу из 213 миллионов новых друзей. Чтобы запросить доступ, заполните эту форму:
+      form
+        .form-line
+          span Имя:
+          input(type='text', placeholder='Введите свое имя')
+        .form-line
+          span Фамилия:
+          input(type='text', placeholder='Ваша фамилия')        
+        .form-line
+          span День рождения:
+          .tagBox                        
+            .newTagBox
+              .mainSelectElement.newSeason.withShadow
+                span#profile-new-tag-s День
+                .dd
+                .du
+                ul.droped.withShadow.hide
+                  li.dl.dls 1
+                  li.dl.dls 2
+                  li.dl.dls 3
+                  li.dl.dls 4
+              .newTagBox
+                .mainSelectElement.newSeason.withShadow
+                  span#profile-new-tag-s День
+                  .dd
+                  .du
+                  ul.droped.withShadow.hide
+                    li.dl.dls 1
+                    li.dl.dls 2
+                    li.dl.dls 3
+                    li.dl.dls 4
+        .form-line
+          span Пол:
+          .sexBox.clearfix
+            .man.clearfix
+              .box.checked
+              span Мужчина
+            .woman.clearfix
+              .box
+              span Женщина
+        .form-line
+          span Телефон:
+          input(type='tel', placeholder='+7 (---) --- -- --')
+        .form-line.clearfix
+          .regButton.profile-edit-slideup
+            span ПРОДОЛЖИТЬ
+      .soc-login 
+        a(href='#') или войти с помощью соц. сети
