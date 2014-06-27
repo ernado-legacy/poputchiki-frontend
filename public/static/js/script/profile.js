@@ -196,13 +196,16 @@ profile_script = function(){
         });
     };
 
-    addSearchTag('#search-select', '.tagsBox');
+    addSearchTag('#search-select', '#tb-s');
+    addSearchTag('#search-select-f', '#tb-f');
 
-    $('#my-profile .money-icon').click(function() {
-        $(this).toggleClass('mg-icon');
+    $('#search-slideup').click(function() {
+        $('#my-folowers').slideUp("slow");
+        $('#my-wishes').slideDown("slow");
     });
-    $('#my-profile .house-icon').click(function() {
-        $(this).toggleClass('hg-icon');
+    $('#search-slidedown').click(function() {
+        $('#my-folowers').slideDown("slow");
+        $('#my-wishes').slideUp("slow");
     });
 };
 

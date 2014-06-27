@@ -2,29 +2,6 @@ $(window).load(function() {
 	if (window.pageYOffset == 0) {
 		$('.leftMenu').addClass('onload');
 	}
-
-	//code for registration form 2 (choose sex)
-	var sex_checkbox = $('.step .box');
-	$(sex_checkbox).click(function() {
-		$(sex_checkbox).removeClass('checked');
-		$(this).addClass('checked');
-	});
-	//registration 3st step photo upload
-	$('.photo-load .button button').click(function() {
-		$('.photo-load .button input').click();
-	})
-	//reg drop
-	$('.step .mainSelectElement').click(function() {
-		var drop_list = $(this).parent().find('.droped');
-		if ($(drop_list).hasClass('hide')) {
-			$(drop_list).removeClass('hide');
-			$(drop_list).addClass('show');
-		}
-		else {
-			$(drop_list).removeClass('show');
-			$(drop_list).addClass('hide');
-		}
-	})
 });
 
 $(window).scroll(function() {
@@ -173,5 +150,52 @@ $(function(){
 		});
 	};
 	activeAgeBox('.ageFrom');
-	activeAgeBox('.ageTo');	
+	activeAgeBox('.ageTo');
+
+	//code for registration form 2 (choose sex)
+	var sex_checkbox = $('.step .box');
+	$(sex_checkbox).click(function() {
+		$(sex_checkbox).removeClass('checked');
+		$(this).addClass('checked');
+	});
+	//registration 3st step photo upload
+	$('.photo-load .button button').click(function() {
+		$('.photo-load .button input').click();
+	});
+	//reg drop
+	$('.step .mainSelectElement').click(function() {
+		var drop_list = $(this).parent().find('.droped');
+		if ($(drop_list).hasClass('hide')) {
+			$(drop_list).removeClass('hide');
+			$(drop_list).addClass('show');
+		}
+		else {
+			$(drop_list).removeClass('show');
+			$(drop_list).addClass('hide');
+		}
+	});
+
+	var moneyIcon = function(cnt) {
+        $(cnt).click(function() {
+            $(this).toggleClass('mg-icon');
+        });
+    };
+    var houseIcon = function(cnt) {
+        $(cnt).click(function() {
+            $(this).toggleClass('hg-icon');
+        });
+    };
+
+    moneyIcon('#my-profile .money-icon');
+    houseIcon('#my-profile .house-icon');
+    moneyIcon('.nearBox .money-icon');
+    houseIcon('.nearBox .house-icon');
+
+    $('.season').click(function() {
+        $(this).toggleClass('seasonChecked');
+    });
+
+	$('.addPhoto').click(function() {
+		$('.addPhoto input').click();
+	});
 });

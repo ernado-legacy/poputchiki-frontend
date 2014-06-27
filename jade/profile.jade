@@ -4,7 +4,13 @@
     .profileInfoBox.pIBTitle#my-profile
       .name-in-profile #{user.name}, #{user.age}
       .money-icon
+        .tooltip.clearfix
+          .tooltip-arrow
+          span Денежка
       .house-icon
+        .tooltip.clearfix
+          .tooltip-arrow
+          span Домик
       .city-in-profile #{user.city}
     .wantToTravelBox.clearfix
       .newStatus Новый статус
@@ -12,6 +18,9 @@
         .statusBox#main-status
           .status Завтра вылетаю, есть билет на халяву, кто со мной? Время поджимает, давайте поторопитесь. Бла-бла
           .edit#edit-status
+            .tooltip.clearfix
+              .tooltip-arrow
+              span Редактировать
           .comments.clearfix
             span#delete-comments удалить
             span#share-comments поделиться
@@ -22,23 +31,15 @@
           .writeBtn#write-new-main-status
     .tagBox
       h1 Сезоны
-      .tagsLine#profile-tags-seasons
-        .mainSelectElement.profileTagPlaces.withShadow
-          span.tagSeason Лето
-          .close
-        .mainSelectElement.profileTagPlaces.withShadow
-          span.tagSeason Осень
-          .close
-      .newTagBox
-        .mainSelectElement.newSeason.withShadow
-          span#profile-new-tag-s Сезон...
-          .dd
-          .du
-          ul.droped.withShadow
-            li.dl.dls Зима
-            li.dl.dls Весна
-            li.dl.dls Лето
-            li.dl.dls Осень
+      .seasonsBox.clearfix
+        .season
+          span весна
+        .season
+          span лето
+        .season.seasonChecked
+          span осень
+        .season
+          span зима
     .tagBox
       h1 Мои направления
       .tagsLine#profile-tags
@@ -62,6 +63,9 @@
             li.dl Европа
     .profileInfoBox
       .edit#edit-profile
+        .tooltip.clearfix
+          .tooltip-arrow
+          span Редактировать
       h1 о себе
       .greenDots
       p.description#about-in-info Если вы никогда не видели? нашей грозы, вы никогда не поймете нас! Cпособностей наших безумных душ к падению на самое дно бездны, где все законы мироздания теряют свой первоначальный смысл, Кто-то непостижимо великий сплетает полотно реальности!

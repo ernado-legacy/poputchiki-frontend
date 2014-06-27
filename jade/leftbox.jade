@@ -3,7 +3,7 @@
     img(src='../static/img/b_userpic.png')
     #profile-rating 96%
   .searchBox
-    .searchBody.clearfix
+    .searchBody.clearfix#my-wishes
       h1 мои предпочтения
       .greenDots
       #search-age Возраст
@@ -36,9 +36,41 @@
       .nearBox.clearfix
         .box.checked
         span Искать рядом
-      .tagsBox.clearfix
-        .mainSelectElement.searcTagPlaces.withShadow
-          span.tagCountry Россия
-          .close
+      .tagsBox.clearfix#tb-s
       .greenDots
-      .slideDown#search-slidedown Дополнительные параметры
+      .slideDown#search-slidedown Поиски попутчиков
+    .searchBody.clearfix#my-folowers
+      h1 поиски попутчиков
+      .greenDots
+      #seasons Сезоны:
+      .seasonsBox.clearfix
+        .season
+          span весна
+        .season
+          span лето
+        .season.seasonChecked
+          span осень
+        .season
+          span зима
+      .greenDots
+      span#search-places-f Cтраны/города
+      .mainSelectElement.searchCountry.withShadow
+        input#search-select-f(placeholder='...', type='text',  maxlength="20")
+        .dd
+        .du
+        ul.droped.withShadow
+          li.dl Россия
+          li.dl Африка
+          li.dl Европа
+      .nearBox.clearfix
+        .money-icon
+          .tooltip.clearfix
+            .tooltip-arrow
+            span Денежка
+        .house-icon
+          .tooltip.clearfix
+            .tooltip-arrow
+            span Домик
+      .tagsBox.clearfix#tb-f
+      .greenDots
+      .slideDown#search-slideup Мои предпочтения

@@ -17,29 +17,84 @@ body.loginRegisterBody
         .form-line
           span Фамилия:
           input(type='text', placeholder='Ваша фамилия')        
-        .form-line
-          span День рождения:
-          .tagBox                        
-            .newTagBox
-              .mainSelectElement.newSeason.withShadow
-                span#profile-new-tag-s День
-                .dd
-                .du
-                ul.droped.withShadow.hide
-                  li.dl.dls 1
-                  li.dl.dls 2
-                  li.dl.dls 3
-                  li.dl.dls 4
-              .newTagBox
-                .mainSelectElement.newSeason.withShadow
-                  span#profile-new-tag-s День
-                  .dd
-                  .du
-                  ul.droped.withShadow.hide
-                    li.dl.dls 1
-                    li.dl.dls 2
-                    li.dl.dls 3
-                    li.dl.dls 4
+        .form-line.clearfix#birdth-reg
+          .mainSelectElement.yearEdit.withShadow#year-select
+            span#year-edit-select 1983
+            .dd
+            .du
+            ul.droped.withShadow
+              li.dl 1980
+              li.dl 1981
+              li.dl 1982
+              li.dl 1983
+              li.dl 1984
+              li.dl 1985
+              li.dl 1986
+              li.dl 1987
+              li.dl 1988
+              li.dl 1989
+              li.dl 1990
+              li.dl 1991
+              li.dl 1992
+              li.dl 1993
+              li.dl 1994
+              li.dl 1995
+              li.dl 1996
+          .mainSelectElement.monthEdit.withShadow#month-select
+            span#month-edit-select Август
+            .dd
+            .du
+            ul.droped.withShadow
+              li.dl Январь
+              li.dl Февраль
+              li.dl Март
+              li.dl Апрель
+              li.dl Май
+              li.dl Июнь
+              li.dl Июль
+              li.dl Август
+              li.dl Сентябрь
+              li.dl Октябрь
+              li.dl Ноябрь
+              li.dl Декабрь
+            .statusDrop
+          .mainSelectElement.dayEdit.withShadow#day-select
+            span#day-edit-select 19
+            .dd
+            .du
+            ul.droped.withShadow
+              li.dl 1
+              li.dl 2
+              li.dl 3
+              li.dl 4
+              li.dl 5
+              li.dl 6
+              li.dl 7
+              li.dl 8
+              li.dl 9
+              li.dl 10
+              li.dl 11
+              li.dl 12
+              li.dl 13
+              li.dl 14
+              li.dl 15
+              li.dl 16
+              li.dl 17
+              li.dl 18
+              li.dl 19
+              li.dl 20
+              li.dl 21
+              li.dl 22
+              li.dl 23
+              li.dl 24
+              li.dl 25
+              li.dl 26
+              li.dl 27
+              li.dl 28
+              li.dl 29
+              li.dl 30
+              li.dl 31
+          span.d-r День рождения:
         .form-line
           span Пол:
           .sexBox.clearfix
@@ -49,6 +104,17 @@ body.loginRegisterBody
             .woman.clearfix
               .box
               span Женщина
+        .form-line.clearfix#city-reg
+          .mainSelectElement.cityEdit.withShadow#city-select
+            span#city-edit-select
+            .dd
+            .du
+            ul.droped.withShadow
+              li.dl Москва
+              li.dl Киев
+              li.dl Екатеринбург
+              li.dl Пермь
+          span.d-r Город:
         .form-line
           span Телефон:
           input(type='tel', placeholder='+7 (---) --- -- --')
@@ -57,3 +123,13 @@ body.loginRegisterBody
             span ПРОДОЛЖИТЬ
       .soc-login 
         a(href='#') или войти с помощью соц. сети
+  footer.footerLogin
+    .fLogo
+      span попутчики
+    ul.aboutInfo
+      li
+        span о нас
+      li
+        span правила
+      li
+        span рейтинг
