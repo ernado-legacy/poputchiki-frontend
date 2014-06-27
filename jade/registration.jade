@@ -1,21 +1,21 @@
-body.loginRegisterBody
+div.loginRegisterBody
   header
     .hLogo
       span попутчики.ru
     ul.navigation
       li#header-profile
         span войти
-  .loginRegisterBlock
+  form.loginRegisterBlock
     .enterContainer.clearfix
       .title зарегистрироваться
       .greenDots
-      input#email(type='text', placeholder='Емэйл')
-      input#password-reg(type='text', placeholder='Пароль')
+      input#email(type='text', placeholder='Емэйл', name="email")
+      input#password-reg(type='password', placeholder='Пароль', name="password")
       .noteBox
         span Регистрируясь, вы соглашаетесь с 
         a правилами
         span , установленными сайтом.
-      .profile-edit-slideup.regButton
+      .profile-edit-slideup.regButton.reg.regstepone
         span зарегистрироваться
       .title или через свой аккаунт
       .greenDots

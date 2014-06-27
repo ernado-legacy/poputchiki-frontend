@@ -5,7 +5,7 @@ body.loginRegisterBody
     ul.navigation
       li#header-profile
         span войти
-  .loginRegisterBlock.step
+  form.loginRegisterBlock.step
     .enterContainer.clearfix
       .title РЕГИСТРАЦИЯ. ШАГ 2
       .greenDots
@@ -13,7 +13,7 @@ body.loginRegisterBody
       form
         .form-line
           span Имя:
-          input(type='text', placeholder='Введите свое имя')
+          input(type='text', placeholder='Введите свое имя', name='firstname')
         .form-line
           span Фамилия:
           input(type='text', placeholder='Ваша фамилия')        
@@ -119,7 +119,7 @@ body.loginRegisterBody
           span Телефон:
           input(type='tel', placeholder='+7 (---) --- -- --')
         .form-line.clearfix
-          .regButton.profile-edit-slideup
+          .regButton.profile-edit-slideup.regsteptwo
             span ПРОДОЛЖИТЬ
       .soc-login 
         a(href='#') или войти с помощью соц. сети
