@@ -118,7 +118,6 @@ profile_script = function(){
         });
     };
 
-    openNewTag('.newSeason');
     openNewTag('.dayEdit');
     openNewTag('.monthEdit');
     openNewTag('.yearEdit');
@@ -133,7 +132,6 @@ profile_script = function(){
         });
     };
 
-    selectSeasonYear('.newSeason');
     selectSeasonYear('.dayEdit');
     selectSeasonYear('.monthEdit');
     selectSeasonYear('.yearEdit');
