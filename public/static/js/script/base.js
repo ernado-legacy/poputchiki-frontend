@@ -68,7 +68,7 @@ $(function(){
 	});
 
 	var showMenu = function(end){
-		anim = document.getElementById("left-menu");
+		/* anim = document.getElementById("left-menu");
 		anim.addEventListener(end,function( event ){
 			if ($('.leftMenu li').width() > 60) {
 				$('.leftMenu li span').addClass('visibleSpan');
@@ -76,7 +76,7 @@ $(function(){
 			else {
 				$('.leftMenu li span').removeClass('visibleSpan');
 			}
-		},false);
+		},false); */
 	};
 
 
