@@ -128,6 +128,14 @@ $title_text: #403f3f
 	input::-webkit-input-placeholder
 		color: $profile_status_text
 
+=add-title
+	.title
+		color: $title_text
+		text-transform: uppercase
+		font-size: 15px
+		float: left
+		font-weight: bold
+
 [class^="icon-"], [class*=" icon-"]
 	display: inline-block
 	width: 14px
@@ -1605,12 +1613,7 @@ small
 	+border-radius(4px, 4px, 4px, 4px)
 	.enterContainer
 		padding: 19px
-		.title
-			color: $title_text
-			text-transform: uppercase
-			font-size: 15px
-			float: left
-			font-weight: bold
+		+add-title
 		.greenDots
 			margin-bottom: 15px
 		+add-input
@@ -1674,8 +1677,14 @@ small
 	margin: 70px auto
 	width: 490px
 	color: $title_text
-	form
-		margin: 20px 0
+	.topWrap
+		padding: 19px 19px 0px 19px
+		+add-title
+		.fill-form
+			float: left
+			margin-top: 10px
+	.enterContainer
+		margin: 0px 0px 20px 0px
 		text-align: right
 		width: 400px
 		font-size: 12px
@@ -1702,6 +1711,8 @@ small
 				width: 70px
 			#city-select
 				width: 246px
+	.soc-login
+		padding: 0px 19px 19px 19px
 	input
 		margin-left: 10px
 	a 
