@@ -19,6 +19,7 @@ app.views.Login = Backbone.View.extend
 
     render: ->
         $ @.$el.html jade.templates.login()
+        $('body').addClass 'loginRegisterBody'  
 
     initialize: ->
         that = @

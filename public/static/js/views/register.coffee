@@ -19,6 +19,7 @@ app.views.Register = Backbone.View.extend
                 $ @.$el.html jade.templates.reg3()
             when 4
                 $ @.$el.html jade.templates.reg4()
+        $('body').addClass 'loginRegisterBody'  
 
     regstepone: ->
         @reghash = $('form.loginRegisterBlock').serialize()
