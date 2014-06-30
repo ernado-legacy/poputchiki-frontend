@@ -17,10 +17,10 @@ body
           input(type='text', placeholder='Введите свое имя', name='firstname')
         .form-line
           span Фамилия:
-          input(type='text', placeholder='Ваша фамилия')        
+          input(type='text', placeholder='Ваша фамилия', name='lastname')        
         .form-line.clearfix#birdth-reg
           .mainSelectElement.yearEdit.withShadow#year-select
-            span#year-edit-select 1983
+            span#year-edit-select
             .dd
             .du
             ul.droped.withShadow
@@ -42,7 +42,7 @@ body
               li.dl 1995
               li.dl 1996
           .mainSelectElement.monthEdit.withShadow#month-select
-            span#month-edit-select Август
+            span#month-edit-select
             .dd
             .du
             ul.droped.withShadow
@@ -60,7 +60,7 @@ body
               li.dl Декабрь
             .statusDrop
           .mainSelectElement.dayEdit.withShadow#day-select
-            span#day-edit-select 19
+            span#day-edit-select
             .dd
             .du
             ul.droped.withShadow

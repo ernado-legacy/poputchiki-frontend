@@ -82,7 +82,7 @@ profile_script = function(){
     hideInputDrop('.searchCountry');
 
     var openNewTag = function(box) {
-        $(box).click(function() {
+        /* $(box).click(function() {
             if ($(box).hasClass('opened')) {
                 $(box).children('.du').css({
                     'display': 'none'
@@ -115,7 +115,7 @@ profile_script = function(){
                 $(box).removeClass('withShadow');
                 $(box).addClass('opened');
             }
-        });
+        }); */
     };
 
     openNewTag('.dayEdit');
@@ -126,10 +126,10 @@ profile_script = function(){
     openNewTag('.countryEdit');
 
     var selectSeasonYear = function(box) {
-        $(box).children('.droped').children('.dl').click(function() {
+        /* $(box).children('.droped').children('.dl').click(function() {
             text = $(this).text();
             $(this).parent().parent().children('span').text(text);
-        });
+        }); */
     };
 
     selectSeasonYear('.dayEdit');
