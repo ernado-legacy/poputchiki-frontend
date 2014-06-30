@@ -2,9 +2,6 @@ app.views.Profile = Backbone.View.extend
 
     el: '.mainContentProfile'
 
-    events:
-        'click .box': 'checkbox'
-
     get_my_user: (callback) ->
         user = new app.models.User 
             id: $.cookie 'user'
@@ -23,13 +20,14 @@ app.views.Profile = Backbone.View.extend
         @newtag '#day-select'
         @newtag '#city-select'
         @newtag '#country-select'
-
-    checkbox: ->
-
+        @showMenu 'webkitTransitionEnd'
+        @showMenu 'oTransitionEnd'
+        @showMenu 'MSAnimationEnd'
+        @showMenu 'transitionend'
 
     newtag: (box) ->
         hide = (box) ->
-             $(this).toggleClass('checked')
+            $(this).toggleClass('checked')
 
         $(box).click ->
             if $(box).hasClass("opened")
@@ -57,6 +55,16 @@ app.views.Profile = Backbone.View.extend
             $(this).parent().parent().children('span').text(text)
             # event.preventDefault()
             # event.stopPropagation()
+
+    showMenu: (end) ->
+        anim = document.getElementById("left-menu")
+        anim.addEventListener(end, ( event ) ->
+            if $('.leftMenu li').width() > 60
+                $('.leftMenu li span').addClass 'visibleSpan'
+            else
+                $('.leftMenu li span').removeClass 'visibleSpan'
+            
+        ,false)
 
 $ ->
     app.views.profile = new app.views.Profile
