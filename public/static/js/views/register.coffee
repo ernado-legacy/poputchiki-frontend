@@ -36,7 +36,12 @@ app.views.Register = Backbone.View.extend
     regsteptwo: ->
         arr = $('form.loginRegisterBlock').serializeArray()
         @updatehash = arr[0].value + ' ' + arr[1].value
-        @render 3
+        that = @
+        app.models.register @reghash, (data) ->
+            app.models.login @reghash, (data) ->
+                $.cookie 'token', data['token']
+                $.cookie 'user', data['id']
+                that.render 3
 
     regstepthree: ->
         that = @
