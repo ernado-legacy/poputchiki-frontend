@@ -7,23 +7,24 @@ app.views.Profile = Backbone.View.extend
             id: $.cookie 'user'
         user.fetch
             success: ->
-                console.log user
+                callback user
 
     render: ->
-        user = @get_my_user
-        $ @.$el.html jade.templates.profile
-            user: user
-        do profile_script
+        that = @
+        @get_my_user (user) ->
+            $ that.$el.html jade.templates.profile
+                user: user
+            do profile_script
 
-        @newtag '#year-select'
-        @newtag '#month-select'
-        @newtag '#day-select'
-        @newtag '#city-select'
-        @newtag '#country-select'
-        @showMenu 'webkitTransitionEnd'
-        @showMenu 'oTransitionEnd'
-        @showMenu 'MSAnimationEnd'
-        @showMenu 'transitionend'
+            that.newtag '#year-select'
+            that.newtag '#month-select'
+            that.newtag '#day-select'
+            that.newtag '#city-select'
+            that.newtag '#country-select'
+            that.showMenu 'webkitTransitionEnd'
+            that.showMenu 'oTransitionEnd'
+            that.showMenu 'MSAnimationEnd'
+            that.showMenu 'transitionend'
 
     newtag: (box) ->
         hide = (box) ->
