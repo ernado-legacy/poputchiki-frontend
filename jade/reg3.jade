@@ -1,34 +1,35 @@
-body.loginRegisterBody
-  header
-    .hLogo
-      span попутчики.ru
-    ul.navigation
-      li#header-profile
-        span войти
-  form.loginRegisterBlock.step.clearfix
-    .enterContainer.clearfix
-      .title РЕГИСТРАЦИЯ. ШАГ 3
-      .greenDots
-      .fill-form Для того чтобы больше пользователей могли оценить ваш профайл, и познакомиться с вами, добавьте свою фотографию:
-    .photo-load
-      .button
-        button Загрузить фотографию
-        input(type='file')
-      .img
-        img(src='../static/img/b_userpic.png')
-      .but-wrapper
-        .profile-edit-slideup.regButton.step3.regstepthree.regstepthree
-            span Зарегистрироваться
-      .soc-login 
-          a(href='#') или войти с помощью соц. сети
-    input#imgfile(type="file", name="file", style="visibility: hidden;")
-  footer.footerLogin
-    .fLogo
-      span попутчики
-    ul.aboutInfo
-      li
-        span о нас
-      li
-        span правила
-      li
-        span рейтинг
+body
+  .loginRegisterBody
+    header
+      .hLogo
+        span попутчики.ru
+      ul.navigation
+        li#header-profile
+          span войти
+    form.loginRegisterBlock.step.clearfix
+      .enterContainer.clearfix
+        .title РЕГИСТРАЦИЯ. ШАГ 3
+        .greenDots
+        .fill-form Для того чтобы больше пользователей могли оценить ваш профайл, и познакомиться с вами, добавьте свою фотографию:
+      .photo-load
+        .button
+          button Загрузить фотографию
+          input(type='file')
+        .img
+          img(src='../static/img/b_userpic.png')
+        .but-wrapper
+          .profile-edit-slideup.regButton.step3.regstepthree.regstepthree
+              span Зарегистрироваться
+        .soc-login 
+            a(href='#') или войти с помощью соц. сети
+      input#imgfile(type="file", name="file", style="visibility: hidden;")
+    footer.footerLogin
+      .fLogo
+        span попутчики
+      ul.aboutInfo
+        li
+          span о нас
+        li
+          span правила
+        li
+          span рейтинг

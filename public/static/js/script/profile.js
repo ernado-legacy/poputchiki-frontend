@@ -44,7 +44,7 @@ profile_script = function(){
                 'display': 'block'
             });
             $(this).next().next().slideDown("slow");
-            $(this).parent().removeClass('withShadow');
+            //$(this).parent().removeClass('withShadow');
             $(this).parent().addClass('opened');
         });
     };
@@ -73,7 +73,7 @@ profile_script = function(){
                 'display': 'block'
             });
             $(this).next().slideUp("slow");
-            $(this).parent().addClass('withShadow');
+            //$(this).parent().addClass('withShadow');
             $(this).parent().removeClass('opened');
         });
     };
@@ -154,7 +154,7 @@ profile_script = function(){
                 'display': 'block'
             });
             $(box).children('.droped').slideUp("slow");
-            $(box).addClass('withShadow');
+            //$(box).addClass('withShadow');
             $(box).removeClass('opened');
 
             country.focus(function() {
@@ -194,8 +194,21 @@ profile_script = function(){
         });
     };
 
+    var addSearchTagTS = function(newtag, oldtags) {
+        $(newtag).keydown(function(event) {
+            if (event.which == 13) {
+                newCountry = $(this).val();
+                if (newCountry != "") {
+                    $(this).val("");
+                    $(oldtags).prepend("<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>")
+                }
+            }
+        });
+    };
+
     addSearchTag('#search-select', '#tb-s');
     addSearchTag('#search-select-f', '#tb-f');
+    addSearchTagTS('#popup-select', '#tb-popup');
 
     $('#search-slideup').click(function() {
         $('#my-folowers').slideUp("slow");
