@@ -244,6 +244,9 @@ small
 .vsbl
 	visibility: visible
 
+.view
+	cursor: pointer
+
 .hLogo
 	margin-left: 20px
 	margin-top: 15px
@@ -686,7 +689,7 @@ small
 		float: left
 		+border-radius(0px, 4px, 4px, 4px)
 		border: 1px solid $photo_border
-	.photoBox
+	.photoBox, .videoBox
 		img
 			width: 360px
 			margin-bottom: 5px
@@ -2008,7 +2011,7 @@ small
 		background-color: $profile_info
 		border: 1px solid $profile_status_border
 		padding: 19px
-		+border-radius(0px, 2px, 2px, 2px)
+		+border-radius(0px, 4px, 4px, 4px)
 		.pop-t
 			display: block
 			font-size: 14px
@@ -2048,3 +2051,43 @@ small
 			margin-left: -moz-calc((100% - 112px)/2)
 			margin-left: -webkit-calc((100% - 112px)/2)
 			margin-left: calc((100% - 112px)/2)
+.photoPopup, .videoPopup
+	top: 10%
+	left: 25%
+	width: 50%
+	background-color: white
+	padding: 50px 20px 0px 20px
+	+border-radius(4px, 4px, 4px, 4px)
+	a 
+		color: $header_blue
+		+italic-font
+		position: absolute
+		right: 20px
+		top: 20px
+		text-decoration: underline
+	.imgBox
+		img, iframe
+			width: 100%
+		iframe
+			height: 500px
+	.infoBox
+		position: relative
+		img
+			height: 80px
+			width: 80px
+			+border-radius(50%,50%,50%,50%)
+			float: left
+			margin: 10px
+		.leftPart
+			float: left
+			margin-left: 10px
+			width: 210px
+			margin-top: 20px
+			padding: 10px 0 0 0
+			background: transparent
+			color: $profile_status_text
+			.name-in-profile
+				font-weight: bold
+				margin-bottom: 5px
+			.city-in-profile
+				font-size: 15px

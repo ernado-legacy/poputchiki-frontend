@@ -31,24 +31,44 @@ app.views.Profile = Backbone.View.extend
             that.houseIcon '#my-profile .house-icon'
             that.moneyIcon '.nearBox .money-icon'
             that.houseIcon '.nearBox .house-icon'
-            that.menugo '#menu-go'
+            that.showpopup '#menu-go', '.letsgoPopup'
+            that.showpopup '.view', '.photoPopup'
+            that.showpopup '.videoBox img', '.videoPopup'
             that.closepopup '#send-lg-popup'
-            $('.season').click ->
-                $(this).toggleClass 'seasonChecked'
+            that.closepopup '.closepopup'
+            that.season '.season'
+
             $('.box').click ->
                 $(this).toggleClass 'checked'
 
-    menugo: (letsgo) ->
-        $(letsgo).click ->
+            $('.videoHeader').click ->
+                $('.activeHeader').removeClass 'activeHeader'
+                $(this).addClass 'activeHeader'
+                $('.photoBox').hide()
+                $('.videoBox').show()
+
+            $('.photoHeader').click ->
+                $('.activeHeader').removeClass 'activeHeader'
+                $(this).addClass 'activeHeader'
+                $('.videoBox').hide()
+                $('.photoBox').show()
+
+
+    season: (season) ->
+        $(season).click ->
+            $(this).toggleClass 'seasonChecked'
+
+    showpopup: (cnt, popup) ->
+        $(cnt).click ->
             $('body').addClass 'bodyPopup'
-            $('.popupWrapper').css 'display','block'
-            $('.letsgoPopup').css 'display','block'
+            $('.popupWrapper').fadeIn('slow')
+            $(popup).fadeIn('slow')
 
     closepopup: (btn) ->
         $(btn).click ->
             $('body').removeClass 'bodyPopup'
-            $('.popupWrapper').css 'display','none'
-            $('.popup').css 'display','none'
+            $('.popup').fadeOut('slow')
+            $('.popupWrapper').fadeOut('slow')
 
     moneyIcon: (cnt) ->
         $(cnt).click ->
