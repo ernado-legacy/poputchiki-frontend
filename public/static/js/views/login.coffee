@@ -14,12 +14,13 @@ app.views.Login = Backbone.View.extend
 
     logout: ->
         $.removeCookie 'token'
-        $.removeCookie 'userId'
+        $.removeCookie 'user'
         do @render
 
     render: ->
         $ @.$el.html jade.templates.login()
-        $('body').addClass 'loginRegisterBody'  
+        $('body').addClass 'loginRegisterBody'
+        history.pushState null, 'poputchiki', '/login/'
 
     initialize: ->
         that = @
@@ -44,5 +45,10 @@ app.views.Login = Backbone.View.extend
             , (data) ->
                 alert 'Неправильный пароль'
 
+    seturl: ->
+
+
 $ ->
     app.views.login = new app.views.Login
+    if window.location.pathname == '/login/'
+        do app.views.login.render

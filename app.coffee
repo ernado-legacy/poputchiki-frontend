@@ -7,8 +7,12 @@ server.configure ->
   server.use express.static __dirname + '/public'
   server.set 'views', __dirname + '/jade'
 
-server.get '/', (req, res) ->
-  # return res.sendfile('/templates/index.html', { root: __dirname + '/..' });
+index = (req, res) ->
   res.render 'index.jade'
+
+server.get '/', index
+server.get '/login/', index
+server.get '/register/', index
+server.get '/profile/', index
 
 server.listen(5000);

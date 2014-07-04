@@ -11,9 +11,10 @@ app.views.Profile = Backbone.View.extend
 
     render: ->
         that = @
+        history.pushState null, 'poputchiki', '/profile/'
         @get_my_user (user) ->
             $ that.$el.html jade.templates.profile
-                user: user
+                user: user.attributes
             do profile_script
 
             that.newtag '#year-select'
