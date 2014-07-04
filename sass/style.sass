@@ -216,7 +216,7 @@ small
 		opacity: 0.5
 .bodyPopup
 	position: absolute
-	overflow-y: hidden
+	//overflow-y: hidden
 	top: 0
 
 .right 
@@ -519,6 +519,7 @@ small
 		font-size: 14px
 		img
 			margin: 8px 0 0 8px
+			cursor: pointer
 		#rating
 			color: $header_blue
 			position: absolute
@@ -561,74 +562,72 @@ small
 			position: relative
 			z-index: 100
 			width: 1000%
-			.crsItem
-				float: left
-				position: relative
-				margin-top: 28px
-				padding-right: 16px
-				//background-image: url('../img/shadow.png')
-				//background-repeat: no-repeat
-				//background-position: 37% 98%
-				padding-bottom: 7px
-				width: 144px
-				height: 144px
-				z-index: 100
-				.videoBox
-					position: absolute
-					top: 0
-					left: 0
-					z-index: 99
-					width: 144px
-					height: 144px
-					.frontLayer
-						position: absolute
-						top: 0
-						left: 0
-						z-index: 98
-						width: 144px
-						height: 144px
-						background-image: url('../img/front-layer.png')
-						background-repeat: no-repeat
-						background-size: cover
-					video
-						position: absolute
-						top: 0
-						left: 0
-						z-index: 97
-						width: 144px
-						height: 144px
-				img
-					opacity: 1
-					width: 144px
-					height: 144px
-					position: absolute
-					top: 0
-					left: 0
-					z-index: 100
-					+border-radius(50%, 50%, 50%, 50%)
-					-webkit-transition: opacity 0.5s ease-in-out
-					-moz-transition: opacity 0.5s ease-in-out
-					-ms-transition: opacity 0.5s ease-in-out
-					-o-transition: opacity 0.5s ease-in-out
-					transition: opacity 0.5s ease-in-out
-				#online
-					background-image: url('../img/circle.png')
-					background-repeat: no-repeat
-					position: absolute
-					right: 12px
-					top: 10px
-					width: 18px
-					height: 18px
-					z-index: 100
-				.videoPlus
-					bottom: 24px
-					right: 0
 	.carouselBox::-webkit-scrollbar
 		height: 1px
 		width: 1px
 		background: rgba(0, 0, 0, 0.0)
 	.carouselBox::-webkit-scrollbar-thumb
 		background: rgba(0, 0, 0, 0.0)
+
+.crsItem
+	float: left
+	position: relative
+	margin-top: 28px
+	padding-right: 16px
+	padding-bottom: 7px
+	width: 144px
+	height: 144px
+	z-index: 100
+	.videoBox
+		position: absolute
+		top: 0
+		left: 0
+		z-index: 99
+		width: 144px
+		height: 144px
+		.frontLayer
+			position: absolute
+			top: 0
+			left: 0
+			z-index: 98
+			width: 144px
+			height: 144px
+			background-image: url('../img/front-layer.png')
+			background-repeat: no-repeat
+			background-size: cover
+		video
+			position: absolute
+			top: 0
+			left: 0
+			z-index: 97
+			width: 144px
+			height: 144px
+	img
+		opacity: 1
+		width: 144px
+		height: 144px
+		position: absolute
+		top: 0
+		left: 0
+		z-index: 100
+		+border-radius(50%, 50%, 50%, 50%)
+		-webkit-transition: opacity 0.5s ease-in-out
+		-moz-transition: opacity 0.5s ease-in-out
+		-ms-transition: opacity 0.5s ease-in-out
+		-o-transition: opacity 0.5s ease-in-out
+		transition: opacity 0.5s ease-in-out
+	#online
+		background-image: url('../img/circle.png')
+		background-repeat: no-repeat
+		position: absolute
+		right: 12px
+		top: 10px
+		width: 18px
+		height: 18px
+		z-index: 100
+	.videoPlus
+		bottom: 24px
+		right: 0
 
 .photoVideoBlock
 	margin: 7px 0px 100px 0px
@@ -2014,6 +2013,13 @@ small
 	position: fixed
 	top: 25%
 	display: none
+	a 
+		color: $header_blue
+		+italic-font
+		position: absolute
+		right: 20px
+		top: 20px
+		text-decoration: underline
 .letsgoPopup
 	left: -moz-calc((100% - 365px)/2)
 	left: -webkit-calc((100% - 365px)/2)
@@ -2098,13 +2104,6 @@ small
 	background-color: white
 	padding: 50px 20px 0px 20px
 	+border-radius(4px, 4px, 4px, 4px)
-	a 
-		color: $header_blue
-		+italic-font
-		position: absolute
-		right: 20px
-		top: 20px
-		text-decoration: underline
 	.imgBox
 		img, iframe
 			width: 100%
@@ -2131,8 +2130,7 @@ small
 				margin-bottom: 5px
 			.city-in-profile
 				font-size: 15px
-.chavaPopup
-	display: block
+.chavaPopup, .promoPopup
 	top: 10%
 	width: 558px
 	left: -moz-calc((100% - 560px)/2)
@@ -2149,6 +2147,8 @@ small
 			color: $profile_status_text
 			font-size: 24px
 			font-weight: bold
+			width: 100%
+			float: left
 		h2
 			font-size: 20px
 		.greenDots
@@ -2193,6 +2193,7 @@ small
 			float: left
 			color: $profile_status_text
 			margin-bottom: 15px
+			font-size: 15px
 		.playerBox
 			float: left
 			width: 100%
@@ -2216,7 +2217,7 @@ small
 					height: 5px
 					width: 0%
 					z-index: 200
-		.upload-new-audio
+		.upload-new-audio, .upload-new-video
 			float: left
 			cursor: pointer
 			margin-top: 10px
@@ -2230,3 +2231,59 @@ small
 		width: 100%
 		margin-left: 0px
 		+border-radius(0px, 0px, 4px, 4px)
+.promoPopup
+	top: 5%
+	width: 618px
+	left: -moz-calc((100% - 620px)/2)
+	left: -webkit-calc((100% - 620px)/2)
+	left: calc((100% - 620px)/2)
+	form
+		.crsItem
+			width: 94px
+			height: 94px
+			.videoBox
+				width: 94px
+				height: 94px
+				.frontLayer
+					width: 94px
+					height: 94px
+				video
+					width: 94px
+					height: 94px
+			.video
+				right: 6px
+			img
+				width: 94px
+				height: 94px
+		.changeAvatarBox
+			margin-bottom: 10px
+		.chooseBox
+			width: 100%
+			float: left
+			margin-bottom: 10px
+			.mainSelectElement
+				cursor: pointer
+				margin-top: 0px
+				padding-right: 7px
+				float: left
+				span
+					color: $profile_status_text
+		.bilContainer
+			.upload-money
+				float: right
+				width: 200px
+			.price
+				float: right
+				color: $header_blue
+				+italic-font
+				font-size: 36px
+				font-weight: normal
+				small
+					color: $header_blue
+					+italic-font
+		.videoContainer
+			margin-bottom: 20px
+			.crsItem
+				margin-top: 0px
+			.upload-new-video
+				margin-top: 30px
