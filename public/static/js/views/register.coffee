@@ -21,7 +21,8 @@ app.views.Register = Backbone.View.extend
                 $ @.$el.html jade.templates.reg3()
             when 4
                 $ @.$el.html jade.templates.reg4()
-        $('body').addClass 'loginRegisterBody'  
+        $('body').addClass 'loginRegisterBody'
+        history.pushState null, 'poputchiki', '/register/'
 
     regstepone: ->
         @reghash = $('form.loginRegisterBlock').serialize()
@@ -38,10 +39,9 @@ app.views.Register = Backbone.View.extend
         @updatehash = arr[0].value + ' ' + arr[1].value
         that = @
         app.models.register @reghash, (data) ->
-            app.models.login @reghash, (data) ->
-                $.cookie 'token', data['token']
-                $.cookie 'user', data['id']
-                that.render 3
+            $.cookie 'token', data['token']
+            $.cookie 'user', data['id']
+            that.render 3
 
     regstepthree: ->
         that = @
@@ -74,9 +74,13 @@ app.views.Register = Backbone.View.extend
             'data': data,
             'cache': false,
             'processData': false,
-            'contentType': 'false',
+            'contentType': false,
             success: (data) ->
-                console.log data
+                user = new app.models.User
+                    id: $.cookie 'user'
+                user.set 'avatar', data.id
+                user.save()
+                $('.img img').attr 'src', data.url
 
     newtag: (box) ->
         hide = (box) ->
@@ -111,3 +115,5 @@ app.views.Register = Backbone.View.extend
 
 $ ->
     app.views.register = new app.views.Register
+    if window.location.pathname == '/register/'
+        app.views.register.render 1
