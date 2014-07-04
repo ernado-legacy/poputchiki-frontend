@@ -56,6 +56,8 @@ $link: #38b1e3
 $title_text: #403f3f
 
 $popup-lg-header: #616161
+$timebar: #beebad
+$timebar_progress: #46c713
 
 .clearfix:before,
 .clearfix:after 
@@ -487,6 +489,19 @@ small
 		li:hover
 			width: 153px
 
+.audio, .video
+	position: absolute
+	right: 16px
+	bottom: 6px
+	width: 21px
+	height: 21px
+	background-repeat: no-repeat
+	cursor: pointer
+	z-index: 102
+.audio
+	background-image: url('../img/audio.png')
+.video
+	background-image: url('../img/video.png')
 
 .topContainer
 	position: relative
@@ -605,19 +620,6 @@ small
 					width: 18px
 					height: 18px
 					z-index: 100
-				.audio, .video
-					position: absolute
-					right: 16px
-					bottom: 6px
-					width: 21px
-					height: 21px
-					background-repeat: no-repeat
-					cursor: pointer
-					z-index: 102
-				.audio
-					background-image: url('../img/audio.png')
-				.video
-					background-image: url('../img/video.png')
 				.videoPlus
 					bottom: 24px
 					right: 0
@@ -693,6 +695,7 @@ small
 		img
 			width: 360px
 			margin-bottom: 5px
+			cursor: pointer
 		img:last-child
 			margin-bottom: 0px
 		.imgGrid
@@ -714,8 +717,45 @@ small
 	height: 277px
 	position: relative
 	font-size: 18px
-	img
+	.imgBox
 		margin: 12px 0 0 11px
+		+border-radius(50%, 50%, 50%, 50%)
+		position: relative
+		z-index: 100
+		width: 252px
+		height: 252px
+		img, .cover
+			width: 100%
+			height: 100%
+			position: relative
+			z-index: 100
+			+border-radius(50%, 50%, 50%, 50%)
+		.cover
+			position: absolute
+			background-color: black
+			opacity: 0.5
+			z-index: 200
+			top: 0
+			display: none
+		span
+			color: white
+			cursor: pointer
+			background-image: url('../img/profile_photos.png')
+			background-repeat: no-repeat
+			padding-left: 40px
+			position: absolute
+			line-height: 36px
+			font-size: 16px
+			bottom: 40px
+			opacity: 1
+			z-index: 300
+			left: 20%
+			display: none
+	.imgBox:hover
+		.cover
+			display: block
+		span
+			display: inline
 	#profile-rating
 		position: absolute
 		right: -5px
@@ -2091,3 +2131,102 @@ small
 				margin-bottom: 5px
 			.city-in-profile
 				font-size: 15px
+.chavaPopup
+	display: block
+	top: 10%
+	width: 558px
+	left: -moz-calc((100% - 560px)/2)
+	left: -webkit-calc((100% - 560px)/2)
+	left: calc((100% - 560px)/2)
+	background-color: white
+	+border-radius(4px, 4px, 4px, 4px)
+	form
+		padding: 35px 25px
+		border: 1px solid $profile_status_border
+		+border-radius(4px, 4px, 0px, 0px)
+		border-bottom: none
+		h1, h2
+			color: $profile_status_text
+			font-size: 24px
+			font-weight: bold
+		h2
+			font-size: 20px
+		.greenDots
+			margin-bottom: 10px
+		.changeAvatarBox
+			margin-bottom: 50px
+			margin-top: 10px
+			img
+				float: left
+				width: 155px
+				height: 155px
+				+border-radius(50%,50%,50%,50%)
+			.popupArrow
+				float: left
+				width: 31px
+				height: 58px
+				background-image: url("../img/popup_arrow.png")
+				margin-top: 46px
+				margin-left: 20px
+				margin-right: 20px
+			.controlBox
+				float: left
+				width: 200px
+				.mainSelectElement
+					cursor: pointer
+					margin-top: 40px
+					padding-right: 7px
+					span
+						color: $profile_status_text
+				input
+					display: none
+				#delete-avatar
+					background-image: url("../img/delete.png")
+					background-repeat: no-repeat
+					padding-left: 15px
+					margin-top: 20px
+					color: $profile_status_text
+					font-size: 16px
+					cursor: pointer
+					background-position: 0% 40%
+		p
+			float: left
+			color: $profile_status_text
+			margin-bottom: 15px
+		.playerBox
+			float: left
+			width: 100%
+			.audio
+				position: static
+				float: left
+			.timeBar
+				float: left
+				width: 250px
+				height: 5px
+				margin-left: 10px
+				margin-top: 7px
+				background-color: $timebar
+				position: relative
+				z-index: 100
+				.progress
+					position: absolute
+					background-color: $timebar_progress
+					top: 0
+					left: 0
+					height: 5px
+					width: 0%
+					z-index: 200
+		.upload-new-audio
+			float: left
+			cursor: pointer
+			margin-top: 10px
+			padding-right: 7px
+			margin-bottom: 20px
+			span
+				color: $profile_status_text
+		.upload-new-audio-input
+			display: none
+	.save-new-ava-audio
+		width: 100%
+		margin-left: 0px
+		+border-radius(0px, 0px, 4px, 4px)
