@@ -158,7 +158,7 @@ $(function(){
 		$('.photo-load .button input').click();
 	});
 
-	var moneyIcon = function(cnt) {
+	/*var moneyIcon = function(cnt) {
         $(cnt).click(function() {
             $(this).toggleClass('mg-icon');
         });
@@ -176,7 +176,7 @@ $(function(){
 
     $('.season').click(function() {
         $(this).toggleClass('seasonChecked');
-    });
+    });*/
 
 	$('.addPhoto').click(function() {
 		$('.addPhoto input').click();

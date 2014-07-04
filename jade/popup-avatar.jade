@@ -1,0 +1,27 @@
+.popup.chavaPopup.clearfix
+  form
+    h1 Изменить аватар
+    .greenDots
+    .changeAvatarBox.clearfix
+      img(src='../static/img/b_userpic.png')
+      .popupArrow
+      .controlBox
+        .mainSelectElement.upload-new-ava
+          span Загрузить фотографию
+        input.upload-new-ava-input(type='file')
+        #delete-avatar Удалить
+    h2 Аудио-приветствие
+    .greenDots
+    p Загрузите аудио-приветствие, чтобы ваш голос могли услышать ваши друзья и получите еще больше посещений для своего профайла!
+    .playerBox.clearfix
+      .audio#audio-change-avatar
+        audio
+          source(src='../static/audio/audio.mp3', type="audio/mp3")
+          source(src='../static/audio/audio.ogg', type="audio/ogg")
+      .timeBar
+        .progress
+    .mainSelectElement.upload-new-audio
+      span Загрузить файл
+    input.upload-new-audio-input(type='file')
+  .regButton.profile-edit-slideup.save-new-ava-audio
+    span сохранить

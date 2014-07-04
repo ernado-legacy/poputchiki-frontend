@@ -1,36 +1,43 @@
-header
-  .hLogo
-    span попутчики.ru
-  ul.navigation
-    li#header-profile
-      span статусы попутчиков
-    li#header-journeys
-      span знакомства
-    li#header-exit
-      span выход
-include menu
-.mainTopContainer.clearfix
-  include top_bar
-.mainContainer.clearfix
-  .mainContent.clearfix
-    .mainContentProfile
-      //-include profile
-      //-include guests
-      //-include dialog
-      //-include statuses
-      //-include guest_profile
-      //-include search
+.mainWrapper.cleafix
+  header
+    .hLogo
+      span попутчики.ru
+    ul.navigation
+      li#header-profile
+        span статусы попутчиков
+      li#header-journeys
+        span знакомства
+      li#header-exit
+        span выход
+  include menu
+  .mainTopContainer.clearfix
+    include top_bar
+  .mainContainer.clearfix
+    .mainContent.clearfix
+      .mainContentProfile
+        //-include profile
+        //-include guests
+        //-include dialog
+        //-include statuses
+        //-include guest_profile
+        //-include search
     include photo_video
     //-include guest_photo_video
     //-include search_photo_video
     //-include chat_line
-footer
-  .fLogo
-    span попутчики
-  ul.aboutInfo
-    li
-      span о нас
-    li
-      span правила
-    li
-      span рейтинг
+  footer
+    .fLogo
+      span попутчики
+    ul.aboutInfo
+      li
+        span о нас
+      li
+        span правила
+      li
+        span рейтинг
+.popupWrapper
+  .popupBack
+  include popup-letsgo
+  include popup-photo
+  include popup-video
+  include popup-avatar

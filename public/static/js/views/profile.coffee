@@ -26,21 +26,81 @@ app.views.Profile = Backbone.View.extend
             that.showMenu 'oTransitionEnd'
             that.showMenu 'MSAnimationEnd'
             that.showMenu 'transitionend'
+            that.activeAgeBox '.ageFrom'
+            that.activeAgeBox '.ageTo'
+            that.moneyIcon '#my-profile .money-icon'
+            that.houseIcon '#my-profile .house-icon'
+            that.moneyIcon '.nearBox .money-icon'
+            that.houseIcon '.nearBox .house-icon'
+            that.showpopup '#menu-go', '.letsgoPopup'
+            that.showpopup '.view', '.photoPopup'
+            that.showpopup '.videoBox img', '.videoPopup'
+            that.showpopup '#change-avatar', '.chavaPopup'
+            that.closepopup '#send-lg-popup'
+            that.closepopup '.closepopup'
+            that.closepopup '.save-new-ava-audio'
+            that.season '.season'
+
+            $('.box').click ->
+                $(this).toggleClass 'checked'
+
+            $('.videoHeader').click ->
+                $('.activeHeader').removeClass 'activeHeader'
+                $(this).addClass 'activeHeader'
+                $('.photoBox').hide()
+                $('.videoBox').show()
+
+            $('.photoHeader').click ->
+                $('.activeHeader').removeClass 'activeHeader'
+                $(this).addClass 'activeHeader'
+                $('.videoBox').hide()
+                $('.photoBox').show()
+
+            $("#audio-change-avatar audio").bind 'timeupdate', that.audioprogress
+
+    audioprogress: ->
+        track_length = $('#audio-change-avatar audio').get(0).duration
+        secs = $('#audio-change-avatar audio').get(0).currentTime
+        progress = (secs/track_length) * 100
+        $('.progress').css 'width', progress + '%'
+
+    season: (season) ->
+        $(season).click ->
+            $(this).toggleClass 'seasonChecked'
+
+    showpopup: (cnt, popup) ->
+        $(cnt).click ->
+            $('body').addClass 'bodyPopup'
+            $('.popupWrapper').fadeIn('slow')
+            $(popup).fadeIn('slow')
+
+    closepopup: (btn) ->
+        $(btn).click ->
+            $('body').removeClass 'bodyPopup'
+            $('.popup').fadeOut('slow')
+            $('.popupWrapper').fadeOut('slow')
+
+    moneyIcon: (cnt) ->
+        $(cnt).click ->
+            $(this).toggleClass 'mg-icon'
+
+    houseIcon: (cnt) ->
+        $(cnt).click ->
+            $(this).toggleClass 'hg-icon'
 
     newtag: (box) ->
         hide = (box) ->
-            $(this).toggleClass('checked')
 
         $(box).click ->
             if $(box).hasClass("opened")
                 $(box).children(".du").css display: "none"
                 $(box).children(".dd").css display: "block"
                 $(box).children(".droped").slideUp "slow"
-                $(box).addClass "withShadow"
+                #$(box).addClass "withShadow"
                 $(box).removeClass "opened"
             else
                 $(".opened").each ->
-                    $(this).addClass "withShadow"
+                    #$(this).addClass "withShadow"
                     $(this).removeClass "opened"
                     $(this).children(".droped").slideUp "slow"
                     $(this).children(".du").css display: "none"
@@ -49,7 +109,7 @@ app.views.Profile = Backbone.View.extend
                 $(box).children(".dd").css display: "none"
                 $(box).children(".du").css display: "block"
                 $(box).children(".droped").slideDown "slow"
-                $(box).removeClass "withShadow"
+                #$(box).removeClass "withShadow"
                 $(box).addClass "opened"
 
         $(box).children('.droped').children('.dl').click ->
@@ -68,5 +128,12 @@ app.views.Profile = Backbone.View.extend
             
         ,false)
 
+    activeAgeBox: (cell) ->
+        $(cell).children('input').focus( ->
+            $(cell).addClass 'activeAgeBox'
+        )
+        $(cell).children('input').focusout( ->
+            $(cell).removeClass 'activeAgeBox'
+        )
 $ ->
     app.views.profile = new app.views.Profile

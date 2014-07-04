@@ -1,0 +1,24 @@
+.popup.letsgoPopup
+  .popupHeaderBox.clearfix
+    .popupHeader.activeHeader
+      .title 
+        span туры
+    .popupHeader
+      .title
+        span билеты
+  .popupBody.clearfix
+    span.pop-t Cтраны:
+    .tagsBox.clearfix#tb-popup
+      .mainSelectElement.searchCountry.withShadow
+        input#popup-select(placeholder='...', type='text',  maxlength="20")
+        .dd
+        .du
+        ul.droped.withShadow
+          li.dl Россия
+          li.dl Африка
+          li.dl Европа
+    span.pop-t Телефон:
+    input(type='text', placeholder='Ваш номер телефона', id='popup-phone')
+    p С вами свяжется туроператор для обсуждения всех дополнительных деталей.
+    .regButton.profile-edit-slideup#send-lg-popup
+      span отправить
