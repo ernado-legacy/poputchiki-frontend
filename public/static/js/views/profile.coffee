@@ -57,6 +57,18 @@ app.views.Profile = Backbone.View.extend
                 $('.videoBox').hide()
                 $('.photoBox').show()
 
+            $('.promo-photo').click ->
+                $('.popup').fadeOut('slow')
+                $('.chopPopup').fadeIn('slow')
+
+            $('.choose-promo-photo').click ->
+                $('.popup').fadeOut('slow')
+                $('.promoPopup').fadeIn('slow')
+
+            $('.imgRow .imgBox').click ->
+                $('.imgRow .imgBox').removeClass 'chosenImg'
+                $(this).addClass 'chosenImg'
+
             $(".audio-change-avatar audio").bind 'timeupdate', that.audioprogress
 
     audioprogress: ->
