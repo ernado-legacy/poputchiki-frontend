@@ -22,16 +22,16 @@ app.views.Login = Backbone.View.extend
         $('body').addClass 'loginRegisterBody'
         history.pushState null, 'poputchiki', '/login/'
 
-    initialize: ->
-        that = @
-        @check_status (result) ->
-            if not result
-                that.render()
-            else
-                app.views.entered = new app.views.Entered
-                do app.views.entered.render
-                app.views.profile = new app.views.Profile
-                do app.views.profile.render
+    # initialize: ->
+    #    that = @
+    #    @check_status (result) ->
+    #        if not result
+    #            that.render()
+    #        else
+    #            app.views.entered = new app.views.Entered
+    #            do app.views.entered.render
+    #            app.views.profile = new app.views.Profile
+    #            do app.views.profile.render
 
     login: ->
         app.models.login $(".loginRegisterBlock").serialize()
