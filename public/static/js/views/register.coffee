@@ -35,21 +35,34 @@ app.views.Register = Backbone.View.extend
             $('.box').toggleClass('checked')
 
     regsteptwo: ->
-        arr = $('form.loginRegisterBlock').serializeArray()
-        @updatehash = arr[0].value + ' ' + arr[1].value
+        # @updatehash = 
+        #    name: arr[0].value + ' ' + arr[1].value
+        #    birthday: $('#day-edit-select').text() + ' ' + $('#month-edit-select').text() + ' ' + $('#year-edit-select').text()
+        #    city: $('#city-edit-select').text()
+        #    phone: $('#tel').text()
         that = @
         app.models.register @reghash, (data) ->
             $.cookie 'token', data['token']
             $.cookie 'user', data['id']
+            arr = $('form.loginRegisterBlock').serializeArray()
+            user = new app.models.User
+                id: $.cookie 'user'
+                name: arr[0].value + ' ' + arr[1].value
+                birthday: $('#day-edit-select').text() + ' ' + $('#month-edit-select').text() + ' ' + $('#year-edit-select').text()
+                city: $('#city-edit-select').text()
+                phone: $('#tel').text()
+            user.set 'avatar', data.id
+            user.save()
             that.render 3
 
     regstepthree: ->
-        that = @
-        app.models.register @reghash
-            , (data) ->
-                that.render 4
+        # that = @
+        # app.models.register @reghash
+        #    , (data) ->
+        #        that.render 4
             # , (data) ->
             #    alert 'Неправильный пароль'
+        @render 4
 
     bregister: ->
         @render 1
