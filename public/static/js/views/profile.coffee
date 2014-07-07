@@ -16,7 +16,6 @@ app.views.Profile = Backbone.View.extend
             $ that.$el.html jade.templates.profile
                 user: user.attributes
             do profile_script
-
             that.newtag '#year-select'
             that.newtag '#month-select'
             that.newtag '#day-select'
@@ -148,5 +147,34 @@ app.views.Profile = Backbone.View.extend
         $(cell).children('input').focusout( ->
             $(cell).removeClass 'activeAgeBox'
         )
+    events: 
+        "click #profile-edit-slideup span": 'saveProfile'
+        "click .money-icon": 'setSponsor'
+        "click .house-icon": 'setHost'
+
+    saveProfile: ->
+        @get_my_user (user) ->
+            formData = {}
+
+            inputs = $('.infoEdit input')
+
+            appendFormData = (el) ->
+                console.log el.name
+                formData = {}
+                formData[el.name] = $(el).val()
+                user.set formData
+
+            appendFormData input for input in inputs when $(input).val()
+            console.log formData
+            
+            user.save()
+            return
+
+    setSponsor: ->
+        @get_my_user (user) ->
+            user.save 'is_sponsor', $('.money-icon').hasClass 'mg-icon' 
+    setHost: ->
+        @get_my_user (user) ->
+            user.save 'is_sponsor', $('.house-icon').hasClass 'hg-icon' 
 $ ->
     app.views.profile = new app.views.Profile

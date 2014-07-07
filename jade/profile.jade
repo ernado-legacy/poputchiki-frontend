@@ -98,6 +98,12 @@
             p ------
             p бритва Оккама
       .infoBox.infoEdit
+
+        #name-edit.clearfix
+          span.lp Имя:
+          span.rp
+            input(type='text', value='#{user.name}', name = 'name')
+
         
         #birtday-edit.clearfix
           span.lp День рождения:
@@ -190,6 +196,7 @@
         //-         li.dl Весы
         //-         li.dl Скорпион
         //-         li.dl Стрелец
+
         #country-edit.clearfix
           span.lp Страна:
           span.rp
@@ -222,27 +229,15 @@
         #num-value-edit.clearfix
           span.lp Рост:
           span.rp
-            input(type='text', value='#{user.growth}')
+            input(type='text', value='#{user.growth}', name='growth')
         #num-value-edit.clearfix
           span.lp Вес:
           span.rp
-            input(type='text', value='#{user.weight}')
-        #interests-edit.clearfix
-          span.lp Интересы:
-          span.rp
-            textarea Велотуризм, яхтинг, скалолазание, серфинг, виндсерфинг, дайвинг, воздухоплавание, конный спорт, теннис, путешествия, музыка, йога, общение
-        #music-edit.clearfix
-          span.lp Любимая музыка:
-          span.rp
-            textarea Jazz, Rock '70 '80, Trance
-        #films-edit.clearfix
-          span.lp Любимые фильмы:
-          span.rp
-            textarea Боги сошли с ума
-        #quote-edit.clearfix
-          span.lp Любимые цитаты:
-          span.rp
-            textarea если существует несколько логически непротиворечивых объяснений какого-либо явления, объясняющих его одинаково хорошо, то следует, при прочих равных условиях, считать верным самое простое из них ------ бритва Оккама
+            input(type='text', value='#{user.weight}', name='weight')
+        //- #quote-edit.clearfix
+        //-   span.lp Любимые цитаты:
+        //-   span.rp
+        //-     textarea если существует несколько логически непротиворечивых объяснений какого-либо явления, объясняющих его одинаково хорошо, то следует, при прочих равных условиях, считать верным самое простое из них ------ бритва Оккама
         div
           span.lp
           span.rp
