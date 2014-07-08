@@ -159,15 +159,16 @@ app.views.Profile = Backbone.View.extend
             inputs = $('.infoEdit input')
 
             appendFormData = (el) ->
-                console.log el.name
-                formData = {}
-                formData[el.name] = $(el).val()
-                user.set formData
+                int_value = parseInt $(el).val()
+                value = if isNaN int_value then $(el).val() else int_value
+                # value =  if isNaN parseInt($(el).val()) then  $(el).val()) else parseInt($(el).val())
+                formData[el.name] = value
 
             appendFormData input for input in inputs when $(input).val()
+
             console.log formData
             
-            user.save()
+            user.save(formData)
             return
 
     setSponsor: ->
