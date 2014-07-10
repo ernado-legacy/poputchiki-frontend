@@ -161,9 +161,9 @@ app.views.Profile = Backbone.View.extend
 
     events: 
         "click #profile-edit-slideup span": 'saveProfile'
-        "click .money-icon": 'setSponsor'
-        "click .house-icon": 'setHost'
-        "click .season": 'setSeasons'
+        "click #my-profile .money-icon": 'setSponsor'
+        "click #my-profile .house-icon": 'setHost'
+        "click .myProfileContainer .season": 'setSeasons'
 
     setSeasons: ()->
         @model.set('seasons',[])
@@ -197,9 +197,9 @@ app.views.Profile = Backbone.View.extend
         return
 
     setSponsor: ->
-        @model.save 'is_sponsor', $('.money-icon').hasClass 'mg-icon' 
+        @model.save 'is_sponsor', @$el.find('.money-icon').hasClass 'mg-icon' 
     setHost: ->
-        @model.save 'is_host', $('.house-icon').hasClass 'hg-icon'
+        @model.save 'is_host', @$el.find('.house-icon').hasClass 'hg-icon'
     getDate: (date_block)->
         d = date_block.find('#day-edit-select').text()
         m = date_block.find('#month-edit-select').text()

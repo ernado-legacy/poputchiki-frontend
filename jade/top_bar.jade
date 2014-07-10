@@ -1,6 +1,6 @@
 .topContainer.clearfix
   .userBox
-    img(src='../static/img/userpic.png')
+    img(src='/static/img/userpic.png')
     #rating 90%
     #name Мария
     #nick-name LuckyStar
@@ -11,56 +11,56 @@
         .crsItem
           case i%6
             when 0
-              img(src='../static/img/crs_item.png')
+              img(src='/static/img/crs_item.png')
               .empty
             when 1
               .wrapper(data-anim="base wrapper")
                 .circle.c_left(data-anim="base left")
                 .circle.c_right(data-anim="base right")
-              img(src='../static/img/crs_item2.png')
+              img(src='/static/img/crs_item2.png')
               #online
             when 2
               .wrapper(data-anim="base wrapper")
                 .circle.c_left(data-anim="base left")
                 .circle.c_right(data-anim="base right")
-              img(src='../static/img/crs_item3.png')
+              img(src='/static/img/crs_item3.png')
               .audio
                 audio
-                  source(src='../static/audio/audio.mp3', type="audio/mp3")
-                  source(src='../static/audio/audio.ogg', type="audio/ogg")
+                  source(src='/static/audio/audio.mp3', type="audio/mp3")
+                  source(src='/static/audio/audio.ogg', type="audio/ogg")
             when 3
               .wrapper(data-anim="base wrapper")
                 .circle.c_left(data-anim="base left")
                 .circle.c_right(data-anim="base right")
-              img(src='../static/img/crs_item4.png')
+              img(src='/static/img/crs_item4.png')
               #online
               .audio
                 audio
-                  source(src='../static/audio/audio.mp3', type="audio/mp3")
-                  source(src='../static/audio/audio.ogg', type="audio/ogg")
+                  source(src='/static/audio/audio.mp3', type="audio/mp3")
+                  source(src='/static/audio/audio.ogg', type="audio/ogg")
             when 4
               .wrapper(data-anim="base wrapper")
                 .circle.c_left(data-anim="base left")
                 .circle.c_right(data-anim="base right")
-              img(src='../static/img/crs_item.png')
+              img(src='/static/img/crs_item.png')
               .videoBox
                 .frontLayer
                 video
-                  source(src="../static/video/gizmo.mp4", type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")
-                  source(src="../static/video/gizmo.webm", type="video/webm", codecs="vp8, vorbis")
-                  source(src="../static/video/gizmo.ogv", type="video/ogg", codecs="theora, vorbis")
+                  source(src="/static/video/gizmo.mp4", type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")
+                  source(src="/static/video/gizmo.webm", type="video/webm", codecs="vp8, vorbis")
+                  source(src="/static/video/gizmo.ogv", type="video/ogg", codecs="theora, vorbis")
               .video
             when 5
               .wrapper(data-anim="base wrapper")
                 .circle.c_left(data-anim="base left")
                 .circle.c_right(data-anim="base right")
-              img(src='../static/img/crs_item2.png')
+              img(src='/static/img/crs_item2.png')
               #online
               .videoBox
                 .frontLayer
                 video
-                  source(src="../static/video/gizmo.mp4", type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")
-                  source(src="../static/video/gizmo.webm", type="video/webm", codecs="vp8, vorbis")
-                  source(src="../static/video/gizmo.ogv", type="video/ogg", codecs="theora, vorbis")
+                  source(src="/static/video/gizmo.mp4", type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")
+                  source(src="/static/video/gizmo.webm", type="video/webm", codecs="vp8, vorbis")
+                  source(src="/static/video/gizmo.ogv", type="video/ogg", codecs="theora, vorbis")
               .video
   #profile-arrow-right
