@@ -36,6 +36,7 @@ app.views.Profile = Backbone.View.extend
             that.showpopup '.view', '.photoPopup'
             that.showpopup '.videoBox img', '.videoPopup'
             that.showpopup '#change-avatar', '.chavaPopup'
+            that.showpopup '.userBox img', '.promoPopup'
             that.closepopup '#send-lg-popup'
             that.closepopup '.closepopup'
             that.closepopup '.save-new-ava-audio'
@@ -56,11 +57,23 @@ app.views.Profile = Backbone.View.extend
                 $('.videoBox').hide()
                 $('.photoBox').show()
 
-            $("#audio-change-avatar audio").bind 'timeupdate', that.audioprogress
+            $('.promo-photo').click ->
+                $('.popup').fadeOut('slow')
+                $('.chopPopup').fadeIn('slow')
+
+            $('.choose-promo-photo').click ->
+                $('.popup').fadeOut('slow')
+                $('.promoPopup').fadeIn('slow')
+
+            $('.imgRow .imgBox').click ->
+                $('.imgRow .imgBox').removeClass 'chosenImg'
+                $(this).addClass 'chosenImg'
+
+            $(".audio-change-avatar audio").bind 'timeupdate', that.audioprogress
 
     audioprogress: ->
-        track_length = $('#audio-change-avatar audio').get(0).duration
-        secs = $('#audio-change-avatar audio').get(0).currentTime
+        track_length = $('.audio-change-avatar audio').get(0).duration
+        secs = $('.audio-change-avatar audio').get(0).currentTime
         progress = (secs/track_length) * 100
         $('.progress').css 'width', progress + '%'
 

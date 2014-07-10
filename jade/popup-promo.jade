@@ -1,0 +1,75 @@
+.popup.promoPopup
+  a(href='#', class='closepopup') Закрыть
+  form
+    h1 Добавиться в промо-ленту
+    .greenDots
+    .changeAvatarBox.clearfix
+      img(src='../static/img/b_userpic.png')
+      .popupArrow
+      .crsItem
+        img(src='../static/img/crs_item.png')
+        .videoBox
+          .frontLayer
+          video
+            source(src="../static/video/gizmo.mp4", type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")
+            source(src="../static/video/gizmo.webm", type="video/webm", codecs="vp8, vorbis")
+            source(src="../static/video/gizmo.ogv", type="video/ogg", codecs="theora, vorbis")
+        .video
+      .crsItem
+        img(src='../static/img/crs_item.png')
+        .videoBox
+          .frontLayer
+          video
+            source(src="../static/video/gizmo.mp4", type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")
+            source(src="../static/video/gizmo.webm", type="video/webm", codecs="vp8, vorbis")
+            source(src="../static/video/gizmo.ogv", type="video/ogg", codecs="theora, vorbis")
+        .video
+      .crsItem
+        img(src='../static/img/crs_item.png')
+        .videoBox
+          .frontLayer
+          video
+            source(src="../static/video/gizmo.mp4", type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")
+            source(src="../static/video/gizmo.webm", type="video/webm", codecs="vp8, vorbis")
+            source(src="../static/video/gizmo.ogv", type="video/ogg", codecs="theora, vorbis")
+        .video
+    .chooseBox.clearfix
+      .mainSelectElement.promo-photo
+        span Выбрать фото
+    p Вы можете добавить аудиоо-приветствие или видео-аватарку к своему профайлу в промо-ленте. Для того, чтобы подключить дополнительные опции, выберите видео или запишите аудио:
+    .bilContainer.clearfix
+      .regButton.profile-edit-slideup.upload-money
+        span пополнить счет
+      .price 30 
+        small рублей
+    h2 Добавить аудио
+    .greenDots
+    p Загрузите аудио-приветствие, чтобы ваш голос могли услышать ваши друзья и получите еще больше посещений для своего профайла!
+    .playerBox.clearfix
+      .audio.audio-change-avatar
+        audio
+          source(src='../static/audio/audio.mp3', type="audio/mp3")
+          source(src='../static/audio/audio.ogg', type="audio/ogg")
+      .timeBar
+        .progress
+    .mainSelectElement.upload-new-audio
+      span Загрузить файл
+    input.upload-new-audio-input(type='file')
+    h2 Добавить видео
+    .greenDots
+    p Создайте свою уникальную видео-аватарку и еще больше выделите свой профайл среди тысячи остальных!
+    .videoContainer.clearfix
+      .crsItem
+        img(src='../static/img/crs_item.png')
+        .videoBox
+          .frontLayer
+          video
+            source(src="../static/video/gizmo.mp4", type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")
+            source(src="../static/video/gizmo.webm", type="video/webm", codecs="vp8, vorbis")
+            source(src="../static/video/gizmo.ogv", type="video/ogg", codecs="theora, vorbis")
+        .video
+      .mainSelectElement.upload-new-video
+        span Загрузить файл
+      input.upload-new-audio-input(type='file')
+  .regButton.profile-edit-slideup.add-to-promo
+    span добавить в ленту
