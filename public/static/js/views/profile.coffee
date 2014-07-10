@@ -2,6 +2,17 @@ app.views.Profile = Backbone.View.extend
 
     el: '.mainContentProfile'
 
+    initialize: ->
+        console.log 123
+        @.model = new app.models.User 
+            id: $.cookie 'user'
+        @.model.fetch()
+
+        @.listenTo @.model, 'change:name', ->
+            name_container = @.$el.find '.name-in-profile'
+            name_container.text @model.get 'name'
+        return
+
     get_my_user: (callback) ->
         user = new app.models.User 
             id: $.cookie 'user'
@@ -13,6 +24,7 @@ app.views.Profile = Backbone.View.extend
         that = @
         history.pushState null, 'poputchiki', '/profile/'
         @get_my_user (user) ->
+            console.log user.attributes
             $ that.$el.html jade.templates.profile
                 user: user.attributes
             do profile_script
@@ -147,35 +159,41 @@ app.views.Profile = Backbone.View.extend
         $(cell).children('input').focusout( ->
             $(cell).removeClass 'activeAgeBox'
         )
+
     events: 
         "click #profile-edit-slideup span": 'saveProfile'
         "click .money-icon": 'setSponsor'
         "click .house-icon": 'setHost'
+        "click .season": 'setSeasons'
+
+    setSeasons: ()->
+        @model.set('seasons',[])
+        seasons = @$el.find '#my-seasons .season'
+        @model.get('seasons').push(season.id)  for season in seasons when $(season).hasClass('seasonChecked')
+        # console.log($(season).id)  for season in seasons
+        do @model.save
+        return
+
 
     saveProfile: ->
-        @get_my_user (user) ->
-            formData = {}
+        formData = {}
 
-            inputs = $('.infoEdit input')
+        inputs = $('.infoEdit input')
 
-            appendFormData = (el) ->
-                int_value = parseInt $(el).val()
-                value = if isNaN int_value then $(el).val() else int_value
-                # value =  if isNaN parseInt($(el).val()) then  $(el).val()) else parseInt($(el).val())
-                formData[el.name] = value
+        appendFormData = (el) ->
+            int_value = parseInt $(el).val()
+            value = if isNaN int_value then $(el).val() else int_value
+            # value =  if isNaN parseInt($(el).val()) then  $(el).val()) else parseInt($(el).val())
+            formData[el.name] = value
 
-            appendFormData input for input in inputs when $(input).val()
-
-            console.log formData
-            
-            user.save(formData)
-            return
+        appendFormData input for input in inputs when $(input).val()
+        
+        @model.save(formData)
+        return
 
     setSponsor: ->
-        @get_my_user (user) ->
-            user.save 'is_sponsor', $('.money-icon').hasClass 'mg-icon' 
+        @model.save 'is_sponsor', $('.money-icon').hasClass 'mg-icon' 
     setHost: ->
-        @get_my_user (user) ->
-            user.save 'is_sponsor', $('.house-icon').hasClass 'hg-icon' 
+        @model.save 'is_host', $('.house-icon').hasClass 'hg-icon' 
 $ ->
     app.views.profile = new app.views.Profile

@@ -2,12 +2,13 @@
   include leftbox
   .rightBox
     .profileInfoBox.pIBTitle#my-profile
-      .name-in-profile #{user.name}, #{user.age}
-      .money-icon
+      .name-in-profile #{user.name}, #{user.age}, h1 #{user.is_sponsor}
+      div(class = user.is_sponsor === true ? "money-icon mg-icon" : "money-icon")
         .tooltip.clearfix
           .tooltip-arrow
+
           span Денежка
-      .house-icon
+      div(class = user.is_sponsor === true ? "house-icon hg-icon" : "house-icon")
         .tooltip.clearfix
           .tooltip-arrow
           span Домик
@@ -31,15 +32,26 @@
           .writeBtn#write-new-main-status
     .tagBox
       h1 Сезоны
-      .seasonsBox.clearfix
-        .season
-          span весна
-        .season
-          span лето
-        .season.seasonChecked
-          span осень
-        .season
-          span зима
+      if user.seasons
+        .seasonsBox.clearfix#my-seasons
+          div(id = "spring", class = user.seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
+            span весна
+          div(id = "summer", class = user.seasons.indexOf("summer")>-1 ? "season seasonChecked" : "season")
+            span лето
+          div(id = "autumn", class = user.seasons.indexOf("autumn")>-1 ? "season seasonChecked" : "season")
+            span осень
+          div(id = "winter", class = user.seasons.indexOf("winter")>-1 ? "season seasonChecked" : "season")
+            span зима
+      else 
+        .seasonsBox.clearfix#my-seasons
+          div(id = "spring", class = "season")
+            span весна
+          div(id = "summer", class = "season")
+            span лето
+          div(id = "autumn", class = "season")
+            span осень
+          div(id = "winter", class = "season")
+            span зима
     .tagBox
       h1 Мои направления
       .tagsLine#profile-tags

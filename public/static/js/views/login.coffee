@@ -15,6 +15,7 @@ app.views.Login = Backbone.View.extend
     logout: ->
         $.removeCookie 'token'
         $.removeCookie 'user'
+        
         do @render
 
     render: ->
