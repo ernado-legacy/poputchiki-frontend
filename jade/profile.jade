@@ -2,7 +2,7 @@
   include leftbox
   .rightBox
     .profileInfoBox.pIBTitle#my-profile
-      .name-in-profile #{user.name}, #{user.age}, h1 #{user.is_sponsor}
+      .name-in-profile #{user.name}, 
       div(class = user.is_sponsor === true ? "money-icon mg-icon" : "money-icon")
         .tooltip.clearfix
           .tooltip-arrow
@@ -80,7 +80,7 @@
           span Редактировать
       h1 о себе
       .greenDots
-      p.description#about-in-info Если вы никогда не видели? нашей грозы, вы никогда не поймете нас! Cпособностей наших безумных душ к падению на самое дно бездны, где все законы мироздания теряют свой первоначальный смысл, Кто-то непостижимо великий сплетает полотно реальности!
+      p.description#about-in-info #{user.about}
       .infoBox.infoView
         #birtday-in-info.clearfix
           span.lp День рождения:
@@ -88,9 +88,12 @@
         #zodiac-in-info.clearfix
           span.lp Знак зодиака:
           span.rp лев
+        #country-in-info.clearfix
+          span.lp Страна:
+          span.rp #{user.country}
         #city-in-info.clearfix
           span.lp Город:
-          span.rp Москва
+          span.rp #{user.city}
         #skype-in-info.clearfix.hide
           span.lp Skype:
           span.rp skype
@@ -125,15 +128,15 @@
               .dd
               .du
               ul.droped.withShadow
-                li.dl 1
-                li.dl 2
-                li.dl 3
-                li.dl 4
-                li.dl 5
-                li.dl 6
-                li.dl 7
-                li.dl 8
-                li.dl 9
+                li.dl 01
+                li.dl 02
+                li.dl 03
+                li.dl 04
+                li.dl 05
+                li.dl 06
+                li.dl 07
+                li.dl 08
+                li.dl 09
                 li.dl 10
                 li.dl 11
                 li.dl 12
@@ -161,41 +164,28 @@
               .dd
               .du
               ul.droped.withShadow
-                li.dl Январь
-                li.dl Февраль
-                li.dl Март
-                li.dl Апрель
-                li.dl Май
-                li.dl Июнь
-                li.dl Июль
-                li.dl Август
-                li.dl Сентябрь
-                li.dl Октябрь
-                li.dl Ноябрь
-                li.dl Декабрь
+                li(class="dl", month="01") Январь
+                li(class="dl", month="02") Февраль
+                li(class="dl", month="03") Март
+                li(class="dl", month="04") Апрель
+                li(class="dl", month="05") Май
+                li(class="dl", month="06") Июнь
+                li(class="dl", month="07") Июль
+                li(class="dl", month="08") Август
+                li(class="dl", month="09") Сентябрь
+                li(class="dl", month="10") Октябрь
+                li(class="dl", month="11") Ноябрь
+                li(class="dl", month="12") Декабрь
               .statusDrop
             .mainSelectElement.yearEdit.withShadow#year-select
               span#year-edit-select 1983
               .dd
               .du
               ul.droped.withShadow
-                li.dl 1980
-                li.dl 1981
-                li.dl 1982
-                li.dl 1983
-                li.dl 1984
-                li.dl 1985
-                li.dl 1986
-                li.dl 1987
-                li.dl 1988
-                li.dl 1989
-                li.dl 1990
-                li.dl 1991
-                li.dl 1992
-                li.dl 1993
-                li.dl 1994
-                li.dl 1995
-                li.dl 1996
+                - for (var i = 1960; i < 1994; ++i) {
+                  li.dl #{i}
+                - }
+                
         //- #zodiac-edit.clearfix
         //-   span.lp Знак зодиака:
         //-   span.rp
@@ -213,7 +203,7 @@
           span.lp Страна:
           span.rp
             .mainSelectElement.countryEdit.withShadow#country-select
-              span#country-edit-select#{user.country}
+              span#country-edit-select #{user.country}
               .dd
               .du
               ul.droped.withShadow
@@ -225,7 +215,7 @@
           span.lp Город:
           span.rp
             .mainSelectElement.cityEdit.withShadow#city-select
-              span#city-edit-select#{user.city}
+              span#city-edit-select #{user.city}
               .dd
               .du
               ul.droped.withShadow
@@ -237,15 +227,21 @@
         #about-edit.clearfix
           span.lp О себе:
           span.rp
-            textarea Если вы никогда не видели? нашей грозы, вы никогда не поймете нас! Cпособностей наших безумных душ к падению на самое дно бездны, где все законы мироздания теряют свой первоначальный смысл, Кто-то непостижимо великий сплетает полотно реальности!
+            textarea #{user.about}
         #num-value-edit.clearfix
           span.lp Рост:
           span.rp
-            input(type='text', value='#{user.growth}', name='growth')
+            if (user.growth)
+              input(type='text', value='#{user.growth}', name='growth')
+            else
+              input(type='text', value='', name='growth')
         #num-value-edit.clearfix
           span.lp Вес:
           span.rp
-            input(type='text', value='#{user.weight}', name='weight')
+            if (user.weight)
+              input(type='text', value='#{user.weight}', name='weight')
+            else
+              input(type='text', value='', name='weight')
         //- #quote-edit.clearfix
         //-   span.lp Любимые цитаты:
         //-   span.rp

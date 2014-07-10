@@ -1690,6 +1690,12 @@ small
 			+border-radius(4px, 4px, 4px, 4px)
 			padding: 0 0 0 5px
 			+simple-font
+		// input:hover
+		// 	background-color: black
+		// 	-webkit-animation: swing 1s ease
+		// 	animation: swing 1s ease
+		// 	-webkit-animation-iteration-count: 1
+		// 	animation-iteration-count: 1
 		input::-moz-placeholder
 			color: $profile_status_text
 		input::-webkit-input-placeholder
@@ -1735,6 +1741,14 @@ small
 				color: $header_blue
 		.regButton
 			width: 212px
+
+
+
+// .loginRegisterBlock:hover
+// 	-webkit-animation: swing 1s ease
+// 	animation: swing 1s ease
+// 	-webkit-animation-iteration-count: 1
+// 	animation-iteration-count: 1
 
 .loginRegisterBlock.step	
 	position: static
@@ -2337,3 +2351,8 @@ small
 					display: block
 				span
 					display: none
+
+
+span.error 
+	color: red
+	display: none

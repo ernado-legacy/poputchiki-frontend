@@ -3,7 +3,6 @@ app.views.Profile = Backbone.View.extend
     el: '.mainContentProfile'
 
     initialize: ->
-        console.log 123
         @.model = new app.models.User 
             id: $.cookie 'user'
         @.model.fetch()
@@ -179,6 +178,7 @@ app.views.Profile = Backbone.View.extend
         formData = {}
 
         inputs = $('.infoEdit input')
+        about_text = $('.infoEdit textarea').val()
 
         appendFormData = (el) ->
             int_value = parseInt $(el).val()
@@ -187,13 +187,24 @@ app.views.Profile = Backbone.View.extend
             formData[el.name] = value
 
         appendFormData input for input in inputs when $(input).val()
-        
-        @model.save(formData)
+
+        formData['country'] = $('#country-edit-select').text()
+        formData['city'] = $('#city-edit-select').text()
+        formData['birthday'] = @getDate $('#birtday-edit')
+        formData['about'] = about_text
+        @model.set(formData)
+        @model.save()
         return
 
     setSponsor: ->
         @model.save 'is_sponsor', $('.money-icon').hasClass 'mg-icon' 
     setHost: ->
-        @model.save 'is_host', $('.house-icon').hasClass 'hg-icon' 
+        @model.save 'is_host', $('.house-icon').hasClass 'hg-icon'
+    getDate: (date_block)->
+        d = date_block.find('#day-edit-select').text()
+        m = date_block.find('#month-edit-select').text()
+        m = $("li:contains('"+m+"')").attr 'month'
+        y = date_block.find('#year-edit-select').text()
+        y+"-"+m+"-"+d+"T00:00:00Z"
 $ ->
     app.views.profile = new app.views.Profile

@@ -8,11 +8,11 @@ app.models.Users = Backbone.Collection.extend
     url: '/api/user/'
     initialize: ->
     	console.log 'Before bind events how is our model?', this.toJSON()
-    	this.bind("change", this.changeHandler)
+    	this.on("change", this.changeHandler)
 
-    changeHandler: (e)->
-    	console.log "something changed"
-    	console.log e
+    fetch: (options)->
+    	console.log 'fetching'
+    	this.constructor.__super__.fetch.apply @, arguments
 
 Users = app.models.Users
 
