@@ -2,6 +2,16 @@ app.views.Profile = Backbone.View.extend
 
     el: '.mainContentProfile'
 
+    initialize: ->
+        @.model = new app.models.User 
+            id: $.cookie 'user'
+        @.model.fetch()
+
+        @.listenTo @.model, 'change:name', ->
+            name_container = @.$el.find '.name-in-profile'
+            name_container.text @model.get 'name'
+        return
+
     get_my_user: (callback) ->
         user = new app.models.User 
             id: $.cookie 'user'
@@ -13,10 +23,10 @@ app.views.Profile = Backbone.View.extend
         that = @
         history.pushState null, 'poputchiki', '/profile/'
         @get_my_user (user) ->
+            console.log user.attributes
             $ that.$el.html jade.templates.profile
                 user: user.attributes
             do profile_script
-
             that.newtag '#year-select'
             that.newtag '#month-select'
             that.newtag '#day-select'
@@ -149,10 +159,52 @@ app.views.Profile = Backbone.View.extend
             $(cell).removeClass 'activeAgeBox'
         )
 
-    search: ->
-        app.models.search
-            offset: 0
-            count: 20
+    events: 
+        "click #profile-edit-slideup span": 'saveProfile'
+        "click #my-profile .money-icon": 'setSponsor'
+        "click #my-profile .house-icon": 'setHost'
+        "click .myProfileContainer .season": 'setSeasons'
+
+    setSeasons: ()->
+        @model.set('seasons',[])
+        seasons = @$el.find '#my-seasons .season'
+        @model.get('seasons').push(season.id)  for season in seasons when $(season).hasClass('seasonChecked')
+        # console.log($(season).id)  for season in seasons
+        do @model.save
+        return
+
+    saveProfile: ->
+        formData = {}
+
+        inputs = $('.infoEdit input')
+        about_text = $('.infoEdit textarea').val()
+
+        appendFormData = (el) ->
+            int_value = parseInt $(el).val()
+            value = if isNaN int_value then $(el).val() else int_value
+            # value =  if isNaN parseInt($(el).val()) then  $(el).val()) else parseInt($(el).val())
+            formData[el.name] = value
+
+        appendFormData input for input in inputs when $(input).val()
+
+        formData['country'] = $('#country-edit-select').text()
+        formData['city'] = $('#city-edit-select').text()
+        formData['birthday'] = @getDate $('#birtday-edit')
+        formData['about'] = about_text
+        @model.set(formData)
+        @model.save()
+        return
+
+    setSponsor: ->
+        @model.save 'is_sponsor', @$el.find('.money-icon').hasClass 'mg-icon' 
+    setHost: ->
+        @model.save 'is_host', @$el.find('.house-icon').hasClass 'hg-icon'
+    getDate: (date_block)->
+        d = date_block.find('#day-edit-select').text()
+        m = date_block.find('#month-edit-select').text()
+        m = $("li:contains('"+m+"')").attr 'month'
+        y = date_block.find('#year-edit-select').text()
+        y+"-"+m+"-"+d+"T00:00:00Z"
 
 $ ->
     app.views.profile = new app.views.Profile

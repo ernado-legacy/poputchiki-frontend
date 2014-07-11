@@ -86,7 +86,7 @@ $timebar_progress: #46c713
 =italic-font
 	font-family: 'Georgia'
 	font-style: italic
-	font-weight: bold
+	// font-weight: bold
 
 =simple-font
 	font-family: $simple_font
@@ -1005,7 +1005,7 @@ small
 				width: 80px
 			#year-select
 				width: 80px
-		#num-value-edit
+		#num-value-edit, #name-edit
 			input
 				width: 103px
 				border: 1px solid $tag_input_border
@@ -1017,9 +1017,9 @@ small
 				margin-bottom: 0px
 				margin-left: 15px
 		#about-edit, #zodiac-edit, #skype-edit, #interests-edit,
-		#music-edit, #films-edit, #quote-edit, #num-value-edit
+		#music-edit, #films-edit, #quote-edit, #num-value-edit, #name-edit
 			margin-bottom: 25px
-		#birtday-edit, #zodiac-edit, #city-edit, #skype-edit, #country-edit, #num-value-edit
+		#birtday-edit, #zodiac-edit, #city-edit, #skype-edit, #country-edit, #num-value-edit, #name-edit
 			.lp
 				padding-top: 10px
 		#birtday-edit, #city-edit, #country-edit
@@ -1690,6 +1690,12 @@ small
 			+border-radius(4px, 4px, 4px, 4px)
 			padding: 0 0 0 5px
 			+simple-font
+		// input:hover
+		// 	background-color: black
+		// 	-webkit-animation: swing 1s ease
+		// 	animation: swing 1s ease
+		// 	-webkit-animation-iteration-count: 1
+		// 	animation-iteration-count: 1
 		input::-moz-placeholder
 			color: $profile_status_text
 		input::-webkit-input-placeholder
@@ -1735,6 +1741,14 @@ small
 				color: $header_blue
 		.regButton
 			width: 212px
+
+
+
+// .loginRegisterBlock:hover
+// 	-webkit-animation: swing 1s ease
+// 	animation: swing 1s ease
+// 	-webkit-animation-iteration-count: 1
+// 	animation-iteration-count: 1
 
 .loginRegisterBlock.step	
 	position: static
@@ -1957,11 +1971,13 @@ small
 			cursor: pointer
 			font-size: 14px
 		.write
-			background: url("../img/profile_messages_new.png") no-repeat
+			background: url("../img/profile_messages_blue.png") no-repeat
 		.add
-			background: url("../img/profile_favorites.png") no-repeat
+			background: url("../img/profile_favorites_blue.png") no-repeat
+			margin-left: -3px
+			padding-left: 43px
 		.show
-			background: url("../img/profile_go.png") no-repeat
+			background: url("../img/profile_go_blue.png") no-repeat
 
 .form-line
 	margin-top: 10px
@@ -2337,3 +2353,8 @@ small
 					display: block
 				span
 					display: none
+
+
+span.error 
+	color: red
+	display: none

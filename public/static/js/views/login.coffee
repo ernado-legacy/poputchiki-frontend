@@ -15,6 +15,7 @@ app.views.Login = Backbone.View.extend
     logout: ->
         $.removeCookie 'token'
         $.removeCookie 'user'
+        
         do @render
 
     render: ->
@@ -34,6 +35,7 @@ app.views.Login = Backbone.View.extend
     #            do app.views.profile.render
 
     login: ->
+        $('.loginRegisterBlock').removeClass 'shiv-block'
         app.models.login $(".loginRegisterBlock").serialize()
             , (data) ->
                 $.cookie 'token', data['token']
@@ -43,7 +45,9 @@ app.views.Login = Backbone.View.extend
                 do app.views.profile.render
                 console.log data
             , (data) ->
-                alert 'Неправильный пароль'
+                $('.loginRegisterBlock').addClass 'shiv-block'
+                do $('span.error').show 
+                return
 
     seturl: ->
 

@@ -2,12 +2,20 @@
   include guest_leftbox
   .rightBox
     .profileInfoBox.pIBTitle
-      .name-in-profile Мария, 36
-      .money-icon
-      .house-icon
-      .city-in-profile Москва
+      .name-in-profile #{user.name}, #{user.age}
+      if (user.is_sponsor)
+        div(class = "money-icon mg-icon")
+          .tooltip.clearfix
+            .tooltip-arrow
+            span Денежка
+      if (user.is_host)
+        div(class = "house-icon hg-icon")
+          .tooltip.clearfix
+            .tooltip-arrow
+            span Домик
+      .city-in-profile #{user.city}
     .wantToTravelBox.clearfix
-      .newStatus Новый статус
+      //- .newStatus Новый статус
       .statusBoxCompleted.clearfix
         .statusBox#main-status
           .status Завтра вылетаю, есть билет на халяву, кто со мной? Время поджимает, давайте поторопитесь. Бла-бла          
@@ -15,29 +23,51 @@
             span#delete-comments удалить
             span#share-comments поделиться
         .statusBoxEdit.clearfix
-          h1 добавить новый статус
           .greenDots
           input#new-status(placeholder='...', type='text',  maxlength="140")
           .writeBtn#write-new-main-status
     .tagBox
-      h1 Путешествия
-
+      h1 Сезоны
+      if user.seasons
+        .seasonsBox.clearfix#my-seasons
+          div(id = "spring", class = user.seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
+            span весна
+          div(id = "summer", class = user.seasons.indexOf("summer")>-1 ? "season seasonChecked" : "season")
+            span лето
+          div(id = "autumn", class = user.seasons.indexOf("autumn")>-1 ? "season seasonChecked" : "season")
+            span осень
+          div(id = "winter", class = user.seasons.indexOf("winter")>-1 ? "season seasonChecked" : "season")
+            span зима
+      else 
+        .seasonsBox.clearfix#my-seasons
+          div(id = "spring", class = "season")
+            span весна
+          div(id = "summer", class = "season")
+            span лето
+          div(id = "autumn", class = "season")
+            span осень
+          div(id = "winter", class = "season")
+            span зима
+    .tagBox
+      h1 Мои направления
       .tagsLine#profile-tags
         .mainSelectElement.profileTagPlaces.withShadow
           span.tagCountry Россия
-          span.tagSeason весна/
-          span.tagYear 14
           .close
         .mainSelectElement.profileTagPlaces.withShadow
           span.tagCountry Европа
-          span.tagSeason весна/
-          span.tagYear 14
           .close
         .mainSelectElement.profileTagPlaces.withShadow
           span.tagCountry Африка
-          span.tagSeason весна/
-          span.tagYear 14
           .close
+      //- .newTagBox
+      //-   .mainSelectElement.newCountry.withShadow
+      //-     .dd
+      //-     .du
+      //-     ul.droped.withShadow
+      //-       li.dl Россия
+      //-       li.dl Африка
+      //-       li.dl Европа
       
     .profileInfoBox      
       h1 о себе
