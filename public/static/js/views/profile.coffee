@@ -148,5 +148,11 @@ app.views.Profile = Backbone.View.extend
         $(cell).children('input').focusout( ->
             $(cell).removeClass 'activeAgeBox'
         )
+
+    search: ->
+        app.models.search
+            offset: 0
+            count: 20
+
 $ ->
     app.views.profile = new app.views.Profile
