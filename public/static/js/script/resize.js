@@ -7,7 +7,7 @@ $(window).load(function() {
 		$('.carouselBox').css('width',wdth);
 	}
 
-	cw = ($('.crsItem').length * 160).toString() + 'px';
+	cw = ($('.mainCrs').length * 160).toString() + 'px';
 	$('.carousel').css('width', cw);
 
 });

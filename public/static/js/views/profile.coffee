@@ -79,14 +79,6 @@ app.views.Profile = Backbone.View.extend
                 $('.imgRow .imgBox').removeClass 'chosenImg'
                 $(this).addClass 'chosenImg'
 
-            $(".audio-change-avatar audio").bind 'timeupdate', that.audioprogress
-
-    audioprogress: ->
-        track_length = $('.audio-change-avatar audio').get(0).duration
-        secs = $('.audio-change-avatar audio').get(0).currentTime
-        progress = (secs/track_length) * 100
-        $('.progress').css 'width', progress + '%'
-
     season: (season) ->
         $(season).click ->
             $(this).toggleClass 'seasonChecked'
@@ -94,6 +86,7 @@ app.views.Profile = Backbone.View.extend
     showpopup: (cnt, popup) ->
         $(cnt).click ->
             $('body').addClass 'bodyPopup'
+            $('.popupBack').fadeIn('slow')
             $('.popupWrapper').fadeIn('slow')
             $(popup).fadeIn('slow')
 
@@ -102,6 +95,7 @@ app.views.Profile = Backbone.View.extend
             $('body').removeClass 'bodyPopup'
             $('.popup').fadeOut('slow')
             $('.popupWrapper').fadeOut('slow')
+            $('.popupBack').fadeOut('slow')
 
     moneyIcon: (cnt) ->
         $(cnt).click ->
