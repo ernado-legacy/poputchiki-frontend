@@ -7,9 +7,6 @@ app.views.Search = Backbone.View.extend
         'click a.ldblock': 'link'
         'click .box': 'toogle'
 
-        $('.box').click ->
-            $('.box').toggleClass('checked')
-
     search: ->
         that = this
 
@@ -18,17 +15,17 @@ app.views.Search = Backbone.View.extend
             count: 100
             sex: 'male'
 
-        form = $('#search-age-from').val()
+        from = $('#search-age-from').val()
         to = $('#search-age-to').val()
 
-        if from:
+        if from
             query.agemin = from
 
-        id to:
+        if to
             query.agemax = to
 
-        app.models.search
-            , (data) ->
+        app.models.search query,
+            (data) ->
                 that.$el.find('.gallery').html jade.templates.search_users 
                     users: data
 

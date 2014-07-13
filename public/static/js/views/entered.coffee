@@ -71,7 +71,7 @@ app.views.Entered = Backbone.View.extend
                 z.children().get(0).play()
                 return
             ), 2000
-            return
+        return
 
     play_video: (event) ->
         @stopMedia()
@@ -92,6 +92,6 @@ app.views.Entered = Backbone.View.extend
                 $(".c_right").removeClass "circle2"
                 return
             ), 1000
-            return
+        return
 $ ->
     app.views.entered = new app.views.Entered
