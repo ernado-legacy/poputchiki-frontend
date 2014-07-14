@@ -2,6 +2,9 @@ app.views.GuestProfile = Backbone.View.extend
 
     el: '.mainContentProfile'
 
+    events:
+        'click .write': 'write'
+
     initialize: ->
         id = window.location.href.split('/').slice(4)[0]
         @.model = new app.models.User 
@@ -24,3 +27,7 @@ app.views.GuestProfile = Backbone.View.extend
         @get_my_user (user) ->
             $ that.$el.html jade.templates.guest_profile
                 user: user.attributes
+
+    write: ->
+        do app.views.message.render
+        do app.views.messageside.render

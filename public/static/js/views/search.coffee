@@ -38,4 +38,5 @@ app.views.Search = Backbone.View.extend
         do app.views.guestprofile.render
 
     render: ->
+        history.pushState null, 'poputchiki', '/search/'
         $ @$el.html jade.templates.search()

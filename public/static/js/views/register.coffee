@@ -3,7 +3,7 @@ app.views.Register = Backbone.View.extend
     el: 'body'
 
     events:
-        'click #header-profile': 'bregister'
+        'click .header-profile-register': 'bregister'
         'click .regstepone': 'regstepone'
         'click .regsteptwo': 'regsteptwo'
         'click .regstepthree': 'regstepthree'
