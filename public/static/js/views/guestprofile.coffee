@@ -14,7 +14,7 @@ app.views.GuestProfile = Backbone.View.extend
 
     get_my_user: (callback) ->
         user = new app.models.User 
-            id: window.location.href.split('/').slice(4)[0]
+            id: window.location.pathname.split('/').slice(2)[0]
         user.fetch
             success: ->
                 callback user
@@ -29,5 +29,6 @@ app.views.GuestProfile = Backbone.View.extend
                 user: user.attributes
 
     write: ->
+        app.views.message.set_url window.location.pathname.split('/').slice(2)[0]
         do app.views.message.render
         do app.views.messageside.render

@@ -27,7 +27,7 @@ app.views.Entered = Backbone.View.extend
                 app.views.statuses = new app.views.Statuses
                 if window.location.pathname == '/' or window.location.pathname == '/profile/'
                     do app.views.profile.render
-                if window.location.pathname == '/message/'
+                if window.location.pathname.search('/message/') != -1
                     do app.views.message.render
                     do app.views.messageside.render
                 if window.location.pathname.search('/user/') != -1
