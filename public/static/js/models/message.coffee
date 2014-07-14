@@ -1,4 +1,4 @@
-app.models.Message = Backbone.Model.extend
+app.models.Message = Backbone.Model.extend()
 
 Message = app.models.Message
 
