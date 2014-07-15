@@ -4,6 +4,7 @@ app.views.GuestProfile = Backbone.View.extend
 
     events:
         'click .write': 'write'
+        'click .add': 'add_to_fav'
 
     initialize: ->
         id = window.location.href.split('/').slice(4)[0]
@@ -31,3 +32,6 @@ app.views.GuestProfile = Backbone.View.extend
     write: ->
         do app.views.message.render
         do app.views.messageside.render
+
+    add_to_fav: ->
+        alert 'user added to favourites'

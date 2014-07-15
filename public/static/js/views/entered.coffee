@@ -21,9 +21,11 @@ app.views.Entered = Backbone.View.extend
                 do that.render
                 app.views.message = new app.views.Message
                 app.views.messageside = new app.views.MessageSide
+
                 app.views.profile = new app.views.Profile
                 app.views.guestprofile = new app.views.GuestProfile
                 app.views.search = new app.views.Search
+
                 app.views.statuses = new app.views.Statuses
                 if window.location.pathname == '/' or window.location.pathname == '/profile/'
                     do app.views.profile.render
@@ -39,6 +41,8 @@ app.views.Entered = Backbone.View.extend
         #    count: 20
         #    , ->
                 do app.views.search.render
+                app.views.searchside = new app.views.SearchSide
+                do app.views.searchside.render
 
     statuses: ->
         do app.views.statuses.render

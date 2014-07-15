@@ -20,59 +20,45 @@ body
           input(type='text', placeholder='Ваша фамилия', name='lastname')        
         .form-line.clearfix#birdth-reg
           .mainSelectElement.yearEdit.withShadow#year-select
-            span#year-edit-select
+            span#year-edit-select 1983
             .dd
             .du
             ul.droped.withShadow
-              li.dl 1980
-              li.dl 1981
-              li.dl 1982
-              li.dl 1983
-              li.dl 1984
-              li.dl 1985
-              li.dl 1986
-              li.dl 1987
-              li.dl 1988
-              li.dl 1989
-              li.dl 1990
-              li.dl 1991
-              li.dl 1992
-              li.dl 1993
-              li.dl 1994
-              li.dl 1995
-              li.dl 1996
+              - for (var i = 1960; i < 1994; ++i) {
+                li.dl #{i}
+              - }
           .mainSelectElement.monthEdit.withShadow#month-select
-            span#month-edit-select
+            span#month-edit-select Январь
             .dd
             .du
             ul.droped.withShadow
-              li.dl Январь
-              li.dl Февраль
-              li.dl Март
-              li.dl Апрель
-              li.dl Май
-              li.dl Июнь
-              li.dl Июль
-              li.dl Август
-              li.dl Сентябрь
-              li.dl Октябрь
-              li.dl Ноябрь
-              li.dl Декабрь
+              li(class="dl", month="01") Январь
+              li(class="dl", month="02") Февраль
+              li(class="dl", month="03") Март
+              li(class="dl", month="04") Апрель
+              li(class="dl", month="05") Май
+              li(class="dl", month="06") Июнь
+              li(class="dl", month="07") Июль
+              li(class="dl", month="08") Август
+              li(class="dl", month="09") Сентябрь
+              li(class="dl", month="10") Октябрь
+              li(class="dl", month="11") Ноябрь
+              li(class="dl", month="12") Декабрь
             .statusDrop
           .mainSelectElement.dayEdit.withShadow#day-select
-            span#day-edit-select
+            span#day-edit-select 01
             .dd
             .du
             ul.droped.withShadow
-              li.dl 1
-              li.dl 2
-              li.dl 3
-              li.dl 4
-              li.dl 5
-              li.dl 6
-              li.dl 7
-              li.dl 8
-              li.dl 9
+              li.dl 01
+              li.dl 02
+              li.dl 03
+              li.dl 04
+              li.dl 05
+              li.dl 06
+              li.dl 07
+              li.dl 08
+              li.dl 09
               li.dl 10
               li.dl 11
               li.dl 12

@@ -1,17 +1,20 @@
 ul
   each user in users
     li
-      a.ldblock(href="/user/#{user.id}", data-user-id="#{user.id}")
-        img(src='/static/img/photo1.png')
-        .shadow
-          .favorite.link в избранное
-          .some lorem
-          .bot lorem ipsum 
-          .link is dolor
-        .info
-          .name=user.name
-          .city=user.city
-        #online
+      //- a.ldblock(href="/user/#{user.id}", data-user-id="#{user.id}")  
+      img(src=user.avatar_url)
+      .shadow
+        .favorite в избранное
+            img.like(src='../static/img/heart.png')
+        .some написать
+            img.write(src='../static/img/profile_messages.png')
+        .invite пригласить </br> в путешествие
+      .info
+        .name=user.name
+          span.year , 19
+        .city=user.city
+      if(user.online)
+        .online
 //
   li
     img(src='/static/img/photo1.png')
