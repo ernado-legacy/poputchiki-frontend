@@ -31,6 +31,7 @@ app.views.Search = Backbone.View.extend
             (data) ->
                 that.$el.find('.gallery').html jade.templates.search_users 
                     users: data
+        do @render
 
     toogle: (event) ->
         $(event.currentTarget).toggleClass('checked')
