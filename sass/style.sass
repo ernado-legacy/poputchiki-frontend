@@ -765,11 +765,12 @@ small
 			display: block
 		span
 			display: inline
-	#profile-rating
+	#profile-rating, .profile-rating
 		position: absolute
 		right: -5px
 		top: 55px
 		color: $header_blue
+		cursor: pointer
 /*PROFILE*/
 .searchBox
 	float: left
@@ -2048,6 +2049,7 @@ small
 	display: none
 	overflow-y: auto
 	margin-bottom: 100px
+	overflow-x: hidden
 	a 
 		color: $header_blue
 		+italic-font
@@ -2164,7 +2166,7 @@ small
 				margin-bottom: 5px
 			.city-in-profile
 				font-size: 15px
-.chavaPopup, .promoPopup, .chopPopup
+.chavaPopup, .promoPopup, .chopPopup, .ratingPopup
 	top: 10%
 	width: 558px
 	left: -moz-calc((100% - 560px)/2)
@@ -2265,7 +2267,7 @@ small
 		width: 100%
 		margin-left: 0px
 		+border-radius(0px, 0px, 4px, 4px)
-.promoPopup
+.promoPopup, .ratingPopup
 	top: 5%
 	width: 618px
 	left: -moz-calc((100% - 620px)/2)
@@ -2379,3 +2381,40 @@ span.error
 a.ldblock
 	display: block
 	text-decoration: none
+
+.ratingPopup
+	form
+		border: none
+		.pnct
+			margin-left: 40px
+		.profileBox
+			width: 150px
+			height: 150px
+			margin-right: 40px
+			.imgBox
+				width: 127px
+				height: 127px
+			.profile-rating
+				right: -13px
+				top: 26px
+				font-size: 15px
+				cursor: default
+		h2
+			margin-top: 20px
+		.textBox
+			float: left
+			width: 365px
+			margin-top: 25px
+			p
+				margin-bottom: 5px
+				font-weight: bold
+				width: 100%
+			.pnct
+				margin-bottom: 0px
+				+italic-font
+		.bilContainer
+			margin-bottom: 10px
+			.regButton, .price
+				margin-top: 10px
+			.regButton
+				margin-right: 140px
