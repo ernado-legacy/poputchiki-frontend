@@ -1,0 +1,50 @@
+-var name = 'Валентиин Петрович'
+-var year = '23'
+-var city = 'Москва'
+-var date = '25.11.14'
+-var time = '21:40'
+
+.profileContainer.clearfix
+  include leftbox
+  .guests
+    .rightBox
+      .title МОИ ГОСТИ
+      .people
+        ul.chatLine
+          li
+            img(src='../static/img/crs_item.png')
+            .info
+              .right
+                .last-date Заходил #{date}
+                .last-time в #{time}
+              .left
+                .name #{name}, #{year}
+                .city #{city}
+                span
+                 img(src='../static/img/house.png')
+                 img(src='../static/img/money.png') 
+          
+          li
+            img(src='../static/img/crs_item.png')
+            .info
+              .right
+                .last-date Заходил #{date}
+                .last-time в #{time}
+              .left
+                .name #{name}, #{year}
+                .city #{city}
+                span
+                 img(src='../static/img/house.png')
+                 img(src='../static/img/money.png') 
+          li
+            img(src='../static/img/crs_item.png')
+            .info
+              .right
+                .last-date Заходил #{date}
+                .last-time в #{time}
+              .left
+                .name #{name}, #{year}
+                .city #{city}
+                span
+                 img(src='../static/img/house.png')
+                 img(src='../static/img/money.png') 

@@ -4,7 +4,7 @@ app.views.Entered = Backbone.View.extend
 
     events:
         'click #header-journeys': 'search'
-        'click .header-profile-statuses': 'statuses'
+        'click .header-profile-statuses': 'guests'
         'click .audio': 'play_audio'
         'click .video': 'play_video'
 
@@ -27,12 +27,19 @@ app.views.Entered = Backbone.View.extend
                 app.views.search = new app.views.Search
 
                 app.views.statuses = new app.views.Statuses
+
+                app.views.guests = new app.views.Guests
+
+
                 if window.location.pathname == '/' or window.location.pathname == '/profile/'
                     do app.views.profile.render
                 if window.location.pathname.search('/message/') != -1
                     do app.views.message.render
                     do app.views.messageside.render
                 if window.location.pathname.search('/user/') != -1
+                    do app.views.guestprofile.render
+
+                if window.location.pathname.search('/guests/') != -1
                     do app.views.guestprofile.render
 
     search: ->
@@ -46,6 +53,9 @@ app.views.Entered = Backbone.View.extend
 
     statuses: ->
         do app.views.statuses.render
+
+    guests: ->
+        do app.views.guests.render
 
     stopMedia: ->
         $('.audio').children().each ->

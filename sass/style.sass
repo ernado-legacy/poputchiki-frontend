@@ -718,7 +718,6 @@ small
         display: none
 
 .profileBox
-<<<<<<< HEAD
     float: left
     background-image: url('../img/b_ellips.png')
     background-repeat: no-repeat
@@ -766,67 +765,12 @@ small
             display: block
         span
             display: inline
-    #profile-rating
+    #profile-rating, .profile-rating
         position: absolute
         right: -5px
         top: 55px
         color: $header_blue
-        z-index: 1024
-=======
-	float: left
-	background-image: url('../img/b_ellips.png')
-	background-repeat: no-repeat
-	background-size: contain
-	width: 277px
-	height: 277px
-	position: relative
-	font-size: 18px
-	.imgBox
-		margin: 12px 0 0 11px
-		+border-radius(50%, 50%, 50%, 50%)
-		position: relative
-		z-index: 100
-		width: 252px
-		height: 252px
-		img, .cover
-			width: 100%
-			height: 100%
-			position: relative
-			z-index: 100
-			+border-radius(50%, 50%, 50%, 50%)
-		.cover
-			position: absolute
-			background-color: black
-			opacity: 0.5
-			z-index: 200
-			top: 0
-			display: none
-		span
-			color: white
-			cursor: pointer
-			background-image: url('../img/profile_photos.png')
-			background-repeat: no-repeat
-			padding-left: 40px
-			position: absolute
-			line-height: 36px
-			font-size: 16px
-			bottom: 40px
-			opacity: 1
-			z-index: 300
-			left: 20%
-			display: none
-	.imgBox:hover
-		.cover
-			display: block
-		span
-			display: inline
-	#profile-rating, .profile-rating
-		position: absolute
-		right: -5px
-		top: 55px
-		color: $header_blue
-		cursor: pointer
->>>>>>> 3f3430f903f66e6284a501c81a500b9fa9e1463a
+        cursor: pointer
 /*PROFILE*/
 .searchBox
     float: left
@@ -950,7 +894,7 @@ small
     float: left
 #search-slidedown
     float: none
-.profile-edit-slideup, .profile-search
+.profile-edit-slideup
     width: 112px
     margin-left: 15px
     height: 37px
@@ -965,10 +909,6 @@ small
         opacity: 1
         font-size: 15px
         line-height: 37px
-
-.profile-search
-    width: 210px
-    margin-top: 20px
 
 .profileContainer
     width: 1300px
@@ -1257,14 +1197,13 @@ small
 
 .money-icon, .house-icon
     float: left
-    background-image: url('../img/money2.png')
+    background-image: url('../img/money.png')
     background-repeat: no-repeat
     width: 35px
-    height: 32px
+    height: 26px
     margin-top: 3px
     cursor: pointer
     position: relative
-    background-size: 35px
 
 .money-icon, .house-icon, .edit
     .tooltip
@@ -1298,12 +1237,12 @@ small
         opacity: 1
         transition-delay: 0s
 .mg-icon
-    background-image: url('../img/money2_g.png')
+    background-image: url('../img/money_g.png')
 
 .house-icon
-    background-image: url('../img/house2.png')
+    background-image: url('../img/house.png')
 .hg-icon
-    background-image: url('../img/house2_g.png')
+    background-image: url('../img/house_g.png')
 
 .wantToTravelBox
     float: left
@@ -1876,12 +1815,14 @@ small
     text-align: left
 /*END LOGIN REGISTER*/
 .searchContainer
-    width: 80%
+    width: 1000px
     margin: auto
-.search 
-    // .rightBox
-    //  max-width: 550px
-    //  width: 550px
+.search
+    .searchBox
+        width: 75%
+    .rightBox
+        max-width: 550px
+        width: 550px
     .rightHeader
         font-size: 25px
         .searchBox
@@ -1907,121 +1848,69 @@ small
                 cursor: pointer
                 background: url(../img/journeys.png) no-repeat              
         .results
-            margin-bottom: 18px     
+            float: right
+            margin-top: 18px        
             color: $header_green
             .count
                 font-weight: bold       
                 font-size: 32px
-    .gallery            
+    .gallery    
+        margin-top: 80px
+        max-width: 600px
         li
             margin: 0 10px 10px 0
             float: left
             cursor: pointer
             font-size: 14px
-            width: 125px
-            height: 125px
+        
             img
-                width: 100%
-                height: 100%
+                width: 98px
+                height: 110px
                 z-index: 1
             .info
-                color: black
                 position: absolute
-                margin: -35px 5px   
-                .name 
-                    font-weight: bold                   
-            .online
+                margin: -40px 10px                      
+            #online
                 background-image: url('../img/circle.png')
                 background-repeat: no-repeat
                 position: absolute
-                margin-top: -125px
-                margin-left: 105px
+                margin-top: -107px
+                margin-left: 78px
                 width: 18px
                 height: 18px
                 z-index: 100
             .shadow
-                transition: all .8s ease
                 box-sizing: border-box
                 -moz-box-sizing: border-box
                 -webkit-box-sizing: border-box
                 padding-top: 5px
                 display: none
                 line-height: 20px
-                font-size: 12px
                 .bot
                     margin-top: 15px
             &:hover             
                 cursor: default
                 .info
                     display: none
-                .online
+                #online
                     display: none       
                 .shadow     
-                    padding: 10px 0
+                    -webkit-transition: all .8s ease
+                    -moz-transition: all .8s ease
+                    -ms-transition: all .8s ease
+                    -o-transition: all .8s ease
+                    transition: all .8s ease
                     position: absolute
-                    margin-top: -127px
+                    margin-top: -112px
                     display: block
-                    width: 125px
-                    height: 125px
+                    width: 99px
+                    height: 110px
                     background: rgba(0,0,0,0.5)
                     z-index: 10
-                    text-align: center                              
-                    img
-                        width: 13px
-                        height: 13px
-                        margin-left: 10px
-                    div, a
-                        color: white
-                        display: block
+                    text-align: center          
+                    .link 
                         cursor: pointer
-                        &:hover
-                            text-decoration: underline
-                    .invite
-                        margin-top: 30px
-                        line-height: 15px
-.noMarginTop
-    margin-top: 0
-
-.guests 
-    .title
-        width: 100%
-        background: #eee
-        padding: 10px 0 10px 10px
-        color: rgba(0,0,0,0.7)
-    .rightBox
-        width: 55%
-        .chatLine
-            font-size: 13px
-            float: none
-            width: 400px
-            margin: 20px auto
-            position: static
-            color: #000
-            li
-                width: 360px
-                height: 85px
-                border-right: 1px solid $chat_line_border
-                cursor: default
-                .info
-                    padding: 10px
-                    margin-left: 40px
-                    line-height: 15px
-                    .name
-                        font-weight: bold
-                    span
-                        margin-left: 0
-                        img
-                            width: 17px
-                            height: 17px
-                            position: static
-                            cursor: pointer
-                            margin-right: 5px
-                            opacity: 0.7
-                img
-                    height: 90px
-                    width: 90px
-                    left: -60px 
-
+                        text-decoration: underline
 .noMarginTop
     margin-top: 0
 
@@ -2246,7 +2135,6 @@ small
             margin-left: -webkit-calc((100% - 112px)/2)
             margin-left: calc((100% - 112px)/2)
 .photoPopup, .videoPopup
-<<<<<<< HEAD
     top: 10%
     left: 25%
     width: 50%
@@ -2278,7 +2166,7 @@ small
                 margin-bottom: 5px
             .city-in-profile
                 font-size: 15px
-.chavaPopup, .promoPopup, .chopPopup
+.chavaPopup, .promoPopup, .chopPopup, .ratingPopup
     top: 10%
     width: 558px
     left: -moz-calc((100% - 560px)/2)
@@ -2379,7 +2267,7 @@ small
         width: 100%
         margin-left: 0px
         +border-radius(0px, 0px, 4px, 4px)
-.promoPopup
+.promoPopup, .ratingPopup
     top: 5%
     width: 618px
     left: -moz-calc((100% - 620px)/2)
@@ -2435,196 +2323,6 @@ small
                 margin-top: 0px
             .upload-new-video
                 margin-top: 30px
-=======
-	top: 10%
-	left: 25%
-	width: 50%
-	background-color: white
-	padding: 50px 20px 0px 20px
-	+border-radius(4px, 4px, 4px, 4px)
-	.imgBox
-		img, iframe
-			width: 100%
-		iframe
-			height: 500px
-	.infoBox
-		img
-			height: 80px
-			width: 80px
-			+border-radius(50%,50%,50%,50%)
-			float: left
-			margin: 10px
-		.leftPart
-			float: left
-			margin-left: 10px
-			width: 210px
-			margin-top: 20px
-			padding: 10px 0 0 0
-			background: transparent
-			color: $profile_status_text
-			.name-in-profile
-				font-weight: bold
-				margin-bottom: 5px
-			.city-in-profile
-				font-size: 15px
-.chavaPopup, .promoPopup, .chopPopup, .ratingPopup
-	top: 10%
-	width: 558px
-	left: -moz-calc((100% - 560px)/2)
-	left: -webkit-calc((100% - 560px)/2)
-	left: calc((100% - 560px)/2)
-	background-color: white
-	+border-radius(4px, 4px, 4px, 4px)
-	form
-		padding: 35px 25px
-		border: 1px solid $profile_status_border
-		+border-radius(4px, 4px, 0px, 0px)
-		border-bottom: none
-		h1, h2
-			color: $profile_status_text
-			font-size: 24px
-			font-weight: bold
-			width: 100%
-			float: left
-		h2
-			font-size: 20px
-		.greenDots
-			margin-bottom: 10px
-		.changeAvatarBox
-			margin-bottom: 50px
-			margin-top: 10px
-			img
-				float: left
-				width: 155px
-				height: 155px
-				+border-radius(50%,50%,50%,50%)
-			.popupArrow
-				float: left
-				width: 31px
-				height: 58px
-				background-image: url("../img/popup_arrow.png")
-				margin-top: 46px
-				margin-left: 20px
-				margin-right: 20px
-			.controlBox
-				float: left
-				width: 200px
-				.mainSelectElement
-					cursor: pointer
-					margin-top: 40px
-					padding-right: 7px
-					span
-						color: $profile_status_text
-				input
-					display: none
-				#delete-avatar
-					background-image: url("../img/delete.png")
-					background-repeat: no-repeat
-					padding-left: 15px
-					margin-top: 20px
-					color: $profile_status_text
-					font-size: 16px
-					cursor: pointer
-					background-position: 0% 40%
-		p
-			float: left
-			color: $profile_status_text
-			margin-bottom: 15px
-			font-size: 15px
-		.playerBox
-			float: left
-			width: 100%
-			.audio
-				position: static
-				float: left
-			.timeBar
-				float: left
-				width: 250px
-				height: 5px
-				margin-left: 10px
-				margin-top: 7px
-				background-color: $timebar
-				position: relative
-				z-index: 100
-				.progress
-					position: absolute
-					background-color: $timebar_progress
-					top: 0
-					left: 0
-					height: 5px
-					width: 0%
-					z-index: 200
-		.upload-new-audio, .upload-new-video
-			float: left
-			cursor: pointer
-			margin-top: 10px
-			padding-right: 7px
-			margin-bottom: 20px
-			span
-				color: $profile_status_text
-		.upload-new-audio-input
-			display: none
-	.save-new-ava-audio, .add-to-promo, .choose-promo-photo
-		width: 100%
-		margin-left: 0px
-		+border-radius(0px, 0px, 4px, 4px)
-.promoPopup, .ratingPopup
-	top: 5%
-	width: 618px
-	left: -moz-calc((100% - 620px)/2)
-	left: -webkit-calc((100% - 620px)/2)
-	left: calc((100% - 620px)/2)
-	form
-		.crsItem
-			width: 94px
-			height: 94px
-			.videoBox
-				width: 94px
-				height: 94px
-				.frontLayer
-					width: 94px
-					height: 94px
-				video
-					width: 94px
-					height: 94px
-			.video
-				right: 6px
-			img
-				width: 94px
-				height: 94px
-		.changeAvatarBox
-			margin-bottom: 10px
-		.chooseBox
-			width: 100%
-			float: left
-			margin-bottom: 10px
-			.mainSelectElement
-				cursor: pointer
-				margin-top: 0px
-				padding-right: 7px
-				float: left
-				span
-					color: $profile_status_text
-		.bilContainer
-			.upload-money
-				float: right
-				width: 200px
-			.price
-				float: right
-				color: $header_blue
-				+italic-font
-				font-size: 36px
-				font-weight: normal
-				small
-					color: $header_blue
-					+italic-font
-		.videoContainer
-			margin-bottom: 20px
-			.crsItem
-				margin-top: 0px
-			.upload-new-video
-				margin-top: 30px
->>>>>>> 3f3430f903f66e6284a501c81a500b9fa9e1463a
 .chopPopup
     .choose-promo-photo
         width: 100%
@@ -2681,47 +2379,42 @@ span.error
     display: none
 
 a.ldblock
-<<<<<<< HEAD
     display: block
     text-decoration: none
-=======
-	display: block
-	text-decoration: none
 
 .ratingPopup
-	form
-		border: none
-		.pnct
-			margin-left: 40px
-		.profileBox
-			width: 150px
-			height: 150px
-			margin-right: 40px
-			.imgBox
-				width: 127px
-				height: 127px
-			.profile-rating
-				right: -13px
-				top: 26px
-				font-size: 15px
-				cursor: default
-		h2
-			margin-top: 20px
-		.textBox
-			float: left
-			width: 365px
-			margin-top: 25px
-			p
-				margin-bottom: 5px
-				font-weight: bold
-				width: 100%
-			.pnct
-				margin-bottom: 0px
-				+italic-font
-		.bilContainer
-			margin-bottom: 10px
-			.regButton, .price
-				margin-top: 10px
-			.regButton
-				margin-right: 140px
->>>>>>> 3f3430f903f66e6284a501c81a500b9fa9e1463a
+    form
+        border: none
+        .pnct
+            margin-left: 40px
+        .profileBox
+            width: 150px
+            height: 150px
+            margin-right: 40px
+            .imgBox
+                width: 127px
+                height: 127px
+            .profile-rating
+                right: -13px
+                top: 26px
+                font-size: 15px
+                cursor: default
+        h2
+            margin-top: 20px
+        .textBox
+            float: left
+            width: 365px
+            margin-top: 25px
+            p
+                margin-bottom: 5px
+                font-weight: bold
+                width: 100%
+            .pnct
+                margin-bottom: 0px
+                +italic-font
+        .bilContainer
+            margin-bottom: 10px
+            .regButton, .price
+                margin-top: 10px
+            .regButton
+                margin-right: 140px
