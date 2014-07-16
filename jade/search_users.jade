@@ -6,7 +6,7 @@ ul
       .shadow
         .favorite в избранное
             img.like(src='../static/img/heart.png')
-        .some написать
+        a.some(href="/user/#{user.id}", data-user-id="#{user.id}")   написать
             img.write(src='../static/img/profile_messages.png')
         .invite пригласить </br> в путешествие
       .info
