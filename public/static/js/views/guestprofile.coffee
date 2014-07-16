@@ -13,7 +13,7 @@ app.views.GuestProfile = Backbone.View.extend
         @.model.fetch()
         return
 
-    get_my_user: (callback) ->
+    get_user: (callback) ->
         user = new app.models.User 
             id: window.location.pathname.split('/').slice(2)[0]
         user.fetch
@@ -25,7 +25,11 @@ app.views.GuestProfile = Backbone.View.extend
 
     render: ->
         that = @
-        @get_my_user (user) ->
+        @get_user (user) ->
+            user_id = $.cookie('user')
+            
+            user.visit_user_by user_id if user_id
+
             $ that.$el.html jade.templates.guest_profile
                 user: user.attributes
 

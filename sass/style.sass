@@ -1818,14 +1818,12 @@ small
     text-align: left
 /*END LOGIN REGISTER*/
 .searchContainer
-    width: 1000px
+    width: 80%
     margin: auto
-.search
-    .searchBox
-        width: 75%
-    .rightBox
-        max-width: 550px
-        width: 550px
+.search 
+    // .rightBox
+    //  max-width: 550px
+    //  width: 550px
     .rightHeader
         font-size: 25px
         .searchBox
@@ -1851,69 +1849,78 @@ small
                 cursor: pointer
                 background: url(../img/journeys.png) no-repeat              
         .results
-            float: right
-            margin-top: 18px        
+            margin-bottom: 18px     
             color: $header_green
             .count
                 font-weight: bold       
                 font-size: 32px
-    .gallery    
-        margin-top: 80px
-        max-width: 600px
+    .gallery            
         li
             margin: 0 10px 10px 0
             float: left
             cursor: pointer
             font-size: 14px
-        
+            width: 125px
+            height: 125px
             img
-                width: 98px
-                height: 110px
+                width: 100%
+                height: 100%
                 z-index: 1
             .info
+                color: black
                 position: absolute
-                margin: -40px 10px                      
-            #online
+                margin: -35px 5px   
+                .name 
+                    font-weight: bold                   
+            .online
                 background-image: url('../img/circle.png')
                 background-repeat: no-repeat
                 position: absolute
-                margin-top: -107px
-                margin-left: 78px
+                margin-top: -125px
+                margin-left: 105px
                 width: 18px
                 height: 18px
                 z-index: 100
             .shadow
+                transition: all .8s ease
                 box-sizing: border-box
                 -moz-box-sizing: border-box
                 -webkit-box-sizing: border-box
                 padding-top: 5px
                 display: none
                 line-height: 20px
+                font-size: 12px
                 .bot
                     margin-top: 15px
             &:hover             
                 cursor: default
                 .info
                     display: none
-                #online
+                .online
                     display: none       
                 .shadow     
-                    -webkit-transition: all .8s ease
-                    -moz-transition: all .8s ease
-                    -ms-transition: all .8s ease
-                    -o-transition: all .8s ease
-                    transition: all .8s ease
+                    padding: 10px 0
                     position: absolute
-                    margin-top: -112px
+                    margin-top: -127px
                     display: block
-                    width: 99px
-                    height: 110px
+                    width: 125px
+                    height: 125px
                     background: rgba(0,0,0,0.5)
                     z-index: 10
-                    text-align: center          
-                    .link 
+                    text-align: center                              
+                    img
+                        width: 13px
+                        height: 13px
+                        margin-left: 10px
+                    div, a
+                        color: white
+                        display: block
                         cursor: pointer
-                        text-decoration: underline
+                        &:hover
+                            text-decoration: underline
+                    .invite
+                        margin-top: 30px
+                        line-height: 15px
 .noMarginTop
     margin-top: 0
 
@@ -2402,6 +2409,7 @@ a.ldblock
                 top: 26px
                 font-size: 15px
                 cursor: default
+                z-index: 1024
         h2
             margin-top: 20px
         .textBox
