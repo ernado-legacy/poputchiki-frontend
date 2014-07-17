@@ -74,11 +74,10 @@ $(function(){
 		$('.leftMenu li span').removeClass('visibleSpan');
 	}
 
-	showMenu('webkitTransitionEnd');
-	showMenu('oTransitionEnd');
-	showMenu('MSAnimationEnd');
-	showMenu('transitionend');
-
+	// showMenu('webkitTransitionEnd');
+	// showMenu('oTransitionEnd');
+	// showMenu('MSAnimationEnd');
+	// showMenu('transitionend');
 
 	var activeAgeBox = function(cell){
 		$(cell).children('input').focus(function(){

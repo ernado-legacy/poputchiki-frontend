@@ -11,8 +11,8 @@ app.views.Search = Backbone.View.extend
         that = this
 
         query =
-            offset: 0
-            count: 100
+            # offset: 0
+            # count: 100
             sex: 'male'
 
         from = $('#search-age-from').val()

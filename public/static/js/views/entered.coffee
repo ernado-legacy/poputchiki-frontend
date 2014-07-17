@@ -7,12 +7,43 @@ app.views.Entered = Backbone.View.extend
         'click .header-profile-statuses': 'statuses'
         'click .audio': 'play_audio'
         'click .video': 'play_video'
+        'click .leftMenu li': 'changemenu'
+
+    showMenu: (end) ->
+        anim = document.getElementById("left-menu")
+        anim.addEventListener(end, ( event ) ->
+            if $('.leftMenu li').width() > 60
+                $('.leftMenu li span').addClass 'visibleSpan'
+            else
+                $('.leftMenu li span').removeClass 'visibleSpan'
+            
+        ,false)
+
+    setmenuitem: (item) ->
+        $('.leftMenu li').removeClass('current');
+        $(item).addClass('current');
+
+    changemenu: (event) ->
+        menuhash =
+            'menu-messgaes': app.views.message
+            'menu-favorites': app.views.favorite
+            'menu-photos': app.views.photo
+            'menu-rating': app.views.rating
+            'menu-tools': app.views.setting
+
+        id = event.currentTarget.id
+        view = menuhash[id]
+        do view.render
 
     render: ->
         $ @.$el.html jade.templates.entered()
         $('body').removeClass 'loginRegisterBody'
+        @showMenu 'webkitTransitionEnd'
+        @showMenu 'oTransitionEnd'
+        @showMenu 'MSAnimationEnd'
+        @showMenu 'transitionend'
 
-    initialize: ->
+    init: ->
         that = this
         app.views.login.check_status (result) ->
             if not result
@@ -25,6 +56,10 @@ app.views.Entered = Backbone.View.extend
                 app.views.guestprofile = new app.views.GuestProfile
                 app.views.search = new app.views.Search
                 app.views.statuses = new app.views.Statuses
+                app.views.favorite = app.views.Favorite
+                app.views.photo = app.views.Photo
+                app.views.rating = app.views.Rating
+                app.views.setting = app.views.Setting
                 if window.location.pathname == '/' or window.location.pathname == '/profile/'
                     do app.views.profile.render
                 if window.location.pathname.search('/message/') != -1
@@ -100,3 +135,4 @@ app.views.Entered = Backbone.View.extend
         return
 $ ->
     app.views.entered = new app.views.Entered
+    app.views.entered.init()
