@@ -181,5 +181,5 @@ $(function() {
     $('.addPhoto').click(function() {
         $('.addPhoto input').click();
     });
->>>>>>> 36c2fb3148724310e08e841b74cc014aee5f4f08
+ >>> >>> > 36c2fb3148724310e08e841b74cc014aee5f4f08
 });

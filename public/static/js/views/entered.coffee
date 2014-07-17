@@ -27,7 +27,7 @@ app.views.Entered = Backbone.View.extend
         menuhash =
             'menu-messgaes': app.views.message
             'menu-favorites': app.views.favorite
-            'menu-photos': app.views.photo
+            # 'menu-photos': app.views.photo
             'menu-rating': app.views.rating
             'menu-tools': app.views.setting
 
@@ -58,8 +58,10 @@ app.views.Entered = Backbone.View.extend
                 app.views.search = new app.views.Search
 
                 app.views.statuses = new app.views.Statuses
+                app.views.user_photo_block = new app.views.UserPhotoBlock
+                
                 app.views.favorite = app.views.Favorite
-                app.views.photo = app.views.Photo
+                # app.views.photo = app.views.Photo
                 app.views.rating = app.views.Rating
                 app.views.setting = app.views.Setting
 

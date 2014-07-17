@@ -1,68 +1,73 @@
-.photoVideoBlock
-  .photoHeaderBox
-    .photoHeader.activeHeader
-      .title 
-        span фото
-    .videoHeader
-      .title
-        span видео
-    .addPhoto
+.photoHeaderBox
+  .photoHeader.activeHeader
+    .title 
+      span фото
+  .videoHeader
+    .title
+      span видео
+  .addPhoto
+    span Добавить фото
+  form.addPhoto.loginRegisterBlock.step.clearfix(style="display:none")
       span Добавить фото
-      input(type='file', size='1')
-  .photoBox
-    .view
-      .view-back
-        span
-          div 1140
-          i.icon-eye-open
-        span
-          div 754
-          i.icon-heart
-      .slice.s1(style="background-image: url('/static/img/photo1.png');")
+      .photo-load
+        .button
+          button Загрузить фотографию
+          input(type='file')
+      input#imgfile(type="file", name="file", style="visibility: hidden;")
+.photoBox
+  .view
+    .view-back
+      span
+        div 1140
+        i.icon-eye-open
+      span
+        div 754
+        i.icon-heart
+    .slice.s1(style="background-image: url('/static/img/photo1.png');")
+      span.overlay
+      .slice.s2(style="background-image: url('/static/img/photo1.png');")
         span.overlay
-        .slice.s2(style="background-image: url('/static/img/photo1.png');")
+        .slice.s3(style="background-image: url('/static/img/photo1.png');")
           span.overlay
-          .slice.s3(style="background-image: url('/static/img/photo1.png');")
+          .slice.s4(style="background-image: url('/static/img/photo1.png');")
             span.overlay
-            .slice.s4(style="background-image: url('/static/img/photo1.png');")
+            .slice.s5(style="background-image: url('/static/img/photo1.png');")
               span.overlay
-              .slice.s5(style="background-image: url('/static/img/photo1.png');")
-                span.overlay
-    .view
-      .view-back
-        span
-          div 1140
-          i.icon-eye-open
-        span
-          div 754
-          i.icon-heart
-      .slice.s1(style="background-image: url('/static/img/photo1.png');")
+  .view
+    .view-back
+      span
+        div 1140
+        i.icon-eye-open
+      span
+        div 754
+        i.icon-heart
+    .slice.s1(style="background-image: url('/static/img/photo1.png');")
+      span.overlay
+      .slice.s2(style="background-image: url('/static/img/photo1.png');")
         span.overlay
-        .slice.s2(style="background-image: url('/static/img/photo1.png');")
+        .slice.s3(style="background-image: url('/static/img/photo1.png');")
           span.overlay
-          .slice.s3(style="background-image: url('/static/img/photo1.png');")
+          .slice.s4(style="background-image: url('/static/img/photo1.png');")
             span.overlay
-            .slice.s4(style="background-image: url('/static/img/photo1.png');")
+            .slice.s5(style="background-image: url('/static/img/photo1.png');")
               span.overlay
-              .slice.s5(style="background-image: url('/static/img/photo1.png');")
-                span.overlay
-    .view
-      .view-back
-        span
-          div 1140
-          i.icon-eye-open
-        span
-          div 754
-          i.icon-heart
-      .slice.s1(style="background-image: url('/static/img/photo1.png');")
+  .view
+    .view-back
+      span
+        div 1140
+        i.icon-eye-open
+      span
+        div 754
+        i.icon-heart
+    .slice.s1(style="background-image: url('/static/img/photo1.png');")
+      span.overlay
+      .slice.s2(style="background-image: url('/static/img/photo1.png');")
         span.overlay
-        .slice.s2(style="background-image: url('/static/img/photo1.png');")
+        .slice.s3(style="background-image: url('/static/img/photo1.png');")
           span.overlay
-          .slice.s3(style="background-image: url('/static/img/photo1.png');")
+          .slice.s4(style="background-image: url('/static/img/photo1.png');")
             span.overlay
-            .slice.s4(style="background-image: url('/static/img/photo1.png');")
+            .slice.s5(style="background-image: url('/static/img/photo1.png');")
               span.overlay
-              .slice.s5(style="background-image: url('/static/img/photo1.png');")
-                span.overlay
-  .videoBox
-    img(src='/static/img/photo1.png')
+.videoBox
+  img(src='/static/img/photo1.png')
