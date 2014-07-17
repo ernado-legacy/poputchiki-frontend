@@ -2,11 +2,14 @@ app.models.User = Backbone.Model.extend
     urlRoot: '/api/user/'
     visit_user_by: (guest_id) ->
         $.ajax
-          url: '/api/user/'+guest_id+'/guests'
+          url: '/api/user/'+@.get('id')+'/guests'
           type: 'PUT'
-          data: "target="+@.get('id')
+          data: "target="+guest_id
           success: (data) ->
             console.log 'user now has new guest'
+    parse: (response)->
+        console.log 'parsing'
+        response
 
 
 User = app.models.User
