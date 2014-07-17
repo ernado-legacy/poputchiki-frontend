@@ -233,10 +233,10 @@ small
     float: right
 
 .mainTopContainer
-	min-width: 1272px
-	max-width: 1500px
-	min-height: 200px
-	margin: 0 auto
+    min-width: 1272px
+    max-width: 1500px
+    min-height: 200px
+    margin: 0 auto
 
 .mainContainer
     float: left
@@ -886,15 +886,15 @@ small
     background-repeat: no-repeat
     background-position: 50%
 .slideDown, .slideUp
-	+italic-font
-	color: $header_blue
-	text-decoration: underline
-	margin-top: 8px
-	cursor: pointer
-	display: block
-	float: left
+    +italic-font
+    color: $header_blue
+    text-decoration: underline
+    margin-top: 8px
+    cursor: pointer
+    display: block
+    float: left
 #profile-slidedown
-	float: right
+    float: right
 #search-slidedown
     float: none
 .profile-edit-slideup, .profile-search
@@ -1207,36 +1207,36 @@ small
     background-repeat: no-repeat
     width: 35px
     height: 35px
-    margin-top: 3px
+    margin-top: -6px
     cursor: pointer
     position: relative
     background-size: 35px
 
 .money-icon, .house-icon, .edit
-	.tooltip
-		visibility: hidden
-		opacity: 0
-		transition: visibility 0s linear 0.5s,opacity 0.5s linear
-
-		background-color: black
-		+border-radius(4px, 4px, 4px, 4px)
-		bottom: -24px
-		left: 0px
-		position: absolute
-		span
-			font-size: 12px !important
-			padding: 4px
-			color: white !important
-			float: left
-		.tooltip-arrow
-			width: 0
-			height: 0
-			border-left: 5px solid transparent
-			border-right: 5px solid transparent
-			border-bottom: 5px solid black
-			position: absolute
-			left: 5px
-			top: -4px
+    .tooltip
+        visibility: hidden
+        opacity: 0
+        transition: visibility 0s linear 0.5s,opacity 0.5s linear
+        z-index: 1
+        background-color: black
+        +border-radius(4px, 4px, 4px, 4px)
+        bottom: -24px
+        left: 0px
+        position: absolute
+        span
+            font-size: 12px !important
+            padding: 4px
+            color: white !important
+            float: left
+        .tooltip-arrow
+            width: 0
+            height: 0
+            border-left: 5px solid transparent
+            border-right: 5px solid transparent
+            border-bottom: 5px solid black
+            position: absolute
+            left: 5px
+            top: -4px
 .money-icon:hover, .house-icon:hover, .edit:hover
     .tooltip
         visibility: visible
