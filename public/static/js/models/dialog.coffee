@@ -1,4 +1,4 @@
-app.models.Dialog = Backbone.Model.extend
+app.models.Dialog = Backbone.Model.extend()
 
 Dialog = app.models.Dialog
 

@@ -1,6 +1,13 @@
+Dialogs = app.models.Dialogs
+
 app.views.MessageSide = Backbone.View.extend
 
     el: '.photoVideoBlock'
 
     render: ->
-        $ @.$el.html jade.templates.chat_line()
+        that = @
+        dialogs = new Dialogs
+        dialogs.fetch
+            success: () ->
+                $ that.$el.html jade.templates.chat_line
+                    dialogs: dialogs

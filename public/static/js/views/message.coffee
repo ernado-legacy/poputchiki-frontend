@@ -12,6 +12,7 @@ app.views.Message = Backbone.View.extend
         history.pushState null, 'poputchiki', url
 
     render: ->
+        app.views.entered.setmenuitem '#menu-messgaes'
         $ @$el.html jade.templates.dialog()
 
     new_massage: (id, mess) ->
@@ -27,6 +28,9 @@ app.views.Message = Backbone.View.extend
             text: mess
         $('.bottomPart input').val ''
         @new_massage id, mess
+
+    update_mess: () ->
+        
 
 $ ->
     app.views.message = new app.views.Message

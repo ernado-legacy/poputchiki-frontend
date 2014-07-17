@@ -31,10 +31,10 @@ app.views.Profile = Backbone.View.extend
             that.newtag '#day-select'
             that.newtag '#city-select'
             that.newtag '#country-select'
-            that.showMenu 'webkitTransitionEnd'
-            that.showMenu 'oTransitionEnd'
-            that.showMenu 'MSAnimationEnd'
-            that.showMenu 'transitionend'
+            # that.showMenu 'webkitTransitionEnd'
+            # that.showMenu 'oTransitionEnd'
+            # that.showMenu 'MSAnimationEnd'
+            # that.showMenu 'transitionend'
             that.activeAgeBox '.ageFrom'
             that.activeAgeBox '.ageTo'
             that.moneyIcon '#my-profile .money-icon'
@@ -135,15 +135,15 @@ app.views.Profile = Backbone.View.extend
             # event.preventDefault()
             # event.stopPropagation()
 
-    showMenu: (end) ->
-        anim = document.getElementById("left-menu")
-        anim.addEventListener(end, ( event ) ->
-            if $('.leftMenu li').width() > 60
-                $('.leftMenu li span').addClass 'visibleSpan'
-            else
-                $('.leftMenu li span').removeClass 'visibleSpan'
-            
-        ,false)
+    # showMenu: (end) ->
+    #    anim = document.getElementById("left-menu")
+    #    anim.addEventListener(end, ( event ) ->
+    #        if $('.leftMenu li').width() > 60
+    #            $('.leftMenu li span').addClass 'visibleSpan'
+    #        else
+    #            $('.leftMenu li span').removeClass 'visibleSpan'
+    #        
+    #    ,false)
 
     activeAgeBox: (cell) ->
         $(cell).children('input').focus( ->
