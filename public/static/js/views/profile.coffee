@@ -23,7 +23,6 @@ app.views.Profile = Backbone.View.extend
         that = @
         history.pushState null, 'poputchiki', '/profile/'
         @get_my_user (user) ->
-            console.log user.attributes
             $ that.$el.html jade.templates.profile
                 user: user.attributes
             do profile_script
@@ -47,6 +46,7 @@ app.views.Profile = Backbone.View.extend
             that.showpopup '.videoBox img', '.videoPopup'
             that.showpopup '#change-avatar', '.chavaPopup'
             that.showpopup '.userBox img', '.promoPopup'
+            that.showpopup '#profile-rating', '.ratingPopup'
             that.closepopup '#send-lg-popup'
             that.closepopup '.closepopup'
             that.closepopup '.save-new-ava-audio'

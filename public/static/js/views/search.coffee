@@ -3,7 +3,8 @@ app.views.Search = Backbone.View.extend
     el: '.mainContentProfile'
 
     events:
-        'click .searchBox button': 'search'
+        # 'click .searchBox button': 'search'
+        'click .profile-search': 'search'
         'click a.ldblock': 'link'
         'click .box': 'toogle'
 
@@ -11,9 +12,9 @@ app.views.Search = Backbone.View.extend
         that = this
 
         query =
-            # offset: 0
-            # count: 100
-            sex: 'male'
+            offset: 0
+            count: 100
+            sex: 'female'
 
         from = $('#search-age-from').val()
         to = $('#search-age-to').val()
@@ -24,10 +25,13 @@ app.views.Search = Backbone.View.extend
         if to
             query.agemax = to
 
+        query.sex = if $('.manBox .checked').length == 1 then 'male' else 'female'
+
         app.models.search query,
             (data) ->
                 that.$el.find('.gallery').html jade.templates.search_users 
                     users: data
+        do @render
 
     toogle: (event) ->
         $(event.currentTarget).toggleClass('checked')
@@ -38,5 +42,8 @@ app.views.Search = Backbone.View.extend
         do app.views.guestprofile.render
 
     render: ->
+        that = @
         history.pushState null, 'poputchiki', '/search/'
-        $ @$el.html jade.templates.search()
+        app.views.profile.get_my_user (user) ->
+            $ that.$el.html jade.templates.search
+                user: user.attributes

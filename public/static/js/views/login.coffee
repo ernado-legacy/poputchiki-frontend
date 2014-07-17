@@ -13,8 +13,8 @@ app.views.Login = Backbone.View.extend
             callback false
 
     logout: ->
-        $.removeCookie 'token'
-        $.removeCookie 'user'
+        $.removeCookie 'token',  path: '/' 
+        $.removeCookie 'user',  path: '/'
         
         do @render
 
@@ -38,8 +38,11 @@ app.views.Login = Backbone.View.extend
         $('.loginRegisterBlock').removeClass 'shiv-block'
         app.models.login $(".loginRegisterBlock").serialize()
             , (data) ->
-                $.cookie 'token', data['token']
-                $.cookie 'user', data['id']
+                # $.cookie 'token', data['token']
+                # $.cookie 'user', data['id']
+
+                $.cookie('token', data['token'], { expires: 7, path: '/' });
+                $.cookie('user', data['id'], { expires: 7, path: '/' });
                 do app.views.entered.render
                 app.views.profile = new app.views.Profile
                 do app.views.profile.render

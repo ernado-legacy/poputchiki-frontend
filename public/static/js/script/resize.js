@@ -1,6 +1,6 @@
 $(window).load(function() {
 	if ($(window).width() >= 1730) {
-		$('.carouselBox').css('width','1316px');
+		$('.carouselBox').css('width','1440px');
 	}
 	else {
 		wdth = ($('.topContainer').width() - 210).toString() + 'px';
@@ -14,7 +14,7 @@ $(window).load(function() {
 
 $(window).resize(function() {
 	if ($(window).width() >= 1730) {
-		$('.carouselBox').css('width','1316px');
+		$('.carouselBox').css('width','1440px');
 	}
 	else {
 		wdth = ($('.topContainer').width() - 210).toString() + 'px';
