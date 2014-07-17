@@ -61,176 +61,176 @@ $timebar_progress: #46c713
 
 .clearfix:before,
 .clearfix:after 
-	display: table
-	content: " "
+    display: table
+    content: " "
 
 .clearfix:after
-	clear: both
+    clear: both
 
 ::-webkit-scrollbar
-	height: 1ex
-	width: 1ex
-	background: rgba(0, 0, 0, 0.3)
+    height: 1ex
+    width: 1ex
+    background: rgba(0, 0, 0, 0.3)
 
 ::-webkit-scrollbar-thumb
-	background: rgba(0, 0, 0, 0.3)
+    background: rgba(0, 0, 0, 0.3)
 
 ::-moz-scrollbar
-	height: 1ex
-	width: 1ex
-	background: rgba(0, 0, 0, 0.3)
+    height: 1ex
+    width: 1ex
+    background: rgba(0, 0, 0, 0.3)
 
 ::-moz-scrollbar-thumb
-	background: rgba(0, 0, 0, 0.3)
+    background: rgba(0, 0, 0, 0.3)
 
 =italic-font
-	font-family: 'Georgia'
-	font-style: italic
-	// font-weight: bold
+    font-family: 'Georgia'
+    font-style: italic
+    // font-weight: bold
 
 =simple-font
-	font-family: $simple_font
-	font-weight: normal
-	font-style: normal
+    font-family: $simple_font
+    font-weight: normal
+    font-style: normal
 
 =border-radius($radius-tl, $radius-tr, $radius-rb, $radius-tb)
-	-webkit-border-radius: $radius-tl $radius-tr $radius-rb $radius-tb
-	-moz-border-radius: $radius-tl $radius-tr $radius-rb $radius-tb
-	-ms-border-radius: $radius-tl $radius-tr $radius-rb $radius-tb
-	border-radius: $radius-tl $radius-tr $radius-rb $radius-tb
-	-khtml-border-radius: $radius-tl $radius-tr $radius-rb $radius-tb
-	-webkit-border-top-left-radius: $radius-tl
-	-webkit-border-top-right-radius: $radius-tr
-	-webkit-border-bottom-left-radius: $radius-rb
-	-webkit-border-bottom-right-radius: $radius-tb
+    -webkit-border-radius: $radius-tl $radius-tr $radius-rb $radius-tb
+    -moz-border-radius: $radius-tl $radius-tr $radius-rb $radius-tb
+    -ms-border-radius: $radius-tl $radius-tr $radius-rb $radius-tb
+    border-radius: $radius-tl $radius-tr $radius-rb $radius-tb
+    -khtml-border-radius: $radius-tl $radius-tr $radius-rb $radius-tb
+    -webkit-border-top-left-radius: $radius-tl
+    -webkit-border-top-right-radius: $radius-tr
+    -webkit-border-bottom-left-radius: $radius-rb
+    -webkit-border-bottom-right-radius: $radius-tb
 
 
 =search-checkboxes
-	span, .box
-		float: left
-	span
-		padding-left: 5px
-		text-transform: none
-		opacity: 1
-		line-height: 19px
-		font-size: 13px
-		color: $profile_status_text
+    span, .box
+        float: left
+    span
+        padding-left: 5px
+        text-transform: none
+        opacity: 1
+        line-height: 19px
+        font-size: 13px
+        color: $profile_status_text
 
 =add-input
-	input
-		width: 50px
-		+italic-font
-		background: transparent
-		font-size: 14px
-		border: none
-		margin: 0
-		color: $profile_status_text
-	input:focus
-		outline: none
-	input::-moz-placeholder
-		color: $profile_status_text
-	input::-webkit-input-placeholder
-		color: $profile_status_text
+    input
+        width: 50px
+        +italic-font
+        background: transparent
+        font-size: 14px
+        border: none
+        margin: 0
+        color: $profile_status_text
+    input:focus
+        outline: none
+    input::-moz-placeholder
+        color: $profile_status_text
+    input::-webkit-input-placeholder
+        color: $profile_status_text
 
 =add-title
-	.title
-		color: $title_text
-		text-transform: uppercase
-		font-size: 15px
-		float: left
-		font-weight: bold
+    .title
+        color: $title_text
+        text-transform: uppercase
+        font-size: 15px
+        float: left
+        font-weight: bold
 
 [class^="icon-"], [class*=" icon-"]
-	display: inline-block
-	width: 14px
-	height: 14px
-	margin-top: 1px
-	line-height: 14px
-	vertical-align: text-top
-	background-image: url("../img/icons.png")
-	background-position: 0px 2px
-	background-repeat: no-repeat
-	float: right
-	margin-right: 5px
+    display: inline-block
+    width: 14px
+    height: 14px
+    margin-top: 1px
+    line-height: 14px
+    vertical-align: text-top
+    background-image: url("../img/icons.png")
+    background-position: 0px 2px
+    background-repeat: no-repeat
+    float: right
+    margin-right: 5px
 .icon-eye-open
-	background-image: url("../img/eye.png")
+    background-image: url("../img/eye.png")
 .icon-heart
-	background-image: url("../img/heart.png")
+    background-image: url("../img/heart.png")
 
 html
-	width: 100%
-	height: 100%
+    width: 100%
+    height: 100%
 
 body
-	font-family: $simple_font
-	color: white
-	overflow-x: hidden
-	position: relative
+    font-family: $simple_font
+    color: white
+    overflow-x: hidden
+    position: relative
 .loginRegisterBody
-	height: 100%
-	width: 100%
-	background-size: cover
-	background-image: url("../img/login-background.jpg")
-	header
-		background-color: white
+    height: 100%
+    width: 100%
+    background-size: cover
+    background-image: url("../img/login-background.jpg")
+    header
+        background-color: white
 
-header	
-	min-width: 980px
-	height: 64px
-	border-bottom: 1px solid $header_undercolor
+header  
+    min-width: 980px
+    height: 64px
+    border-bottom: 1px solid $header_undercolor
 
 footer
-	min-width: 1272px
-	width: 100%
-	height: 41px
-	float: left
-	margin-top: 300px
-	background: black
-	opacity: 0.5
+    min-width: 1272px
+    width: 100%
+    height: 41px
+    float: left
+    margin-top: 300px
+    background: black
+    opacity: 0.5
 .footerLogin
-	position: fixed
-	bottom: 0
+    position: fixed
+    bottom: 0
 
 select
-	margin-right: 7px
-	margin-bottom: 8px
-	-webkit-appearance: none
-	-moz-appearance: none
-	appearance: none
+    margin-right: 7px
+    margin-bottom: 8px
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
 small 
-	font-size: 14px
+    font-size: 14px
 
 .mainWrapper
-	position: relative
+    position: relative
 .popupWrapper
-	position: fixed
-	top: 0
-	width: 100%
-	height: 100%
-	z-index: 9999
-	display: none
-	overflow-x: hidden
-	overflow-y: auto
+    position: fixed
+    top: 0
+    width: 100%
+    height: 100%
+    z-index: 9999
+    display: none
+    overflow-x: hidden
+    overflow-y: auto
 .popupBack
-	width: 100%
-	height: 100%
-	background-color: black
-	opacity: 0.7
-	position: fixed
-	z-index: 9998
-	display: none
-	top: 0
-	overflow-x: hidden
-	overflow-y: hidden
+    width: 100%
+    height: 100%
+    background-color: black
+    opacity: 0.7
+    position: fixed
+    z-index: 9998
+    display: none
+    top: 0
+    overflow-x: hidden
+    overflow-y: hidden
 .bodyPopup
-	position: absolute
-	top: 0
-	padding-right: 8px
-	overflow-x: hidden
-	overflow-y: hidden
+    position: absolute
+    top: 0
+    padding-right: 8px
+    overflow-x: hidden
+    overflow-y: hidden
 
 .right 
-	float: right
+    float: right
 
 .mainTopContainer
 	min-width: 1272px
@@ -239,651 +239,652 @@ small
 	margin: 0 auto
 
 .mainContainer
-	float: left
-	width: 100%
-	position: relative
-	min-width: 1272px
+    float: left
+    width: 100%
+    position: relative
+    min-width: 1272px
 
 .mainContent
-	margin: 0 auto
-	width: 1400px
-	position: relative
-	min-height: 400px
+    margin: 0 auto
+    width: 1400px
+    position: relative
+    min-height: 400px
 .leftBox
-	float: left
-	width: 277px
-	margin: 19px 23px 0 0
+    float: left
+    width: 277px
+    margin: 19px 23px 0 0
 .vsbl
-	visibility: visible
+    visibility: visible
 
 .view
-	cursor: pointer
+    cursor: pointer
 
 .hLogo
-	margin-left: 20px
-	margin-top: 15px
-	background-image: url('../img/logo.png')
-	background-repeat: no-repeat
-	height: 40px
-	float: left
-	cursor: pointer
-	span
-		padding-left: 70px
-		color: $header_logo
-		line-height: 40px
-		font-weight: bold
-		text-transform: uppercase
+    margin-left: 20px
+    margin-top: 15px
+    background-image: url('../img/logo.png')
+    background-repeat: no-repeat
+    height: 40px
+    float: left
+    cursor: pointer
+    span
+        padding-left: 70px
+        color: $header_logo
+        line-height: 40px
+        font-weight: bold
+        text-transform: uppercase
 
 .navigation
-	height: 48px
-	margin-top: 9px
-	float: right
-	list-style: none
-	li
-		float: left
-		background-repeat: no-repeat
-		background-position: 75% 100%
-		padding-right: 100px
-		height: inherit
-		cursor: pointer
-		span
-			float: left
-			line-height: 48px
-			text-transform: uppercase
-		span:hover
-			text-decoration: underline
-	#header-profile
-		color: $header_blue
-		background-image: url('../img/profile.png')
-		background-position: 85% 100%
-	#header-journeys
-		color: $header_green
-		background-image: url('../img/journeys.png')
-	#header-exit
-		color: $header_orange
-		background-image: url('../img/exit.png')
-		padding-right: 80px
+    height: 48px
+    margin-top: 9px
+    float: right
+    list-style: none
+    li
+        float: left
+        background-repeat: no-repeat
+        background-position: 75% 100%
+        padding-right: 100px
+        height: inherit
+        cursor: pointer
+        span
+            float: left
+            line-height: 48px
+            text-transform: uppercase
+        span:hover
+            text-decoration: underline
+    #header-profile
+        color: $header_blue
+        background-image: url('../img/profile.png')
+        background-position: 85% 100%
+    #header-journeys
+        color: $header_green
+        background-image: url('../img/journeys.png')
+    #header-exit
+        color: $header_orange
+        background-image: url('../img/exit.png')
+        padding-right: 80px
 
 .fLogo
-	margin-left: 11px
-	margin-top: 9px
-	background-image: url('../img/f_logo.png')
-	background-repeat: no-repeat
-	height: 22px
-	float: left
-	span
-		padding-left: 40px
-		color: white
-		line-height: 28px
-		font-size: 14px
-		text-transform: uppercase
+    margin-left: 11px
+    margin-top: 9px
+    background-image: url('../img/f_logo.png')
+    background-repeat: no-repeat
+    height: 22px
+    float: left
+    span
+        padding-left: 40px
+        color: white
+        line-height: 28px
+        font-size: 14px
+        text-transform: uppercase
 
 .aboutInfo
-	height: 22px
-	margin-top: 9px
-	float: left
-	list-style: none
-	margin-left: 60px
-	li
-		float: left
-		padding-right: 20px
-		height: inherit
-		cursor: pointer
-		span
-			float: left
-			line-height: 28px
-			text-transform: uppercase
-		span:hover
-			text-decoration: underline
+    height: 22px
+    margin-top: 9px
+    float: left
+    list-style: none
+    margin-left: 60px
+    li
+        float: left
+        padding-right: 20px
+        height: inherit
+        cursor: pointer
+        span
+            float: left
+            line-height: 28px
+            text-transform: uppercase
+        span:hover
+            text-decoration: underline
 .menuBox
-	position: absolute
-	left: 0
-	top: 300px
-	z-index: 2000
-	.leftMenu, .letsGo
-		width: 143px
-		li
-			height: 42px
-			width: 55px
-			border-top: 1px solid $menu_border
-			border-right: 1px solid $menu_border
-			border-bottom: 1px solid $menu_border
-			margin-bottom: 10px
-			cursor: pointer
-			overflow: hidden
-			-webkit-transition: width 0.5s ease-in-out
-			-moz-transition: width 0.5s ease-in-out
-			-o-transition: width 0.5s ease-in-out
-			transition: width 0.5s ease-in-out
-			position: relative
-			.stick
-				width: 5px
-				height: 100%
-				float: left
-			.menuIcon
-				background-repeat: no-repeat
-				background-position: 5% 50%
-				height: 44px
-				float: left
-				width: 40px
-				margin-left: 5px
-				position: relative
-				-webkit-filter: brightness(75%)
-				filter: brightness(75%)
-			.new
-				div
-					//color: $menu_border
-					font-size: 12px
-					position: absolute
-					top: 3px
-					right: -5px
-			span
-				position: absolute
-				right: 7px
-				text-transform: uppercase
-				font-size: 12px
-				display: block
-				top: 26px
-				opacity: 0
-				color: $menu_border
-				visibility: hidden
-			.visibleSpan
-				visibility: visible
-		li:before
-			width: 5px
-			height: 100%
-			float: left
-			content: ""
-		#menu-messgaes
-			.menuIcon
-				background-image: url('../img/profile_messages.png')
-		#menu-messgaes:hover, #menu-messgaes.current
-			background-color: $menu_messages
-			border-color: $menu_messages
-		#menu-messgaes:before
-			background-color: $menu_messages
+    position: absolute
+    left: 0
+    top: 300px
+    z-index: 2000
+    .leftMenu, .letsGo
+        width: 143px
+        li
+            height: 42px
+            width: 55px
+            border-top: 1px solid $menu_border
+            border-right: 1px solid $menu_border
+            border-bottom: 1px solid $menu_border
+            margin-bottom: 10px
+            cursor: pointer
+            overflow: hidden
+            -webkit-transition: width 0.5s ease-in-out
+            -moz-transition: width 0.5s ease-in-out
+            -o-transition: width 0.5s ease-in-out
+            transition: width 0.5s ease-in-out
+            position: relative
+            .stick
+                width: 5px
+                height: 100%
+                float: left
+            .menuIcon
+                background-repeat: no-repeat
+                background-position: 5% 50%
+                height: 44px
+                float: left
+                width: 40px
+                margin-left: 5px
+                position: relative
+                -webkit-filter: brightness(75%)
+                filter: brightness(75%)
+            .new
+                div
+                    //color: $menu_border
+                    font-size: 12px
+                    position: absolute
+                    top: 3px
+                    right: -5px
+            span
+                position: absolute
+                right: 7px
+                text-transform: uppercase
+                font-size: 12px
+                display: block
+                top: 26px
+                opacity: 0
+                color: $menu_border
+                visibility: hidden
+            .visibleSpan
+                visibility: visible
+        li:before
+            width: 5px
+            height: 100%
+            float: left
+            content: ""
+        #menu-messgaes
+            .menuIcon
+                background-image: url('../img/profile_messages.png')
+        #menu-messgaes:hover, #menu-messgaes.current
+            background-color: $menu_messages
+            border-color: $menu_messages
+        #menu-messgaes:before
+            background-color: $menu_messages
 
-		#menu-favorites
-			.menuIcon
-				background-image: url('../img/profile_favorites.png')
-		#menu-favorites:hover, #menu-favorites.current
-			background-color: $menu_favorites
-			border-color: $menu_favorites
-		#menu-favorites:before
-			background-color: $menu_favorites
+        #menu-favorites
+            .menuIcon
+                background-image: url('../img/profile_favorites.png')
+        #menu-favorites:hover, #menu-favorites.current
+            background-color: $menu_favorites
+            border-color: $menu_favorites
+        #menu-favorites:before
+            background-color: $menu_favorites
 
-		#menu-photos
-			.menuIcon
-				background-image: url('../img/profile_photos.png')
-		#menu-photos:hover, #menu-photos.current
-			background-color: $menu_photos
-			border-color: $menu_photos
-		#menu-photos:before
-			background-color: $menu_photos
+        #menu-photos
+            .menuIcon
+                background-image: url('../img/profile_photos.png')
+        #menu-photos:hover, #menu-photos.current
+            background-color: $menu_photos
+            border-color: $menu_photos
+        #menu-photos:before
+            background-color: $menu_photos
 
-		#menu-rating
-			.menuIcon
-				background-image: url('../img/profile_statistics.png')
-		#menu-rating:hover, #menu-rating.current
-			background-color: $menu_rating
-			border-color: $menu_rating
-		#menu-rating:before
-			background-color: $menu_rating
+        #menu-rating
+            .menuIcon
+                background-image: url('../img/profile_statistics.png')
+        #menu-rating:hover, #menu-rating.current
+            background-color: $menu_rating
+            border-color: $menu_rating
+        #menu-rating:before
+            background-color: $menu_rating
 
-		#menu-tools
-			.menuIcon
-				background-image: url('../img/profile_settings.png')
-		#menu-tools:hover, #menu-tools.current
-			background-color: $menu_tools
-			border-color: $menu_tools
-		#menu-tools:before
-			background-color: $menu_tools
+        #menu-tools
+            .menuIcon
+                background-image: url('../img/profile_settings.png')
+        #menu-tools:hover, #menu-tools.current
+            background-color: $menu_tools
+            border-color: $menu_tools
+        #menu-tools:before
+            background-color: $menu_tools
 
-		#menu-go
-			border-color: $lets_go
-			.menuIcon
-				background-image: url('../img/profile_go.png')
-				-webkit-filter: brightness(100%)
-				filter: brightness(100%)
-			span
-				opacity: 1
-				color: white
-		.current
-			width: 60px
-			opacity: 1
-			.menuIcon
-				-webkit-filter: brightness(100%)
-				filter: brightness(100%)
-			.new
-				div
-					color: white
-			span
-				opacity: 1
-				color: white
-	.leftMenu:hover, .onload
-		li
-			width: 100%
-			background-repeat: no-repeat
-			span
-				opacity: 1
-		li:hover
-			span
-				opacity: 1
-				color: white
-			.menuIcon
-				-webkit-filter: brightness(100%)
-				filter: brightness(100%)
-			.new
-				div
-					color: white
-		.current
-			width: 153px
-	.letsGo
-		margin-top: 64px
-		li
-			width: 143px
-			background-position: 5% 50%
-			background: $lets_go
-			opacity: 1
-			-webkit-transition: width 0.5s ease-in-out
-			-moz-transition: width 0.5s ease-in-out
-			-o-transition: width 0.5s ease-in-out
-			transition: width 0.5s ease-in-out
-			span
-				visibility: visible
-				top: 18px
-				opacity: 0.56
-				color: $title_text
-				margin-top: 0px
-				font-size: 11px
-		li:hover
-			width: 153px
+        #menu-go
+            border-color: $lets_go
+            .menuIcon
+                background-image: url('../img/profile_go.png')
+                -webkit-filter: brightness(100%)
+                filter: brightness(100%)
+            span
+                opacity: 1
+                color: white
+        .current
+            width: 60px
+            opacity: 1
+            .menuIcon
+                -webkit-filter: brightness(100%)
+                filter: brightness(100%)
+            .new
+                div
+                    color: white
+            span
+                opacity: 1
+                color: white
+    .leftMenu:hover, .onload
+        li
+            width: 100%
+            background-repeat: no-repeat
+            span
+                opacity: 1
+        li:hover
+            span
+                opacity: 1
+                color: white
+            .menuIcon
+                -webkit-filter: brightness(100%)
+                filter: brightness(100%)
+            .new
+                div
+                    color: white
+        .current
+            width: 153px
+    .letsGo
+        margin-top: 64px
+        li
+            width: 143px
+            background-position: 5% 50%
+            background: $lets_go
+            opacity: 1
+            -webkit-transition: width 0.5s ease-in-out
+            -moz-transition: width 0.5s ease-in-out
+            -o-transition: width 0.5s ease-in-out
+            transition: width 0.5s ease-in-out
+            span
+                visibility: visible
+                top: 18px
+                opacity: 0.56
+                color: $title_text
+                margin-top: 0px
+                font-size: 11px
+        li:hover
+            width: 153px
 
 .audio, .video
-	position: absolute
-	right: 16px
-	bottom: 6px
-	width: 21px
-	height: 21px
-	background-repeat: no-repeat
-	cursor: pointer
-	z-index: 102
+    position: absolute
+    right: 16px
+    bottom: 6px
+    width: 21px
+    height: 21px
+    background-repeat: no-repeat
+    cursor: pointer
+    z-index: 102
 .audio
-	background-image: url('../img/audio.png')
+    background-image: url('../img/audio.png')
 .video
-	background-image: url('../img/video.png')
+    background-image: url('../img/video.png')
 
 .topContainer
-	position: relative
-	height: 200px
-	left: -126px
-	.userBox
-		float: left
-		background-image: url('../img/b_ellips.png')
-		background-repeat: no-repeat
-		background-size: cover
-		width: 121px
-		height: 121px
-		margin: 35px 0 0 5px
-		position: relative
-		font-size: 14px
-		img
-			margin: 8px 0 0 8px
-			cursor: pointer
-		#rating
-			color: $header_blue
-			position: absolute
-			right: -15px
-			top: 20px
-		#name
-			margin-top: 9px
-			margin-left: 12px
-			text-align: left
-		#nick-name
-			margin-left: 12px
-			text-align: left
-			font-weight: bold
-	#profile-arrow-left
-		float: left
-		margin: 84px 0 0 7px
-		background-image: url('../img/profile_arrow_l.png')
-		background-repeat: no-repeat
-		height: 35px
-		width: 25px
-		cursor: pointer
-	#profile-arrow-right
-		float: right
-		background-image: url('../img/profile_arrow_r.png')
-		background-repeat: no-repeat
-		height: 35px
-		width: 25px
-		cursor: pointer
-		margin: 84px -126px 0px 0px
+    position: relative
+    height: 200px
+    left: -126px
+    .userBox
+        float: left
+        background-image: url('../img/b_ellips.png')
+        background-repeat: no-repeat
+        background-size: cover
+        width: 121px
+        height: 121px
+        margin: 35px 0 0 5px
+        position: relative
+        font-size: 14px
+        img
+            margin: 8px 0 0 8px
+            cursor: pointer
+        #rating
+            color: $header_blue
+            position: absolute
+            right: -15px
+            top: 20px
+        #name
+            margin-top: 9px
+            margin-left: 12px
+            text-align: left
+        #nick-name
+            margin-left: 12px
+            text-align: left
+            font-weight: bold
+    #profile-arrow-left
+        float: left
+        margin: 84px 0 0 7px
+        background-image: url('../img/profile_arrow_l.png')
+        background-repeat: no-repeat
+        height: 35px
+        width: 25px
+        cursor: pointer
+    #profile-arrow-right
+        float: right
+        background-image: url('../img/profile_arrow_r.png')
+        background-repeat: no-repeat
+        height: 35px
+        width: 25px
+        cursor: pointer
+        margin: 84px -126px 0px 0px
 
-	.carouselBox
-		position: absolute
-		left: 165px
-		overflow: hidden
-		height: 200px
-		z-index: 1000
-		float: left
-		overflow-x: scroll
-		.carousel
-			position: relative
-			z-index: 100
-			width: 1000%
-	.carouselBox::-webkit-scrollbar
-		height: 1px
-		width: 1px
-		background: rgba(0, 0, 0, 0.0)
-	.carouselBox::-webkit-scrollbar-thumb
-		background: rgba(0, 0, 0, 0.0)
+    .carouselBox
+        position: absolute
+        left: 165px
+        overflow: hidden
+        height: 200px
+        z-index: 1000
+        float: left
+        overflow-x: scroll
+        .carousel
+            position: relative
+            z-index: 100
+            width: 1000%
+    .carouselBox::-webkit-scrollbar
+        height: 1px
+        width: 1px
+        background: rgba(0, 0, 0, 0.0)
+    .carouselBox::-webkit-scrollbar-thumb
+        background: rgba(0, 0, 0, 0.0)
 
 .crsItem
-	float: left
-	position: relative
-	margin-top: 28px
-	padding-right: 16px
-	padding-bottom: 7px
-	width: 144px
-	height: 144px
-	z-index: 100
-	.videoBox
-		position: absolute
-		top: 0
-		left: 0
-		z-index: 99
-		width: 144px
-		height: 144px
-		.frontLayer
-			position: absolute
-			top: 0
-			left: 0
-			z-index: 98
-			width: 144px
-			height: 144px
-			background-image: url('../img/front-layer.png')
-			background-repeat: no-repeat
-			background-size: cover
-		video
-			position: absolute
-			top: 0
-			left: 0
-			z-index: 97
-			width: 144px
-			height: 144px
-	img
-		opacity: 1
-		width: 144px
-		height: 144px
-		position: absolute
-		top: 0
-		left: 0
-		z-index: 100
-		+border-radius(50%, 50%, 50%, 50%)
-		-webkit-transition: opacity 0.5s ease-in-out
-		-moz-transition: opacity 0.5s ease-in-out
-		-ms-transition: opacity 0.5s ease-in-out
-		-o-transition: opacity 0.5s ease-in-out
-		transition: opacity 0.5s ease-in-out
-	#online
-		background-image: url('../img/circle.png')
-		background-repeat: no-repeat
-		position: absolute
-		right: 12px
-		top: 10px
-		width: 18px
-		height: 18px
-		z-index: 100
-	.videoPlus
-		bottom: 24px
-		right: 0
+    float: left
+    position: relative
+    margin-top: 28px
+    padding-right: 16px
+    padding-bottom: 7px
+    width: 144px
+    height: 144px
+    z-index: 100
+    .videoBox
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 99
+        width: 144px
+        height: 144px
+        .frontLayer
+            position: absolute
+            top: 0
+            left: 0
+            z-index: 98
+            width: 144px
+            height: 144px
+            background-image: url('../img/front-layer.png')
+            background-repeat: no-repeat
+            background-size: cover
+        video
+            position: absolute
+            top: 0
+            left: 0
+            z-index: 97
+            width: 144px
+            height: 144px
+    img
+        opacity: 1
+        width: 144px
+        height: 144px
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 100
+        +border-radius(50%, 50%, 50%, 50%)
+        -webkit-transition: opacity 0.5s ease-in-out
+        -moz-transition: opacity 0.5s ease-in-out
+        -ms-transition: opacity 0.5s ease-in-out
+        -o-transition: opacity 0.5s ease-in-out
+        transition: opacity 0.5s ease-in-out
+    #online
+        background-image: url('../img/circle.png')
+        background-repeat: no-repeat
+        position: absolute
+        right: 12px
+        top: 10px
+        width: 18px
+        height: 18px
+        z-index: 100
+    .videoPlus
+        bottom: 24px
+        right: 0
 
 .photoVideoBlock
-	margin: 7px 0px 100px 0px
-	right: 6px
-	//right: -40px //for large screen
-	top: 0px
-	width: 384px
-	//width: 315px
-	position: absolute
-	.photoHeaderBox
-		float: left
-		width: 100%
-		.photoHeader, .videoHeader
-			float: left
-			height: 29px
-			width: 86px
-			background-color: black
-			margin-right: 4px
-			+border-radius(4px, 4px, 0px, 0px)
-			background: white
-			cursor: pointer
-			border: 1px solid $photo_border
-			border-bottom: none
-			.title
-				background-repeat: no-repeat
-				opacity: 0.52
-				span
-					text-transform: uppercase
-					font-size: 12px
-					color: $profile_status_text
-		.photoHeader
-			.title
-				margin: 7px 0 0 7px
-				background-image: url('../img/a_photo_p.png')
-				span
-					padding-left: 30px
-					line-height: 22px
-		.videoHeader
-			.title
-				margin: 5px 0 0 6px
-				background-image: url('../img/video_pv.png')
-				span
-					padding-left: 26px
-					line-height: 24px
-		.activeHeader, .photoHeader:hover, .videoHeader:hover
-			background: rgba(0, 0, 0, 0.61)
-			.title
-				opacity: 1
-				span
-					color: white
-		.videoHeader:hover, .videoHeader.activeHeader
-			.title
-				background-image: url('../img/a_video.png')
-		.photoHeader:hover, .photoHeader.activeHeader
-			.title
-				background-image: url('../img/a_photo.png')
-	.photoBox, .videoBox
-		background: white
-		padding: 9px
-		float: left
-		+border-radius(0px, 4px, 4px, 4px)
-		border: 1px solid $photo_border
-	.photoBox, .videoBox
-		img
-			width: 360px
-			margin-bottom: 5px
-			cursor: pointer
-		img:last-child
-			margin-bottom: 0px
-		.imgGrid
-			width: 360px
-			img
-				width: 176px
-				float: left
-			.odd
-				margin-right: 8px
-	.videoBox
-		display: none
+    margin: 7px 0px 100px 0px
+    right: 6px
+    //right: -40px //for large screen
+    top: 0px
+    width: 384px
+    //width: 315px
+    position: absolute
+    .photoHeaderBox
+        float: left
+        width: 100%
+        .photoHeader, .videoHeader
+            float: left
+            height: 29px
+            width: 86px
+            background-color: black
+            margin-right: 4px
+            +border-radius(4px, 4px, 0px, 0px)
+            background: white
+            cursor: pointer
+            border: 1px solid $photo_border
+            border-bottom: none
+            .title
+                background-repeat: no-repeat
+                opacity: 0.52
+                span
+                    text-transform: uppercase
+                    font-size: 12px
+                    color: $profile_status_text
+        .photoHeader
+            .title
+                margin: 7px 0 0 7px
+                background-image: url('../img/a_photo_p.png')
+                span
+                    padding-left: 30px
+                    line-height: 22px
+        .videoHeader
+            .title
+                margin: 5px 0 0 6px
+                background-image: url('../img/video_pv.png')
+                span
+                    padding-left: 26px
+                    line-height: 24px
+        .activeHeader, .photoHeader:hover, .videoHeader:hover
+            background: rgba(0, 0, 0, 0.61)
+            .title
+                opacity: 1
+                span
+                    color: white
+        .videoHeader:hover, .videoHeader.activeHeader
+            .title
+                background-image: url('../img/a_video.png')
+        .photoHeader:hover, .photoHeader.activeHeader
+            .title
+                background-image: url('../img/a_photo.png')
+    .photoBox, .videoBox
+        background: white
+        padding: 9px
+        float: left
+        +border-radius(0px, 4px, 4px, 4px)
+        border: 1px solid $photo_border
+    .photoBox, .videoBox
+        img
+            width: 360px
+            margin-bottom: 5px
+            cursor: pointer
+        img:last-child
+            margin-bottom: 0px
+        .imgGrid
+            width: 360px
+            img
+                width: 176px
+                float: left
+            .odd
+                margin-right: 8px
+    .videoBox
+        display: none
 
 .profileBox
-	float: left
-	background-image: url('../img/b_ellips.png')
-	background-repeat: no-repeat
-	background-size: contain
-	width: 277px
-	height: 277px
-	position: relative
-	font-size: 18px
-	.imgBox
-		margin: 12px 0 0 11px
-		+border-radius(50%, 50%, 50%, 50%)
-		position: relative
-		z-index: 100
-		width: 252px
-		height: 252px
-		img, .cover
-			width: 100%
-			height: 100%
-			position: relative
-			z-index: 100
-			+border-radius(50%, 50%, 50%, 50%)
-		.cover
-			position: absolute
-			background-color: black
-			opacity: 0.5
-			z-index: 200
-			top: 0
-			display: none
-		span
-			color: white
-			cursor: pointer
-			background-image: url('../img/profile_photos.png')
-			background-repeat: no-repeat
-			padding-left: 40px
-			position: absolute
-			line-height: 36px
-			font-size: 16px
-			bottom: 40px
-			opacity: 1
-			z-index: 300
-			left: 20%
-			display: none
-	.imgBox:hover
-		.cover
-			display: block
-		span
-			display: inline
-	#profile-rating, .profile-rating
-		position: absolute
-		right: -5px
-		top: 55px
-		color: $header_blue
-		cursor: pointer
+    float: left
+    background-image: url('../img/b_ellips.png')
+    background-repeat: no-repeat
+    background-size: contain
+    width: 277px
+    height: 277px
+    position: relative
+    font-size: 18px
+    .imgBox
+        margin: 12px 0 0 11px
+        +border-radius(50%, 50%, 50%, 50%)
+        position: relative
+        z-index: 100
+        width: 252px
+        height: 252px
+        img, .cover
+            width: 100%
+            height: 100%
+            position: relative
+            z-index: 100
+            +border-radius(50%, 50%, 50%, 50%)
+        .cover
+            position: absolute
+            background-color: black
+            opacity: 0.5
+            z-index: 200
+            top: 0
+            display: none
+        span
+            color: white
+            cursor: pointer
+            background-image: url('../img/profile_photos.png')
+            background-repeat: no-repeat
+            padding-left: 40px
+            position: absolute
+            line-height: 36px
+            font-size: 16px
+            bottom: 40px
+            opacity: 1
+            z-index: 300
+            left: 20%
+            display: none
+    .imgBox:hover
+        .cover
+            display: block
+        span
+            display: inline
+    #profile-rating, .profile-rating
+        position: absolute
+        right: -5px
+        top: 55px
+        color: $header_blue
+        cursor: pointer
+        z-index: 1024
 /*PROFILE*/
 .searchBox
-	float: left
-	margin-top: 8px
-	.searchBody
-		margin-top: 7px
-		width: 277px
-		background: $profile_info
-		padding: 10px 5px
-		h1
-			text-transform: uppercase
-			display: block
-			font-size: 15px
-			font-weight: bold
-			color: $title_text
-		.ageBox
-			margin: 8px 0px 10px 20px
-			width: 90%
-			float: left
-			span
-				float: left
-				font-size: 12px
-				color: $profile_status_text
-				line-height: 33px
-				margin-right: 3px
-			.ageFrom, .ageTo
-				width: 34px
-				height: 33px
-				float: left
-				margin-right: 15px
-				background-image: url('../img/age_box.png')
-				input
-					background: white
-					border: none
-					width: 18px
-					height: 22px
-					margin-left: 10px
-					margin-top: 4px
-					color: $profile_status_text
-				input:focus
-					outline: none
-			.activeAgeBox
-				background-image: url('../img/age_box_active.png')
+    float: left
+    margin-top: 8px
+    .searchBody
+        margin-top: 7px
+        width: 277px
+        background: $profile_info
+        padding: 10px 5px
+        h1
+            text-transform: uppercase
+            display: block
+            font-size: 15px
+            font-weight: bold
+            color: $title_text
+        .ageBox
+            margin: 8px 0px 10px 20px
+            width: 90%
+            float: left
+            span
+                float: left
+                font-size: 12px
+                color: $profile_status_text
+                line-height: 33px
+                margin-right: 3px
+            .ageFrom, .ageTo
+                width: 34px
+                height: 33px
+                float: left
+                margin-right: 15px
+                background-image: url('../img/age_box.png')
+                input
+                    background: white
+                    border: none
+                    width: 18px
+                    height: 22px
+                    margin-left: 10px
+                    margin-top: 4px
+                    color: $profile_status_text
+                input:focus
+                    outline: none
+            .activeAgeBox
+                background-image: url('../img/age_box_active.png')
 
-		#search-sex, #search-age, #search-places, #seasons, #search-places-f
-			display: block
-			font-size: 14px
-			color: $profile_status_text
-			margin: 5px
-			width: 100%
-			float: left
-		.sexBox
-			margin: 0px 0px 10px 10px
-			float: left
-			.manBox, .womanBox
-				width: 95px
-				float: left
-				+search-checkboxes
-		#search-places
-			margin-top: 10px
-		.searchCountry
-			float: left
-			width: 40px
-			margin-left: 4%
-			+add-input
-		.tagsBox
-			float: left
-			margin-top: 5px
-			width: 96%
-			margin-left: 4%
-			.searcTagPlaces
-				span
-					text-transform: none
-					opacity: 1
-					font-size: 14px
-		.nearBox
-			margin-top: 6px
-			margin-left: 10px
-			float: left
-			+search-checkboxes
-		#search-slidedown, #search-slideup
-			margin-top: 5px
-			float: left
-	#my-folowers
-		display: none
+        #search-sex, #search-age, #search-places, #seasons, #search-places-f
+            display: block
+            font-size: 14px
+            color: $profile_status_text
+            margin: 5px
+            width: 100%
+            float: left
+        .sexBox
+            margin: 0px 0px 10px 10px
+            float: left
+            .manBox, .womanBox
+                width: 95px
+                float: left
+                +search-checkboxes
+        #search-places
+            margin-top: 10px
+        .searchCountry
+            float: left
+            width: 40px
+            margin-left: 4%
+            +add-input
+        .tagsBox
+            float: left
+            margin-top: 5px
+            width: 96%
+            margin-left: 4%
+            .searcTagPlaces
+                span
+                    text-transform: none
+                    opacity: 1
+                    font-size: 14px
+        .nearBox
+            margin-top: 6px
+            margin-left: 10px
+            float: left
+            +search-checkboxes
+        #search-slidedown, #search-slideup
+            margin-top: 5px
+            float: left
+    #my-folowers
+        display: none
 .seasonsBox
-	margin-bottom: 20px
-	.season
-		float: left
-		cursor: pointer
-		width: 67px
-		height: 67px
-		background-image: url('../img/season.png')
-		span
-			+italic-font
-			color: $profile_status_text
-			font-size: 14px
-			line-height: 67px
-			display: block
-			text-align: center
-	.seasonChecked
-		background-image: url('../img/season_c.png')
+    margin-bottom: 20px
+    .season
+        float: left
+        cursor: pointer
+        width: 67px
+        height: 67px
+        background-image: url('../img/season.png')
+        span
+            +italic-font
+            color: $profile_status_text
+            font-size: 14px
+            line-height: 67px
+            display: block
+            text-align: center
+    .seasonChecked
+        background-image: url('../img/season_c.png')
 .box
-	width: 17px
-	height: 17px
-	border: 1px solid $tag_input_border
-	background: white
-	+border-radius(4px, 4px, 4px, 4px)
-	cursor: pointer
+    width: 17px
+    height: 17px
+    border: 1px solid $tag_input_border
+    background: white
+    +border-radius(4px, 4px, 4px, 4px)
+    cursor: pointer
 .checked
-	background-image: url('../img/checked.png')
-	background-repeat: no-repeat
-	background-position: 50%
+    background-image: url('../img/checked.png')
+    background-repeat: no-repeat
+    background-position: 50%
 .slideDown, .slideUp
 	+italic-font
 	color: $header_blue
@@ -895,317 +896,321 @@ small
 #profile-slidedown
 	float: right
 #search-slidedown
-	float: none
-.profile-edit-slideup
-	width: 112px
-	margin-left: 15px
-	height: 37px
-	+border-radius(4px, 4px, 4px, 4px)
-	background: rgba(0, 0, 0, 0.56)
-	text-align: center
-	float: left
-	cursor: pointer
-	span
-		text-transform: uppercase
-		color: white
-		opacity: 1
-		font-size: 15px
-		line-height: 37px
+    float: none
+.profile-edit-slideup, .profile-search
+    width: 112px
+    margin-left: 15px
+    height: 37px
+    +border-radius(4px, 4px, 4px, 4px)
+    background: rgba(0, 0, 0, 0.56)
+    text-align: center
+    float: left
+    cursor: pointer
+    span
+        text-transform: uppercase
+        color: white
+        opacity: 1
+        font-size: 15px
+        line-height: 37px
+.profile-search
+    width: 220px
+    margin-top: 10px
 
 .profileContainer
-	width: 1300px
-	margin: 0 auto
+    width: 1300px
+    margin: 0 auto
 .rightBox
-	float: left
-	// width: -moz-calc(100% - 460px)
-	// width: -webkit-calc(100% - 460px)
-	// width: calc(100% - 460px)
-	width: -moz-calc(100% - 610px)
-	width: -webkit-calc(100% - 610px)
-	width: calc(100% - 610px)
+    float: left
+    // width: -moz-calc(100% - 460px)
+    // width: -webkit-calc(100% - 460px)
+    // width: calc(100% - 460px)
+    width: -moz-calc(100% - 610px)
+    width: -webkit-calc(100% - 610px)
+    width: calc(100% - 610px)
 
 .greenDots
-	float: left
-	width: 100%
-	background-image: url('../img/green_dots.png')
-	background-repeat: repeat-x
-	height: 3px
-	margin-top: 4px
+    float: left
+    width: 100%
+    background-image: url('../img/green_dots.png')
+    background-repeat: repeat-x
+    height: 3px
+    margin-top: 4px
 
 .profileInfoBox
-	float: left
-	width: -moz-calc(100% - 30px)
-	width: -webkit-calc(100% - 30px)
-	width: calc(100% - 30px)
-	background: $profile_info
-	margin-top: 27px
-	position: relative
-	padding: 11px 15px 15px 15px
-	font-size: 14px
-	max-width: 1060px
-	.money-icon, .house-icon, .edit
-		.tooltip
-			bottom: -19px
-	h1
-		color: $title_text
-		text-transform: uppercase
-		font-size: 15px
-		font-weight: bold
-	.name-in-profile
-		font-size: 24px
-		font-weight: bold
-		float: left
-		margin-right: 8px
-		color: $title_text
-	.city-in-profile
-		font-size: 13px
-		margin: 0px 0px 12px 1px
-		float: left
-		width: 100%
-		color: $title_text
-	.description
-		font-size: 14px
-		margin-top: 15px
-		line-height: 16px
-		float: left
-		color: $profile_status_text
-	.infoBox, .infoEdit
-		margin-top: 30px
-		display: none
-		float: left
-		color: $profile_status_text
-		width: 100%
-		.lp
-			float: left
-			width: 140px
-			min-height: 1px
-		.rp
-			float: left
-			width: -moz-calc(100% - 140px)
-			width: -webkit-calc(100% - 140px)
-			width: calc(100% - 140px)
-		#zodiac-in-info, #skype-in-info, #interests-in-info, #films-in-info
-			margin-bottom: 15px
-	.infoEdit
-		display: none
-		textarea, input
-			resize: none
-			background: white
-			border: 1px solid $tag_input_border		
-			+border-radius(4px, 4px, 4px, 4px)
-			color: $profile_status_text
-			-webkit-box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.24)
-			-moz-box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.24)
-			box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.24)
-		textarea
-			height: 80px
-			width: 85%
-			margin-left: 15px
-			padding: 5px
-		.lp
-			text-align: right
-		.rp
-			#zodiac-select, #city-select, #day-select, #month-select, #year-select, #country-select
-				float: left
-				margin-right: 8px
-			#zodiac-select
-				width: 120px
-			#city-select,#country-select
-				width: 262px
-			#day-select
-				width: 10px
-			#month-select
-				width: 80px
-			#year-select
-				width: 80px
-		#num-value-edit, #name-edit
-			input
-				width: 103px
-				border: 1px solid $tag_input_border
-				background: white
-				float: left
-				padding: 7px 8px
-				color: $profile_status_text
-				+border-radius(4px, 4px, 4px, 4px)
-				margin-bottom: 0px
-				margin-left: 15px
-		#about-edit, #zodiac-edit, #skype-edit, #interests-edit,
-		#music-edit, #films-edit, #quote-edit, #num-value-edit, #name-edit
-			margin-bottom: 25px
-		#birtday-edit, #zodiac-edit, #city-edit, #skype-edit, #country-edit, #num-value-edit, #name-edit
-			.lp
-				padding-top: 10px
-		#birtday-edit, #city-edit, #country-edit
-			margin-bottom: 10px
-		#day-select, #zodiac-select, #city-select, #country-select
-			margin-left: 15px
-	#profile-slideup
-		display: none
+    float: left
+    width: -moz-calc(100% - 30px)
+    width: -webkit-calc(100% - 30px)
+    width: calc(100% - 30px)
+    background: $profile_info
+    margin-top: 27px
+    position: relative
+    padding: 11px 15px 15px 15px
+    font-size: 14px
+    max-width: 1060px
+    .money-icon, .house-icon, .edit
+        .tooltip
+            bottom: -19px
+    h1
+        color: $title_text
+        text-transform: uppercase
+        font-size: 15px
+        font-weight: bold
+    .name-in-profile
+        font-size: 24px
+        font-weight: bold
+        float: left
+        margin-right: 8px
+        color: $title_text
+    .city-in-profile
+        font-size: 13px
+        margin: 0px 0px 12px 1px
+        float: left
+        width: 100%
+        color: $title_text
+    .description
+        font-size: 14px
+        margin-top: 15px
+        line-height: 16px
+        float: left
+        color: $profile_status_text
+    .infoBox, .infoEdit
+        margin-top: 30px
+        display: none
+        float: left
+        color: $profile_status_text
+        width: 100%
+        .lp
+            float: left
+            width: 140px
+            min-height: 1px
+        .rp
+            float: left
+            width: -moz-calc(100% - 140px)
+            width: -webkit-calc(100% - 140px)
+            width: calc(100% - 140px)
+        #zodiac-in-info, #skype-in-info, #interests-in-info, #films-in-info
+            margin-bottom: 15px
+    .infoEdit
+        display: none
+        textarea, input
+            resize: none
+            background: white
+            border: 1px solid $tag_input_border     
+            +border-radius(4px, 4px, 4px, 4px)
+            color: $profile_status_text
+            -webkit-box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.24)
+            -moz-box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.24)
+            box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.24)
+        textarea
+            height: 80px
+            width: 85%
+            margin-left: 15px
+            padding: 5px
+        .lp
+            text-align: right
+        .rp
+            #zodiac-select, #city-select, #day-select, #month-select, #year-select, #country-select
+                float: left
+                margin-right: 8px
+            #zodiac-select
+                width: 120px
+            #city-select,#country-select
+                width: 262px
+            #day-select
+                width: 10px
+            #month-select
+                width: 80px
+            #year-select
+                width: 80px
+        #num-value-edit, #name-edit
+            input
+                width: 103px
+                border: 1px solid $tag_input_border
+                background: white
+                float: left
+                padding: 7px 8px
+                color: $profile_status_text
+                +border-radius(4px, 4px, 4px, 4px)
+                margin-bottom: 0px
+                margin-left: 15px
+        #about-edit, #zodiac-edit, #skype-edit, #interests-edit,
+        #music-edit, #films-edit, #quote-edit, #num-value-edit, #name-edit
+            margin-bottom: 25px
+        #birtday-edit, #zodiac-edit, #city-edit, #skype-edit, #country-edit, #num-value-edit, #name-edit
+            .lp
+                padding-top: 10px
+        #birtday-edit, #city-edit, #country-edit
+            margin-bottom: 10px
+        #day-select, #zodiac-select, #city-select, #country-select
+            margin-left: 15px
+    #profile-slideup
+        display: none
 .pIBTitle
-	background-color: white
-	padding: 0
+    background-color: white
+    padding: 0
 .tagBox
-	float: left
-	margin-top: 20px
-	width: 100%
-	max-width: 1060px
-	h1
-		font-weight: bold
-		font-size: 15px
-		margin-bottom: 12px
-		color: $title_text
-		text-transform: uppercase
+    float: left
+    margin-top: 20px
+    width: 100%
+    max-width: 1060px
+    h1
+        font-weight: bold
+        font-size: 15px
+        margin-bottom: 12px
+        color: $title_text
+        text-transform: uppercase
 
 .close, .dd, .du
-	background-image: url('../img/close.png')
-	background-repeat: no-repeat
-	width: 8px
-	height: 7px
-	position: absolute
-	top: 12px
-	right: 7px
-	cursor: pointer
+    background-image: url('../img/close.png')
+    background-repeat: no-repeat
+    width: 8px
+    height: 7px
+    position: absolute
+    top: 12px
+    right: 7px
+    cursor: pointer
 .dd, .du
-	width: 9px
-	height: 6px
-	top: 14px
-	background-image: url('../img/drop_arrow1.png')
+    width: 9px
+    height: 6px
+    top: 14px
+    background-image: url('../img/drop_arrow1.png')
 .du
-	background-image: url('../img/drop_arrow2.png')
-	display: none
+    background-image: url('../img/drop_arrow2.png')
+    display: none
 .droped
-	max-height: 235px
-	overflow: auto
-	position: absolute
-	top: 100%
-	left: -1px
-	z-index: 1000
-	list-style: none
-	display: none
-	width: 100%
-	+border-radius(0px, 0px, 4px, 4px)
-	border: 1px solid $ti_dd_border
-	li
-		height: 38px
-		font-size: 14px
-		line-height: 38px
-		text-align: center
-		width: 100%
-		color: $ti_dd_text
-		background-color: white
-		border-bottom: 1px solid $ti_dd_sep
-		cursor: pointer
-		+simple-font
-	li:hover
-		background-color: $ti_dd_select
-	li:last-child
-		border-bottom: none
+    max-height: 235px
+    overflow: auto
+    position: absolute
+    top: 100%
+    left: -1px
+    z-index: 1000
+    list-style: none
+    display: none
+    width: 100%
+    +border-radius(0px, 0px, 4px, 4px)
+    border: 1px solid $ti_dd_border
+    li
+        height: 38px
+        font-size: 14px
+        line-height: 38px
+        text-align: center
+        width: 100%
+        color: $ti_dd_text
+        background-color: white
+        border-bottom: 1px solid $ti_dd_sep
+        cursor: pointer
+        +simple-font
+    li:hover
+        background-color: $ti_dd_select
+    li:last-child
+        border-bottom: none
 
 .mainSelectElement
-	padding: 8px 28px 8px 7px
-	border: 1px solid $tag_input_border
-	position: relative
-	height: 14px
-	+border-radius(4px, 4px, 4px, 4px)
-	background-image: -ms-linear-gradient(top,$ti_gf, $ti_gt)
-	background-image: -webkit-gradient(linear,0 0,0 100%,from($ti_gf),to($ti_gt))
-	background-image: -webkit-linear-gradient(top,$ti_gf, $ti_gt)
-	background-image: -o-linear-gradient(top,$ti_gf, $ti_gt)
-	background-image: linear-gradient(top,$ti_gf, $ti_gt)
-	background-image: -moz-linear-gradient(top,$ti_gf, $ti_gt)
+    padding: 8px 28px 8px 7px
+    border: 1px solid $tag_input_border
+    position: relative
+    height: 14px
+    +border-radius(4px, 4px, 4px, 4px)
+    background-image: -ms-linear-gradient(top,$ti_gf, $ti_gt)
+    background-image: -webkit-gradient(linear,0 0,0 100%,from($ti_gf),to($ti_gt))
+    background-image: -webkit-linear-gradient(top,$ti_gf, $ti_gt)
+    background-image: -o-linear-gradient(top,$ti_gf, $ti_gt)
+    background-image: linear-gradient(top,$ti_gf, $ti_gt)
+    background-image: -moz-linear-gradient(top,$ti_gf, $ti_gt)
 .withShadow
-	-webkit-box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.24)
-	-moz-box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.24)
-	box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.24)
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.24)
+    -moz-box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.24)
+    box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.24)
 .opened
-	+border-radius(4px, 4px, 0px, 0px)
+    +border-radius(4px, 4px, 0px, 0px)
 
 .profileTagPlaces, .searcTagPlaces
-	float: left
-	margin-right: 8px
-	margin-bottom: 4px
-	span
-		float: left
-		font-size: 14px
-		color: $profile_status_text
-		line-height: 13px
-	.tagCountry
-		+italic-font
-		line-height: 14px
-	.tagSeason
-		margin-left: 5px
+    float: left
+    margin-right: 8px
+    margin-bottom: 4px
+    span
+        float: left
+        font-size: 14px
+        color: $profile_status_text
+        line-height: 13px
+    .tagCountry
+        +italic-font
+        line-height: 14px
+    .tagSeason
+        margin-left: 5px
 .newTagBox
-	float: left
-	margin-left: 20px
-	.newCountry
-		+add-input
-	.newCountry, .newSeason, .newYear
-		+italic-font
-		font-size: 14px
-		color: $profile_status_text
-		margin-right: 8px
-		margin-bottom: 2px
-		float: left
-		cursor: pointer
-	.newSeason
-		width: 47px
-	.newYear
-		width: 34px
+    float: left
+    margin-left: 20px
+    .newCountry
+        +add-input
+    .newCountry, .newSeason, .newYear
+        +italic-font
+        font-size: 14px
+        color: $profile_status_text
+        margin-right: 8px
+        margin-bottom: 2px
+        float: left
+        cursor: pointer
+    .newSeason
+        width: 47px
+    .newYear
+        width: 34px
 
 .profileTagPlacesToTravel
-	padding-right: 7px
-	margin-right: 6px
+    padding-right: 7px
+    margin-right: 6px
 
 .newStatus, .addPhoto span
-	text-decoration: underline
-	font-size: 15px
-	position: absolute
-	top: 0px
-	right: 0px
-	cursor: pointer
-	color: $header_blue
-	+italic-font
+    text-decoration: underline
+    font-size: 15px
+    position: absolute
+    top: 0px
+    right: 0px
+    cursor: pointer
+    color: $header_blue
+    +italic-font
 .addPhoto
-	top: 10px
-	right: 10px
-	position: relative
-	span
-		//z-index: 300
-	input
-		position: absolute
-		top: 0
-		right: 0
-		margin: 0
-		padding: 0
-		font-size: 10px
-		width: 110px
-		cursor: pointer
-		opacity: 0
-		//z-index: 200
-	input[type="file"]
-		cursor: pointer
+    top: 10px
+    right: 10px
+    position: relative
+    span
+        //z-index: 300
+    input
+        position: absolute
+        top: 0
+        right: 0
+        margin: 0
+        padding: 0
+        font-size: 10px
+        width: 110px
+        cursor: pointer
+        opacity: 0
+        //z-index: 200
+    input[type="file"]
+        cursor: pointer
 
 .edit
-	position: absolute
-	top: 5px
-	right: 5px
-	width: 24px
-	height: 23px
-	background-image: url('../img/pencil.png')
-	background-repeat: no-repeat
-	cursor: pointer
+    position: absolute
+    top: 5px
+    right: 5px
+    width: 24px
+    height: 23px
+    background-image: url('../img/pencil.png')
+    background-repeat: no-repeat
+    cursor: pointer
 #edit-profile
-	right: 10px
+    right: 10px
 
 .money-icon, .house-icon
-	float: left
-	background-image: url('../img/money.png')
-	background-repeat: no-repeat
-	width: 35px
-	height: 26px
-	margin-top: 3px
-	cursor: pointer
-	position: relative
+    float: left
+    background-image: url('../img/money2.png')
+    background-repeat: no-repeat
+    width: 35px
+    height: 35px
+    margin-top: 3px
+    cursor: pointer
+    position: relative
+    background-size: 35px
 
 .money-icon, .house-icon, .edit
 	.tooltip
@@ -1233,1189 +1238,1196 @@ small
 			left: 5px
 			top: -4px
 .money-icon:hover, .house-icon:hover, .edit:hover
-	.tooltip
-		visibility: visible
-		opacity: 1
-		transition-delay: 0s
+    .tooltip
+        visibility: visible
+        opacity: 1
+        transition-delay: 0s
 .mg-icon
-	background-image: url('../img/money_g.png')
+    background-image: url('../img/money2_g.png')
 
 .house-icon
-	background-image: url('../img/house.png')
+    background-image: url('../img/house2.png')
 .hg-icon
-	background-image: url('../img/house_g.png')
+    background-image: url('../img/house2_g.png')
 
 .wantToTravelBox
-	float: left
-	width: 100%
-	max-width: 1060px
-	position: relative
-	h1
-		font-weight: bold
-		font-size: 14px
-		margin-bottom: 12px
-	.statusBoxCompleted, .statusBoxNotCompleted
-		position: relative
-		display: block
-		max-width: 1060px
-		width: 100%
-		.statusBox, .statusBoxEdit
-			position: relative
-			background-color: $profile_status
-			+border-radius(4px, 4px, 4px, 4px)
-			border: 1px solid $profile_status_border
-			float: left
-			width: 100%
-			.money-icon
-				margin-top: 10px
-			.status
-				+italic-font
-				font-size: 16px
-				padding: 8px 8px 0 8px
-				width: 90%
-				color: $profile_status_text
-			.comments
-				font-size: 12px
-				padding-bottom: 8px
-				opacity: 1
-				margin: 10px 10px 0px 0px
-				span
-					font-weight: bold
-				#share-comments, #delete-comments
-					text-decoration: underline
-					cursor: pointer
-					padding-left: 7px
-					float: right
-					color: $profile_status_text
-			.inputBox
-				padding-top: 5px
-				input
-					+border-radius(4px, 4px, 4px, 4px)
-					padding: 7px 8px
-					background: rgba(0, 0, 0, 0.0)
-					border-color: #f1ed95
-					float: left
-					color: white
-				input::-moz-placeholder
-					color: white
-				input::-webkit-input-placeholder
-					color: white
-				#status-nc-input
-					width: 1007px
-		.statusBoxEdit
-			display: none
-			border: none
-			background-color: $profile_info
-			padding: 10px
-			width: -moz-calc(100% - 20px)
-			width: -webkit-calc(100% - 20px)
-			width: calc(100% - 20px)
-			h1
-				color: $title_text
-				text-transform: uppercase
-				font-size: 15px
-				font-weight: bold
-				margin-bottom: 0px
-			input
-				width: 85%
-				border: 1px solid $tag_input_border
-				background: white
-				float: left
-				padding: 7px 8px
-				color: $profile_status_text
-				+border-radius(4px, 4px, 4px, 4px)
-				margin-bottom: 0px
-				margin-top: 15px
-	.statusBoxCompleted
-		float: left
-		margin-top: 17px
-	.statusBoxNotCompleted
-		display: block
-		.statusBox
-			padding: 13px
-			background: rgba(0, 0, 0, 0.36)
-			select, input
-				float: left
-				padding: 7px 8px
-				color: white
-				+border-radius(4px, 4px, 4px, 4px)
-				background: rgba(0, 0, 0, 0.0)
-			#select-season
-				width: 112px
-			#select-year
-				width: 78px
-			.inputBox
-				input
-					border-color: white
-					background: rgba(0, 0, 0, 0.0)
-					color:  white
-			.stateCity
-				color:  white
-				.close
-					background-image: url('../img/y_close.png')
-				.profileTagPlaces
-					color:  white
-				.newTag
-					input
-						background: rgba(0, 0, 0, 0.25)
-					input::-moz-placeholder
-						color: white
-					input::-webkit-input-placeholder
-						color: white
+    float: left
+    width: 100%
+    max-width: 1060px
+    position: relative
+    h1
+        font-weight: bold
+        font-size: 14px
+        margin-bottom: 12px
+    .statusBoxCompleted, .statusBoxNotCompleted
+        position: relative
+        display: block
+        max-width: 1060px
+        width: 100%
+        .statusBox, .statusBoxEdit
+            position: relative
+            background-color: $profile_status
+            +border-radius(4px, 4px, 4px, 4px)
+            border: 1px solid $profile_status_border
+            float: left
+            width: 100%
+            .money-icon
+                margin-top: 10px
+            .status
+                +italic-font
+                font-size: 16px
+                padding: 8px 8px 0 8px
+                width: 90%
+                color: $profile_status_text
+            .comments
+                font-size: 12px
+                padding-bottom: 8px
+                opacity: 1
+                margin: 10px 10px 0px 0px
+                span
+                    font-weight: bold
+                #share-comments, #delete-comments
+                    text-decoration: underline
+                    cursor: pointer
+                    padding-left: 7px
+                    float: right
+                    color: $profile_status_text
+            .inputBox
+                padding-top: 5px
+                input
+                    +border-radius(4px, 4px, 4px, 4px)
+                    padding: 7px 8px
+                    background: rgba(0, 0, 0, 0.0)
+                    border-color: #f1ed95
+                    float: left
+                    color: white
+                input::-moz-placeholder
+                    color: white
+                input::-webkit-input-placeholder
+                    color: white
+                #status-nc-input
+                    width: 1007px
+        .statusBoxEdit
+            display: none
+            border: none
+            background-color: $profile_info
+            padding: 10px
+            width: -moz-calc(100% - 20px)
+            width: -webkit-calc(100% - 20px)
+            width: calc(100% - 20px)
+            h1
+                color: $title_text
+                text-transform: uppercase
+                font-size: 15px
+                font-weight: bold
+                margin-bottom: 0px
+            input
+                width: 85%
+                border: 1px solid $tag_input_border
+                background: white
+                float: left
+                padding: 7px 8px
+                color: $profile_status_text
+                +border-radius(4px, 4px, 4px, 4px)
+                margin-bottom: 0px
+                margin-top: 15px
+    .statusBoxCompleted
+        float: left
+        margin-top: 17px
+    .statusBoxNotCompleted
+        display: block
+        .statusBox
+            padding: 13px
+            background: rgba(0, 0, 0, 0.36)
+            select, input
+                float: left
+                padding: 7px 8px
+                color: white
+                +border-radius(4px, 4px, 4px, 4px)
+                background: rgba(0, 0, 0, 0.0)
+            #select-season
+                width: 112px
+            #select-year
+                width: 78px
+            .inputBox
+                input
+                    border-color: white
+                    background: rgba(0, 0, 0, 0.0)
+                    color:  white
+            .stateCity
+                color:  white
+                .close
+                    background-image: url('../img/y_close.png')
+                .profileTagPlaces
+                    color:  white
+                .newTag
+                    input
+                        background: rgba(0, 0, 0, 0.25)
+                    input::-moz-placeholder
+                        color: white
+                    input::-webkit-input-placeholder
+                        color: white
 .writeBtn
-	cursor: pointer
-	width: 28px
-	height: 28px
-	margin-left: 9px
-	margin-top: 15px
-	float: right
-	background-image: url('../img/write_comment.png')
-	background-repeat: no-repeat
+    cursor: pointer
+    width: 28px
+    height: 28px
+    margin-left: 9px
+    margin-top: 15px
+    float: right
+    background-image: url('../img/write_comment.png')
+    background-repeat: no-repeat
 /*PROFILE END*/
 
 /*CHAT*/
 
 .chatLine
-	top: 0
-	right: 0
-	position: absolute
-	margin-top: 7px
-	width: 230px
-	list-style: none
-	li
-		float: right
-		background-color: $chat_line
-		border-top: 1px solid $chat_line_border
-		border-bottom: 1px solid $chat_line_border
-		width: 194px
-		height: 48px
-		margin-bottom: 14px
-		position: relative
-		cursor: pointer
-		img
-			height: 54px
-			width: 54px
-			position: absolute
-			left: -35px
-			top: -4px
-			+border-radius(50%,50%,50%,50%)
-			border: 2px solid white
-		span
-			margin-left: 30px
-			line-height: 48px
-			color: $title_text
-			font-size: 14px
-	.active
-		background-color: $chat_line_a
-		border-top: 1px solid $chat_line_a_border
-		border-bottom: 1px solid $chat_line_a_border
+    top: 0
+    right: 0
+    position: absolute
+    margin-top: 7px
+    width: 230px
+    list-style: none
+    li
+        float: right
+        background-color: $chat_line
+        border-top: 1px solid $chat_line_border
+        border-bottom: 1px solid $chat_line_border
+        width: 194px
+        height: 48px
+        margin-bottom: 14px
+        position: relative
+        cursor: pointer
+        img
+            height: 54px
+            width: 54px
+            position: absolute
+            left: -35px
+            top: -4px
+            +border-radius(50%,50%,50%,50%)
+            border: 2px solid white
+        span
+            margin-left: 30px
+            line-height: 48px
+            color: $title_text
+            font-size: 14px
+    .active
+        background-color: $chat_line_a
+        border-top: 1px solid $chat_line_a_border
+        border-bottom: 1px solid $chat_line_a_border
 .chatContainer
-	width: 1200px
-	margin: 0 auto
-	.chatBlock
-		width: 348px
-		height: 278px
-		background-color: $chat_block
-		border: 1px solid $chat_block_border
-		+border-radius(4px, 4px, 4px, 4px)
-		margin-top: 45px
-		margin-right: 50px
-		float: left
-		position: relative
-		img
-			height: 54px
-			width: 54px
-			position: absolute
-			left: -26px
-			top: -14px
-			+border-radius(50%,50%,50%,50%)
-			border: 2px solid white
-		.topPart
-			margin-bottom: 15px
-			.chatName
-				color: $title_text
-				font-size: 14px
-				margin-left: 30px
-				padding: 10px 0 0 10px
-				font-weight: bold
-			.invite
-				color: $chat_grey
-				font-size: 11px
-				text-decoration: underline
-				cursor: pointer
-				margin-left: 40px
-				font-weight: bold
-			.closeChat
-				position: absolute
-				top: 5px
-				right: 5px
-				padding-right: 10px
-				color: $chat_grey
-				text-decoration: underline
-				cursor: pointer
-				+italic-font
-				font-size: 12px
-				background-image: url('../img/dialog/close.png')
-				background-repeat: no-repeat
-				background-position: 100% 75%
-		.centerPart
-			margin-left: 10px
-			margin-bottom: 10px
-			height: 176px
-			width: 328px
-			overflow-y: scroll
-			.record
-				margin-bottom: 20px
-				.recordAuthor
-					color: $chat_grey
-					+italic-font
-					font-size: 13px
-				.recordText
-					color: $title_text
-					font-size: 15px
-		.centerPart::-webkit-scrollbar
-			height: 1ex
-			width: 8px
-			background: rgba(151,172,178, 0.38)
-			+border-radius(4px, 4px, 4px, 4px)
-		.centerPart::-webkit-scrollbar-thumb
-			background: rgba(89,130,143, 0.7)
-			+border-radius(4px, 4px, 4px, 4px)
-		.centerPart::-moz-scrollbar
-			height: 1ex
-			width: 9px
-			background: rgba(151,172,178, 0.38)
-			+border-radius(4px, 4px, 4px, 4px)
-		.centerPart::-moz-scrollbar-thumb
-			background: rgba(89,130,143, 0.7)
-			+border-radius(4px, 4px, 4px, 4px)
-		.bottomPart
-			+add-input
-			input
-				margin-left: 10px
-				height: 28px
-				width: 286px
-				background-color: white
-				border: 1px solid $chat_input_border
-				+border-radius(4px, 4px, 4px, 4px)
-				padding: 0 0 0 5px
-			.pstMsg
-				float: right
-				margin-right: 10px
-				width: 30px
-				height: 30px
-				background-image: url('../img/dialog/chat.png')
-				cursor: pointer
-	.darkBlock
-		background-color: $chat_block_a
+    width: 1200px
+    margin: 0 auto
+    .chatBlock
+        width: 348px
+        height: 278px
+        background-color: $chat_block
+        border: 1px solid $chat_block_border
+        +border-radius(4px, 4px, 4px, 4px)
+        margin-top: 45px
+        margin-right: 50px
+        float: left
+        position: relative
+        img
+            height: 54px
+            width: 54px
+            position: absolute
+            left: -26px
+            top: -14px
+            +border-radius(50%,50%,50%,50%)
+            border: 2px solid white
+        .topPart
+            margin-bottom: 15px
+            .chatName
+                color: $title_text
+                font-size: 14px
+                margin-left: 30px
+                padding: 10px 0 0 10px
+                font-weight: bold
+            .invite
+                color: $chat_grey
+                font-size: 11px
+                text-decoration: underline
+                cursor: pointer
+                margin-left: 40px
+                font-weight: bold
+            .closeChat
+                position: absolute
+                top: 5px
+                right: 5px
+                padding-right: 10px
+                color: $chat_grey
+                text-decoration: underline
+                cursor: pointer
+                +italic-font
+                font-size: 12px
+                background-image: url('../img/dialog/close.png')
+                background-repeat: no-repeat
+                background-position: 100% 75%
+        .centerPart
+            margin-left: 10px
+            margin-bottom: 10px
+            height: 176px
+            width: 328px
+            overflow-y: scroll
+            .record
+                margin-bottom: 20px
+                .recordAuthor
+                    color: $chat_grey
+                    +italic-font
+                    font-size: 13px
+                .recordText
+                    color: $title_text
+                    font-size: 15px
+        .centerPart::-webkit-scrollbar
+            height: 1ex
+            width: 8px
+            background: rgba(151,172,178, 0.38)
+            +border-radius(4px, 4px, 4px, 4px)
+        .centerPart::-webkit-scrollbar-thumb
+            background: rgba(89,130,143, 0.7)
+            +border-radius(4px, 4px, 4px, 4px)
+        .centerPart::-moz-scrollbar
+            height: 1ex
+            width: 9px
+            background: rgba(151,172,178, 0.38)
+            +border-radius(4px, 4px, 4px, 4px)
+        .centerPart::-moz-scrollbar-thumb
+            background: rgba(89,130,143, 0.7)
+            +border-radius(4px, 4px, 4px, 4px)
+        .bottomPart
+            +add-input
+            input
+                margin-left: 10px
+                height: 28px
+                width: 286px
+                background-color: white
+                border: 1px solid $chat_input_border
+                +border-radius(4px, 4px, 4px, 4px)
+                padding: 0 0 0 5px
+            .pstMsg
+                float: right
+                margin-right: 10px
+                width: 30px
+                height: 30px
+                background-image: url('../img/dialog/chat.png')
+                cursor: pointer
+    .darkBlock
+        background-color: $chat_block_a
 
 /*STATUSES*/
 .statusesContainer
-	float: left
-	width: 1000px
-	margin-left: 100px
-	.wantToTravelBox
-		width: 100% !important
-		margin-bottom: 20px
-		.statusBoxCompleted
-			width: 100% !important
-			.statusBox
-				width: 100% !important
-				.comments
-					margin-left: 10px
-					padding-bottom: 0px
-					height: 26px
-					span
-						line-height: 26px
-					.money-icon
-						margin-top: 3px
-			.statusBoxEdit
-				width: -moz-calc(100% - 20px) !important
-				width: -webkit-calc(100% - 20px) !important
-				width: calc(100% - 20px) !important
-	.filterBlock
-		width: 100%
-		margin-bottom: 25px
-		background-color: $profile_info
-		float: left
-		.title
-			position: relative
-			float: left
-			span
-				font-size: 15px
-				color: $status_filter_text
-				text-transform: uppercase
-				padding: 10px 20px 10px 10px
-				float: left
-		.sortBy
-			float: right
-			margin-top: 10px
-			margin-right: 10px
-			span
-				float: left
-				margin-left: 5px
-				color: $status_filter_text
-				font-size: 12px
-			.act
-				margin-left: 15px
-				position: relative
-				float: left
-				padding-right: 20px
-				span
-					float: left
-					margin-left: 5px
-					color: $status_filter_text
-					font-size: 12px
-				.du, .dd
-					top: 4px
-		.filters
-			display: none
-			padding: 20px
-			float: left
-			width: -moz-calc(100% - 40px)
-			width: -webkit-calc(100% - 40px)
-			width: calc(100% - 40px)
-			.leftPart
-				width: 399px
-				border-right: 1px solid $status_filter_border
-				float: left
-				.title
-					float: left
-					margin-left: 5px
-					color: $status_filter_text
-					font-size: 12px
-					width: 100%
-				.tagsBox
-					float: left
-					margin-top: 5px
-					.searcTagPlaces
-						span
-							text-transform: none
-							opacity: 1
-							font-size: 14px
-				.searchCountry
-					float: left
-					width: 40px
-					margin-left: 5px
-					margin-top: 5px
-					+add-input
-				.nearBox
-					margin-top: 13px
-					margin-left: 10px
-					float: left
-					+search-checkboxes
-			.rightPart
-				width: -moz-calc(100% - 400px)
-				width: -webkit-calc(100% - 400px)
-				width: calc(100% - 400px)
-				float: left
-				.sexBox
-					margin: 15px 0px 0px 10px
-					float: left
-					.manBox, .womanBox
-						width: 95px
-						float: left
-						+search-checkboxes
-	.statusBlock
-		width: -moz-calc(100% - 31px) !important
-		width: -webkit-calc(100% - 31px) !important
-		width: calc(100% - 31px) !important
-		margin-left: 30px
-		height: 78px
-		border: 1px solid $statuses_border
-		border-left: none
-		background-color: $statuses_block
-		float: left
-		margin-bottom: 20px
-		position: relative
-		img
-			height: 80px
-			width: 80px
-			position: absolute
-			left: -30px
-			top: -3px
-			+border-radius(50%,50%,50%,50%)
-			border: 2px solid white
-		.leftPart
-			margin-left: 60px
-			width: 210px
-			margin-top: 0px
-			padding: 10px 0 0 0
-			background: transparent
-			.name-in-profile
-				font-size: 15px
-			.city-in-profile
-				margin-bottom: 5px
-		.rightPart
-			float: left
-			width: -moz-calc(100% - 270px)
-			width: -webkit-calc(100% - 270px)
-			width: calc(100% - 270px)
-			.writeBtn
-				margin: 10px 10px 0 10px
-				float: left
-			.status
-				+italic-font
-				font-size: 16px
-				width: -moz-calc(100% - 48px)
-				width: -webkit-calc(100% - 48px)
-				width: calc(100% - 48px)
-				color: $profile_status_text
-				float: left
-				margin-top: 10px
-			.controlLinks
-				width: 100%
-				margin-top: 5px
-				float: left
-				div
-					float: left
-					text-decoration: underline
-					color: $chat_grey
-					font-size: 11px
-					margin-right: 10px
-					font-weight: bold
-					cursor: pointer
+    float: left
+    width: 1000px
+    margin-left: 100px
+    .wantToTravelBox
+        width: 100% !important
+        margin-bottom: 20px
+        .statusBoxCompleted
+            width: 100% !important
+            .statusBox
+                width: 100% !important
+                .comments
+                    margin-left: 10px
+                    padding-bottom: 0px
+                    height: 26px
+                    span
+                        line-height: 26px
+                    .money-icon
+                        margin-top: 3px
+            .statusBoxEdit
+                width: -moz-calc(100% - 20px) !important
+                width: -webkit-calc(100% - 20px) !important
+                width: calc(100% - 20px) !important
+    .filterBlock
+        width: 100%
+        margin-bottom: 25px
+        background-color: $profile_info
+        float: left
+        .title
+            position: relative
+            float: left
+            span
+                font-size: 15px
+                color: $status_filter_text
+                text-transform: uppercase
+                padding: 10px 20px 10px 10px
+                float: left
+        .sortBy
+            float: right
+            margin-top: 10px
+            margin-right: 10px
+            span
+                float: left
+                margin-left: 5px
+                color: $status_filter_text
+                font-size: 12px
+            .act
+                margin-left: 15px
+                position: relative
+                float: left
+                padding-right: 20px
+                span
+                    float: left
+                    margin-left: 5px
+                    color: $status_filter_text
+                    font-size: 12px
+                .du, .dd
+                    top: 4px
+        .filters
+            display: none
+            padding: 20px
+            float: left
+            width: -moz-calc(100% - 40px)
+            width: -webkit-calc(100% - 40px)
+            width: calc(100% - 40px)
+            .leftPart
+                width: 399px
+                border-right: 1px solid $status_filter_border
+                float: left
+                .title
+                    float: left
+                    margin-left: 5px
+                    color: $status_filter_text
+                    font-size: 12px
+                    width: 100%
+                .tagsBox
+                    float: left
+                    margin-top: 5px
+                    .searcTagPlaces
+                        span
+                            text-transform: none
+                            opacity: 1
+                            font-size: 14px
+                .searchCountry
+                    float: left
+                    width: 40px
+                    margin-left: 5px
+                    margin-top: 5px
+                    +add-input
+                .nearBox
+                    margin-top: 13px
+                    margin-left: 10px
+                    float: left
+                    +search-checkboxes
+            .rightPart
+                width: -moz-calc(100% - 400px)
+                width: -webkit-calc(100% - 400px)
+                width: calc(100% - 400px)
+                float: left
+                .sexBox
+                    margin: 15px 0px 0px 10px
+                    float: left
+                    .manBox, .womanBox
+                        width: 95px
+                        float: left
+                        +search-checkboxes
+    .statusBlock
+        width: -moz-calc(100% - 31px) !important
+        width: -webkit-calc(100% - 31px) !important
+        width: calc(100% - 31px) !important
+        margin-left: 30px
+        height: 78px
+        border: 1px solid $statuses_border
+        border-left: none
+        background-color: $statuses_block
+        float: left
+        margin-bottom: 20px
+        position: relative
+        img
+            height: 80px
+            width: 80px
+            position: absolute
+            left: -30px
+            top: -3px
+            +border-radius(50%,50%,50%,50%)
+            border: 2px solid white
+        .leftPart
+            margin-left: 60px
+            width: 210px
+            margin-top: 0px
+            padding: 10px 0 0 0
+            background: transparent
+            .name-in-profile
+                font-size: 15px
+            .city-in-profile
+                margin-bottom: 5px
+        .rightPart
+            float: left
+            width: -moz-calc(100% - 270px)
+            width: -webkit-calc(100% - 270px)
+            width: calc(100% - 270px)
+            .writeBtn
+                margin: 10px 10px 0 10px
+                float: left
+            .status
+                +italic-font
+                font-size: 16px
+                width: -moz-calc(100% - 48px)
+                width: -webkit-calc(100% - 48px)
+                width: calc(100% - 48px)
+                color: $profile_status_text
+                float: left
+                margin-top: 10px
+            .controlLinks
+                width: 100%
+                margin-top: 5px
+                float: left
+                div
+                    float: left
+                    text-decoration: underline
+                    color: $chat_grey
+                    font-size: 11px
+                    margin-right: 10px
+                    font-weight: bold
+                    cursor: pointer
 /*END STATUSES*/
 
 /*LOGIN REGISTER*/
 .loginRegisterBlock
-	position: absolute
-	top: 95px
-	right: 275px
-	width: 318px
-	background-color: $profile_info
-	opacity: 0.95
-	border: 1px solid $login_border
-	+border-radius(4px, 4px, 4px, 4px)
-	.enterContainer
-		padding: 19px
-		+add-title
-		.greenDots
-			margin-bottom: 15px
-		+add-input
-		input
-			margin-top: 5px
-			height: 37px
-			width: 275px
-			background-color: white
-			border: 1px solid $chat_input_border
-			+border-radius(4px, 4px, 4px, 4px)
-			padding: 0 0 0 5px
-			+simple-font
-		// input:hover
-		// 	background-color: black
-		// 	-webkit-animation: swing 1s ease
-		// 	animation: swing 1s ease
-		// 	-webkit-animation-iteration-count: 1
-		// 	animation-iteration-count: 1
-		input::-moz-placeholder
-			color: $profile_status_text
-		input::-webkit-input-placeholder
-			color: $profile_status_text
-		.rememberBox
-			margin-top: 5px
-			float: left
-			width: 100%
-			+search-checkboxes
-			a
-				text-decoration: underline
-				font-size: 15px
-				float: right
-				cursor: pointer
-				color: $header_blue
-				line-height: 19px
-				+italic-font
-		.profile-edit-slideup
-			margin: 15px 0px 50px 0px
-		.vk, .fb
-			background: $vk
-			border: 1px solid $vk_border
-			width: 278px
-			margin-top: 0px
-			margin-bottom: 5px
-			span
-				font-weight: bold
-		.fb
-			background: $fb
-			border: 1px solid $fb_border
-		.noteBox
-			margin-top: 5px
-			float: left
-			width: 100%
-			font-weight: bold
-			span
-				color: $profile_status_text
-				font-size: 11px
-			a
-				text-decoration: underline
-				font-size: 11px
-				cursor: pointer
-				color: $header_blue
-		.regButton
-			width: 212px
+    position: absolute
+    top: 95px
+    right: 275px
+    width: 318px
+    background-color: $profile_info
+    opacity: 0.95
+    border: 1px solid $login_border
+    +border-radius(4px, 4px, 4px, 4px)
+    .enterContainer
+        padding: 19px
+        +add-title
+        .greenDots
+            margin-bottom: 15px
+        +add-input
+        input
+            margin-top: 5px
+            height: 37px
+            width: 275px
+            background-color: white
+            border: 1px solid $chat_input_border
+            +border-radius(4px, 4px, 4px, 4px)
+            padding: 0 0 0 5px
+            +simple-font
+        // input:hover
+        //  background-color: black
+        //  -webkit-animation: swing 1s ease
+        //  animation: swing 1s ease
+        //  -webkit-animation-iteration-count: 1
+        //  animation-iteration-count: 1
+        input::-moz-placeholder
+            color: $profile_status_text
+        input::-webkit-input-placeholder
+            color: $profile_status_text
+        .rememberBox
+            margin-top: 5px
+            float: left
+            width: 100%
+            +search-checkboxes
+            a
+                text-decoration: underline
+                font-size: 15px
+                float: right
+                cursor: pointer
+                color: $header_blue
+                line-height: 19px
+                +italic-font
+        .profile-edit-slideup
+            margin: 15px 0px 50px 0px
+        .vk, .fb
+            background: $vk
+            border: 1px solid $vk_border
+            width: 278px
+            margin-top: 0px
+            margin-bottom: 5px
+            span
+                font-weight: bold
+        .fb
+            background: $fb
+            border: 1px solid $fb_border
+        .noteBox
+            margin-top: 5px
+            float: left
+            width: 100%
+            font-weight: bold
+            span
+                color: $profile_status_text
+                font-size: 11px
+            a
+                text-decoration: underline
+                font-size: 11px
+                cursor: pointer
+                color: $header_blue
+        .regButton
+            width: 212px
 
 
 
 // .loginRegisterBlock:hover
-// 	-webkit-animation: swing 1s ease
-// 	animation: swing 1s ease
-// 	-webkit-animation-iteration-count: 1
-// 	animation-iteration-count: 1
+//  -webkit-animation: swing 1s ease
+//  animation: swing 1s ease
+//  -webkit-animation-iteration-count: 1
+//  animation-iteration-count: 1
 
-.loginRegisterBlock.step	
-	position: static
-	margin: 70px auto
-	width: 490px
-	color: $title_text
-	.topWrap
-		padding: 19px 19px 0px 19px
-		+add-title
-		.fill-form
-			float: left
-			margin-top: 10px
-	.enterContainer
-		margin: 0px 0px 20px 0px
-		text-align: right
-		width: 400px
-		font-size: 12px
-		.droped
-			display: none
-		.show
-			display: block
-		.hide
-			display: none
-		#birdth-reg, #city-reg
-			span
-				float: right
-			.d-r
-				line-height: 32px
-			.mainSelectElement
-				margin-left: 10px
-				float: right
-				text-align: center
-			#day-select
-				width: 10px
-			#month-select
-				width: 70px
-			#year-select
-				width: 70px
-			#city-select
-				width: 246px
-	.soc-login
-		padding: 0px 19px 19px 19px
-	.sl-r3
-		margin-bottom: 0px
-		paddingbottom: 0px
-	input
-		margin-left: 10px
-	a 
-		color: $header_blue
-		+italic-font
+.loginRegisterBlock.step    
+    position: static
+    margin: 70px auto
+    width: 490px
+    color: $title_text
+    .topWrap
+        padding: 19px 19px 0px 19px
+        +add-title
+        .fill-form
+            float: left
+            margin-top: 10px
+    .enterContainer
+        margin: 0px 0px 20px 0px
+        text-align: right
+        width: 400px
+        font-size: 12px
+        .droped
+            display: none
+        .show
+            display: block
+        .hide
+            display: none
+        #birdth-reg, #city-reg
+            span
+                float: right
+            .d-r
+                line-height: 32px
+            .mainSelectElement
+                margin-left: 10px
+                float: right
+                text-align: center
+            #day-select
+                width: 10px
+            #month-select
+                width: 70px
+            #year-select
+                width: 70px
+            #city-select
+                width: 246px
+    .soc-login
+        padding: 0px 19px 19px 19px
+    .sl-r3
+        margin-bottom: 0px
+        paddingbottom: 0px
+    input
+        margin-left: 10px
+    a 
+        color: $header_blue
+        +italic-font
 .ff-r3
-	float: left
-	text-align: left
+    float: left
+    text-align: left
 /*END LOGIN REGISTER*/
 .searchContainer
-	width: 1000px
-	margin: auto
-.search
-	.searchBox
-		width: 75%
-	.rightBox
-		max-width: 550px
-		width: 550px
-	.rightHeader
-		font-size: 25px
-		.searchBox
-			+border-radius(6px, 6px, 6px, 6px)
-			border: 3px solid #eee
-			input 
-				height: 48px
-				width: 85%
-				border: none
-				outline: none		
-				padding-left: 10px
-				font-size: inherit
-				font-style: italic
-				font-size: 16px			
-			button
-				position: absolute
-				width: 48px
-				height: 48px
-				border: none
-				border-radius: 50%
-				outline: none
-				margin: 1px
-				cursor: pointer
-				background: url(../img/journeys.png) no-repeat 				
-		.results
-			float: right
-			margin-top: 18px		
-			color: $header_green
-			.count
-				font-weight: bold		
-				font-size: 32px
-	.gallery	
-		margin-top: 80px
-		max-width: 600px
-		li
-			margin: 0 10px 10px 0
-			float: left
-			cursor: pointer
-			font-size: 14px
-		
-			img
-				width: 98px
-				height: 110px
-				z-index: 1
-			.info
-				position: absolute
-				margin: -40px 10px						
-			#online
-				background-image: url('../img/circle.png')
-				background-repeat: no-repeat
-				position: absolute
-				margin-top: -107px
-				margin-left: 78px
-				width: 18px
-				height: 18px
-				z-index: 100
-			.shadow
-				box-sizing: border-box
-				-moz-box-sizing: border-box
-				-webkit-box-sizing: border-box
-				padding-top: 5px
-				display: none
-				line-height: 20px
-				.bot
-					margin-top: 15px
-			&:hover				
-				cursor: default
-				.info
-					display: none
-				#online
-					display: none		
-				.shadow		
-					-webkit-transition: all .8s ease
-					-moz-transition: all .8s ease
-					-ms-transition: all .8s ease
-					-o-transition: all .8s ease
-					transition: all .8s ease
-					position: absolute
-					margin-top: -112px
-					display: block
-					width: 99px
-					height: 110px
-					background: rgba(0,0,0,0.5)
-					z-index: 10
-					text-align: center			
-					.link 
-						cursor: pointer
-						text-decoration: underline
+    width: 80%
+    margin: auto
+.search 
+    // .rightBox
+    //  max-width: 550px
+    //  width: 550px
+    .rightHeader
+        font-size: 25px
+        .searchBox
+            +border-radius(6px, 6px, 6px, 6px)
+            border: 3px solid #eee
+            input 
+                height: 48px
+                width: 85%
+                border: none
+                outline: none       
+                padding-left: 10px
+                font-size: inherit
+                font-style: italic
+                font-size: 16px         
+            button
+                position: absolute
+                width: 48px
+                height: 48px
+                border: none
+                border-radius: 50%
+                outline: none
+                margin: 1px
+                cursor: pointer
+                background: url(../img/journeys.png) no-repeat              
+        .results
+            margin-bottom: 18px     
+            color: $header_green
+            .count
+                font-weight: bold       
+                font-size: 32px
+    .gallery            
+        li
+            margin: 0 10px 10px 0
+            float: left
+            cursor: pointer
+            font-size: 14px
+            width: 125px
+            height: 125px
+            img
+                width: 100%
+                height: 100%
+                z-index: 1
+            .info
+                color: black
+                position: absolute
+                margin: -35px 5px   
+                .name 
+                    font-weight: bold                   
+            .online
+                background-image: url('../img/circle.png')
+                background-repeat: no-repeat
+                position: absolute
+                margin-top: -125px
+                margin-left: 105px
+                width: 18px
+                height: 18px
+                z-index: 100
+            .shadow
+                transition: all .8s ease
+                box-sizing: border-box
+                -moz-box-sizing: border-box
+                -webkit-box-sizing: border-box
+                padding-top: 5px
+                display: none
+                line-height: 20px
+                font-size: 12px
+                .bot
+                    margin-top: 15px
+            &:hover             
+                cursor: default
+                .info
+                    display: none
+                .online
+                    display: none       
+                .shadow     
+                    padding: 10px 0
+                    position: absolute
+                    margin-top: -127px
+                    display: block
+                    width: 125px
+                    height: 125px
+                    background: rgba(0,0,0,0.5)
+                    z-index: 10
+                    text-align: center                              
+                    img
+                        width: 13px
+                        height: 13px
+                        margin-left: 10px
+                    div, a
+                        color: white
+                        display: block
+                        cursor: pointer
+                        &:hover
+                            text-decoration: underline
+                    .invite
+                        margin-top: 30px
+                        line-height: 15px
 .noMarginTop
-	margin-top: 0
+    margin-top: 0
 
-.guests	
-	.title
-		width: 100%
-		background: #eee
-		padding: 10px 0 10px 10px
-		color: rgba(0,0,0,0.7)
-	.rightBox
-		width: 55%
-		.chatLine
-			font-size: 13px
-			float: none
-			width: 400px
-			margin: 20px auto
-			position: static
-			color: #000
-			li
-				width: 360px
-				height: 85px
-				border-right: 1px solid $chat_line_border
-				cursor: default
-				.info
-					padding: 10px
-					margin-left: 40px
-					line-height: 15px
-					.name
-						font-weight: bold
-					span
-						margin-left: 0
-						img
-							width: 17px
-							height: 17px
-							position: static
-							cursor: pointer
-							margin-right: 5px
-							opacity: 0.7
-				img
-					height: 90px
-					width: 90px
-					left: -60px	
+.guests 
+    .title
+        width: 100%
+        background: #eee
+        padding: 10px 0 10px 10px
+        color: rgba(0,0,0,0.7)
+    .rightBox
+        width: 55%
+        .chatLine
+            font-size: 13px
+            float: none
+            width: 400px
+            margin: 20px auto
+            position: static
+            color: #000
+            li
+                width: 360px
+                height: 85px
+                border-right: 1px solid $chat_line_border
+                cursor: default
+                .info
+                    padding: 10px
+                    margin-left: 40px
+                    line-height: 15px
+                    .name
+                        font-weight: bold
+                    span
+                        margin-left: 0
+                        img
+                            width: 17px
+                            height: 17px
+                            position: static
+                            cursor: pointer
+                            margin-right: 5px
+                            opacity: 0.7
+                img
+                    height: 90px
+                    width: 90px
+                    left: -60px 
 
 .statuses
-	float: left
-	width: 100%
-	margin-top: 27px
-	position: relative
-	font-size: 14px
-	max-width: 1060px
-	color: $profile_status_text
-	.title
-		width: 98.8%
-		background: #eee
-		padding: 10px 0 10px 10px
-		color: rgba(0,0,0,0.7)
-		+border-radius(4px, 4px, 4px, 4px)
-	.statusBox
-		background: #EFF5F6 !important		
-		.status
-			color: $profile_status_text
-	#show-all
-		text-decoration: underline
-		cursor: pointer
-		padding-left: 7px		
-	.count
-		margin-left: 10px
+    float: left
+    width: 100%
+    margin-top: 27px
+    position: relative
+    font-size: 14px
+    max-width: 1060px
+    color: $profile_status_text
+    .title
+        width: 98.8%
+        background: #eee
+        padding: 10px 0 10px 10px
+        color: rgba(0,0,0,0.7)
+        +border-radius(4px, 4px, 4px, 4px)
+    .statusBox
+        background: #EFF5F6 !important      
+        .status
+            color: $profile_status_text
+    #show-all
+        text-decoration: underline
+        cursor: pointer
+        padding-left: 7px       
+    .count
+        margin-left: 10px
 
 .profileGuest
-	.profileAction
-		color: $title_text
-		div
-			margin-top: 10px
-			padding: 10px 0 0 40px
-			height: 33px
-			cursor: pointer
-			font-size: 14px
-		.write
-			background: url("../img/profile_messages_blue.png") no-repeat
-		.add
-			background: url("../img/profile_favorites_blue.png") no-repeat
-			margin-left: -3px
-			padding-left: 43px
-		.show
-			background: url("../img/profile_go_blue.png") no-repeat
+    .profileAction
+        color: $title_text
+        div
+            margin-top: 10px
+            padding: 10px 0 0 40px
+            height: 33px
+            cursor: pointer
+            font-size: 14px
+        .write
+            background: url("../img/profile_messages_blue.png") no-repeat
+        .add
+            background: url("../img/profile_favorites_blue.png") no-repeat
+            margin-left: -3px
+            padding-left: 43px
+        .show
+            background: url("../img/profile_go_blue.png") no-repeat
 
 .form-line
-	margin-top: 10px
-	.sexBox
-		display: inline-block
-		width: 280px
-		text-align: left
-		margin-left: 15px
-	.box
-		float: left
-		+border-radius(50%, 50%, 50%, 50%)
-	.man, .woman
-		display: inline-block
-		width: 80px
-		span
-			display: block
-			margin-top: 4px
-			margin-left: 25px
-	.regButton
-		width: 160px !important
-		margin: 20px 0px 20px 141px !important
-		float: none
+    margin-top: 10px
+    .sexBox
+        display: inline-block
+        width: 280px
+        text-align: left
+        margin-left: 15px
+    .box
+        float: left
+        +border-radius(50%, 50%, 50%, 50%)
+    .man, .woman
+        display: inline-block
+        width: 80px
+        span
+            display: block
+            margin-top: 4px
+            margin-left: 25px
+    .regButton
+        width: 160px !important
+        margin: 20px 0px 20px 141px !important
+        float: none
 .photo-load
-	padding: 0 20px
-	background: url("../img/profile_arrow_l.png") 45% 30% no-repeat
-	.img
-		img 
-			width: 150px
-	.button
-		float: right
-		button
-			margin: 60px 60px
-			padding: 5px
-		input
-			display: none
-	.soc-login
-		margin-bottom: 10px
+    padding: 0 20px
+    background: url("../img/profile_arrow_l.png") 45% 30% no-repeat
+    .img
+        img 
+            width: 150px
+    .button
+        float: right
+        button
+            margin: 60px 60px
+            padding: 5px
+        input
+            display: none
+    .soc-login
+        margin-bottom: 10px
 
 .regButton.step3
-	width: 200px
-	margin: 20px auto !important
-	float: none
+    width: 200px
+    margin: 20px auto !important
+    float: none
 
 .hide
-	display: none
+    display: none
 
 /*POPUP'S*/
 .popup
-	position: absolute
-	top: 25%
-	display: none
-	overflow-y: auto
-	margin-bottom: 100px
-	overflow-x: hidden
-	a 
-		color: $header_blue
-		+italic-font
-		position: absolute
-		right: 20px
-		top: 20px
-		text-decoration: underline
+    position: absolute
+    top: 25%
+    display: none
+    overflow-y: auto
+    margin-bottom: 100px
+    overflow-x: hidden
+    a 
+        color: $header_blue
+        +italic-font
+        position: absolute
+        right: 20px
+        top: 20px
+        text-decoration: underline
 .letsgoPopup
-	left: -moz-calc((100% - 365px)/2)
-	left: -webkit-calc((100% - 365px)/2)
-	left: calc((100% - 365px)/2)
-	width: 365px
-	.popupHeaderBox
-		//float: left
-		width: 100%
-		.popupHeader
-			float: left
-			height: 29px
-			width: 86px
-			margin-right: 4px
-			+border-radius(4px, 4px, 0px, 0px)
-			background: white
-			cursor: pointer
-			border: 1px solid $photo_border
-			border-bottom: none
-			.title
-				background-repeat: no-repeat
-				text-align: center
-				span
-					text-transform: uppercase
-					font-size: 12px
-					color: $profile_status_text
-					line-height: 29px
-					opacity: 0.52
-		.activeHeader, .popupHeader:hover
-			background: $popup-lg-header
-			.title
-				span
-					color: white
-					opacity: 1
-	.popupBody
-		background-color: $profile_info
-		border: 1px solid $profile_status_border
-		padding: 19px
-		+border-radius(0px, 4px, 4px, 4px)
-		.pop-t
-			display: block
-			font-size: 14px
-			color: $profile_status_text
-			margin: 5px 5px 5px 0px
-			width: 100%
-			float: left
-			font-weight: bold
-		.searchCountry
-			float: left
-			width: 40px
-			margin-bottom: 20px
-			+add-input
-		.tagsBox
-			float: left
-			.mainSelectElement
-				margin-right: 5px
-		#popup-phone
-			float: left
-			padding: 4px
-			height: 22px
-			width: 250px
-			background: white
-			border: 1px solid $tag_input_border		
-			+border-radius(4px, 4px, 4px, 4px)
-			color: $profile_status_text
-			-webkit-box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.24)
-			-moz-box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.24)
-			box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.24)
-			margin-bottom: 20px
-		p
-			color: $profile_status_text
-			font-size: 15px
-			float: left
-			margin-bottom: 20px
-		.regButton			
-			margin-left: -moz-calc((100% - 112px)/2)
-			margin-left: -webkit-calc((100% - 112px)/2)
-			margin-left: calc((100% - 112px)/2)
+    left: -moz-calc((100% - 365px)/2)
+    left: -webkit-calc((100% - 365px)/2)
+    left: calc((100% - 365px)/2)
+    width: 365px
+    .popupHeaderBox
+        //float: left
+        width: 100%
+        .popupHeader
+            float: left
+            height: 29px
+            width: 86px
+            margin-right: 4px
+            +border-radius(4px, 4px, 0px, 0px)
+            background: white
+            cursor: pointer
+            border: 1px solid $photo_border
+            border-bottom: none
+            .title
+                background-repeat: no-repeat
+                text-align: center
+                span
+                    text-transform: uppercase
+                    font-size: 12px
+                    color: $profile_status_text
+                    line-height: 29px
+                    opacity: 0.52
+        .activeHeader, .popupHeader:hover
+            background: $popup-lg-header
+            .title
+                span
+                    color: white
+                    opacity: 1
+    .popupBody
+        background-color: $profile_info
+        border: 1px solid $profile_status_border
+        padding: 19px
+        +border-radius(0px, 4px, 4px, 4px)
+        .pop-t
+            display: block
+            font-size: 14px
+            color: $profile_status_text
+            margin: 5px 5px 5px 0px
+            width: 100%
+            float: left
+            font-weight: bold
+        .searchCountry
+            float: left
+            width: 40px
+            margin-bottom: 20px
+            +add-input
+        .tagsBox
+            float: left
+            .mainSelectElement
+                margin-right: 5px
+        #popup-phone
+            float: left
+            padding: 4px
+            height: 22px
+            width: 250px
+            background: white
+            border: 1px solid $tag_input_border     
+            +border-radius(4px, 4px, 4px, 4px)
+            color: $profile_status_text
+            -webkit-box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.24)
+            -moz-box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.24)
+            box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.24)
+            margin-bottom: 20px
+        p
+            color: $profile_status_text
+            font-size: 15px
+            float: left
+            margin-bottom: 20px
+        .regButton          
+            margin-left: -moz-calc((100% - 112px)/2)
+            margin-left: -webkit-calc((100% - 112px)/2)
+            margin-left: calc((100% - 112px)/2)
 .photoPopup, .videoPopup
-	top: 10%
-	left: 25%
-	width: 50%
-	background-color: white
-	padding: 50px 20px 0px 20px
-	+border-radius(4px, 4px, 4px, 4px)
-	.imgBox
-		img, iframe
-			width: 100%
-		iframe
-			height: 500px
-	.infoBox
-		img
-			height: 80px
-			width: 80px
-			+border-radius(50%,50%,50%,50%)
-			float: left
-			margin: 10px
-		.leftPart
-			float: left
-			margin-left: 10px
-			width: 210px
-			margin-top: 20px
-			padding: 10px 0 0 0
-			background: transparent
-			color: $profile_status_text
-			.name-in-profile
-				font-weight: bold
-				margin-bottom: 5px
-			.city-in-profile
-				font-size: 15px
+    top: 10%
+    left: 25%
+    width: 50%
+    background-color: white
+    padding: 50px 20px 0px 20px
+    +border-radius(4px, 4px, 4px, 4px)
+    .imgBox
+        img, iframe
+            width: 100%
+        iframe
+            height: 500px
+    .infoBox
+        img
+            height: 80px
+            width: 80px
+            +border-radius(50%,50%,50%,50%)
+            float: left
+            margin: 10px
+        .leftPart
+            float: left
+            margin-left: 10px
+            width: 210px
+            margin-top: 20px
+            padding: 10px 0 0 0
+            background: transparent
+            color: $profile_status_text
+            .name-in-profile
+                font-weight: bold
+                margin-bottom: 5px
+            .city-in-profile
+                font-size: 15px
 .chavaPopup, .promoPopup, .chopPopup, .ratingPopup
-	top: 10%
-	width: 558px
-	left: -moz-calc((100% - 560px)/2)
-	left: -webkit-calc((100% - 560px)/2)
-	left: calc((100% - 560px)/2)
-	background-color: white
-	+border-radius(4px, 4px, 4px, 4px)
-	form
-		padding: 35px 25px
-		border: 1px solid $profile_status_border
-		+border-radius(4px, 4px, 0px, 0px)
-		border-bottom: none
-		h1, h2
-			color: $profile_status_text
-			font-size: 24px
-			font-weight: bold
-			width: 100%
-			float: left
-		h2
-			font-size: 20px
-		.greenDots
-			margin-bottom: 10px
-		.changeAvatarBox
-			margin-bottom: 50px
-			margin-top: 10px
-			img
-				float: left
-				width: 155px
-				height: 155px
-				+border-radius(50%,50%,50%,50%)
-			.popupArrow
-				float: left
-				width: 31px
-				height: 58px
-				background-image: url("../img/popup_arrow.png")
-				margin-top: 46px
-				margin-left: 20px
-				margin-right: 20px
-			.controlBox
-				float: left
-				width: 200px
-				.mainSelectElement
-					cursor: pointer
-					margin-top: 40px
-					padding-right: 7px
-					span
-						color: $profile_status_text
-				input
-					display: none
-				#delete-avatar
-					background-image: url("../img/delete.png")
-					background-repeat: no-repeat
-					padding-left: 15px
-					margin-top: 20px
-					color: $profile_status_text
-					font-size: 16px
-					cursor: pointer
-					background-position: 0% 40%
-		p
-			float: left
-			color: $profile_status_text
-			margin-bottom: 15px
-			font-size: 15px
-		.playerBox
-			float: left
-			width: 100%
-			.audio
-				position: static
-				float: left
-			.timeBar
-				float: left
-				width: 250px
-				height: 5px
-				margin-left: 10px
-				margin-top: 7px
-				background-color: $timebar
-				position: relative
-				z-index: 100
-				.progress
-					position: absolute
-					background-color: $timebar_progress
-					top: 0
-					left: 0
-					height: 5px
-					width: 0%
-					z-index: 200
-		.upload-new-audio, .upload-new-video
-			float: left
-			cursor: pointer
-			margin-top: 10px
-			padding-right: 7px
-			margin-bottom: 20px
-			span
-				color: $profile_status_text
-		.upload-new-audio-input
-			display: none
-	.save-new-ava-audio, .add-to-promo, .choose-promo-photo
-		width: 100%
-		margin-left: 0px
-		+border-radius(0px, 0px, 4px, 4px)
+    top: 10%
+    width: 558px
+    left: -moz-calc((100% - 560px)/2)
+    left: -webkit-calc((100% - 560px)/2)
+    left: calc((100% - 560px)/2)
+    background-color: white
+    +border-radius(4px, 4px, 4px, 4px)
+    form
+        padding: 35px 25px
+        border: 1px solid $profile_status_border
+        +border-radius(4px, 4px, 0px, 0px)
+        border-bottom: none
+        h1, h2
+            color: $profile_status_text
+            font-size: 24px
+            font-weight: bold
+            width: 100%
+            float: left
+        h2
+            font-size: 20px
+        .greenDots
+            margin-bottom: 10px
+        .changeAvatarBox
+            margin-bottom: 50px
+            margin-top: 10px
+            img
+                float: left
+                width: 155px
+                height: 155px
+                +border-radius(50%,50%,50%,50%)
+            .popupArrow
+                float: left
+                width: 31px
+                height: 58px
+                background-image: url("../img/popup_arrow.png")
+                margin-top: 46px
+                margin-left: 20px
+                margin-right: 20px
+            .controlBox
+                float: left
+                width: 200px
+                .mainSelectElement
+                    cursor: pointer
+                    margin-top: 40px
+                    padding-right: 7px
+                    span
+                        color: $profile_status_text
+                input
+                    display: none
+                #delete-avatar
+                    background-image: url("../img/delete.png")
+                    background-repeat: no-repeat
+                    padding-left: 15px
+                    margin-top: 20px
+                    color: $profile_status_text
+                    font-size: 16px
+                    cursor: pointer
+                    background-position: 0% 40%
+        p
+            float: left
+            color: $profile_status_text
+            margin-bottom: 15px
+            font-size: 15px
+        .playerBox
+            float: left
+            width: 100%
+            .audio
+                position: static
+                float: left
+            .timeBar
+                float: left
+                width: 250px
+                height: 5px
+                margin-left: 10px
+                margin-top: 7px
+                background-color: $timebar
+                position: relative
+                z-index: 100
+                .progress
+                    position: absolute
+                    background-color: $timebar_progress
+                    top: 0
+                    left: 0
+                    height: 5px
+                    width: 0%
+                    z-index: 200
+        .upload-new-audio, .upload-new-video
+            float: left
+            cursor: pointer
+            margin-top: 10px
+            padding-right: 7px
+            margin-bottom: 20px
+            span
+                color: $profile_status_text
+        .upload-new-audio-input
+            display: none
+    .save-new-ava-audio, .add-to-promo, .choose-promo-photo
+        width: 100%
+        margin-left: 0px
+        +border-radius(0px, 0px, 4px, 4px)
 .promoPopup, .ratingPopup
-	top: 5%
-	width: 618px
-	left: -moz-calc((100% - 620px)/2)
-	left: -webkit-calc((100% - 620px)/2)
-	left: calc((100% - 620px)/2)
-	form
-		.crsItem
-			width: 94px
-			height: 94px
-			.videoBox
-				width: 94px
-				height: 94px
-				.frontLayer
-					width: 94px
-					height: 94px
-				video
-					width: 94px
-					height: 94px
-			.video
-				right: 6px
-			img
-				width: 94px
-				height: 94px
-		.changeAvatarBox
-			margin-bottom: 10px
-		.chooseBox
-			width: 100%
-			float: left
-			margin-bottom: 10px
-			.mainSelectElement
-				cursor: pointer
-				margin-top: 0px
-				padding-right: 7px
-				float: left
-				span
-					color: $profile_status_text
-		.bilContainer
-			.upload-money
-				float: right
-				width: 200px
-			.price
-				float: right
-				color: $header_blue
-				+italic-font
-				font-size: 36px
-				font-weight: normal
-				small
-					color: $header_blue
-					+italic-font
-		.videoContainer
-			margin-bottom: 20px
-			.crsItem
-				margin-top: 0px
-			.upload-new-video
-				margin-top: 30px
+    top: 5%
+    width: 618px
+    left: -moz-calc((100% - 620px)/2)
+    left: -webkit-calc((100% - 620px)/2)
+    left: calc((100% - 620px)/2)
+    form
+        .crsItem
+            width: 94px
+            height: 94px
+            .videoBox
+                width: 94px
+                height: 94px
+                .frontLayer
+                    width: 94px
+                    height: 94px
+                video
+                    width: 94px
+                    height: 94px
+            .video
+                right: 6px
+            img
+                width: 94px
+                height: 94px
+        .changeAvatarBox
+            margin-bottom: 10px
+        .chooseBox
+            width: 100%
+            float: left
+            margin-bottom: 10px
+            .mainSelectElement
+                cursor: pointer
+                margin-top: 0px
+                padding-right: 7px
+                float: left
+                span
+                    color: $profile_status_text
+        .bilContainer
+            .upload-money
+                float: right
+                width: 200px
+            .price
+                float: right
+                color: $header_blue
+                +italic-font
+                font-size: 36px
+                font-weight: normal
+                small
+                    color: $header_blue
+                    +italic-font
+        .videoContainer
+            margin-bottom: 20px
+            .crsItem
+                margin-top: 0px
+            .upload-new-video
+                margin-top: 30px
 .chopPopup
-	.choose-promo-photo
-		width: 100%
-		margin-left: 0px
-		+border-radius(4px, 4px, 0px, 0px)
-		margin-bottom: 10px
-	form
-		padding: 10px 15px
-		.imgRow
-			.imgBox
-				float: left
-				margin-right: 10px
-				margin-bottom: 10px
-				position: relative
-				img
-					width: 168px
-					float: left
-					position: relative
-					z-index: 100
-				.cover
-					width: 100%
-					height: 100%
-					top: 0
-					position: absolute
-					z-index: 200
-					background-color: black
-					opacity: 0.5
-					display: none
-					cursor: pointer
-				span
-					color: white
-					font-size: 14px
-					position: absolute
-					top: 45%
-					left: 35%
-					display: none
-					z-index: 300
-			.imgBox:last-child
-				margin-right: 0px
-			.imgBox:hover
-				.cover
-					display: block
-				span
-					display: inline
-			.chosenImg
-				.cover
-					display: block
-				span
-					display: none
+    .choose-promo-photo
+        width: 100%
+        margin-left: 0px
+        +border-radius(4px, 4px, 0px, 0px)
+        margin-bottom: 10px
+    form
+        padding: 10px 15px
+        .imgRow
+            .imgBox
+                float: left
+                margin-right: 10px
+                margin-bottom: 10px
+                position: relative
+                img
+                    width: 168px
+                    float: left
+                    position: relative
+                    z-index: 100
+                .cover
+                    width: 100%
+                    height: 100%
+                    top: 0
+                    position: absolute
+                    z-index: 200
+                    background-color: black
+                    opacity: 0.5
+                    display: none
+                    cursor: pointer
+                span
+                    color: white
+                    font-size: 14px
+                    position: absolute
+                    top: 45%
+                    left: 35%
+                    display: none
+                    z-index: 300
+            .imgBox:last-child
+                margin-right: 0px
+            .imgBox:hover
+                .cover
+                    display: block
+                span
+                    display: inline
+            .chosenImg
+                .cover
+                    display: block
+                span
+                    display: none
 
 
 span.error 
-	color: red
-	display: none
+    color: red
+    display: none
 
 a.ldblock
-	display: block
-	text-decoration: none
+    display: block
+    text-decoration: none
 
 .ratingPopup
-	form
-		border: none
-		.pnct
-			margin-left: 40px
-		.profileBox
-			width: 150px
-			height: 150px
-			margin-right: 40px
-			.imgBox
-				width: 127px
-				height: 127px
-			.profile-rating
-				right: -13px
-				top: 26px
-				font-size: 15px
-				cursor: default
-		h2
-			margin-top: 20px
-		.textBox
-			float: left
-			width: 365px
-			margin-top: 25px
-			p
-				margin-bottom: 5px
-				font-weight: bold
-				width: 100%
-			.pnct
-				margin-bottom: 0px
-				+italic-font
-		.bilContainer
-			margin-bottom: 10px
-			.regButton, .price
-				margin-top: 10px
-			.regButton
-				margin-right: 140px
+    form
+        border: none
+        .pnct
+            margin-left: 40px
+        .profileBox
+            width: 150px
+            height: 150px
+            margin-right: 40px
+            .imgBox
+                width: 127px
+                height: 127px
+            .profile-rating
+                right: -13px
+                top: 26px
+                font-size: 15px
+                cursor: default
+                z-index: 1024
+        h2
+            margin-top: 20px
+        .textBox
+            float: left
+            width: 365px
+            margin-top: 25px
+            p
+                margin-bottom: 5px
+                width: 100%
+            .pnct
+                margin-bottom: 0px
+                +italic-font
+        .bilContainer
+            margin-bottom: 10px
+            .regButton, .price
+                margin-top: 10px
+            .regButton
+                margin-right: 140px

@@ -6,11 +6,11 @@
       div(class = user.is_sponsor === true ? "money-icon mg-icon" : "money-icon")
         .tooltip.clearfix
           .tooltip-arrow
-          span Денежка
+          span Спонсортство
       div(class = user.is_host === true ? "house-icon hg-icon" : "house-icon")
         .tooltip.clearfix
           .tooltip-arrow
-          span Домик
+          span Жду в гости
       .city-in-profile #{user.city}
     .wantToTravelBox.clearfix
       //- .newStatus Новый статус
@@ -56,22 +56,22 @@
       .tagsLine#profile-tags
         .mainSelectElement.profileTagPlaces.withShadow
           span.tagCountry Россия
-          //- .close
+          .close
         .mainSelectElement.profileTagPlaces.withShadow
           span.tagCountry Европа
-          //- .close
+          .close
         .mainSelectElement.profileTagPlaces.withShadow
           span.tagCountry Африка
-          //- .close
-      //- .newTagBox
-      //-   .mainSelectElement.newCountry.withShadow
-      //-     input#profile-new-tag(placeholder='...', type='text',  maxlength="20")
-      //-     .dd
-      //-     .du
-      //-     ul.droped.withShadow
-      //-       li.dl Россия
-      //-       li.dl Африка
-      //-       li.dl Европа
+          .close
+      .newTagBox
+        .mainSelectElement.newCountry.withShadow
+          input#profile-new-tag(placeholder='...', type='text',  maxlength="20")
+          .dd
+          .du
+          ul.droped.withShadow
+            li.dl Россия
+            li.dl Африка
+            li.dl Европа
     .profileInfoBox
       .edit#edit-profile
         .tooltip.clearfix

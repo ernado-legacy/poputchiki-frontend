@@ -1,10 +1,10 @@
 .leftBox
   .profileBox
     .imgBox
-      img(src='/static/img/b_userpic.png')
+      img(src=user.avatar_url)
       .cover
       span#change-avatar Изменить фото
-    #profile-rating 96%
+    #profile-rating рейтинг
   .searchBox
     .searchBody.clearfix#my-wishes
       h1 мои предпочтения
@@ -77,3 +77,10 @@
       .tagsBox.clearfix#tb-f
       .greenDots
       .slideDown#search-slideup Мои предпочтения
+  div
+    span.lp
+    span.rp
+      .profile-search
+        span 
+          span.fui-search 
+          Найти

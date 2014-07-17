@@ -23,7 +23,6 @@ app.views.Profile = Backbone.View.extend
         that = @
         history.pushState null, 'poputchiki', '/profile/'
         @get_my_user (user) ->
-            console.log user.attributes
             $ that.$el.html jade.templates.profile
                 user: user.attributes
             do profile_script

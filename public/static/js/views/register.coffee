@@ -34,6 +34,13 @@ app.views.Register = Backbone.View.extend
         $('.box').click ->
             $('.box').toggleClass('checked')
 
+    getDate: (date_block)->
+        d = date_block.find('#day-edit-select').text()
+        m = date_block.find('#month-edit-select').text()
+        m = $("li:contains('"+m+"')").attr 'month'
+        y = date_block.find('#year-edit-select').text()
+        y+"-"+m+"-"+d+"T00:00:00Z"
+
     regsteptwo: ->
         # @updatehash = 
         #    name: arr[0].value + ' ' + arr[1].value
@@ -45,15 +52,25 @@ app.views.Register = Backbone.View.extend
             $.cookie 'token', data['token']
             $.cookie 'user', data['id']
             arr = $('form.loginRegisterBlock').serializeArray()
+
+            date_block = $('#birdth-reg')
+            d = date_block.find('#day-edit-select').text()
+            m = date_block.find('#month-edit-select').text()
+            m = $("li:contains('"+m+"')").attr 'month'
+            y = date_block.find('#year-edit-select').text()
+            birthday = y+"-"+m+"-"+d+"T00:00:00Z"
+
             user = new app.models.User
                 id: $.cookie 'user'
                 name: arr[0].value + ' ' + arr[1].value
-                birthday: $('#day-edit-select').text() + ' ' + $('#month-edit-select').text() + ' ' + $('#year-edit-select').text()
+                birthday: birthday
                 city: $('#city-edit-select').text()
                 phone: $('#tel').text()
             user.set 'avatar', data.id
             user.save()
             that.render 3
+
+    
 
     regstepthree: ->
         # that = @
