@@ -13,7 +13,8 @@
         ul.chatLine
           for guest in guests
             li
-              img(src=guest.avatar_url)
+              a(href="/user/#{guest.id}", data-user-id="#{guest.id}")
+                img(src=guest.avatar_url)
               .info
                 .right
                   .last-date Заходил #{date}

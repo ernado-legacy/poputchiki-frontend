@@ -641,6 +641,17 @@ small
         bottom: 24px
         right: 0
 
+#profile-arrow-up,
+#profile-arrow-down,
+#profile-arrow-left,
+#profile-arrow-right
+    opacity: 0.5
+#profile-arrow-up:hover,
+#profile-arrow-down:hover,
+#profile-arrow-left:hover,
+#profile-arrow-right:hover
+    opacity: 1
+
 .photoVideoBlock
     margin: 7px 0px 100px 0px
     right: 6px
@@ -648,7 +659,19 @@ small
     top: 0px
     width: 384px
     //width: 315px
-    position: absolute
+    position: absolute    
+    #profile-arrow-up, #profile-arrow-down
+        background-image: url('../img/profile_arrow_u.png')
+        background-repeat: no-repeat
+        height: 25px
+        width: 35px
+        cursor: pointer
+        position: absolute
+        top: 35px
+        left: -30px
+    #profile-arrow-down
+        background-image: url('../img/profile_arrow_d.png')
+        top: 60px
     .photoHeaderBox
         float: left
         width: 100%
@@ -700,8 +723,23 @@ small
         background: white
         padding: 9px
         float: left
+        max-height: 732px
         +border-radius(0px, 4px, 4px, 4px)
         border: 1px solid $photo_border
+        overflow: hidden
+        .photoBoxWrapper
+            position: relative
+            max-height: 732px
+            overflow: hidden
+            overflow-y: scroll
+            .pb-wr
+                position: relative
+        .photoBoxWrapper::-webkit-scrollbar
+            height: 1px
+            width: 1px
+            background: rgba(0, 0, 0, 0.0)
+        .photoBoxWrapper::-webkit-scrollbar-thumb
+            background: rgba(0, 0, 0, 0.0)
     .photoBox, .videoBox
         img
             width: 360px
@@ -1921,8 +1959,8 @@ small
                         color: white
                         display: block
                         cursor: pointer
-                        &:hover
-                            text-decoration: underline
+                    a:hover
+                        text-decoration: underline
                     .invite
                         margin-top: 30px
                         line-height: 15px
