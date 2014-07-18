@@ -12,6 +12,7 @@ app.views.Entered = Backbone.View.extend
         'click #profile-arrow-right': 'carousel_right'
         'click #profile-arrow-up': 'carousel_up'
         'click #profile-arrow-down': 'carousel_down'
+        'click .closeChat': 'closechat'
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")
@@ -23,30 +24,7 @@ app.views.Entered = Backbone.View.extend
             
         ,false)
 
-    setmenuitem: (item) ->
-        $('.leftMenu li').removeClass('current');
-        $(item).addClass('current');
-
-    changemenu: (event) ->
-        menuhash =
-            'menu-messgaes': app.views.message
-            'menu-favorites': app.views.favorite
-            # 'menu-photos': app.views.photo
-            'menu-rating': app.views.rating
-            'menu-tools': app.views.setting
-
-        id = event.currentTarget.id
-        view = menuhash[id]
-        do view.render
-
-    render: ->
-        $ @.$el.html jade.templates.entered()
-        $('body').removeClass 'loginRegisterBody'
-        @showMenu 'webkitTransitionEnd'
-        @showMenu 'oTransitionEnd'
-        @showMenu 'MSAnimationEnd'
-        @showMenu 'transitionend'
-
+    resizeonload: ->
         $(window).load ->
             if $(window).width() >= 1730
                 $('.carouselBox').css 'width', '1440px'
@@ -62,6 +40,48 @@ app.views.Entered = Backbone.View.extend
             else
                 wdth = ($('.topContainer').width() - 210).toString() + 'px'
                 $('.carouselBox').css 'width', wdth
+
+    removetag: ->
+        $(document).on "click", ".close", ->
+            $(this).parent().remove()  unless $(this).parent().hasClass("newTag")
+
+    scrollmenu: ->
+        $(window).scroll ->
+            if window.pageYOffset >= 270
+                $(".menuBox").css "top", "30px"
+                $(".menuBox").css "position", "fixed"
+            else
+                $(".menuBox").removeAttr "style"
+
+    setmenuitem: (item) ->
+        $('.leftMenu li').removeClass('current');
+        $(item).addClass('current');
+
+    changemenu: (event) ->
+        menuhash =
+            'menu-messgaes': app.views.message
+            'menu-favorites': app.views.favorite
+            # 'menu-photos': app.views.photo
+            'menu-rating': app.views.rating
+            'menu-tools': app.views.setting
+
+        $('.leftMenu li').removeClass 'current'
+        $(event.currentTarget).addClass 'current'
+
+        id = event.currentTarget.id
+        view = menuhash[id]
+        do view.render
+
+    render: ->
+        $ @.$el.html jade.templates.entered()
+        $('body').removeClass 'loginRegisterBody'
+        @showMenu 'webkitTransitionEnd'
+        @showMenu 'oTransitionEnd'
+        @showMenu 'MSAnimationEnd'
+        @showMenu 'transitionend'
+        @resizeonload()
+        @scrollmenu()
+        @removetag()
 
 
     init: ->
@@ -201,6 +221,9 @@ app.views.Entered = Backbone.View.extend
            $('.videoBox .photoBoxWrapper').animate
                 scrollTop: "+=480"
                 , "slow"
+
+    closechat: (event) ->
+        $(event.target).parent().parent().remove()
 $ ->
     app.views.entered = new app.views.Entered
     app.views.entered.init()

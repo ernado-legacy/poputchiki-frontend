@@ -54,9 +54,6 @@ app.views.Profile = Backbone.View.extend
             that.closepopup '.save-new-ava-audio'
             that.season '.season'
 
-            $('.box').click ->
-                $(this).toggleClass 'checked'
-
             $('.videoHeader').click ->
                 $('.activeHeader').removeClass 'activeHeader'
                 $(this).addClass 'activeHeader'
