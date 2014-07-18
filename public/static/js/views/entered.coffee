@@ -8,6 +8,10 @@ app.views.Entered = Backbone.View.extend
         'click .audio': 'play_audio'
         'click .video': 'play_video'
         'click .leftMenu li': 'changemenu'
+        'click #profile-arrow-left': 'carousel_left'
+        'click #profile-arrow-right': 'carousel_right'
+        'click #profile-arrow-up': 'carousel_up'
+        'click #profile-arrow-down': 'carousel_down'
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")
@@ -42,6 +46,23 @@ app.views.Entered = Backbone.View.extend
         @showMenu 'oTransitionEnd'
         @showMenu 'MSAnimationEnd'
         @showMenu 'transitionend'
+
+        $(window).load ->
+            if $(window).width() >= 1730
+                $('.carouselBox').css 'width', '1440px'
+            else
+                wdth = ($('.topContainer').width() - 210).toString() + 'px'
+                $('.carouselBox').css 'width', wdth
+            cw = ($('.mainCrs').length * 160).toString() + 'px'
+            $(".carousel").css "width", cw
+
+        $(window).resize ->
+            if $(window).width() >= 1730
+                $('.carouselBox').css 'width', '1440px'
+            else
+                wdth = ($('.topContainer').width() - 210).toString() + 'px'
+                $('.carouselBox').css 'width', wdth
+
 
     init: ->
         that = this
@@ -148,6 +169,38 @@ app.views.Entered = Backbone.View.extend
                 return
             ), 1000
         return
+
+    carousel_left: ->
+        $(".carouselBox").animate
+            scrollLeft: "+=480"
+            , "slow"
+
+    carousel_right: ->
+        $(".carouselBox").animate
+            scrollLeft: "-=480"
+            , "slow"
+
+    carousel_up: ->
+        z = $('.photoHeader')
+        if z.hasClass 'activeHeader'
+            $('.photoBox .photoBoxWrapper').animate
+                scrollTop: "-=480"
+                , "slow"
+        else
+           $('.videoBox .photoBoxWrapper').animate
+                scrollTop: "-=480"
+                , "slow"
+
+    carousel_down: ->
+        z = $('.photoHeader')
+        if z.hasClass 'activeHeader'
+            $('.photoBox .photoBoxWrapper').animate
+                scrollTop: "+=480"
+                , "slow"
+        else
+           $('.videoBox .photoBoxWrapper').animate
+                scrollTop: "+=480"
+                , "slow"
 $ ->
     app.views.entered = new app.views.Entered
     app.views.entered.init()
