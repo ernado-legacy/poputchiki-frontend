@@ -47,3 +47,4 @@ app.views.Search = Backbone.View.extend
         app.views.profile.get_my_user (user) ->
             $ that.$el.html jade.templates.search
                 user: user.attributes
+        # do @.search

@@ -26,6 +26,7 @@ app.views.GuestProfile = Backbone.View.extend
     render: ->
         that = @
         @get_user (user) ->
+            app.views.user_photo_block.render(window.location.pathname.split('/').slice(2)[0])
             user_id = $.cookie('user')
             
             user.visit_user_by user_id if user_id

@@ -4,7 +4,8 @@ app.views.Entered = Backbone.View.extend
 
     events:
         'click #header-journeys': 'search'
-        'click .header-profile-statuses': 'guests'
+        # 'click .header-profile-statuses': 'guests'
+        'click .header-profile-statuses': 'statuses'
         'click .audio': 'play_audio'
         'click .video': 'play_video'
         'click .leftMenu li': 'changemenu'
