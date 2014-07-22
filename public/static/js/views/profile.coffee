@@ -13,11 +13,7 @@ app.views.Profile = Backbone.View.extend
         return
 
     get_my_user: (callback) ->
-        user = new app.models.User 
-            id: $.cookie 'user'
-        user.fetch
-            success: ->
-                callback user
+        app.models.myuser.get callback
 
     render: ->
         that = @

@@ -8,7 +8,7 @@ app.views.Login = Backbone.View.extend
 
     check_status: (callback) ->
         if Boolean $.cookie 'token'
-            callback true
+            app.models.myuser.check 'token', callback
         else
             callback false
 
@@ -42,7 +42,9 @@ app.views.Login = Backbone.View.extend
                 # $.cookie 'user', data['id']
 
                 $.cookie('token', data['token'], { expires: 7, path: '/' });
-                $.cookie('user', data['id'], { expires: 7, path: '/' });
+                # $.cookie('user', data['id'], { expires: 7, path: '/' });
+                app.models.myuser.check data.id
+
                 do app.views.entered.render
                 app.views.profile = new app.views.Profile
                 do app.views.profile.render
