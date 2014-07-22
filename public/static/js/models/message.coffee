@@ -5,6 +5,9 @@ Message = app.models.Message
 app.models.Messages = Backbone.Collection.extend
     model: Message
 
+    url: () ->
+        '/api/user/'+ @urluser + '/messages'
+
 Messages = app.models.Messages
 
 app.models.newMessage = (data, url, callback) ->
