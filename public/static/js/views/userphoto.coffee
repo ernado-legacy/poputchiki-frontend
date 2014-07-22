@@ -36,11 +36,11 @@ app.views.UserPhotoBlock = Backbone.View.extend
         collection = new app.models.Photos id
         that = @
         collection.fetch().done () ->
+            $('.photoBox').empty()
             that.renderPhoto photo for photo in collection.models
             return
 
     renderPhoto: (photo)->
-        console.log photo
         bookView = new app.views.Photo model:photo
         $('.photoBox').append bookView.render()
         # bookView = new app.BookView model:item

@@ -4,7 +4,8 @@ app.views.Entered = Backbone.View.extend
 
     events:
         'click #header-journeys': 'search'
-        'click .header-profile-statuses': 'guests'
+        # 'click .header-profile-statuses': 'guests'
+        'click .header-profile-statuses': 'statuses'
         'click .audio': 'play_audio'
         'click .video': 'play_video'
         'click .leftMenu li': 'changemenu'
@@ -60,7 +61,7 @@ app.views.Entered = Backbone.View.extend
     changemenu: (event) ->
         menuhash =
             'menu-messgaes': app.views.message
-            'menu-favorites': app.views.favorite
+            'menu-favorites': app.views.guests
             # 'menu-photos': app.views.photo
             'menu-rating': app.views.rating
             'menu-tools': app.views.setting
@@ -70,6 +71,8 @@ app.views.Entered = Backbone.View.extend
 
         id = event.currentTarget.id
         view = menuhash[id]
+        console.log "123"
+        console.log view
         do view.render
 
     render: ->
