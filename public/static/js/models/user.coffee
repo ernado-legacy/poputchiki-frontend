@@ -2,11 +2,12 @@ app.models.User = Backbone.Model.extend
     urlRoot: '/api/user/'
     visit_user_by: (guest_id) ->
         $.ajax
-          url: '/api/user/'+guest_id+'/guests'
-          type: 'PUT'
-          data: "target="+@.get('id')
-          success: (data) ->
-            undefined
+            url: '/api/user/'+guest_id+'/guests'
+            type: 'PUT'
+            data: "target="+@.get('id')
+            dataType: "json"
+            success: (data) ->
+                undefined
     parse: (response)->
         time = new Date response.time
         response.time = time.toDateString()

@@ -6,3 +6,4 @@ app.models.register = (sdata, callback, error) ->
         data: sdata
         success: callback
         error: error
+        dataType: "json"

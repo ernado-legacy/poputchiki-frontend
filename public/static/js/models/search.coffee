@@ -5,3 +5,4 @@ app.models.search = (data, callback) ->
         url: "/api/search"
         data: data
         success: callback
+        dataType: "json"

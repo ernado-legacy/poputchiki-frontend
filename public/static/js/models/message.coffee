@@ -17,3 +17,4 @@ app.models.newMessage = (data, url, callback) ->
         url: url
         data: data
         success: callback
+        dataType: "json"
