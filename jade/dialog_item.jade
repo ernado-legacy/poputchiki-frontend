@@ -1,0 +1,10 @@
+.chatBlock(data-user="#{dialog.get('id')}")
+  img(src='/static/img/dialog/userpic.png')
+  .topPart
+    .chatName=dialog.get('name')
+    .invite пригласить в путешествие
+    .closeChat закрыть
+  .centerPart
+  .bottomPart.clearfix
+    input(type='text')
+    .pstMsg
