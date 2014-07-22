@@ -8,8 +8,8 @@ app.models.User = Backbone.Model.extend
           success: (data) ->
             undefined
     parse: (response)->
-        # bd = new Date response.birthday
-        # response.birthday = bd.toDateString()
+        time = new Date response.time
+        response.time = time.toDateString()
         response
 
 
