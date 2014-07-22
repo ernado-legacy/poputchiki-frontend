@@ -1,6 +1,6 @@
 app.views.Photo = Backbone.View.extend
 
-    el: '.mainContentProfile'
-
+    tagName: 'div'
+    className: 'view'
     render: ->
-        false
+        $ @.$el.html jade.templates.photo @model.toJSON()

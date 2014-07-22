@@ -7,9 +7,9 @@ app.models.User = Backbone.Model.extend
           data: "target="+guest_id
           success: (data) ->
             console.log 'user now has new guest'
-    parse: (response)->
-        console.log 'parsing'
-        response
+    # parse: (response)->
+    #     console.log 'parsing'
+    #     response
 
 
 User = app.models.User

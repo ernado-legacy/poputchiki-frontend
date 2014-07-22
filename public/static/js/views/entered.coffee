@@ -8,6 +8,11 @@ app.views.Entered = Backbone.View.extend
         'click .audio': 'play_audio'
         'click .video': 'play_video'
         'click .leftMenu li': 'changemenu'
+        'click #profile-arrow-left': 'carousel_left'
+        'click #profile-arrow-right': 'carousel_right'
+        'click #profile-arrow-up': 'carousel_up'
+        'click #profile-arrow-down': 'carousel_down'
+        'click .closeChat': 'closechat'
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")
@@ -19,6 +24,35 @@ app.views.Entered = Backbone.View.extend
             
         ,false)
 
+    resizeonload: ->
+        $(window).load ->
+            if $(window).width() >= 1730
+                $('.carouselBox').css 'width', '1440px'
+            else
+                wdth = ($('.topContainer').width() - 210).toString() + 'px'
+                $('.carouselBox').css 'width', wdth
+            cw = ($('.mainCrs').length * 160).toString() + 'px'
+            $(".carousel").css "width", cw
+
+        $(window).resize ->
+            if $(window).width() >= 1730
+                $('.carouselBox').css 'width', '1440px'
+            else
+                wdth = ($('.topContainer').width() - 210).toString() + 'px'
+                $('.carouselBox').css 'width', wdth
+
+    removetag: ->
+        $(document).on "click", ".close", ->
+            $(this).parent().remove()  unless $(this).parent().hasClass("newTag")
+
+    scrollmenu: ->
+        $(window).scroll ->
+            if window.pageYOffset >= 270
+                $(".menuBox").css "top", "30px"
+                $(".menuBox").css "position", "fixed"
+            else
+                $(".menuBox").removeAttr "style"
+
     setmenuitem: (item) ->
         $('.leftMenu li').removeClass('current');
         $(item).addClass('current');
@@ -27,9 +61,12 @@ app.views.Entered = Backbone.View.extend
         menuhash =
             'menu-messgaes': app.views.message
             'menu-favorites': app.views.favorite
-            'menu-photos': app.views.photo
+            # 'menu-photos': app.views.photo
             'menu-rating': app.views.rating
             'menu-tools': app.views.setting
+
+        $('.leftMenu li').removeClass 'current'
+        $(event.currentTarget).addClass 'current'
 
         id = event.currentTarget.id
         view = menuhash[id]
@@ -42,6 +79,10 @@ app.views.Entered = Backbone.View.extend
         @showMenu 'oTransitionEnd'
         @showMenu 'MSAnimationEnd'
         @showMenu 'transitionend'
+        @resizeonload()
+        @scrollmenu()
+        @removetag()
+
 
     init: ->
         that = this
@@ -58,8 +99,10 @@ app.views.Entered = Backbone.View.extend
                 app.views.search = new app.views.Search
 
                 app.views.statuses = new app.views.Statuses
+                app.views.user_photo_block = new app.views.UserPhotoBlock
+                
                 app.views.favorite = app.views.Favorite
-                app.views.photo = app.views.Photo
+                # app.views.photo = app.views.Photo
                 app.views.rating = app.views.Rating
                 app.views.setting = app.views.Setting
 
@@ -146,6 +189,41 @@ app.views.Entered = Backbone.View.extend
                 return
             ), 1000
         return
+
+    carousel_left: ->
+        $(".carouselBox").animate
+            scrollLeft: "+=480"
+            , "slow"
+
+    carousel_right: ->
+        $(".carouselBox").animate
+            scrollLeft: "-=480"
+            , "slow"
+
+    carousel_up: ->
+        z = $('.photoHeader')
+        if z.hasClass 'activeHeader'
+            $('.photoBox .photoBoxWrapper').animate
+                scrollTop: "-=480"
+                , "slow"
+        else
+           $('.videoBox .photoBoxWrapper').animate
+                scrollTop: "-=480"
+                , "slow"
+
+    carousel_down: ->
+        z = $('.photoHeader')
+        if z.hasClass 'activeHeader'
+            $('.photoBox .photoBoxWrapper').animate
+                scrollTop: "+=480"
+                , "slow"
+        else
+           $('.videoBox .photoBoxWrapper').animate
+                scrollTop: "+=480"
+                , "slow"
+
+    closechat: (event) ->
+        $(event.target).parent().parent().remove()
 $ ->
     app.views.entered = new app.views.Entered
     app.views.entered.init()

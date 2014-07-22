@@ -3,12 +3,20 @@ ul
     li
       //- a.ldblock(href="/user/#{user.id}", data-user-id="#{user.id}")  
       img(src=user.avatar_url)
-      .shadow
-        .favorite в избранное
-            img.like(src='../static/img/heart.png')
-        a.some(href="/user/#{user.id}", data-user-id="#{user.id}")   написать
-            img.write(src='../static/img/profile_messages.png')
-        .invite пригласить </br> в путешествие
+      .wrap-shadow
+        .shadow
+          .favorite 
+              a(href="#") в избранное
+              //- img.like(src='../static/img/heart.png')
+              .like.fui-heart
+          .some
+              a(href="/user/#{user.id}", data-user-id="#{user.id}")   написать
+              //- img.write(src='../static/img/profile_messages.png')
+              .write.fui-bubble
+          
+          //- .invite пригласить </br> в путешествие
+          .invite 
+            a(href="#") посмотреть </br> профиль
       .info
         .name=user.name
           span.year , 19
