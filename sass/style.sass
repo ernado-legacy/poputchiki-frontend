@@ -51,6 +51,8 @@ $vk: #3985bf
 $vk_border: #34528e
 $fb: #45629a
 $fb_border: #395489
+$od: #f2720c
+$od_border: #f2720c
 
 $link: #38b1e3
 $title_text: #403f3f
@@ -1772,7 +1774,7 @@ small
                 +italic-font
         .profile-edit-slideup
             margin: 15px 0px 50px 0px
-        .vk, .fb
+        .vk, .fb, .od
             background: $vk
             border: 1px solid $vk_border
             width: 278px
@@ -1780,9 +1782,16 @@ small
             margin-bottom: 5px
             span
                 font-weight: bold
+                a
+                    color: white
+                    text-decoration: none
         .fb
             background: $fb
             border: 1px solid $fb_border
+
+        .od
+            background: $od
+            border: 1px solid $od_border
         .noteBox
             margin-top: 5px
             float: left
