@@ -547,7 +547,7 @@ small
             margin-left: 12px
             text-align: left
             font-weight: bold
-    #profile-arrow-left
+    #profile-arrow-left, #profile-arrow-right
         float: left
         margin: 84px 0 0 7px
         background-image: url('../img/profile_arrow_l.png')
@@ -558,10 +558,6 @@ small
     #profile-arrow-right
         float: right
         background-image: url('../img/profile_arrow_r.png')
-        background-repeat: no-repeat
-        height: 35px
-        width: 25px
-        cursor: pointer
         margin: 84px -126px 0px 0px
 
     .carouselBox
@@ -2204,10 +2200,28 @@ small
     padding: 50px 20px 0px 20px
     +border-radius(4px, 4px, 4px, 4px)
     .imgBox
+        position: relative
         img, iframe
             width: 100%
         iframe
             height: 500px
+        .arrow-left, .arrow-right
+            background-image: url('../img/profile_arrow_l.png')
+            background-repeat: no-repeat
+            height: 24px
+            width: 17px
+            cursor: pointer
+            position: absolute
+            top: 50%
+            right: 0
+            opacity: 0
+            margin: 0px 10px
+        .arrow-right
+            background-image: url('../img/profile_arrow_r.png')
+            left: 0
+    .imgBox:hover
+        .arrow-left, .arrow-right
+            opacity: 1
     .infoBox
         img
             height: 80px
