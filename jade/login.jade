@@ -1,3 +1,6 @@
+-var vk_link = '/api/auth/vk/start'
+-var fb_link = '/api/auth/fb/start'
+-var od_link = '/api/auth/odnoklassniki/start'
 .loginRegisterBody  
   header
     .hLogo
@@ -23,9 +26,14 @@
       .title или через свой аккаунт
       .greenDots
       .profile-edit-slideup.fb
-        span facebook
+        span
+          a(href=fb_link) facebook
       .profile-edit-slideup.vk
-        span вконтакте
+        span
+          a(href=vk_link) вконтакте
+      .profile-edit-slideup.od
+        span 
+          a(href=od_link) одноклассники
   footer.footerLogin
     .fLogo
       span попутчики

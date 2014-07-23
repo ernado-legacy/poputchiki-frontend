@@ -3,23 +3,26 @@ app.views.Profile = Backbone.View.extend
     el: '.mainContentProfile'
 
     initialize: ->
-        @.model = new app.models.User 
-            id: $.cookie 'user'
-        @.model.fetch()
+        # @.model = new app.models.User 
+        #     id: $.cookie 'user'
+        # @.model.fetch()
 
-        @.listenTo @.model, 'change:name', ->
-            name_container = @.$el.find '.name-in-profile'
-            name_container.text @model.get 'name'
+        # @.listenTo @.model, 'change:name', ->
+        #     name_container = @.$el.find '.name-in-profile'
+        #     name_container.text @model.get 'name'
         return
 
     get_my_user: (callback) ->
+        console.log app.models.myuser.get callback
         app.models.myuser.get callback
 
     render: ->
         that = @
         history.pushState null, 'poputchiki', '/profile/'
         @get_my_user (user) ->
-            console.log user.id
+            that.model = user
+            console.log 'from render'
+            console.log user
             app.views.user_photo_block.render(user.id)
 
             $ that.$el.html jade.templates.profile
