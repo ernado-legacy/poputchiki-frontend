@@ -8,7 +8,7 @@ ul
           .favorite 
               a(href="#") в избранное
               //- img.like(src='../static/img/heart.png')
-              .like.fui-heart
+              .like.fui-star-2
           .some
               a(href="/user/#{user.id}", data-user-id="#{user.id}")   написать
               //- img.write(src='../static/img/profile_messages.png')
@@ -16,7 +16,7 @@ ul
           
           //- .invite пригласить </br> в путешествие
           .invite 
-            a(href="#") посмотреть </br> профиль
+            a(href="/user/#{user.id}", data-user-id="#{user.id}") посмотреть </br> профиль
       .info
         .name=user.name
           span.year , #{user.age}
