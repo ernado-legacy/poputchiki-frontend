@@ -108,7 +108,7 @@ app.views.Message = Backbone.View.extend
         @messages[user].each (mess) =>
             @render_message get_cb(),
                 text: mess.get 'text'
-                author: if mess.origin==user then dialog.get('name') else 'Вы'
+                author: if mess.get('origin')==user then dialog.get('name') else 'Вы'
 
     closechat: (event) ->
         do $(event.currentTarget).parent().parent().remove
