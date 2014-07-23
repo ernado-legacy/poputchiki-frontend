@@ -38,6 +38,7 @@ app.views.UserPhotoBlock = Backbone.View.extend
         collection.fetch().done () ->
             $('.photoBox .photoBoxWrapper .pb-wr').empty()
             that.renderPhoto photo for photo in collection.models
+            that.showpopup '.view', '.photoPopup'
             return
 
     renderPhoto: (photo)->
@@ -45,6 +46,13 @@ app.views.UserPhotoBlock = Backbone.View.extend
         $('.photoBox .photoBoxWrapper .pb-wr').append bookView.render()
         # bookView = new app.BookView model:item
         # @$el.append bookView.render()
+
+    showpopup: (cnt, popup) ->
+        $(cnt).click ->
+            $('body').addClass 'bodyPopup'
+            $('.popupBack').fadeIn('slow')
+            $('.popupWrapper').fadeIn('slow')
+            $(popup).fadeIn('slow')
         
 
 
