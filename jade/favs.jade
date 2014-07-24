@@ -8,17 +8,17 @@
   include leftbox
   .guests
     .rightBox
-      .title МОИ ГОСТИ
+      .title ИЗБРАННЫЕ
       .people
         ul.chatLine
-          for guest in guests
+          for guest in favs
             li
               a(href="/user/#{guest.id}", data-user-id="#{guest.id}")
                 img(src=guest.avatar_url)
               .info
                 .right
-                  .last-date Заходил(а)
-                  .last-time в #{guest.time}
+                  .last-date
+                    a(id="remove-from-fav") удалить
                 .left
                   .name #{guest.name}, #{guest.age}
                   .city #{guest.country}

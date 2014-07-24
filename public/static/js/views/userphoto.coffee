@@ -42,8 +42,8 @@ app.views.UserPhotoBlock = Backbone.View.extend
             return
 
     renderPhoto: (photo)->
-        bookView = new app.views.Photo model:photo
-        $('.photoBox .photoBoxWrapper .pb-wr').append bookView.render()
+        photoView = new app.views.Photo model:photo
+        $('.photoBox .photoBoxWrapper .pb-wr').append photoView.render()
         # bookView = new app.BookView model:item
         # @$el.append bookView.render()
 

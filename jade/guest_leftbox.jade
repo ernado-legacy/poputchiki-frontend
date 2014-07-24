@@ -9,7 +9,12 @@
       .myaction Написать сообщение
     .add 
       .fui-star-2.act
-      .myaction Добавить в избранное
+      if is_fav
+        .myaction #{user.name} у вас в избранных 
+          br
+          a.remove_from_fav Убрать
+      else
+        .myaction.add_to_fav Добавить в избранное
     .show 
       .fui-radio-checked.act
       .myaction Показать путешествие

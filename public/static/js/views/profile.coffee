@@ -13,7 +13,6 @@ app.views.Profile = Backbone.View.extend
         return
 
     get_my_user: (callback) ->
-        console.log app.models.myuser.get callback
         app.models.myuser.get callback
 
     render: ->
@@ -21,8 +20,6 @@ app.views.Profile = Backbone.View.extend
         history.pushState null, 'poputchiki', '/profile/'
         @get_my_user (user) ->
             that.model = user
-            console.log 'from render'
-            console.log user
             app.views.user_photo_block.render(user.id)
 
             $ that.$el.html jade.templates.profile
@@ -186,7 +183,7 @@ app.views.Profile = Backbone.View.extend
         formData['about'] = about_text
         @model.set(formData)
         @model.save()
-        return
+        do @render
 
     setSponsor: ->
         @model.save 'is_sponsor', @$el.find('.money-icon').hasClass 'mg-icon' 

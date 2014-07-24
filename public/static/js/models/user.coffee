@@ -1,13 +1,22 @@
 app.models.User = Backbone.Model.extend
     urlRoot: '/api/user/'
-    visit_user_by: (guest_id) ->
+    visit_user_by: () ->
         $.ajax
-            url: '/api/user/'+guest_id+'/guests'
+            url: '/api/user/'+app.models.myuser.getid()+'/guests'
             type: 'PUT'
             data: "target="+@.get('id')
             dataType: "json"
             success: (data) ->
                 undefined
+    add_to_fav: () ->
+        $.ajax
+            url: '/api/user/'+app.models.myuser.getid()+'/fav'
+            type: 'POST'
+            data: "target="+@.get('id')
+            dataType: "json"
+            success: (data) ->
+                console.log 'added to favs'
+
     parse: (response)->
         time = new Date response.time
         response.time = time.toDateString()
@@ -32,7 +41,9 @@ id  = $.cookie "user"
 
 app.models.FavUsers = Backbone.Collection.extend
     model: User
-    url: '/api/user/'+id+'/fav'
+    url: ->
+        id = app.models.myuser.getid()
+        '/api/user/'+id+'/fav'
     # initialize: ->
     # 	console.log 'Before bind events how is our model?', this.toJSON()
     # 	this.on("change", this.changeHandler)

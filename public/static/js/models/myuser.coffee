@@ -17,7 +17,27 @@ app.models.myuser =
             user.fetch
                 success: =>
                     @usermodel = user
+                    # @usermodel.favs = @favs
                     callback @usermodel
+
+    
+    get_favs: (callback, options) ->
+        if @favs
+            callback @favs
+        else
+            collection = app.models.fav_users
+            collection.fetch
+                success: =>
+                    @favs = collection
+                    callback @favs
+
+    # set_favs_to_user: () ->
+    #     that = @
+    #     @get_favs (collection) ->
+    #         collection
+    #         that.usermodel.favs = collection
+    #     @usermodel
+
 
     getid: () ->
         @user
