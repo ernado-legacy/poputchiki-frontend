@@ -85,6 +85,20 @@ app.views.Entered = Backbone.View.extend
         @resizeonload()
         @scrollmenu()
         @removetag()
+        @showpopup '#menu-go', '.letsgoPopup'
+        @showpopup '.view', '.photoPopup'
+        @showpopup '.videoBox img', '.videoPopup'
+        @showpopup '#change-avatar', '.chavaPopup'
+        @showpopup '.userBox img', '.promoPopup'
+        @showpopup '#profile-rating', '.ratingPopup'
+        @closepopup '#send-lg-popup'
+        @closepopup '.closepopup'
+        @closepopup '.save-new-ava-audio'
+        
+
+        $("#edit-status").click ->
+            $("#main-status").slideUp "slow"
+            $(".statusBoxEdit").slideDown "slow"
 
 
     init: ->
@@ -227,6 +241,20 @@ app.views.Entered = Backbone.View.extend
 
     closechat: (event) ->
         $(event.target).parent().parent().remove()
+
+    showpopup: (cnt, popup) ->
+        $(cnt).click ->
+            $('body').addClass 'bodyPopup'
+            $('.popupBack').fadeIn('slow')
+            $('.popupWrapper').fadeIn('slow')
+            $(popup).fadeIn('slow')
+
+    closepopup: (btn) ->
+        $(btn).click ->
+            $('body').removeClass 'bodyPopup'
+            $('.popup').fadeOut('slow')
+            $('.popupWrapper').fadeOut('slow')
+            $('.popupBack').fadeOut('slow')
 $ ->
     app.views.entered = new app.views.Entered
     app.views.entered.init()
