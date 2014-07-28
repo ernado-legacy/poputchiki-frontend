@@ -17,5 +17,6 @@ server.get '/profile/', index
 server.get '/message/', index
 server.get '/message/:id', index
 server.get '/user/:id', index
+server.get '/statuses/', index
 
-server.listen(5000);
+server.listen(5000)

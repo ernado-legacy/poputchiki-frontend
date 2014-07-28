@@ -121,6 +121,8 @@ app.views.Entered = Backbone.View.extend
 
                 if window.location.pathname.search('/guests/') != -1
                     do app.views.guestprofile.render
+                if window.location.pathname.search('/statuses/') != -1
+                    do app.views.statuses.render
 
     search: ->
         # app.models.search
