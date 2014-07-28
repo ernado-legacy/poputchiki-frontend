@@ -9,13 +9,13 @@ div#profile-arrow-down
       span видео
   .addPhoto
     span Добавить фото
-  form.addPhoto.loginRegisterBlock.step.clearfix(style="display:none")
+  form.photovideoform(style="display:none")
       span Добавить фото
       .photo-load
         .button
           button Загрузить фотографию
           input(type='file')
-      input#imgfile(type="file", name="file", style="visibility: hidden;")
+      input.photovideoformfile(type="file", name="file", style="visibility: hidden;")
 .photoBox
   .photoBoxWrapper.clearfix
     .pb-wr.clearfix
