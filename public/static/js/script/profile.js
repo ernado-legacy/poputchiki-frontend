@@ -44,7 +44,6 @@ profile_script = function(){
                 'display': 'block'
             });
             $(this).next().next().slideDown("slow");
-            //$(this).parent().removeClass('withShadow');
             $(this).parent().addClass('opened');
         });
     };
@@ -154,7 +153,6 @@ profile_script = function(){
                 'display': 'block'
             });
             $(box).children('.droped').slideUp("slow");
-            //$(box).addClass('withShadow');
             $(box).removeClass('opened');
 
             country.focus(function() {
@@ -176,39 +174,27 @@ profile_script = function(){
         }
     });
 
-    $('.dls').click(function() {
-        newSeason = $(this).text();
-        $('#profile-tags-seasons').append("<div class='mainSelectElement profileTagPlaces withShadow'><span class='tagSeason'>" + newSeason + "</span><div class='close'></div></div>");
-        $('#profile-new-tag-s').text('Сезон...')
-    });
-
-    var addSearchTag = function(newtag, oldtags) {
+    var addSearchTag = function(newtag, oldtags, variant) {
         $(newtag).keydown(function(event) {
             if (event.which == 13) {
                 newCountry = $(this).val();
                 if (newCountry != "") {
                     $(this).val("");
-                    $(oldtags).append("<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>")
+                    z = "<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
+                    if (variant == 1) {
+                        $(oldtags).append(z);
+                    }
+                    else {
+                        $(oldtags).prepend(z);
+                    }
                 }
             }
         });
     };
 
-    var addSearchTagTS = function(newtag, oldtags) {
-        $(newtag).keydown(function(event) {
-            if (event.which == 13) {
-                newCountry = $(this).val();
-                if (newCountry != "") {
-                    $(this).val("");
-                    $(oldtags).prepend("<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>")
-                }
-            }
-        });
-    };
-
-    addSearchTag('#search-select', '#tb-s');
-    addSearchTag('#search-select-f', '#tb-f');
-    addSearchTagTS('#popup-select', '#tb-popup');
+    addSearchTag('#search-select', '#tb-s', 1);
+    addSearchTag('#search-select-f', '#tb-f', 1);
+    addSearchTag('#popup-select', '#tb-popup', 0);
 
     $('#search-slideup').click(function() {
         $('#my-folowers').slideUp("slow");
