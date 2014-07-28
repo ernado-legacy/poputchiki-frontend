@@ -27,13 +27,13 @@ app.views.GuestProfile = Backbone.View.extend
     render: ->
         that = @
         @get_user (user) ->
-            app.models.myuser.get_favs (favs)->
-                is_fav = false 
-                is_fav = true if favs.get(user.id)
+            app.models.myuser.get (my_user)->
+                # is_fav = false
+                is_fav = if my_user.get('favorites').indexOf(user.get('id')) != -1 then true else false
                 that.model = user
                 app.views.user_photo_block.render(window.location.pathname.split('/').slice(2)[0])
                 user_id = app.models.myuser.getid()
-                user.visit_user_by()  if user_id
+                user.visit_user_by() if user_id
                 $ that.$el.html jade.templates.guest_profile
                     user: user.attributes,
                     is_fav: is_fav
@@ -44,9 +44,9 @@ app.views.GuestProfile = Backbone.View.extend
         do app.views.messageside.render
 
     add_to_fav: ->
-        do @model.add_to_fav
-        alert 'user added to favourites'
+        @model.add_to_fav false
+        do @render
 
     remove_from_fav: ->
-        do @model.add_to_fav
-        alert 'user removed from favourites'
+        @model.add_to_fav true
+        do @render

@@ -99,6 +99,8 @@ app.views.Entered = Backbone.View.extend
                 app.views.guestprofile = new app.views.GuestProfile
                 app.views.search = new app.views.Search
 
+                app.views.searchside = new app.views.SearchSide
+
                 app.views.statuses = new app.views.Statuses
                 app.views.user_photo_block = new app.views.UserPhotoBlock
                 
@@ -130,7 +132,6 @@ app.views.Entered = Backbone.View.extend
         #    count: 20
         #    , ->
                 do app.views.search.render
-                app.views.searchside = new app.views.SearchSide
                 do app.views.searchside.render
 
     statuses: ->

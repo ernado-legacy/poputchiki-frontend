@@ -8,12 +8,13 @@
       .fui-bubble.act
       .myaction Написать сообщение
     .add 
-      .fui-star-2.act
       if is_fav
+        .fui-star-2.act(style="color:grey;")
         .myaction #{user.name} у вас в избранных 
           br
           a.remove_from_fav Убрать
       else
+        .fui-star-2.act
         .myaction.add_to_fav Добавить в избранное
     .show 
       .fui-radio-checked.act

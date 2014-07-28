@@ -8,14 +8,19 @@ app.models.User = Backbone.Model.extend
             dataType: "json"
             success: (data) ->
                 undefined
-    add_to_fav: () ->
+    add_to_fav: (remove) ->
+        type = if remove then "DELETE" else "PUT"
+        console.log type
+        data = target : @.get('id')
         $.ajax
             url: '/api/user/'+app.models.myuser.getid()+'/fav'
-            type: 'POST'
-            data: "target="+@.get('id')
+            type: type
+            data: JSON.stringify data
             dataType: "json"
+            contentType: "application/json; charset=utf-8"
             success: (data) ->
                 console.log 'added to favs'
+                app.models.myuser.favs = undefined
 
     parse: (response)->
         time = new Date response.time

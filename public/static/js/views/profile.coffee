@@ -250,7 +250,7 @@ app.views.Profile = Backbone.View.extend
         "click #profile-edit-slideup span": 'saveProfile'
         "click #my-profile .money-icon": 'setSponsor'
         "click #my-profile .house-icon": 'setHost'
-        "click .myProfileContainer .season": 'setSeasons'
+        "click #my-seasons .season": 'setSeasons'
 
     setSeasons: ()->
         @model.set('seasons',[])
