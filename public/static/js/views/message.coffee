@@ -20,7 +20,7 @@ app.views.Message = Backbone.View.extend
         $ @$el.html jade.templates.dialog()
         do @reupdate
         iduser = window.location.pathname.split('/').slice(2)[0]
-        if iduser
+        if _.size iduser
             user = new app.models.User
             user.set 'id', iduser
             user.fetch
