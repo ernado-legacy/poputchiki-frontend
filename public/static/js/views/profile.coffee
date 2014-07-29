@@ -40,15 +40,6 @@ app.views.Profile = Backbone.View.extend
             that.houseIcon '#my-profile .house-icon'
             that.moneyIcon '.nearBox .money-icon'
             that.houseIcon '.nearBox .house-icon'
-            that.showpopup '#menu-go', '.letsgoPopup'
-            that.showpopup '.view', '.photoPopup'
-            that.showpopup '.videoBox img', '.videoPopup'
-            that.showpopup '#change-avatar', '.chavaPopup'
-            that.showpopup '.userBox img', '.promoPopup'
-            that.showpopup '#profile-rating', '.ratingPopup'
-            that.closepopup '#send-lg-popup'
-            that.closepopup '.closepopup'
-            that.closepopup '.save-new-ava-audio'
             that.season '.season'
             that.showInputDrop '.newCountry'
             that.showInputDrop '.searchCountry'
@@ -108,10 +99,6 @@ app.views.Profile = Backbone.View.extend
                 $("#profile-slidedown").css display: "block"
                 $("#about-in-info").css "display", "block"
 
-            $("#edit-status").click ->
-                $("#main-status").slideUp "slow"
-                $(".statusBoxEdit").slideDown "slow"
-
             $("#write-new-main-status").click ->
                 status = $("#new-status").val()
                 $("#main-status").children(".status").text status
@@ -136,20 +123,6 @@ app.views.Profile = Backbone.View.extend
     season: (season) ->
         $(season).click ->
             $(this).toggleClass 'seasonChecked'
-
-    showpopup: (cnt, popup) ->
-        $(cnt).click ->
-            $('body').addClass 'bodyPopup'
-            $('.popupBack').fadeIn('slow')
-            $('.popupWrapper').fadeIn('slow')
-            $(popup).fadeIn('slow')
-
-    closepopup: (btn) ->
-        $(btn).click ->
-            $('body').removeClass 'bodyPopup'
-            $('.popup').fadeOut('slow')
-            $('.popupWrapper').fadeOut('slow')
-            $('.popupBack').fadeOut('slow')
 
     moneyIcon: (cnt) ->
         $(cnt).click ->
