@@ -17,13 +17,22 @@
                 img(src=guest.avatar_url)
               .info
                 .right
-                  .last-date Заходил(а)
-                  .last-time в #{guest.time}
+                  .last-date Заходил(а) #{guest.time.date}
+                  .last-time в #{guest.time.time}
+                  br
+                  ul.action-list
+                    li 
+                      a.fui-bubble 
+                        span.act-description написать
+                    li
+                      a.fui-star-2
+                    li
+                      a.fui-radio-checked
                 .left
-                  .name #{guest.name}, #{guest.age}
-                  .city #{guest.country}
+                  .name #{guest.name} 
+                  .city #{guest.age}, #{guest.country}
                   span
                     if(guest.is_sponsor)
-                      img(src='/static/img/money2_g.png') 
+                      img(src='/static/img/money3.png') 
                     if(guest.is_host)
-                      img(src='/static/img/house2_g.png') 
+                      img(src='/static/img/house3.png') 

@@ -24,7 +24,12 @@ app.models.User = Backbone.Model.extend
 
     parse: (response)->
         time = new Date response.time
-        response.time = time.toDateString()
+        # d = time.toDateString() 
+        # t = time.toTimeString()
+        response.time = 
+            date: time.getDate()+"."+time.getMonth()+"."+(time.getYear()*1+1900)
+            time: time.getHours()+":"+time.getMinutes()
+
         response
 
 

@@ -107,7 +107,7 @@ app.views.Entered = Backbone.View.extend
                 app.views.favorite = app.views.Favorite
                 # app.views.photo = app.views.Photo
                 app.views.rating = app.views.Rating
-                app.views.setting = app.views.Setting
+                app.views.setting = new app.views.Setting
 
                 app.views.guests = new app.views.Guests
                 app.views.favs = new app.views.Favs

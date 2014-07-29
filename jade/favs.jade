@@ -19,11 +19,18 @@
                 .right
                   .last-date
                     a(id="remove-from-fav") удалить
+                  br
+                  ul.action-list
+                    li 
+                      a.fui-bubble 
+                        span.act-description написать
+                    li
+                      a.fui-radio-checked
                 .left
-                  .name #{guest.name}, #{guest.age}
-                  .city #{guest.country}
+                  .name #{guest.name}
+                  .city #{guest.age}, #{guest.country}
                   span
                     if(guest.is_sponsor)
-                      img(src='/static/img/money_active.png') 
+                      img(src='/static/img/money3.png') 
                     if(guest.is_host)
-                      img(src='/static/img/house2_active.png') 
+                      img(src='/static/img/house3.png') 

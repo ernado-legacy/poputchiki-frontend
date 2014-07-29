@@ -180,6 +180,7 @@ header
     min-width: 980px
     height: 64px
     border-bottom: 1px solid $header_undercolor
+    background-color: #f6f7f9
 
 footer
     min-width: 1272px
@@ -1972,10 +1973,41 @@ small
 .noMarginTop
     margin-top: 0
 
-.guests 
+.guests
+    .action-list
+        li
+            display: inline-block
+            width: inherit!important
+            height: initial!important
+            float: none
+            position: relative
+            border: none
+            span.act-description
+                font-family: "Georgia"
+                font-style: italic
+                font-size: 12px
+                // padding: 8px 8px 0 8px
+                width: 90%
+                color: #4b4b4b
+                line-height: 1px
+            a
+                border: 1px solid #e0e0e0
+                cursor: pointer
+                margin: 0px 0px 0px 0px
+                padding: 5px
+                font-size: 20px
+            a:hover
+                background-color: white
+        .fui-bubble
+            color: #ffa200
+        .fui-star-2
+            color: #0ad4e6
+        .fui-radio-checked
+            color: #03aada
+
     .title
         width: 100%
-        background: #eee
+        background: #c3d9df
         padding: 10px 0 10px 10px
         color: rgba(0,0,0,0.7)
     .rightBox

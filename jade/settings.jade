@@ -1,0 +1,81 @@
+.settings.clearfix.profileContainer
+	.leftBox
+		h1 НАСТРОЙКИ ПРОФИЛЯ
+		.greenDots
+		ul
+			a(href='#')
+				li КОНФИДЕНЦИАЛЬНОСТЬ			
+			a(href='#') 
+				li УВЕДОМЛЕНИЯ			
+			a(href='#') 
+				li РЕЖИМ НЕВИДИМКИ
+		.greenDots
+		ul
+			a(href='#')
+				li ПЛАТЕЖИ
+		.greenDots
+		ul
+			a(href='#')
+				li ИЗМЕНИТЬ ПАРОЛЬ
+			a(href='#')
+				li ИЗМЕНИТЬ ЕМЕЙЛ
+		.greenDots
+		ul
+			a(href='#')
+				li УДАЛИТЬ ПРОФИЛЬ	
+	.rightBox
+		.header 
+			h1 Конфиденциальность
+		h1 ЭЛЕКТРОННАЯ ПОЧТА
+		.greenDots
+		.profileInfoBox 
+			.infoBox.infoEdit.post			
+				.currentEmail Текущий емейл: 
+					a(href='#') #{user.email}
+				.clearfix
+					input(type='text', placeholder="Новый емейл")
+				.clearfix
+					input(type='text', placeholder="Продублируйте новый емейл")
+				.profile-edit-slideup
+					span сохранить
+		h1 УВЕДОМЛЕНИЯ
+		.greenDots
+		.profileInfoBox 
+			.infoBox.infoEdit
+				.head.clearfix Я хочу получать на свой емайл рассылки:								
+				.clearfix.notifications.email
+					.clearfix
+						.box.checked
+						span Пользователь комментируют мой статус
+					.clearfix
+						.box
+						span Пользователи добавляют меня в избранное
+					.clearfix
+						.box
+						span Меня хотят пригласить в поездку
+				.head.clearfix Я хочу получать уведомления, каждый раз, когда:	
+				.clearfix.notifications.last
+					.clearfix
+						.box.checked
+						span Рассылки "ТОП путешествий недели"
+						small Топ публикаций пользователей о совершенных поездках
+					.clearfix
+						.box
+						span Рассылки "Новые лица недели"
+						small Какой-нибудь комментарий, описывающий суть рассылки
+					.clearfix
+						.box
+						span Обзор новых статусов
+						small Какой-нибудь комментарий, описывающий суть рассылки
+					.spam.clearfix
+						span.one
+							.box.checked
+							span Раз в день
+						span.one
+							.box
+							span Раз в неделю
+						span.one
+							.box
+							span Никогда
+				.profile-edit-slideup
+					span сохранить
