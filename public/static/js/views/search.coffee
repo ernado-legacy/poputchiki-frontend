@@ -9,6 +9,8 @@ app.views.Search = Backbone.View.extend
         'click .box': 'toogle'
 
     search: ->
+
+
         that = this
 
         query =
@@ -19,11 +21,25 @@ app.views.Search = Backbone.View.extend
         from = $('#search-age-from').val()
         to = $('#search-age-to').val()
 
-        if from
-            query.agemin = from
+        searchFormData = {}
 
+        if from
+            searchFormData['likings_age_min'] = from*1
+            query.agemin = from
         if to
+            searchFormData['likings_age_max'] = to*1
             query.agemax = to
+
+        query.sex = if $('.manBox .checked').length == 1 then 'male' else 'female'
+
+        searchFormData['likings_sex'] = query.sex
+
+        app.models.myuser.get (user) ->
+            # user.set searchFormData
+            console.log searchFormData
+            # do user.save searchFormData,{patch: true}
+            user.save searchFormData, patch: true
+
 
         query.sex = if $('.manBox .checked').length == 1 then 'male' else 'female'
 

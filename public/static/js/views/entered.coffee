@@ -61,8 +61,8 @@ app.views.Entered = Backbone.View.extend
     changemenu: (event) ->
         menuhash =
             'menu-messgaes': app.views.message
-            'menu-favorites': app.views.guests
-            # 'menu-photos': app.views.photo
+            'menu-favorites': app.views.favs
+            'menu-photos': app.views.guests
             'menu-rating': app.views.rating
             'menu-tools': app.views.setting
 
@@ -71,8 +71,6 @@ app.views.Entered = Backbone.View.extend
 
         id = event.currentTarget.id
         view = menuhash[id]
-        console.log "123"
-        console.log view
         do view.render
 
     render: ->
@@ -115,15 +113,18 @@ app.views.Entered = Backbone.View.extend
                 app.views.guestprofile = new app.views.GuestProfile
                 app.views.search = new app.views.Search
 
+                app.views.searchside = new app.views.SearchSide
+
                 app.views.statuses = new app.views.Statuses
                 app.views.user_photo_block = new app.views.UserPhotoBlock
                 
                 app.views.favorite = app.views.Favorite
                 # app.views.photo = app.views.Photo
                 app.views.rating = app.views.Rating
-                app.views.setting = app.views.Setting
+                app.views.setting = new app.views.Setting
 
                 app.views.guests = new app.views.Guests
+                app.views.favs = new app.views.Favs
 
                 if window.location.pathname == '/' or window.location.pathname == '/profile/'
                     do app.views.profile.render
@@ -138,13 +139,15 @@ app.views.Entered = Backbone.View.extend
                 if window.location.pathname.search('/statuses/') != -1
                     do app.views.statuses.render
 
+                if window.location.pathname.search('/favourites/') != -1
+                    do app.views.guestprofile.render
+
     search: ->
         # app.models.search
         #    offset: 0
         #    count: 20
         #    , ->
                 do app.views.search.render
-                app.views.searchside = new app.views.SearchSide
                 do app.views.searchside.render
 
     statuses: ->

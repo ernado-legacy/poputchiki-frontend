@@ -2,7 +2,7 @@
   include leftbox
   .rightBox
     .profileInfoBox.pIBTitle#my-profile
-      .name-in-profile #{user.name}, 
+      .name-in-profile #{user.name}, #{user.age} лет
       div(class = user.is_sponsor === true ? "money-icon mg-icon" : "money-icon")
         .tooltip.clearfix
           .tooltip-arrow

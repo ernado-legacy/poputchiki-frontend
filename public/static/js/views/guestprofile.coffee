@@ -4,7 +4,8 @@ app.views.GuestProfile = Backbone.View.extend
 
     events:
         'click .write': 'write'
-        'click .add': 'add_to_fav'
+        'click .add_to_fav': 'add_to_fav'
+        'click .remove_from_fav': 'remove_from_fav'
 
     initialize: ->
         id = window.location.href.split('/').slice(4)[0]
@@ -26,13 +27,16 @@ app.views.GuestProfile = Backbone.View.extend
     render: ->
         that = @
         @get_user (user) ->
-            app.views.user_photo_block.render(window.location.pathname.split('/').slice(2)[0])
-            user_id = $.cookie('user')
-            
-            user.visit_user_by user_id if user_id
-
-            $ that.$el.html jade.templates.guest_profile
-                user: user.attributes
+            app.models.myuser.get (my_user)->
+                # is_fav = false
+                is_fav = if my_user.get('favorites').indexOf(user.get('id')) != -1 then true else false
+                that.model = user
+                app.views.user_photo_block.render(window.location.pathname.split('/').slice(2)[0])
+                user_id = app.models.myuser.getid()
+                user.visit_user_by() if user_id
+                $ that.$el.html jade.templates.guest_profile
+                    user: user.attributes,
+                    is_fav: is_fav
 
     write: ->
         app.views.message.set_url window.location.pathname.split('/').slice(2)[0]
@@ -40,4 +44,9 @@ app.views.GuestProfile = Backbone.View.extend
         do app.views.messageside.render
 
     add_to_fav: ->
-        alert 'user added to favourites'
+        @model.add_to_fav false
+        do @render
+
+    remove_from_fav: ->
+        @model.add_to_fav true
+        do @render

@@ -13,10 +13,10 @@
       .ageBox.clearfix
         span От
         .ageFrom
-          input#search-age-from(type='text',  maxlength="2")
+          input#search-age-from(type='text',  maxlength="2", value=user.likings_age_min)
         span до
         .ageTo
-          input#search-age-to(type='text',  maxlength="2")
+          input#search-age-to(type='text',  maxlength="2", value=user.likings_age_max)
       .greenDots
       #search-sex Пол
       .sexBox.clearfix
@@ -47,13 +47,13 @@
       .greenDots
       #seasons Сезоны:
       .seasonsBox.clearfix
-        .season
-          span весна
-        .season
+        div(id = "spring", class = user.seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
+            span весна
+        div(id = "summer", class = user.seasons.indexOf("summer")>-1 ? "season seasonChecked" : "season")
           span лето
-        .season.seasonChecked
+        div(id = "autumn", class = user.seasons.indexOf("autumn")>-1 ? "season seasonChecked" : "season")
           span осень
-        .season
+        div(id = "winter", class = user.seasons.indexOf("winter")>-1 ? "season seasonChecked" : "season")
           span зима
       .greenDots
       span#search-places-f Cтраны/города
