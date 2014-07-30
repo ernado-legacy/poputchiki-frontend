@@ -262,6 +262,13 @@ small
 .view
     cursor: pointer
 
+a.custom-link
+    color: $profile_status_text
+    font-weight: bold
+    text-decoration: underline
+    cursor: pointer
+
+
 .hLogo
     margin-left: 20px
     margin-top: 15px
@@ -280,8 +287,8 @@ small
         text-decoration: none
 
 .navigation
-    height: 48px
-    margin-top: 9px
+    height: 64px
+    // margin-top: 9px
     float: right
     list-style: none
     li
@@ -293,14 +300,21 @@ small
         cursor: pointer
         span
             float: left
-            line-height: 48px
+            line-height: 64px
             text-transform: uppercase
+            padding: 0px 7px 0px 7px
+            border-left: 1px solid $chat_line
+            border-right: 1px solid $chat_line
+            
         span:hover
-            text-decoration: underline
+            background: #eff5f6
+            border-left: 1px solid $profile_status_border
+            border-right: 1px solid $profile_status_border
     #header-profile
         color: $header_blue
         background-image: url('../img/profile.png')
         background-position: 85% 100%
+        background-position-y: 10px
     #header-journeys
         color: $header_green
         background-image: url('../img/journeys.png')
@@ -1286,12 +1300,12 @@ small
         opacity: 1
         transition-delay: 0s
 .mg-icon
-    background-image: url('../img/money_active.png')
+    background-image: url('../img/money_active2.png')
 
 .house-icon
     background-image: url('../img/house3.png')
 .hg-icon
-    background-image: url('../img/house_active.png')
+    background-image: url('../img/house_active2.png')
 
 .wantToTravelBox
     float: left
@@ -1978,6 +1992,8 @@ small
     margin-top: 0
 
 .guests
+    small
+        font-size: 12px
     .action-list
         li
             display: inline-block
@@ -1985,14 +2001,14 @@ small
             height: initial!important
             float: none
             position: relative
-            border: none
+            border: none!important
             span.act-description
                 font-family: "Georgia"
                 font-style: italic
                 font-size: 12px
                 // padding: 8px 8px 0 8px
                 width: 90%
-                color: #4b4b4b
+                color: $profile_status_text
                 line-height: 1px
             a
                 border: 1px solid #e0e0e0
@@ -2002,6 +2018,12 @@ small
                 font-size: 20px
             a:hover
                 background-color: white
+            a.active-action
+                color: grey
+                cursor: auto
+                border: none!important
+            a.active-action:hover
+                background-color: inherit
         .fui-bubble
             color: #ffa200
         .fui-star-2

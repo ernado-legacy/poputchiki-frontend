@@ -1,0 +1,21 @@
+a(href="/user/#{user.id}", data-user-id="#{user.id}")
+  img(src=user.avatar_url)
+.info
+  .right
+    .last-date
+      a(id="remove-from-fav", class="remove_from_fav custom-link") удалить из избранных
+    br
+    ul.action-list
+      li 
+        a.fui-bubble.write
+          span.act-description написать
+      li
+        a.fui-radio-checked.to_journey
+  .left
+    .name #{user.name}
+    .city #{user.age}, #{user.country}
+    span
+      if(user.is_sponsor)
+        img(src='/static/img/money3.png') 
+      if(user.is_host)
+        img(src='/static/img/house3.png') 

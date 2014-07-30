@@ -1,4 +1,4 @@
-.profileContainer.clearfix
+.profileContainer.clearfix#guest_profile
   include guest_leftbox
   .rightBox
     .profileInfoBox.pIBTitle
@@ -29,7 +29,7 @@
     .tagBox
       h1 Сезоны
       if user.seasons
-        .seasonsBox.clearfix#my-seasons
+        .seasonsBox.clearfix
           div(id = "spring", class = user.seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
             span весна
           div(id = "summer", class = user.seasons.indexOf("summer")>-1 ? "season seasonChecked" : "season")

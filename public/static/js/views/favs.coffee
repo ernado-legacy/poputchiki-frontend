@@ -22,9 +22,13 @@ app.views.Favs = Backbone.View.extend
                 $ that.$el.html jade.templates.favs
                         user: user.attributes
                         favs: collection.toJSON()
-                
-        # app.models.myuser.get (user) ->
-        #     console.log user.attributes
-        #     $ that.$el.html jade.templates.favs
-        #     user: user.attributes
-        #     favs: user.favs.collection.toJSON()
+                that.renderFav fav for fav in collection.models
+
+    renderFav: (user) ->
+        listUserView = new app.views.UserListView 
+            model:user,
+            template:jade.templates.fav_user_list
+        $('.guests .chatLine').append listUserView.render()
+
+    doAction: (view)->
+        console.log view

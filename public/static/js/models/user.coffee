@@ -21,16 +21,9 @@ app.models.User = Backbone.Model.extend
             success: (data) ->
                 console.log 'added to favs'
                 app.models.myuser.favs = undefined
+                app.models.myuser.clear ->
+                    console.log 123
 
-    parse: (response)->
-        time = new Date response.time
-        # d = time.toDateString() 
-        # t = time.toTimeString()
-        response.time = 
-            date: time.getDate()+"."+time.getMonth()+"."+(time.getYear()*1+1900)
-            time: time.getHours()+":"+time.getMinutes()
-
-        response
 
 
 User = app.models.User
@@ -60,7 +53,6 @@ app.models.FavUsers = Backbone.Collection.extend
 
 app.models.Guests = Backbone.Collection.extend
     initialize: (models,options) ->
-        console.log 'guests model init'
         @id = options.id
         return
     url: -> 

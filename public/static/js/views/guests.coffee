@@ -16,10 +16,19 @@ app.views.Guests = Backbone.View.extend
         history.pushState null, 'poputchiki', '/guests/'
         app.views.profile.get_my_user (user) ->
             collection = new app.models.Guests [], id:user.get('id')
-            #     id: '53afdfad1e74cb0001000004'
-            # do collection.fetch
             collection.fetch().done () ->
-                # console.log  collection.toJSON()
                 $ that.$el.html jade.templates.guests
                     user: user.attributes
                     guests: collection.toJSON()
+                that.renderGuest guest for guest in collection.models
+
+    renderGuest: (user) ->
+        time = new Date user.get('time')
+        user.set 'time',
+            date: time.getDate()+"."+time.getMonth()+"."+(time.getYear()*1+1900)
+            time: time.getHours()+":"+time.getMinutes()
+
+        listUserView = new app.views.UserListView 
+            model:user,
+            template:jade.templates.guest_user_list
+        $('.guests .chatLine').append listUserView.render()
