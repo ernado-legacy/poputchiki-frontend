@@ -13,6 +13,9 @@ app.views.Message = Backbone.View.extend
         history.pushState null, 'poputchiki', url
 
     render: ->
+        if window.location.pathname.search('message') == -1
+            @set_url ''
+            #do app.views.messageside.render
         Dialogs = app.models.Dialogs
         @dialogs = new Dialogs
         @messages = {}

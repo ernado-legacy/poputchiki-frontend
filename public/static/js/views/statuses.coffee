@@ -17,16 +17,16 @@ app.views.Statuses = Backbone.View.extend
                 console.log statuses
 
     newstatus: ->
-        #status = new app.models.Status
-        #status.text = "hello"
+        status = new app.models.Status
+        status.text = "hello"
         #status.user = app.models.myuser.getid()
-        #status.save()
-        $.ajax
-            type: "PUT",
-            url: "/api/status",
+        status.save()
+        #$.ajax
+        #    type: "PUT",
+        #    url: "/api/status",
             #success: callback
             #error: error
-            dataType: "json"
-            data:
-                text: "hello"
-                user: app.models.myuser.getid()
+        #    dataType: "json"
+        #    data:
+        #        text: "hello"
+        #        user: app.models.myuser.getid()
