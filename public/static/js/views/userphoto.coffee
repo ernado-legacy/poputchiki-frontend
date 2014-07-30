@@ -26,7 +26,7 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         collection.fetch().done () ->
             $('.photoBox .photoBoxWrapper .pb-wr').empty()
             that.renderPhoto photo for photo in collection.models
-            that.showpopup '.view', '.photoPopup'
+            #that.showpopup '.view', '.photoPopup'
             return
 
     renderPhoto: (photo)->
@@ -41,8 +41,3 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
             $('.popupBack').fadeIn('slow')
             $('.popupWrapper').fadeIn('slow')
             $(popup).fadeIn('slow')
-        
-
-
-
-
