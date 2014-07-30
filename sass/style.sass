@@ -268,6 +268,11 @@ a.custom-link
     text-decoration: underline
     cursor: pointer
 
+a.blue-link
+    +italic-font
+    color: $header_blue
+    text-decoration: underline
+
 
 .hLogo
     margin-left: 20px
@@ -946,8 +951,8 @@ a.custom-link
     +italic-font
     color: $header_blue
     text-decoration: underline
-    margin-top: 8px
     cursor: pointer
+    margin-top: 8px
     display: block
     float: left
 #profile-slidedown
@@ -2036,6 +2041,8 @@ a.custom-link
         background: #c3d9df
         padding: 10px 0 10px 10px
         color: rgba(0,0,0,0.7)
+        .title-help-text
+            margin-top: 13px
     .rightBox
         width: 55%
         .chatLine

@@ -9,10 +9,11 @@
   .guests
     .rightBox
       .title МОИ ГОСТИ
-        br
-        small 
-          a(class="custom-link") Cтаньте невидимкой
-          |  и вы не будете попадать в список гостей других пользователей
+        .title-help-text
+          small
+            | Вы можете
+            a(class="custom-link")  стать невидимкой
+            |  и вы не будете попадать в список гостей других пользователей
       .people
         ul.chatLine
           //- for guest in guests
