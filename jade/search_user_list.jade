@@ -1,0 +1,25 @@
+img(src=user.avatar_url)
+.wrap-shadow
+  .shadow
+    .favorite 
+        if (is_fav)
+          a(href="#", class="active-action") уже у вас в избранном
+        else
+          a(href="#", class="add_to_fav") в избранное
+        //- img.like(src='../static/img/heart.png')
+        .like.fui-star-2
+    .some
+        a(href="#", data-user-id="#{user.id}", class="write")   написать
+        //- img.write(src='../static/img/profile_messages.png')
+        .write.fui-bubble
+    
+    //- .invite пригласить </br> в путешествие
+    .invite 
+      a(href="/user/#{user.id}", data-user-id="#{user.id}") посмотреть </br> профиль
+.info
+  .name=user.name
+    span.year , #{user.age}
+  .city=user.city
+  .online
+//- if(user.online)
+  

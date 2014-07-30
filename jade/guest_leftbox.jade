@@ -11,10 +11,10 @@
       if is_fav
         .fui-star-2.act(style="color:grey;")
         .myaction #{user.name} у вас в избранных 
-          a.remove_from_fav Убрать
+          a.remove_from_fav.custom-link убрать
       else
         .fui-star-2.act
         .myaction.add_to_fav Добавить в избранное
     .show 
       .fui-radio-checked.act
-      .myaction Показать путешествие
+      .myaction.to_journey Показать путешествие

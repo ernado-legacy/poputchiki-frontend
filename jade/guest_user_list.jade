@@ -1,0 +1,26 @@
+a(href="/user/#{user.id}", data-user-id="#{user.id}")
+  img(src=user.avatar_url)
+.info
+  .right
+    .last-date Заходил(а) #{user.time.date}
+    .last-time в #{user.time.time}
+    br
+    ul.action-list
+      li 
+        a.fui-bubble.write
+          span.act-description  написать
+      li
+        if(is_fav)
+          a.fui-star-2.active-action
+        else
+          a.fui-star-2.add_to_fav
+      li
+        a.fui-radio-checked.to_journey
+  .left
+    .name #{user.name}
+    .city #{user.age}, #{user.country}
+    span
+      if(user.is_sponsor)
+        img(src='/static/img/money3.png')
+      if(user.is_host)
+        img(src='/static/img/house3.png') 

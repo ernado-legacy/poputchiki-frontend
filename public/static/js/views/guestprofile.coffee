@@ -1,24 +1,27 @@
-app.views.GuestProfile = Backbone.View.extend
+app.views.GuestProfile = app.views.UserListView.extend
 
     el: '.mainContentProfile'
 
     events:
-        'click .write': 'write'
-        'click .add_to_fav': 'add_to_fav'
-        'click .remove_from_fav': 'remove_from_fav'
+        'click #guest_profile .write': 'write'
+        'click #guest_profile .add_to_fav': 'add_to_fav'
+        'click #guest_profile .remove_from_fav': 'remove_from_fav'
+        'click #guest_profile .to_journey': 'to_journey'
 
     initialize: ->
-        id = window.location.href.split('/').slice(4)[0]
-        @.model = new app.models.User 
-            id: id
-        @.model.fetch()
-        return
+        # id = window.location.href.split('/').slice(4)[0]
+        # @.model = new app.models.User 
+        #     id: id
+        # @.model.fetch()
+        # return
+        @custom_tag_id = "guest_profile"
 
     get_user: (callback) ->
         user = new app.models.User 
             id: window.location.pathname.split('/').slice(2)[0]
         user.fetch
             success: ->
+                @model = user
                 callback user
 
     set_user: (id) ->
@@ -37,11 +40,6 @@ app.views.GuestProfile = Backbone.View.extend
                 $ that.$el.html jade.templates.guest_profile
                     user: user.attributes,
                     is_fav: is_fav
-
-    write: ->
-        app.views.message.set_url window.location.pathname.split('/').slice(2)[0]
-        do app.views.message.render
-        do app.views.messageside.render
 
     add_to_fav: ->
         @model.add_to_fav false

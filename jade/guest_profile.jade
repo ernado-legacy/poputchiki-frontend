@@ -1,4 +1,4 @@
-.profileContainer.clearfix
+.profileContainer.clearfix#guest_profile
   include guest_leftbox
   .rightBox
     .profileInfoBox.pIBTitle
@@ -20,8 +20,8 @@
         .statusBox#main-status
           .status Завтра вылетаю, есть билет на халяву, кто со мной? Время поджимает, давайте поторопитесь. Бла-бла          
           .comments.clearfix
-            span#delete-comments удалить
-            span#share-comments нравится
+            span.delete-comments удалить
+            span.share-comments нравится
         .statusBoxEdit.clearfix
           .greenDots
           input#new-status(placeholder='...', type='text',  maxlength="140")
@@ -29,7 +29,7 @@
     .tagBox
       h1 Сезоны
       if user.seasons
-        .seasonsBox.clearfix#my-seasons
+        .seasonsBox.clearfix
           div(id = "spring", class = user.seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
             span весна
           div(id = "summer", class = user.seasons.indexOf("summer")>-1 ? "season seasonChecked" : "season")
