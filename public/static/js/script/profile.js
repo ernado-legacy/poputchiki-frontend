@@ -192,8 +192,8 @@ profile_script = function(){
         });
     };
 
-    addSearchTag('#search-select', '#tb-s', 1);
-    addSearchTag('#search-select-f', '#tb-f', 1);
+    addSearchTag('.search-select', '#tb-s', 1);
+    addSearchTag('.search-select-f', '#tb-f', 1);
     addSearchTag('#popup-select', '#tb-popup', 0);
 
     $('#search-slideup').click(function() {

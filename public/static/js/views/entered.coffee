@@ -14,6 +14,28 @@ app.views.Entered = Backbone.View.extend
         'click #profile-arrow-up': 'carousel_up'
         'click #profile-arrow-down': 'carousel_down'
         'click .closeChat': 'closechat'
+        'click #profile-rating': 'rating_popup'
+        'click .userBox img': 'promo_popup'
+        'click #change-avatar': 'chava_popup'
+        'click #menu-go': 'letsgo_popup'
+        'click .videoBox img': 'video_popup'
+        'click .imgGrid .photo-wrapper': 'imggrid_popup'
+        'click #search-slideup': 'left_sup'
+        'click #search-slidedown': 'left_sdown'
+        'click .season': 'season'
+        'click #my-profile .money-icon': 'moneyIcon'
+        'click .nearBox .money-icon': 'moneyIcon'
+        'click #my-profile .house-icon': 'houseIcon'
+        'click .nearBox .house-icon': 'houseIcon'
+        'click .videoHeader': 'video_header'
+        'click .photoHeader': 'photo_header'
+        'click .searchBody .dd': 'open_box'
+        'click .searchBody .du': 'close_box'
+        'click .searchBody .dl': 'select_box'
+        'focus .ageBox input': 'activeAgeBox'
+        'focusout .ageBox input': 'deactiveAgeBox'
+        'click #profile-slidedown': 'show_about'
+        'click #profile-slideup': 'hide_about'
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")
@@ -83,21 +105,25 @@ app.views.Entered = Backbone.View.extend
         @resizeonload()
         @scrollmenu()
         @removetag()
-        @showpopup '#menu-go', '.letsgoPopup'
-        @showpopup '.view', '.photoPopup'
-        @showpopup '.videoBox img', '.videoPopup'
-        @showpopup '#change-avatar', '.chavaPopup'
-        @showpopup '.userBox img', '.promoPopup'
-        @showpopup '#profile-rating', '.ratingPopup'
         @closepopup '#send-lg-popup'
         @closepopup '.closepopup'
         @closepopup '.save-new-ava-audio'
-        
 
         $("#edit-status").click ->
             $("#main-status").slideUp "slow"
             $(".statusBoxEdit").slideDown "slow"
 
+        $('.promo-photo').click ->
+            $('.popup').fadeOut('slow')
+            $('.chopPopup').fadeIn('slow')
+
+        $('.choose-promo-photo').click ->
+            $('.popup').fadeOut('slow')
+            $('.promoPopup').fadeIn('slow')
+
+        $('.imgRow .imgBox').click ->
+            $('.imgRow .imgBox').removeClass 'chosenImg'
+            $(this).addClass 'chosenImg'
 
     init: ->
         that = this
@@ -161,11 +187,79 @@ app.views.Entered = Backbone.View.extend
                 do app.views.search.render
                 do app.views.searchside.render
 
+    season: ->
+        if $(event.target).hasClass('season')
+            $(event.target).toggleClass 'seasonChecked'
+        else
+            $(event.target).parent().toggleClass 'seasonChecked'
+
+    moneyIcon: ->
+        $(event.target).toggleClass 'mg-icon'
+
+    houseIcon: ->
+        $(event.target).toggleClass 'hg-icon'
+
     statuses: ->
         do app.views.statuses.render
 
     guests: ->
         do app.views.guests.render
+
+    open_box: ->
+        $(event.target).css display: "none"
+        $(event.target).next().css display: "block"
+        $(event.target).next().next().slideDown "slow"
+        $(event.target).parent().addClass "opened"
+
+    close_box: ->
+        $(event.target).css display: "none"
+        $(event.target).prev().css display: "block"
+        $(event.target).next().slideUp "slow"
+        $(event.target).parent().removeClass "opened"
+
+    select_box: ->
+        text = $(event.target).text()
+        country = $(event.target).parent().parent().children("input")
+        country.val text
+        country.focus()
+        $(event.target).parent().parent().children(".du").css display: "none"
+        $(event.target).parent().parent().children(".dd").css display: "block"
+        $(event.target).parent().parent().children(".droped").slideUp "slow"
+        $(event.target).parent().parent().removeClass "opened"
+        country.focus ->
+            @selectionStart = @selectionEnd = @value.length
+
+    show_about: ->
+        $(event.target).css "display", "none"
+        $(".profileInfoBox .infoView").slideDown "slow"
+        $("#profile-slideup").css "display", "block"
+
+    hide_about: ->
+        $(event.target).css display: "none"
+        $("#profile-slidedown").css display: "block"
+        $(".profileInfoBox .infoView").slideUp "slow"
+
+    video_header: ->
+        $('.activeHeader').removeClass 'activeHeader'
+        if $(event.target).hasClass '.videoHeader'
+            $(event.target).addClass 'activeHeader'
+        else if $(event.target).hasClass '.title'
+            $(event.target).parent().addClass 'activeHeader'
+        else
+            $(event.target).parent().parent().addClass 'activeHeader'
+        $('.photoBox').hide()
+        $('.videoBox').show()
+
+    photo_header: ->
+        $('.activeHeader').removeClass 'activeHeader'
+        if $(event.target).hasClass '.photoHeader'
+            $(event.target).addClass 'activeHeader'
+        else if $(event.target).hasClass '.title'
+            $(event.target).parent().addClass 'activeHeader'
+        else
+            $(event.target).parent().parent().addClass 'activeHeader'
+        $('.videoBox').hide()
+        $('.photoBox').show()
 
     stopMedia: ->
         $('.audio').children().each ->
@@ -258,12 +352,12 @@ app.views.Entered = Backbone.View.extend
     closechat: (event) ->
         $(event.target).parent().parent().remove()
 
-    showpopup: (cnt, popup) ->
-        $(cnt).click ->
-            $('body').addClass 'bodyPopup'
-            $('.popupBack').fadeIn('slow')
-            $('.popupWrapper').fadeIn('slow')
-            $(popup).fadeIn('slow')
+    showpopup: (popup) ->
+        #$(cnt).click ->
+        $('body').addClass 'bodyPopup'
+        $('.popupBack').fadeIn('slow')
+        $('.popupWrapper').fadeIn('slow')
+        $(popup).fadeIn('slow')
 
     closepopup: (btn) ->
         $(btn).click ->
@@ -271,6 +365,38 @@ app.views.Entered = Backbone.View.extend
             $('.popup').fadeOut('slow')
             $('.popupWrapper').fadeOut('slow')
             $('.popupBack').fadeOut('slow')
+
+    rating_popup: ->
+        @showpopup('.ratingPopup')
+
+    promo_popup: ->
+        @showpopup('.promoPopup')
+
+    chava_popup: ->
+        @showpopup('.chavaPopup')
+
+    letsgo_popup: ->
+        @showpopup('.letsgoPopup')
+
+    video_popup: ->
+        @showpopup('.videoPopup')
+
+    imggrid_popup: ->
+        @showpopup('.photoPopup')
+
+    left_sup: ->
+        $("#my-folowers").slideUp "slow"
+        $("#my-wishes").slideDown "slow"
+
+    left_sdown: ->
+        $("#my-folowers").slideDown "slow"
+        $("#my-wishes").slideUp "slow"
+
+    activeAgeBox: ->
+        $(event.target).parent().addClass 'activeAgeBox'
+        
+    deactiveAgeBox: ->
+        $(event.target).parent().removeClass 'activeAgeBox'
 $ ->
     app.views.entered = new app.views.Entered
     app.views.entered.init()

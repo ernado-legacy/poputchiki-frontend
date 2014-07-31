@@ -894,7 +894,7 @@ a.blue-link
                 +search-checkboxes
         #search-places
             margin-top: 10px
-        .searchCountry
+        .searchCountry, .searchCity
             float: left
             width: 40px
             margin-left: 4%
@@ -931,7 +931,7 @@ a.blue-link
             +italic-font
             color: $profile_status_text
             font-size: 14px
-            line-height: 67px
+            margin-top: 26px
             display: block
             text-align: center
     .seasonChecked
@@ -1595,7 +1595,7 @@ a.blue-link
                     span
                         line-height: 26px
                     .money-icon
-                        margin-top: 3px
+                        margin-top: -6px
             .statusBoxEdit
                 width: -moz-calc(100% - 20px) !important
                 width: -webkit-calc(100% - 20px) !important
@@ -1660,7 +1660,7 @@ a.blue-link
                             text-transform: none
                             opacity: 1
                             font-size: 14px
-                .searchCountry
+                .searchCountry, .searchCity
                     float: left
                     width: 40px
                     margin-left: 5px
@@ -2226,7 +2226,7 @@ a.blue-link
             width: 100%
             float: left
             font-weight: bold
-        .searchCountry
+        .searchCountry, .searchCity
             float: left
             width: 40px
             margin-bottom: 20px
@@ -2264,29 +2264,28 @@ a.blue-link
     background-color: white
     padding: 50px 20px 0px 20px
     +border-radius(4px, 4px, 4px, 4px)
+    .arrow-left, .arrow-right
+        background-image: url('../img/profile_arrow_l.png')
+        background-repeat: no-repeat
+        height: 24px
+        width: 17px
+        cursor: pointer
+        position: absolute
+        top: 50%
+        right: 0
+        opacity: 0.3
+        margin: 0px 1px
+    .arrow-right
+        background-image: url('../img/profile_arrow_r.png')
+        left: 0
+    .arrow-left:hover, .arrow-right:hover
+        opacity: 1
     .imgBox
         position: relative
         img, iframe
             width: 100%
         iframe
-            height: 500px
-        .arrow-left, .arrow-right
-            background-image: url('../img/profile_arrow_l.png')
-            background-repeat: no-repeat
-            height: 24px
-            width: 17px
-            cursor: pointer
-            position: absolute
-            top: 50%
-            right: 0
-            opacity: 0
-            margin: 0px 10px
-        .arrow-right
-            background-image: url('../img/profile_arrow_r.png')
-            left: 0
-    .imgBox:hover
-        .arrow-left, .arrow-right
-            opacity: 1
+            height: 500px        
     .infoBox
         img
             height: 80px
