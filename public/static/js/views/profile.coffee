@@ -30,60 +30,9 @@ app.views.Profile = Backbone.View.extend
             that.newtag '#day-select'
             that.newtag '#city-select'
             that.newtag '#country-select'
-            # that.showMenu 'webkitTransitionEnd'
-            # that.showMenu 'oTransitionEnd'
-            # that.showMenu 'MSAnimationEnd'
-            # that.showMenu 'transitionend'
-            that.activeAgeBox '.ageFrom'
-            that.activeAgeBox '.ageTo'
-            that.moneyIcon '#my-profile .money-icon'
-            that.houseIcon '#my-profile .house-icon'
-            that.moneyIcon '.nearBox .money-icon'
-            that.houseIcon '.nearBox .house-icon'
-            that.season '.season'
             that.showInputDrop '.newCountry'
-            that.showInputDrop '.searchCountry'
             that.hideInputDrop '.newCountry'
-            that.hideInputDrop '.searchCountry'
             that.openTagWithInput '.newCountry'
-            that.openTagWithInput '.searchCountry'
-            that.addSearchTag '#search-select', '#tb-s', 1
-            that.addSearchTag '#search-select-f', '#tb-f', 1
-            that.addSearchTag '#popup-select', '#tb-popup', 0
-
-            $('.videoHeader').click ->
-                $('.activeHeader').removeClass 'activeHeader'
-                $(this).addClass 'activeHeader'
-                $('.photoBox').hide()
-                $('.videoBox').show()
-
-            $('.photoHeader').click ->
-                $('.activeHeader').removeClass 'activeHeader'
-                $(this).addClass 'activeHeader'
-                $('.videoBox').hide()
-                $('.photoBox').show()
-
-            $('.promo-photo').click ->
-                $('.popup').fadeOut('slow')
-                $('.chopPopup').fadeIn('slow')
-
-            $('.choose-promo-photo').click ->
-                $('.popup').fadeOut('slow')
-                $('.promoPopup').fadeIn('slow')
-
-            $('.imgRow .imgBox').click ->
-                $('.imgRow .imgBox').removeClass 'chosenImg'
-                $(this).addClass 'chosenImg'
-
-            $("#profile-slidedown").click ->
-                $(this).css "display", "none"
-                $(".profileInfoBox .infoView").slideDown "slow"
-                $("#profile-slideup").css "display", "block"
-
-            $("#profile-slideup").click ->
-                $(this).css display: "none"
-                $("#profile-slidedown").css display: "block"
-                $(".profileInfoBox .infoView").slideUp "slow"
 
             $("#edit-profile").click ->
                 $("#about-in-info").css "display", "none"
@@ -105,32 +54,12 @@ app.views.Profile = Backbone.View.extend
                 $("#main-status").slideDown "slow"
                 $(".statusBoxEdit").slideUp "slow"
 
-            $("#profile-new-tag").keydown (event) ->
-                if event.which is 13
-                    newCountry = $(this).val()
-                    unless newCountry is ""
-                        $(this).val ""
-                        $("#profile-tags").append "<div class='mainSelectElement profileTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
-
-            $("#search-slideup").click ->
-                $("#my-folowers").slideUp "slow"
-                $("#my-wishes").slideDown "slow"
-
-            $("#search-slidedown").click ->
-                $("#my-folowers").slideDown "slow"
-                $("#my-wishes").slideUp "slow"
-
-    season: (season) ->
-        $(season).click ->
-            $(this).toggleClass 'seasonChecked'
-
-    moneyIcon: (cnt) ->
-        $(cnt).click ->
-            $(this).toggleClass 'mg-icon'
-
-    houseIcon: (cnt) ->
-        $(cnt).click ->
-            $(this).toggleClass 'hg-icon'
+            #$("#profile-new-tag").keydown (event) ->
+                #if event.which is 13
+                    #newCountry = $(this).val()
+                    #unless newCountry is ""
+                        #$(this).val ""
+                        #$("#profile-tags").append "<div class='mainSelectElement profileTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
 
     showInputDrop: (box) ->
         $(box).children(".dd").click ->
@@ -189,17 +118,17 @@ app.views.Profile = Backbone.View.extend
             # event.preventDefault()
             # event.stopPropagation()
 
-    addSearchTag: (newtag, oldtags, variant) ->
-        $(newtag).keydown (event) ->
-            if event.which is 13
-                newCountry = $(this).val()
-                unless newCountry is ""
-                    $(this).val ""
-                    z = "<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
-                    if variant is 1
-                        $(oldtags).append z
-                    else
-                        $(oldtags).prepend z
+    #addSearchTag: (newtag, oldtags, variant) ->
+    #    $(newtag).keydown (event) ->
+    #        if event.which is 13
+    #            newCountry = $(this).val()
+    #            unless newCountry is ""
+    #                $(this).val ""
+    #                z = "<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
+    #                if variant is 1
+    #                    $(oldtags).append z
+    #                else
+    #                    $(oldtags).prepend z
 
     # showMenu: (end) ->
     #    anim = document.getElementById("left-menu")
@@ -210,14 +139,6 @@ app.views.Profile = Backbone.View.extend
     #            $('.leftMenu li span').removeClass 'visibleSpan'
     #        
     #    ,false)
-
-    activeAgeBox: (cell) ->
-        $(cell).children('input').focus( ->
-            $(cell).addClass 'activeAgeBox'
-        )
-        $(cell).children('input').focusout( ->
-            $(cell).removeClass 'activeAgeBox'
-        )
 
     events: 
         "click #profile-edit-slideup span": 'saveProfile'
