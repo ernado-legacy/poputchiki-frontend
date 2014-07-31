@@ -30,6 +30,9 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
             return
 
     renderPhoto: (photo)->
+        
+        time = new Date photo.get('time')
+        photo.set 'time', time.getDate()+"."+time.getMonth()+"."+(time.getYear()*1+1900)
         photoView = new app.views.Photo model:photo
         $('.photoBox .photoBoxWrapper .pb-wr').append photoView.render()
         # bookView = new app.BookView model:item

@@ -1,6 +1,7 @@
 id  = $.cookie "user"
 
-app.models.Photo = Backbone.Model.extend()
+app.models.Photo = Backbone.Model.extend
+	url: 'api/photo'
 
 Photo = app.models.Photo
 

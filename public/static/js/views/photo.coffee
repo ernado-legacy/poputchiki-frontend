@@ -4,6 +4,7 @@ app.views.Photo = Backbone.View.extend
     className: 'view'
     events: 
         'click': 'clck'
+        'click .action-like':'like'
 
     render: ->
         @listenTo @model, 'changeimg', @changeimg
@@ -44,3 +45,6 @@ app.views.Photo = Backbone.View.extend
 
         $('.photoPopup .arrow-left').click =>
             react @, 'right'
+    like: (e)->
+        do e.preventDefault
+        console.log 'like photo'

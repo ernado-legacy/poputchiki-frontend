@@ -1,11 +1,10 @@
 .view-back
   span
-    div 1140
-    i.icon-eye-open
-    a(href="http://www.flickr.com/photos/ag2r/5439506585/in/photostream")
+    div #{time}
   span
-    div 754
-    i.icon-heart
+    div нравится #{likes}
+    a.action-like
+      i.fui-heart
 .slice.s1(style="background-image: url('"+url+"');")
       span.overlay
       .slice.s2(style="background-image: url('"+url+"');")
