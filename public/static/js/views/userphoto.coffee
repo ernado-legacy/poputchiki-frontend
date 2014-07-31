@@ -26,7 +26,12 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         collection.fetch().done () ->
             $('.photoBox .photoBoxWrapper .pb-wr').empty()
             that.renderPhoto photo for photo in collection.models
-            that.showpopup '.view', '.photoPopup'
+            #that.showpopup '.view', '.photoPopup'
+            user = new app.models.User
+            user.set 'id', id
+            user.fetch
+                success: ->
+                    app.views.popupphoto.changeuser user
             return
 
     renderPhoto: (photo)->
@@ -35,14 +40,9 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         # bookView = new app.BookView model:item
         # @$el.append bookView.render()
 
-    showpopup: (cnt, popup) ->
-        $(cnt).click ->
-            $('body').addClass 'bodyPopup'
-            $('.popupBack').fadeIn('slow')
-            $('.popupWrapper').fadeIn('slow')
-            $(popup).fadeIn('slow')
-        
-
-
-
-
+    #showpopup: (cnt, popup) ->
+    #    $(cnt).click ->
+    #        $('body').addClass 'bodyPopup'
+    #        $('.popupBack').fadeIn('slow')
+    #        $('.popupWrapper').fadeIn('slow')
+    ##        $(popup).fadeIn('slow')

@@ -38,16 +38,29 @@ app.views.Search = Backbone.View.extend
             # user.set searchFormData
             console.log searchFormData
             # do user.save searchFormData,{patch: true}
-            user.save searchFormData, patch: true
+
+            user.set searchFormData
+            user.save searchFormData, patch: true if _.size(user.changed)>0
 
 
         query.sex = if $('.manBox .checked').length == 1 then 'male' else 'female'
 
         app.models.search query,
             (data) ->
-                that.$el.find('.gallery').html jade.templates.search_users 
-                    users: data
+                that.renderSearchingUser  new app.models.User user for user in data.result
+                # that.$el.find('.gallery').html jade.templates.search_users 
+                #     users: data
+                that.$el.find('.results small').text(' попутчик')
+                that.$el.find('.results small').first().text('найден ')
+                that.$el.find('.results span.count').text(data.count)
         do @render
+
+    renderSearchingUser: (user) ->
+        listUserView = new app.views.UserListView 
+            model:user,
+            template:jade.templates.search_user_list
+        # $('.guests .chatLine').append listUserView.render()
+        @$el.find('.gallery ul').append listUserView.render()
 
     toogle: (event) ->
         $(event.currentTarget).toggleClass('checked')

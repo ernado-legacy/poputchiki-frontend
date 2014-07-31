@@ -151,6 +151,10 @@ app.views.Entered = Backbone.View.extend
 
                 app.views.guests = new app.views.Guests
                 app.views.favs = new app.views.Favs
+                app.views.popupphoto = new app.views.PopupPhoto
+
+                if window.location.pathname == '/guests/'
+                    do app.views.guests.render
 
                 if window.location.pathname == '/' or window.location.pathname == '/profile/'
                     do app.views.profile.render
@@ -160,13 +164,20 @@ app.views.Entered = Backbone.View.extend
                 if window.location.pathname.search('/user/') != -1
                     do app.views.guestprofile.render
 
-                if window.location.pathname.search('/guests/') != -1
-                    do app.views.guestprofile.render
+                if window.location.pathname == '/guests/'
+                    do app.views.guests.render
                 if window.location.pathname.search('/statuses/') != -1
                     do app.views.statuses.render
 
                 if window.location.pathname.search('/favourites/') != -1
-                    do app.views.guestprofile.render
+                    do app.views.favs.render
+
+                if window.location.pathname.search('/search/') != -1
+                    do app.views.search.render
+                    do app.views.searchside.render
+
+                if window.location.pathname.search('/settings/') != -1
+                    do app.views.setting.render
 
     search: ->
         # app.models.search

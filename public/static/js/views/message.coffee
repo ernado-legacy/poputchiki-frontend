@@ -13,12 +13,23 @@ app.views.Message = Backbone.View.extend
         history.pushState null, 'poputchiki', url
 
     render: ->
+        if window.location.pathname.search('message') == -1
+            @set_url ''
+            #do app.views.messageside.render
         Dialogs = app.models.Dialogs
         @dialogs = new Dialogs
         @messages = {}
         app.views.entered.setmenuitem '#menu-messgaes'
         $ @$el.html jade.templates.dialog()
         do @reupdate
+        iduser = window.location.pathname.split('/').slice(2)[0]
+        if _.size iduser
+            user = new app.models.User
+            user.set 'id', iduser
+            user.fetch
+                success: =>
+                    $('.chatContainer').append jade.templates.dialog_item
+                        dialog: app.views.popupphoto.changeuser user
 
     new_massage: (id, mess) ->
         url = '/api/user/' + id + '/messages'

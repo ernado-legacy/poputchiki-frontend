@@ -7,6 +7,7 @@ public/static/js/app.js
 public/static/js/template.js
 public/static/js/models/*.js
 public/static/js/views/*.js
+public/static/js/mixins/*.js
 
 *.sublime-project
 *.sublime-workspace
