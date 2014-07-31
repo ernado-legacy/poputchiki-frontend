@@ -125,6 +125,7 @@ app.views.Entered = Backbone.View.extend
 
                 app.views.guests = new app.views.Guests
                 app.views.favs = new app.views.Favs
+                app.views.popupphoto = new app.views.PopupPhoto
 
                 if window.location.pathname == '/guests/'
                     do app.views.guests.render
