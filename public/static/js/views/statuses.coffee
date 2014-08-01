@@ -2,6 +2,10 @@ app.views.Statuses = Backbone.View.extend
 
     el: '.mainContentProfile'
 
+    events: 
+        'click #edit-status': 'editstatus'
+        'click #write-new-main-status': 'newstatus'
+
     render: ->
         history.pushState null, 'poputchiki', '/statuses/'
         $ @$el.html jade.templates.statuses()
@@ -32,11 +36,21 @@ app.views.Statuses = Backbone.View.extend
                                     users: users
                                     statuses: statuses
 
+    editstatus: ->
+        $("#main-status").slideUp "slow"
+        $(".statusBoxEdit").slideDown "slow"
+
     newstatus: ->
+        that = @
         status = new app.models.Status
-        status.text = "hello"
+        status.set 'text', $('#new-status').val()
         #status.user = app.models.myuser.getid()
-        status.save()
+        status.save null,
+            success: =>
+                do that.getstatuses
+                $('#main-status .status').text status.get 'text'
+                $("#main-status").slideDown "slow"
+                $(".statusBoxEdit").slideUp "slow"
         #$.ajax
         #    type: "PUT",
         #    url: "/api/status",
