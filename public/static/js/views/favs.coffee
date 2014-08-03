@@ -25,6 +25,7 @@ app.views.Favs = Backbone.View.extend
                 that.renderFav fav for fav in collection.models
 
     renderFav: (user) ->
+        
         listUserView = new app.views.UserListView 
             model:user,
             template:jade.templates.fav_user_list

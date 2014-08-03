@@ -47,6 +47,24 @@ app.models.FavUsers = Backbone.Collection.extend
     url: ->
         id = app.models.myuser.getid()
         '/api/user/'+id+'/fav'
+
+    parse: (response)->
+        for user in response
+            # user = @parseLastActionParameter item  
+            console.log  user.last_action
+            time_param = new Date user.last_action
+            user.last_action = 
+                date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
+                time: time_param.getHours()+":"+time_param.getMinutes()
+        # item.parseTimeParameter  'last_action' for item in response
+        return response
+
+    # parseLastActionParameter: (user)->
+        time_param = new Date user.get('last_action')
+        user.set 'last_action',
+            date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
+            time: time_param.getHours()+":"+time_param.getMinutes()
+        user
     # initialize: ->
     # 	console.log 'Before bind events how is our model?', this.toJSON()
     # 	this.on("change", this.changeHandler)
