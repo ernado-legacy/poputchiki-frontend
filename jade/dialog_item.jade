@@ -1,5 +1,5 @@
 .chatBlock(data-user="#{dialog.get('id')}")
-  img(src='/static/img/dialog/userpic.png')
+  img(src='#{dialog.get("avatar_url")}')
   .topPart
     .chatName=dialog.get('name')
     .invite пригласить в путешествие
