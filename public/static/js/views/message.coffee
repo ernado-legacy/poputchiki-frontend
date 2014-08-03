@@ -29,7 +29,7 @@ app.views.Message = Backbone.View.extend
             user.fetch
                 success: =>
                     $('.chatContainer').append jade.templates.dialog_item
-                        dialog: app.views.popupphoto.changeuser user
+                        dialog: user
 
     new_massage: (id, mess) ->
         url = '/api/user/' + id + '/messages'
