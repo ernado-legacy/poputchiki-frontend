@@ -53,6 +53,11 @@ app.views.Search = Backbone.View.extend
                 that.$el.find('.results small').text(' попутчик')
                 that.$el.find('.results small').first().text('найден ')
                 that.$el.find('.results span.count').text(data.count)
+
+        app.models.searchphoto query,
+            (data) ->
+                # console.log data
+                app.views.searchside.renderitems data
         do @render
 
     renderSearchingUser: (user) ->

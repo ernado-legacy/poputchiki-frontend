@@ -6,3 +6,12 @@ app.models.search = (data, callback) ->
         data: data
         success: callback
         dataType: "json"
+
+app.models.searchphoto = (data, callback) ->
+
+    $.ajax
+        type: "GET",
+        url: "/api/photo"
+        data: data
+        success: callback
+        dataType: "json"
