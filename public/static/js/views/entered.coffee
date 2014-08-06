@@ -36,6 +36,8 @@ app.views.Entered = Backbone.View.extend
         'focusout .ageBox input': 'deactiveAgeBox'
         'click #profile-slidedown': 'show_about'
         'click #profile-slideup': 'hide_about'
+        'click .filterBlock .title .dd': 'show_filters'
+        'click .filterBlock .title .du': 'hide_filters'
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")
@@ -397,6 +399,16 @@ app.views.Entered = Backbone.View.extend
         
     deactiveAgeBox: ->
         $(event.target).parent().removeClass 'activeAgeBox'
+
+    show_filters: ->
+        $(event.target).parent().parent().children('.filters').slideDown('slow')
+        $(event.target).css('display','none')
+        $(event.target).next().css('display','block')
+
+    hide_filters: ->
+        $(event.target).parent().parent().children('.filters').slideUp('slow')
+        $(event.target).css('display','none')
+        $(event.target).prev().css('display','block')
 $ ->
     app.views.entered = new app.views.Entered
     app.views.entered.init()
