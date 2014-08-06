@@ -1,0 +1,74 @@
+$profile_status_text: #4b4b4b
+=border-shadow
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
+  -moz-box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
+  box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
+=no-border-shadow
+  -webkit-box-shadow: none
+  -moz-box-shadow: none
+  box-shadow: none
+.photoVideoBlock
+  .photoBox, .videoBox
+    color: #eaeaea
+    background: #eaeaea
+    .photo-wrapper
+      // webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
+      // -moz-box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
+      // box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
+      // -webkit-transition: all .15s ease-out .1s
+      // -moz-transition: all .15s ease-out .1s
+      // -o-transition: all .15s ease-out .1s
+      padding: 6px 0px 6px 0px
+      transition: all .15s ease-out .1s
+      transition-duration: .1s
+      border: 1px solid #eaeaea
+      text-align: center
+      // +border-shadow
+      img
+        padding: 5px
+        background: white
+        border: 1px solid white
+        width: initial
+        height: 175px 
+        margin: 0 auto
+        display: block
+        margin-left: auto
+        margin-right: auto
+        margin-top: 3px
+        margin-bottom: 3px
+        +border-shadow
+      img:hover
+        border: 1px solid white
+      .custom-link
+        font-size: 13px
+        color: #eaeaea
+      .like-counter, .photo-time
+        // text-decoration: none!important
+        +italic-font
+        font-size: 13px
+        margin-left: 8px
+      .action-like
+        // color: #9cabae
+        font-size: 11px
+
+
+    .photo-wrapper:hover
+      background-color: white
+      border: 1px solid white
+      color: #777
+      +border-shadow
+      img
+        border: 1px solid white
+        +no-border-shadow
+      .custom-link
+        color: $profile_status_text
+      .action-like
+        color: #9cabae
+        font-size: 11px
+      // -webkit-transform: scale(1.3)
+      // -ms-transform: scale(1.3)
+      // transform: scale(1.3)
+      // img
+      //   -webkit-transform: scale(1)
+      //   -ms-transform: scale(1)
+      //   transform: scale(1)

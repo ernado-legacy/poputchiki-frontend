@@ -4,10 +4,10 @@ each status in statuses.models
     .profileInfoBox.leftPart     
       .name-in-profile #{users[status.get("user")].get('name')}, 23
       .city-in-profile=users[status.get("user")].get('city')
-      //- h1 #{users[status.get("user")]}
-      .money-icon.hg-icon
-      //- if(users[status.get("user")].get('is_sponsor'))
-      .house-icon.hg-icon
+      if(users[status.get("user")].get('is_sponsor'))
+        .money-icon.mg-icon
+      if(users[status.get("user")].get('is_sponsor'))
+        .house-icon.hg-icon
     .rightPart
       .status=status.get('text')
       .writeBtn

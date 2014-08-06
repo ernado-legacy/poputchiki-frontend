@@ -1,14 +1,21 @@
 app.views.Photo = Backbone.View.extend
 
     tagName: 'div'
-    className: 'view'
+    className: 'photo-wrapper'
     events: 
-        'click': 'clck'
+        'click': 'undefined'
         'click .action-like':'like'
+        'click .action-remove-like':'unlike'
 
     render: ->
         @listenTo @model, 'changeimg', @changeimg
-        $ @.$el.html jade.templates.photo @model.toJSON()
+        that = @
+        app.models.myuser.get (user)->
+            liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false
+            console.log liked_by
+            $ that.$el.html jade.templates.photo 
+                photo: that.model.toJSON(),
+                liked_by: liked_by
 
     clck: ->
         $('body').addClass 'bodyPopup'
@@ -45,6 +52,18 @@ app.views.Photo = Backbone.View.extend
 
         $('.photoPopup .arrow-left').click =>
             react @, 'right'
-    like: (e)->
-        do e.preventDefault
-        console.log 'like photo'
+    like: ()->
+        that = @
+        @model.like true, ()->
+            counter_container = that.$el.find('.like-counter')
+            counter_container.text counter_container.text()*1+1
+            that.$el.find('.custom-link').removeClass('action-like').addClass('action-remove-like')
+        return false
+
+    unlike: ()->
+        that = @
+        @model.like false, ()->
+            counter_container = that.$el.find('.like-counter')
+            counter_container.text counter_container.text()*1-1
+            that.$el.find('.custom-link').removeClass('action-remove-like').addClass('action-like')
+        return false
