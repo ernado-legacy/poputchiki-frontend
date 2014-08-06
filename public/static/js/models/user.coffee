@@ -19,7 +19,6 @@ app.models.User = Backbone.Model.extend
             dataType: "json"
             contentType: "application/json; charset=utf-8"
             success: (data) ->
-                console.log 'added to favs'
                 app.models.myuser.favs = undefined
                 app.models.myuser.clear ->
                     console.log 123
@@ -51,7 +50,6 @@ app.models.FavUsers = Backbone.Collection.extend
     parse: (response)->
         for user in response
             # user = @parseLastActionParameter item  
-            console.log  user.last_action
             time_param = new Date user.last_action
             user.last_action = 
                 date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
@@ -59,12 +57,12 @@ app.models.FavUsers = Backbone.Collection.extend
         # item.parseTimeParameter  'last_action' for item in response
         return response
 
-    # parseLastActionParameter: (user)->
-        time_param = new Date user.get('last_action')
-        user.set 'last_action',
-            date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
-            time: time_param.getHours()+":"+time_param.getMinutes()
-        user
+    # # parseLastActionParameter: (user)->
+    #     time_param = new Date user.get('last_action')
+    #     user.set 'last_action',
+    #         date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
+    #         time: time_param.getHours()+":"+time_param.getMinutes()
+    #     user
     # initialize: ->
     # 	console.log 'Before bind events how is our model?', this.toJSON()
     # 	this.on("change", this.changeHandler)
@@ -75,6 +73,16 @@ app.models.Guests = Backbone.Collection.extend
         return
     url: -> 
         '/api/user/'+this.id+'/guests'
+
+    parse: (response)->
+        for user in response
+            # user = @parseLastActionParameter item  
+            time_param = new Date user.time
+            user.time = 
+                date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
+                time: time_param.getHours()+":"+time_param.getMinutes()
+        # item.parseTimeParameter  'last_action' for item in response
+        return response
 
     model: User
 

@@ -23,10 +23,6 @@ app.views.Guests = Backbone.View.extend
                 that.renderGuest guest for guest in collection.models
 
     renderGuest: (user) ->
-        time = new Date user.get('time')
-        user.set 'time',
-            date: time.getDate()+"."+time.getMonth()+"."+(time.getYear()*1+1900)
-            time: time.getHours()+":"+time.getMinutes()
 
         listUserView = new app.views.UserListView 
             model:user,
