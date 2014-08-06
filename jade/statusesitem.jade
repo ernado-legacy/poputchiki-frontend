@@ -1,5 +1,5 @@
 each status in statuses.models
-  .statusBlock
+  .statusBlock(data-status='#{status.get('id')}')
     img(src='#{users[status.get("user")].get("avatar_url")}')
     .profileInfoBox.leftPart     
       .name-in-profile #{users[status.get("user")].get('name')}, 23
@@ -12,6 +12,7 @@ each status in statuses.models
       .status=status.get('text')
       .writeBtn
       .controlLinks.clearfix
-        .like нравится
+        .like(data-like="true")
         .note пожаловаться
         .share поделиться
+        .likes

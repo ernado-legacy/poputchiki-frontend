@@ -5,6 +5,7 @@ app.views.Statuses = Backbone.View.extend
     events: 
         'click #edit-status': 'editstatus'
         'click #write-new-main-status': 'newstatus'
+        'click .like': 'like'
 
     render: ->
         history.pushState null, 'poputchiki', '/statuses/'
@@ -35,7 +36,10 @@ app.views.Statuses = Backbone.View.extend
                                 that.$el.find('.statusBlockWrap').html jade.templates.statusesitem
                                     users: users
                                     statuses: statuses
-
+                                _.each that.$el.find('.statusBlock'), (item) ->
+                                    view = new app.views.Status 
+                                        el: item
+                                    do view.updatelike
     editstatus: ->
         $("#main-status").slideUp "slow"
         $(".statusBoxEdit").slideDown "slow"
