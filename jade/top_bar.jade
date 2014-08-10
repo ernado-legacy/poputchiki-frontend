@@ -7,6 +7,17 @@
   #profile-arrow-left
   .carouselBox
     .carousel
+      each item in items
+        .crsItem.mainCrs
+          .wrapper(data-anim="base wrapper")
+            .circle.c_left(data-anim="base left")
+            .circle.c_right(data-anim="base right")
+          img(src='#{item.get('image_url')}')
+          if item.get('type')=='audio'
+            .audio
+              audio
+                source(src='#{item.get('url')}', type="audio/ogg")
+    //
       - for (var i = 1; i <= 14; i++)
         .crsItem.mainCrs
           case i%6

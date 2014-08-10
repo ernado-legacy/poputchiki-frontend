@@ -1,0 +1,7 @@
+each array in arrays
+  .imgRow.clearfix
+    each item in array
+      .imgBox.clearfix(data-id="#{item.get('id')}")
+        img(src='#{item.get('url')}')
+        .cover
+        span выбрать
