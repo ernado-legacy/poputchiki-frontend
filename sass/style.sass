@@ -692,11 +692,12 @@ a.blue-link
         width: 35px
         cursor: pointer
         position: absolute
-        top: 35px
-        left: -30px
+        left: 49%
+    #profile-arrow-up
+        top: 40px
     #profile-arrow-down
         background-image: url('../img/profile_arrow_d.png')
-        top: 60px
+        bottom: 5px
     .photoHeaderBox
         float: left
         width: 100%
@@ -754,9 +755,10 @@ a.blue-link
         overflow: hidden
         .photoBoxWrapper
             position: relative
-            max-height: 732px
+            max-height: 632px
             overflow: hidden
             overflow-y: scroll
+            margin: 25px 0
             .pb-wr
                 position: relative
         .photoBoxWrapper::-webkit-scrollbar
@@ -2292,8 +2294,6 @@ a.blue-link
             margin-left: calc((100% - 112px)/2)
 .photoPopup, .videoPopup
     top: 10%
-    left: 25%
-    width: 50%
     background-color: white
     padding: 50px 20px 0px 20px
     +border-radius(4px, 4px, 4px, 4px)
@@ -2304,7 +2304,7 @@ a.blue-link
         width: 17px
         cursor: pointer
         position: absolute
-        top: 50%
+        top: 300px
         right: 0
         opacity: 0.3
         margin: 0px 1px
@@ -2315,7 +2315,9 @@ a.blue-link
         opacity: 1
     .imgBox
         position: relative
-        img, iframe
+        img
+            height: 100% 
+        iframe
             width: 100%
         iframe
             height: 500px        
@@ -2339,6 +2341,13 @@ a.blue-link
                 margin-bottom: 5px
             .city-in-profile
                 font-size: 15px
+.photoPopup
+    .imgBox
+        height: 500px
+        cursor: pointer
+.videoPopup
+    left: 25%
+    width: 50%
 .chavaPopup, .promoPopup, .chopPopup, .ratingPopup
     top: 10%
     width: 558px

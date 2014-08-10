@@ -21,6 +21,8 @@ app.views.Photo = Backbone.View.extend
     changeimg: ->
 
         $('.photoPopup .imgBox img').attr 'src', @model.get 'url'
+        n = ($(window).width() - $('.photoPopup').width())/2
+        $('.photoPopup').css 'margin-left', n
 
         _.each ['.arrow-left', '.arrow-right'], (item) ->
             do $('.photoPopup ' + item).unbind
@@ -45,6 +47,9 @@ app.views.Photo = Backbone.View.extend
 
         $('.photoPopup .arrow-left').click =>
             react @, 'right'
+
+        $('.photoPopup img').click =>
+            react @, 'left'
     like: (e)->
         do e.preventDefault
         console.log 'like photo'
