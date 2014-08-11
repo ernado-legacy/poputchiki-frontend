@@ -557,8 +557,10 @@ a.blue-link
         position: relative
         font-size: 14px
         img
-            margin: 8px 0 0 8px
+            margin: 10px 0 0 10px
             cursor: pointer
+            width: 100px
+            +border-radius(50%, 50%, 50%, 50%)
         #rating
             color: $header_blue
             position: absolute
@@ -922,6 +924,14 @@ a.blue-link
         #search-slidedown, #search-slideup
             margin-top: 5px
             float: left
+    #my-wishes
+        .mainSelectElement
+            width: 78%
+            margin-bottom: 5px
+            input::-moz-placeholder
+                +simple-font
+            input::-webkit-input-placeholder
+                +simple-font
     #my-folowers
         display: none
 .seasonsBox

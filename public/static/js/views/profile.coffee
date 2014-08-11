@@ -33,6 +33,8 @@ app.views.Profile = Backbone.View.extend
             that.showInputDrop '.newCountry'
             that.hideInputDrop '.newCountry'
             that.openTagWithInput '.newCountry'
+            that.addSearchTag '#profile-new-tag', '#profile-tags', 1
+            that.addSearchTag '#folowers-new-tag', '#tb-f', 1
 
             $("#edit-profile").click ->
                 $("#about-in-info").css "display", "none"
@@ -118,17 +120,17 @@ app.views.Profile = Backbone.View.extend
             # event.preventDefault()
             # event.stopPropagation()
 
-    #addSearchTag: (newtag, oldtags, variant) ->
-    #    $(newtag).keydown (event) ->
-    #        if event.which is 13
-    #            newCountry = $(this).val()
-    #            unless newCountry is ""
-    #                $(this).val ""
-    #                z = "<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
-    #                if variant is 1
-    #                    $(oldtags).append z
-    #                else
-    #                    $(oldtags).prepend z
+    addSearchTag: (newtag, oldtags, variant) ->
+        $(newtag).keydown (event) ->
+            if event.which is 13
+                newCountry = $(this).val()
+                unless newCountry is ""
+                    $(this).val ""
+                    z = "<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
+                    if variant is 1
+                        $(oldtags).append z
+                    else
+                        $(oldtags).prepend z
 
     # showMenu: (end) ->
     #    anim = document.getElementById("left-menu")

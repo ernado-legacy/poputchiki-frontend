@@ -29,7 +29,7 @@
       .greenDots
       span#search-places Cтраны/города
       .mainSelectElement.searchCountry.withShadow
-        input.search-select(placeholder='...', type='text',  maxlength="20")
+        input.search-select(placeholder='Страна', type='text',  maxlength="20")
         .dd
         .du
         ul.droped.withShadow
@@ -37,7 +37,7 @@
           li.dl Африка
           li.dl Европа
       .mainSelectElement.searchCity.withShadow
-        input.search-select(placeholder='...', type='text',  maxlength="20")
+        input.search-select(placeholder='Город', type='text',  maxlength="20")
         .dd
         .du
         ul.droped.withShadow
@@ -65,32 +65,25 @@
           span зима
       .greenDots
       span#search-places-f Cтраны/города
-      .mainSelectElement.searchCountry.withShadow
-        input.search-select(placeholder='...', type='text',  maxlength="20")
-        .dd
-        .du
-        ul.droped.withShadow
-          li.dl Россия
-          li.dl Африка
-          li.dl Европа
-      .mainSelectElement.searchCity.withShadow
-        input.search-select(placeholder='...', type='text',  maxlength="20")
-        .dd
-        .du
-        ul.droped.withShadow
-          li.dl Москва
-          li.dl Киев
-          li.dl Минск
-      .nearBox.clearfix
-        .money-icon
-          .tooltip.clearfix
-            .tooltip-arrow
-            span Денежка
-        .house-icon
-          .tooltip.clearfix
-            .tooltip-arrow
-            span Домик
-      .tagsBox.clearfix#tb-f
+      .folowersWrapper.clearfix#folowers-tags
+        .mainSelectElement.searchCountry.withShadow
+          input.search-select(placeholder='...', type='text',  maxlength="20", id="folowers-new-tag")
+          .dd
+          .du
+          ul.droped.withShadow
+            li.dl Россия
+            li.dl Африка
+            li.dl Европа
+        .nearBox.clearfix
+          .money-icon
+            .tooltip.clearfix
+              .tooltip-arrow
+              span Денежка
+          .house-icon
+            .tooltip.clearfix
+              .tooltip-arrow
+              span Домик
+        .tagsBox.clearfix#tb-f
       .greenDots
       .slideDown#search-slideup Мои предпочтения
   div
