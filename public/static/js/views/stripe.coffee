@@ -87,8 +87,10 @@ app.views.Stripe = Backbone.View.extend
         stripes = new app.models.Stripes()
         stripes.fetch
             success: =>
-                @$el.html jade.templates.top_bar
-                    items: stripes.models
+                app.models.myuser.get (user) =>
+                    @$el.html jade.templates.top_bar
+                        items: stripes.models
+                        user: user
 
 app.views.StripePopup = Backbone.View.extend
 

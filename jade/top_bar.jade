@@ -1,8 +1,8 @@
 .topContainer.clearfix
   .userBox
-    img(src='/static/img/userpic.png')
+    img(src='#{user.get("avatar_url")}', width=100)
     #rating 90%
-    #name Мария
+    #name=user.get('name')
     #nick-name LuckyStar
   #profile-arrow-left
   .carouselBox
