@@ -1,4 +1,4 @@
-app.views.Search = Backbone.View.extend
+app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     el: '.mainContentProfile'
 
@@ -44,7 +44,6 @@ app.views.Search = Backbone.View.extend
 
 
         query.sex = if $('.manBox .checked').length == 1 then 'male' else 'female'
-
         app.models.search query,
             (data) ->
                 that.renderSearchingUser  new app.models.User user for user in data.result
@@ -54,10 +53,12 @@ app.views.Search = Backbone.View.extend
                 that.$el.find('.results small').first().text('найден ')
                 that.$el.find('.results span.count').text(data.count)
 
+        that = @
         app.models.searchphoto query,
             (data) ->
-                # console.log data
-                app.views.searchside.renderitems data
+                that.slideHideAndShow ()->
+                    do app.views.searchside.render
+                    app.views.searchside.renderitems data
         do @render
 
     renderSearchingUser: (user) ->

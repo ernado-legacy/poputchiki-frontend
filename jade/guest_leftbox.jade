@@ -18,3 +18,9 @@
     .show 
       .fui-radio-checked.act
       .myaction.to_journey Показать путешествие
+    div(class = is_in_blacklist ? "add in_blacklist" : "add not_in_blacklist")
+        .fui-lock.act
+        if is_in_blacklist
+          a.myaction.to_blacklist.custom-link убрать из черного списка
+        else
+          a.myaction.to_blacklist.custom-link добавить в черный список

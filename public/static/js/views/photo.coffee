@@ -3,7 +3,7 @@ app.views.Photo = Backbone.View.extend
     tagName: 'div'
     className: 'photo-wrapper'
     events: 
-        'click': 'undefined'
+        'click': 'clck'
         'click .action-like':'like'
         'click .action-remove-like':'unlike'
 
@@ -12,7 +12,6 @@ app.views.Photo = Backbone.View.extend
         that = @
         app.models.myuser.get (user)->
             liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false
-            console.log liked_by
             $ that.$el.html jade.templates.photo 
                 photo: that.model.toJSON(),
                 liked_by: liked_by
@@ -57,7 +56,7 @@ app.views.Photo = Backbone.View.extend
 
         $('.photoPopup img').click =>
             react @, 'left'
-            
+
     like: ()->
         that = @
         @model.like true, ()->
@@ -73,4 +72,3 @@ app.views.Photo = Backbone.View.extend
             counter_container.text counter_container.text()*1-1
             that.$el.find('.custom-link').removeClass('action-remove-like').addClass('action-like')
         return false
->>>>>>> photoalbum

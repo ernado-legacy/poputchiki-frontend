@@ -1,4 +1,4 @@
-app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
+app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,app.mixins.SlideRigtBlock,
 
     el: '.photoVideoBlock'
 
@@ -20,12 +20,14 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         @uploadphoto url, form, success
 
     render: (id)->
-        $ @.$el.html jade.templates.photo_video()
+        $ @.$el.append jade.templates.photo_video()
         collection = new app.models.Photos id
         that = @
         collection.fetch().done () ->
             $('.photoBox .photoBoxWrapper .pb-wr').empty()
             that.renderPhoto photo for photo in collection.models
+            that.slideHideAndShow ()->
+
             #that.showpopup '.view', '.photoPopup'
             user = new app.models.User
             user.set 'id', id
@@ -36,8 +38,8 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
 
     renderPhoto: (photo)->
         
-        time = new Date photo.get('time')
-        photo.set 'time', time.getDate()+"."+time.getMonth()+"."+(time.getYear()*1+1900)
+        # time = new Date photo.get('time')
+        # photo.set 'time', time.getDate()+"."+time.getMonth()+"."+(time.getYear()*1+1900)
         photoView = new app.views.Photo model:photo
         $('.photoBox .photoBoxWrapper .pb-wr').append photoView.render()
         # bookView = new app.BookView model:item

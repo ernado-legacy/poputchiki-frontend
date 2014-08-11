@@ -1,0 +1,32 @@
+.guests
+    .rightBox
+        .header 
+            h1 Настройки
+        h1  ЧЕРНЫЙ СПИСОК
+        .greenDots
+        //- .profileInfoBox 
+        //-     .infoBox.infoEdit          
+        //-         .head.clearfix Режим невидимки позваляет не палиться когда вы заходите на другого пользователя
+        .profileInfoBox 
+            .infoBox.infoEdit.post          
+                .currentEmail В черный список можно добавить человека с его страницы профиля
+                    br
+                    | Люди  в черном списке не могут писать вам сообщение
+        .people
+            ul.chatLine
+                for user in users
+                    li
+                        a(href="/user/#{user.id}", data-user-id="#{user.id}")
+                            img(src=user.avatar_url)
+                        .info
+                            .right
+                            .last-date 
+                                .name #{user.name}
+                            .last-time
+                                .city #{user.age}, #{user.country}
+                            br
+                            .controlLinks.clearfix
+                                a.remove_from_blacklist.custom-link(data-user-id=user.id) убрать из черного списка
+                          //- .left
+                          //-   .name #{user.name}
+                          //-   .city #{user.age}, #{user.country}

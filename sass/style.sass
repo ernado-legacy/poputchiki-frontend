@@ -926,6 +926,20 @@ a.blue-link
         #search-slidedown, #search-slideup
             margin-top: 5px
             float: left
+        .sponsor-search, .host-search
+            margin-top: 15px
+            margin-bottom: 15px
+            .sponsor-search-description, .host-search-description
+                color: $profile_status_text
+                padding-left: 50px
+                line-height: 20px
+            .house-icon, .money-icon
+                margin-top: 0px
+                margin-right: 15px
+                color: #4b4b4b
+                text-indent: 35px
+                .tooltip
+                    text-indent: 0px
     #my-folowers
         display: none
 .seasonsBox
@@ -945,6 +959,7 @@ a.blue-link
             text-align: center
     .seasonChecked
         background-image: url('../img/season_c.png')
+
 .box
     width: 17px
     height: 17px
@@ -1454,7 +1469,8 @@ a.blue-link
 .chatLine
     top: 0
     right: 0
-    position: absolute
+    // position: absolute
+    float: right
     margin-top: 7px
     width: 230px
     list-style: none
@@ -1727,9 +1743,13 @@ a.blue-link
             width: -moz-calc(100% - 270px)
             width: -webkit-calc(100% - 270px)
             width: calc(100% - 270px)
-            .writeBtn
-                margin: 10px 10px 0 10px
+            a.writeBtn
+                margin: 25px 10px 0 10px
                 float: left
+                background: none
+                color: $lets_go
+                font-size: 20px
+                text-decoration: none
             .status
                 +italic-font
                 font-size: 16px
@@ -2039,11 +2059,11 @@ a.blue-link
             a.active-action:hover
                 background-color: inherit
         .fui-bubble
-            color: #ffa200
+            color: $menu_favorites
         .fui-star-2
             color: #0ad4e6
         .fui-radio-checked
-            color: #03aada
+            color: $lets_go
 
     .title
         width: 100%
@@ -2090,7 +2110,7 @@ a.blue-link
             float: right
             background: none
             font-size: 22px
-            color: #03aada
+            color: $lets_go
         .status
             +italic-font
             font-size: 16px

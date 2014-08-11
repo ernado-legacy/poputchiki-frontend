@@ -15,6 +15,7 @@ app.views.Favs = Backbone.View.extend
         app.models.myuser.get_favs callback
 
     render: ->
+
         that = @
         history.pushState null, 'poputchiki', '/favourites/'
         app.models.myuser.get (user) ->
@@ -23,6 +24,7 @@ app.views.Favs = Backbone.View.extend
                         user: user.attributes
                         favs: collection.toJSON()
                 that.renderFav fav for fav in collection.models
+                $('#menu-favorites').addClass 'current'
 
     renderFav: (user) ->
         

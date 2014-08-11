@@ -12,12 +12,7 @@ $profile_status_text: #4b4b4b
     color: #eaeaea
     background: #eaeaea
     .photo-wrapper
-      // webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
-      // -moz-box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
-      // box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
-      // -webkit-transition: all .15s ease-out .1s
-      // -moz-transition: all .15s ease-out .1s
-      // -o-transition: all .15s ease-out .1s
+      min-width: 320px
       padding: 6px 0px 6px 0px
       transition: all .15s ease-out .1s
       transition-duration: .1s
@@ -47,7 +42,7 @@ $profile_status_text: #4b4b4b
         +italic-font
         font-size: 13px
         margin-left: 8px
-      .action-like
+      .action-remove-like
         // color: #9cabae
         font-size: 11px
 
@@ -62,13 +57,50 @@ $profile_status_text: #4b4b4b
         +no-border-shadow
       .custom-link
         color: $profile_status_text
-      .action-like
+      .action-remove-like
         color: #9cabae
         font-size: 11px
-      // -webkit-transform: scale(1.3)
-      // -ms-transform: scale(1.3)
-      // transform: scale(1.3)
-      // img
-      //   -webkit-transform: scale(1)
-      //   -ms-transform: scale(1)
-      //   transform: scale(1)
+
+.settings
+  .guests 
+    .rightBox 
+      .chatLine 
+        li
+          width: 320px
+          border-right: 1px solid $menu_rating
+      .controlLinks
+        width: initial
+.guests
+  li
+    border-right: 1px solid $menu_photos!important
+.favs
+  li
+    border-right: 1px solid $menu_favorites!important
+.settings
+  .guests
+    li
+      border-right: 1px solid $menu_rating!important
+
+
+#my-folowers
+  .seasonsBox
+    margin-bottom: 20px
+    .season
+      float: left
+      cursor: pointer
+      width: 55px
+      height: 55px
+      background-image: url('../img/season.png')
+      background-size: 55px
+      span
+        +italic-font
+        color: $profile_status_text
+        font-size: 14px
+        margin-top: 20px
+        display: block
+        text-align: center
+    .seasonChecked
+      background-image: url('../img/season_c.png')
+
+.photoVideoBlock
+  display: none

@@ -1,330 +1,364 @@
 $text_color: #403f3f
 .profileContainer
-	.leftBox
-		.add, .write, .show 
-			background: none !important
-			padding-left: 10px
-			.act 
-				color: #03aada
-				font-size: 25px
-				margin: 0
-				padding: 0
-			.myaction
-				padding: 0 
-				font-size: 14px
-				margin-top: -31px
-				margin: -30px 0 0 36px
-		.add
-			margin-left: 0 !important
+    .leftBox
+        .add, .write, .show 
+            background: none !important
+            padding-left: 10px
+            .act 
+                color: #03aada
+                font-size: 25px
+                margin: 0
+                padding: 0
+            .myaction
+                padding: 0 
+                font-size: 14px
+                margin-top: -31px
+                margin: -30px 0 0 36px
+        .in_blacklist, .not_in_blacklist
+            .fui-lock
+                color: grey 
+                font-size: 12px
+                margin-left: 5px
+            a.custom-link
+                margin: -35px 0px 0 35px
+                display: block
+                font-size: 12px
+        .not_in_blacklist
+            .fui-lock
+                color: #f63b3b
+            
+        .add
+            margin-left: 0 !important
 
 .profile-search
-	margin-left: 0 !important
+    margin-left: 0 !important
 
 #searchPhotoVideoBlock
-	margin: 7px 0px 100px 0px
-	right: 6px
-	top: 0px
-	width: 315px
-	position: absolute
-	.photoHeaderBox
-		float: left
-		width: 100%
-		.photoHeader, .videoHeader
-			float: left
-			height: 29px
-			width: 86px
-			background-color: black
-			margin-right: 4px
-			+border-radius(4px, 4px, 0px, 0px)
-			background: white
-			cursor: pointer
-			border: 1px solid $photo_border
-			border-bottom: none
-			.title
-				background-repeat: no-repeat
-				opacity: 0.52
-				span
-					text-transform: uppercase
-					font-size: 12px
-					color: $profile_status_text
-		.photoHeader
-			.title
-				margin: 7px 0 0 7px
-				background-image: url("../img/a_photo_p.png")
-				span
-					padding-left: 30px
-					line-height: 22px
-		.videoHeader
-			.title
-				margin: 5px 0 0 6px
-				background-image: url("../img/video_pv.png")
-				span
-					padding-left: 26px
-					line-height: 24px
-		.activeHeader, .photoHeader:hover, .videoHeader:hover
-			background: rgba(0, 0, 0, 0.61)
-			.title
-				opacity: 1
-				span
-					color: white
-		.videoHeader:hover, .videoHeader.activeHeader
-			.title
-				background-image: url("../img/a_video.png")
-		.photoHeader:hover, .photoHeader.activeHeader
-			.title
-				background-image: url("../img/a_photo.png")
-	.photoBox, .videoBox
-		background: white
-		padding: 9px
-		float: left
-		+border-radius(0px, 4px, 4px, 4px)
-		border: 1px solid $photo_border
-	.photoBox
-		.photo-wrapper
-			width: 130px
-			float: left
-			cursor: pointer
-			&:hover
-				.hidden
-					display: block
-		img
-			width: 360px
-			margin-bottom: 5px
-		img:last-child
-			margin-bottom: 0px
-		.imgGrid
-			width: 360px
-			img
-				width: 176px
-				float: left
-			.odd
-				margin-right: 8px
-			.hidden
-				display: none
-				padding: 33px 5px
-				box-sizing: border-box
-				-moz-box-sizing: border-box
-				-webkit-box-sizing: border-box
-				z-index: 10
-				position: absolute
-				width: 126px
-				height: 84px
-				background: rgba(0, 0, 0, 0.6)				
-				a
-					color: rgba(255, 255, 255, 0.6)
-					-webkit-transition: all 500ms ease-out 100ms
-					-moz-transition: all 500ms ease-out 100ms
-					-o-transition: all 500ms ease-out 100ms
-					transition: all 500ms ease-out 100ms
-				a:hover
-					color: #fff
-				.span
-					display: inline-block
-					margin-left: 4px
-				.act
-					width: 15px !important
-					margin-left: 7px
-	.videoBox
-		display: none
+    margin: 7px 0px 100px 0px
+    right: 6px
+    top: 0px
+    width: 315px
+    position: absolute
+    .photoHeaderBox
+        float: left
+        width: 100%
+        .photoHeader, .videoHeader
+            float: left
+            height: 29px
+            width: 86px
+            background-color: black
+            margin-right: 4px
+            +border-radius(4px, 4px, 0px, 0px)
+            background: white
+            cursor: pointer
+            border: 1px solid $photo_border
+            border-bottom: none
+            .title
+                background-repeat: no-repeat
+                opacity: 0.52
+                span
+                    text-transform: uppercase
+                    font-size: 12px
+                    color: $profile_status_text
+        .photoHeader
+            .title
+                margin: 7px 0 0 7px
+                background-image: url("../img/a_photo_p.png")
+                span
+                    padding-left: 30px
+                    line-height: 22px
+        .videoHeader
+            .title
+                margin: 5px 0 0 6px
+                background-image: url("../img/video_pv.png")
+                span
+                    padding-left: 26px
+                    line-height: 24px
+        .activeHeader, .photoHeader:hover, .videoHeader:hover
+            background: rgba(0, 0, 0, 0.61)
+            .title
+                opacity: 1
+                span
+                    color: white
+        .videoHeader:hover, .videoHeader.activeHeader
+            .title
+                background-image: url("../img/a_video.png")
+        .photoHeader:hover, .photoHeader.activeHeader
+            .title
+                background-image: url("../img/a_photo.png")
+    .photoBox, .videoBox
+        background: white
+        padding: 9px
+        float: left
+        +border-radius(0px, 4px, 4px, 4px)
+        border: 1px solid $photo_border
+    .photoBox
+        .photo-wrapper
+            width: 130px
+            float: left
+            cursor: pointer
+            &:hover
+                .hidden
+                    display: block
+        img
+            width: 360px
+            margin-bottom: 5px
+        img:last-child
+            margin-bottom: 0px
+        .imgGrid
+            width: 360px
+            img
+                width: 176px
+                float: left
+            .odd
+                margin-right: 8px
+            .hidden
+                display: none
+                padding: 33px 5px
+                box-sizing: border-box
+                -moz-box-sizing: border-box
+                -webkit-box-sizing: border-box
+                z-index: 10
+                position: absolute
+                width: 126px
+                height: 84px
+                background: rgba(0, 0, 0, 0.6)              
+                a
+                    color: rgba(255, 255, 255, 0.6)
+                    -webkit-transition: all 500ms ease-out 100ms
+                    -moz-transition: all 500ms ease-out 100ms
+                    -o-transition: all 500ms ease-out 100ms
+                    transition: all 500ms ease-out 100ms
+                a:hover
+                    color: #fff
+                .span
+                    display: inline-block
+                    margin-left: 4px
+                .act
+                    width: 15px !important
+                    margin-left: 7px
+    .videoBox
+        display: none
 
 #searchPhotoVideo
-	width: 278px
-	.photoBox
-		img
-			width: 260px
-		.imgGrid
-			width: 260px
-			img
-				width: 126px 
-		.fui-star-2, .fui-heart			
-			margin-right: 5px
-		.fui-star-2
-			transform: rotate(-20deg)
-			-ms-transform: rotate(-20deg)
-			-webkit-transform: rotate(-20deg)
-	.addPhoto
-		font-size: 10px !important
-	.view-back a 
-		display: inline
-		font-size: inherit
-		position: static
-		right: inherit
-		bottom: inherit
-		border-radius: inherit
-		width: inherit
-		height: inherit
-		line-height: inherit
-		text-align: inherit
-		font-weight: inherit
-		span 
-			padding-top: 0 !important
-			-webkit-transition: all 500ms ease-out 100ms
-			-moz-transition: all 500ms ease-out 100ms
-			-o-transition: all 500ms ease-out 100ms
-			transition: all 500ms ease-out 100ms
+    width: 278px
+    .photoBox
+        img
+            width: 260px
+        .imgGrid
+            width: 260px
+            img
+                width: 126px 
+        .fui-star-2, .fui-heart         
+            margin-right: 5px
+        .fui-star-2
+            transform: rotate(-20deg)
+            -ms-transform: rotate(-20deg)
+            -webkit-transform: rotate(-20deg)
+    .addPhoto
+        font-size: 10px !important
+    .view-back a 
+        display: inline
+        font-size: inherit
+        position: static
+        right: inherit
+        bottom: inherit
+        border-radius: inherit
+        width: inherit
+        height: inherit
+        line-height: inherit
+        text-align: inherit
+        font-weight: inherit
+        span 
+            padding-top: 0 !important
+            -webkit-transition: all 500ms ease-out 100ms
+            -moz-transition: all 500ms ease-out 100ms
+            -o-transition: all 500ms ease-out 100ms
+            transition: all 500ms ease-out 100ms
 
-		span:hover
-			color: rgba(255,255,255,1) !important
+        span:hover
+            color: rgba(255,255,255,1) !important
 
 .search 
-	.gallery 
-		li
-			.info
-				color: #fff
-				position: absolute
-				margin: -40px 0px
-				background: rgba(0,0,0,0.5)
-				width: 125px
-				height: 38px
-				padding: 3px 0 0 3px
-				box-sizing: border-box
-				-moz-box-sizing: border-box
-				-webkit-box-sizing: border-box		
-			.wrap-shadow
-				margin-top: -125px
-				height: 125px
-				width: 125px
-				position: absolute
-				overflow: hidden
-			.shadow			
-				display: block	
-				margin-top: 125px
-				-webkit-transition: all 500ms ease-out 100ms
-				-moz-transition: all 500ms ease-out 100ms
-				-o-transition: all 500ms ease-out 100ms
-				transition: all 500ms ease-out 100ms
-				text-align: center
-				a
-					text-decoration: none
-				.invite
-					margin-top: 45px
-					line-height: 15px
-				.like, .fui-bubble
-					display: inline !important
-					margin-left: 5px !important
-					text-decoration: none !important	
-				.some, .favorite
-					margin-top: -5px
-				.favorite
-					a.active-action
-						color: grey
-					a.active-action:hover
-						text-decoration: none
-				.invite,
-					margin-top: 45px
-			a
-				color: #fff
-			a.active-action
-				color: grey
-			
-		li:hover 
-			.info
-				display: none
-			a
-				text-decoration: none
-			a:hover
-				text-decoration: underline
-			.shadow				
-				margin-top: 0
-				a 
-					display: inline
-				.invite
-					margin-top: 45px
+    .gallery 
+        li
+            .info
+                color: #fff
+                position: absolute
+                margin: -40px 0px
+                background: rgba(0,0,0,0.5)
+                width: 125px
+                height: 38px
+                padding: 3px 0 0 3px
+                box-sizing: border-box
+                -moz-box-sizing: border-box
+                -webkit-box-sizing: border-box      
+            .wrap-shadow
+                margin-top: -125px
+                height: 125px
+                width: 125px
+                position: absolute
+                overflow: hidden
+            .shadow         
+                display: block  
+                margin-top: 125px
+                -webkit-transition: all 500ms ease-out 100ms
+                -moz-transition: all 500ms ease-out 100ms
+                -o-transition: all 500ms ease-out 100ms
+                transition: all 500ms ease-out 100ms
+                text-align: center
+                a
+                    text-decoration: none
+                .invite
+                    margin-top: 45px
+                    line-height: 15px
+                .like, .fui-bubble
+                    display: inline !important
+                    margin-left: 5px !important
+                    text-decoration: none !important    
+                .some, .favorite
+                    margin-top: -5px
+                .favorite
+                    a.active-action
+                        color: grey
+                    a.active-action:hover
+                        text-decoration: none
+                .invite,
+                    margin-top: 45px
+            a
+                color: #fff
+            a.active-action
+                color: grey
+            
+        li:hover 
+            .info
+                display: none
+            a
+                text-decoration: none
+            a:hover
+                text-decoration: underline
+            .shadow             
+                margin-top: 0
+                a 
+                    display: inline
+                .invite
+                    margin-top: 45px
 .menuBox
-	.act
-		position: absolute
-		font-size: 30px
-		color: #aeb2b3
-		margin: 6px
-	.fui-star-2
-		transform: rotate(-16deg)
-		-ms-transform: rotate(-16deg)
-		-webkit-transform: rotate(-16deg)
+    .act
+        position: absolute
+        font-size: 30px
+        color: #aeb2b3
+        margin: 6px
+    .fui-star-2
+        transform: rotate(-16deg)
+        -ms-transform: rotate(-16deg)
+        -webkit-transform: rotate(-16deg)
 
 .settings
-	h1
-		font-weight: bold
-		color: $text_color
-		font-size: 15px
-	.leftBox, .rightBox
-		padding: 10px
-		color: #000
-		background: $profile_info
-		margin-top: 0
-	.leftBox	
-		.greenDots
-			margin: 5px 0
-		ul
-			margin-top: 25px
-			li
-				margin: 5px -10px
-				padding: 5px 10px
-				font-size: 14px
-				opacity: 0.7
-				&:hover
-					background: #d8d8d8
-			a
-				color: #000
-				opacity: 0.9
-				text-decoration: none
-	.rightBox
-		.header 
-			margin-bottom: 30px
-			font-size: 26px				
-			h1
-				font-size: 22px
-		.head
-			margin: 10px 0 !important		
-		.profileInfoBox
-			padding-top: 40px
-			padding-bottom: 40px
-			margin-top: 0
-			.infoEdit
-				display: block
-				float: none
-				width: 400px
-				margin: auto
-				a 
-					color: $link
-					font-style: italic
-				input
-					width: 250px
-					border: 1px solid $tag_input_border
-					background: white
-					float: left
-					margin: 10px 0 5px
-					padding: 7px 8px
-					color: $profile_status_text
-					+border-radius(4px, 4px, 4px, 4px)					
-				.profile-edit-slideup
-					margin: 20px 0 0 0
-				.box
-					float: left
-				.notifications
-					span
-						margin-left: 10px
-				.notifications.last
-					.clearfix
-						margin: 15px 0
-				.notifications.email
-					margin-bottom: 40px
-				.spam 
-					margin-left: 30px
-					margin-top: 25px !important 
-					span
-						display: inline-block
-						margin-left: 5px
-				span.one
-					margin-left: 0
-					margin-right: 20px
-					.box
-						+border-radius(50%, 50%, 50%, 50%)
-				small
-					display: block
-					margin-left: 29px
-					font-size: 12px
-					margin-top: 5px
-				.clearfix
-					margin-top: 10px
-			.infoEdit.post
-				width: 285px				
+    .payment
+        width: 325px!important
+        .pay-item
+            padding: 32px 0 32px 0
+        .price
+            float: left
+            color: $header_blue
+            +italic-font
+            font-size: 36px
+            font-weight: normal
+            small
+                display: initial!important
+                margin-left: 0px!important
+                color: $header_blue
+                +italic-font
+                span
+                    color: $profile_status_text
+                    +simple-font
+        .profile-edit-slideup
+            float: right
+            margin-top: 0px!important
+    h1
+        font-weight: bold
+        color: $text_color
+        font-size: 15px
+    .leftBox, .rightBox
+        padding: 10px
+        color: #000
+        background: $profile_info
+        margin-top: 0
+    .leftBox    
+        .greenDots
+            margin: 5px 0
+        ul
+            margin-top: 25px
+            li
+                margin: 5px -10px
+                padding: 5px 10px
+                font-size: 14px
+                opacity: 0.7
+                &:hover
+                    background: #d8d8d8
+            a
+                color: #000
+                opacity: 0.9
+                text-decoration: none
+    .rightBox
+        .header 
+            margin-bottom: 30px
+            font-size: 26px             
+            h1
+                font-size: 22px
+        .head
+            margin: 10px 0 !important       
+        .profileInfoBox
+            padding-top: 40px
+            padding-bottom: 40px
+            margin-top: 0
+            .infoEdit
+                display: block
+                float: none
+                width: 400px
+                margin: auto
+                a 
+                    color: $link
+                    font-style: italic
+                input
+                    width: 250px
+                    border: 1px solid $tag_input_border
+                    background: white
+                    float: left
+                    margin: 10px 0 5px
+                    padding: 7px 8px
+                    color: $profile_status_text
+                    +border-radius(4px, 4px, 4px, 4px)                  
+                .profile-edit-slideup
+                    margin: 20px 0 0 0
+                .box
+                    float: left
+                .notifications
+                    span
+                        margin-left: 10px
+                .notifications.last
+                    .clearfix
+                        margin: 15px 0
+                .notifications.email
+                    margin-bottom: 40px
+                .spam 
+                    margin-left: 30px
+                    margin-top: 25px !important 
+                    span
+                        display: inline-block
+                        margin-left: 5px
+                span.one
+                    margin-left: 0
+                    margin-right: 20px
+                    .box
+                        +border-radius(50%, 50%, 50%, 50%)
+                small
+                    display: block
+                    margin-left: 29px
+                    font-size: 12px
+                    margin-top: 5px
+                .clearfix
+                    margin-top: 10px
+            .infoEdit.post
+                width: 285px                

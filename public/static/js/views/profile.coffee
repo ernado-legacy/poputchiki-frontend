@@ -1,4 +1,4 @@
-app.views.Profile = Backbone.View.extend
+app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     el: '.mainContentProfile'
 

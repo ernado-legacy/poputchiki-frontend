@@ -10,7 +10,6 @@ app.models.User = Backbone.Model.extend
                 undefined
     add_to_fav: (remove) ->
         type = if remove then "DELETE" else "PUT"
-        console.log type
         data = target : @.get('id')
         $.ajax
             url: '/api/user/'+app.models.myuser.getid()+'/fav'
@@ -21,7 +20,19 @@ app.models.User = Backbone.Model.extend
             success: (data) ->
                 app.models.myuser.favs = undefined
                 app.models.myuser.clear ->
-                    console.log 123
+
+    add_to_blacklist: (remove) ->
+        type = if remove then "DELETE" else "PUT"
+        data = target : @.get('id')
+        $.ajax
+            url: '/api/user/'+app.models.myuser.getid()+'/blacklist'
+            type: type
+            data: JSON.stringify data
+            dataType: "json"
+            contentType: "application/json; charset=utf-8"
+            success: (data) ->
+                app.models.myuser.favs = undefined
+                app.models.myuser.clear ->
 
 
 
@@ -86,10 +97,20 @@ app.models.Guests = Backbone.Collection.extend
 
     model: User
 
+app.models.BlackList = Backbone.Collection.extend
+    initialize: (models,options) ->
+        @id = options.id
+        return
+    url: -> 
+        '/api/user/'+this.id+'/blacklist'
+
+    model: User
+
 Users = app.models.Users
 FavUsers = app.models.FavUsers
 # Guests = app.models.Guests
 
 app.models.user = new app.models.Users
 app.models.fav_users = new app.models.FavUsers
+# app.models.black_users = new app.models.BlackList
 # app.models.guests = new app.models.Guests
