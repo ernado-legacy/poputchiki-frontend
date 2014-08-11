@@ -25,6 +25,7 @@ app.views.Stripe = Backbone.View.extend
         # priority to webm
         $.cookie "video", "webm"  if Modernizr.video.webm
 
+    ###
     stopMedia: ->
         $('.audio').children().each ->
             this.pause()
@@ -80,7 +81,7 @@ app.views.Stripe = Backbone.View.extend
                 return
             ), 1000
         return
-
+    ###
 
     render: ->
         @set_coockie()

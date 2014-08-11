@@ -111,6 +111,8 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         @closepopup '#send-lg-popup'
         @closepopup '.closepopup'
         @closepopup '.save-new-ava-audio'
+        @closepopup '.popupInnerBack'
+
 
         $("#edit-status").click ->
             $("#main-status").slideUp "slow"
@@ -272,7 +274,6 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $('.videoBox').hide()
         $('.photoBox').show()
 
-    ###
     stopMedia: ->
         $('.audio').children().each ->
             this.pause()
@@ -328,7 +329,6 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 return
             ), 1000
         return
-    ###
 
     carousel_left: ->
         $(".carouselBox").animate
