@@ -113,6 +113,8 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         @closepopup '#send-lg-popup'
         @closepopup '.closepopup'
         @closepopup '.save-new-ava-audio'
+        @closepopup '.popupInnerBack'
+
 
         $("#edit-status").click ->
             $("#main-status").slideUp "slow"
@@ -207,10 +209,12 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $(event.target).parent().toggleClass 'seasonChecked'
 
     moneyIcon: ->
-        $(event.target).toggleClass 'mg-icon'
+        if $(event.target).hasClass 'money-icon'
+            $(event.target).toggleClass 'mg-icon'
 
     houseIcon: ->
-        $(event.target).toggleClass 'hg-icon'
+        if $(event.target).hasClass 'house-icon'
+            $(event.target).toggleClass 'hg-icon'
 
     statuses: ->
         $('.leftMenu li').removeClass 'current'
@@ -276,7 +280,6 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $('.videoBox').hide()
         $('.photoBox').show()
 
-    ###
     stopMedia: ->
         $('.audio').children().each ->
             this.pause()
@@ -332,7 +335,6 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 return
             ), 1000
         return
-    ###
 
     carousel_left: ->
         $(".carouselBox").animate

@@ -172,10 +172,6 @@ body
     overflow-x: hidden
     position: relative
 .loginRegisterBody
-    height: 100%
-    width: 100%
-    background-size: cover
-    background-image: url("../img/login-background.jpg")
     header
         background-color: white
 
@@ -208,7 +204,7 @@ small
 
 .mainWrapper
     position: relative
-.popupWrapper
+.popupWrapper, .popupInnerBack
     position: fixed
     top: 0
     width: 100%
@@ -228,6 +224,9 @@ small
     top: 0
     overflow-x: hidden
     overflow-y: hidden
+.popupInnerBack
+    opacity: 0
+    display: block
 .bodyPopup
     position: absolute
     top: 0
@@ -302,7 +301,7 @@ a.blue-link
     li
         float: left
         background-repeat: no-repeat
-        background-position: 75% 100%
+        background-position: 75% 60%
         padding-right: 100px
         height: inherit
         cursor: pointer
@@ -759,6 +758,9 @@ a.blue-link
         +border-radius(0px, 4px, 4px, 4px)
         border: 1px solid $photo_border
         overflow: hidden
+        width: -moz-calc(100% - 20px)
+        width: -webkit-calc(100% - 20px)
+        width: calc(100% - 20px)
         .photoBoxWrapper
             position: relative
             max-height: 632px
@@ -935,6 +937,7 @@ a.blue-link
                 color: $profile_status_text
                 padding-left: 50px
                 line-height: 20px
+                padding-right: 15px
             .house-icon, .money-icon
                 margin-top: 0px
                 margin-right: 15px
@@ -2242,6 +2245,7 @@ a.blue-link
     overflow-y: auto
     margin-bottom: 100px
     overflow-x: hidden
+    z-index: 10000
     a 
         color: $header_blue
         +italic-font
@@ -2382,6 +2386,31 @@ a.blue-link
 .videoPopup
     left: 25%
     width: 50%
+.playerBox
+    float: left
+    width: 100%
+    .audio
+        position: static
+        float: left
+    .timeBar
+        float: left
+        width: -moz-calc(100% - 35px)
+        width: -webkit-calc(100% - 35px)
+        width: calc(100% - 35px)
+        height: 5px
+        margin-left: 10px
+        margin-top: 7px
+        background-color: $timebar
+        position: relative
+        z-index: 100
+        .progress
+            position: absolute
+            background-color: $timebar_progress
+            top: 0
+            left: 0
+            height: 5px
+            width: 0%
+            z-index: 200
 .chavaPopup, .promoPopup, .chopPopup, .ratingPopup
     top: 10%
     width: 558px

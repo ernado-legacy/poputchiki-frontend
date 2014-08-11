@@ -5,6 +5,13 @@
       .cover
       span#change-avatar Изменить фото
     #profile-rating рейтинг
+  .playerBox.clearfix
+    .audio.audio-change-avatar
+      audio
+        source(src='/static/audio/audio.mp3', type="audio/mp3")
+        source(src='/static/audio/audio.ogg', type="audio/ogg")
+    .timeBar
+      .progress
   .searchBox
     .searchBody.clearfix#my-wishes
       h1 мои предпочтения
@@ -52,7 +59,7 @@
           .house-icon - 
             .tooltip.clearfix
               .tooltip-arrow
-              span В гости
+              span В&nbsp;гости
           .host-search-description Включите иконку чтобы найти людей, которые могу принять попутчиков у себя!
           //- .house-icon
           //-   .tooltip.clearfix

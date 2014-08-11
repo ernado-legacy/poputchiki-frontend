@@ -1,12 +1,24 @@
-body.loginRegisterBody
-  header
-    .hLogo
-      span попутчики.ru
-    ul.navigation
-      li#header-profile
-        span войти
-  form.loginRegisterBlock.step.clearfix
-    .enterContainer.clearfix
-      .title
-        span Регистрация окончена. 
-        a.loginbutton(href="#") Логин.
+body
+  .page-container.container-fluid.loginRegisterBody
+    header
+      .hLogo
+        span попутчики.ru
+      ul.navigation
+        li#header-profile
+          span войти
+    include background
+    form.loginRegisterBlock.step.clearfix
+      .enterContainer.clearfix
+        .title
+          span Регистрация окончена. 
+          a.loginbutton(href="#") Логин.
+    footer.footerLogin
+      .fLogo
+        span попутчики
+      ul.aboutInfo
+        li
+          span о нас
+        li
+          span правила
+        li
+          span рейтинг
