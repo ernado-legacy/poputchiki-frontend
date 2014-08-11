@@ -15,6 +15,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click #profile-arrow-down': 'carousel_down'
         'click .closeChat': 'closechat'
         'click #profile-rating': 'rating_popup'
+        'click #menu-rating': 'rating_popup'
         'click .userBox img': 'promo_popup'
         'click #change-avatar': 'chava_popup'
         'click #menu-go': 'letsgo_popup'
@@ -88,15 +89,16 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             'menu-messgaes': app.views.message
             'menu-favorites': app.views.favs
             'menu-photos': app.views.guests
-            'menu-rating': app.views.rating
+            'menu-rating': @rating_popup
             'menu-tools': app.views.setting
 
         $('.leftMenu li').removeClass 'current'
         # $(event.currentTarget).addClass 'current'
 
         id = event.currentTarget.id
-        view = menuhash[id]
-        do view.render 
+        if id != 'menu-rating'
+            view = menuhash[id]
+            do view.render 
 
     render: ->
         $ @.$el.html jade.templates.entered()
@@ -193,6 +195,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         #    offset: 0
         #    count: 20
         #    , ->
+        $('.leftMenu li').removeClass 'current'
         do @slideHide
         do app.views.search.render
                 
@@ -210,6 +213,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $(event.target).toggleClass 'hg-icon'
 
     statuses: ->
+        $('.leftMenu li').removeClass 'current'
         do @slideHide
         do app.views.statuses.render
 
