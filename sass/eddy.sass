@@ -1,0 +1,106 @@
+$profile_status_text: #4b4b4b
+=border-shadow
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
+  -moz-box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
+  box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
+=no-border-shadow
+  -webkit-box-shadow: none
+  -moz-box-shadow: none
+  box-shadow: none
+.photoVideoBlock
+  .photoBox, .videoBox
+    color: #eaeaea
+    background: #eaeaea
+    .photo-wrapper
+      min-width: 320px
+      padding: 6px 0px 6px 0px
+      transition: all .15s ease-out .1s
+      transition-duration: .1s
+      border: 1px solid #eaeaea
+      text-align: center
+      // +border-shadow
+      img
+        padding: 5px
+        background: white
+        border: 1px solid white
+        width: initial
+        height: 175px 
+        margin: 0 auto
+        display: block
+        margin-left: auto
+        margin-right: auto
+        margin-top: 3px
+        margin-bottom: 3px
+        +border-shadow
+      img:hover
+        border: 1px solid white
+      .custom-link
+        font-size: 13px
+        color: #eaeaea
+      .like-counter, .photo-time
+        // text-decoration: none!important
+        +italic-font
+        font-size: 13px
+        margin-left: 8px
+      .action-remove-like
+        // color: #9cabae
+        font-size: 11px
+
+
+    .photo-wrapper:hover
+      background-color: white
+      border: 1px solid white
+      color: #777
+      +border-shadow
+      img
+        border: 1px solid white
+        +no-border-shadow
+      .custom-link
+        color: $profile_status_text
+      .action-remove-like
+        color: #9cabae
+        font-size: 11px
+
+.settings
+  .guests 
+    .rightBox 
+      .chatLine 
+        li
+          width: 320px
+          border-right: 1px solid $menu_rating
+      .controlLinks
+        width: initial
+.guests
+  li
+    border-right: 1px solid $menu_photos!important
+.favs
+  li
+    border-right: 1px solid $menu_favorites!important
+.settings
+  .guests
+    li
+      border-right: 1px solid $menu_rating!important
+
+
+#my-folowers
+  .seasonsBox
+    margin-bottom: 20px
+    .season
+      float: left
+      cursor: pointer
+      width: 55px
+      height: 55px
+      background-image: url('../img/season.png')
+      background-size: 55px
+      span
+        +italic-font
+        color: $profile_status_text
+        font-size: 14px
+        margin-top: 20px
+        display: block
+        text-align: center
+    .seasonChecked
+      background-image: url('../img/season_c.png')
+
+.photoVideoBlock
+  display: none

@@ -9,5 +9,7 @@ app.views.SearchSide = Backbone.View.extend
     renderitems: (data) ->
         $('#searchPhotoVideo .imgGrid').html ''
         _.each data, (item) ->
+            console.log item
+            console.log item.thumbnail_url
             $('#searchPhotoVideo .imgGrid').append jade.templates.searchphotoitem
                 img: item.thumbnail_url

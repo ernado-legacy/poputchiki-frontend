@@ -1,4 +1,4 @@
-app.views.Entered = Backbone.View.extend
+app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     el: 'body'
 
@@ -83,6 +83,7 @@ app.views.Entered = Backbone.View.extend
         $(item).addClass('current');
 
     changemenu: (event) ->
+        do @slideHide
         menuhash =
             'menu-messgaes': app.views.message
             'menu-favorites': app.views.favs
@@ -91,11 +92,11 @@ app.views.Entered = Backbone.View.extend
             'menu-tools': app.views.setting
 
         $('.leftMenu li').removeClass 'current'
-        $(event.currentTarget).addClass 'current'
+        # $(event.currentTarget).addClass 'current'
 
         id = event.currentTarget.id
         view = menuhash[id]
-        do view.render
+        do view.render 
 
     render: ->
         $ @.$el.html jade.templates.entered()
@@ -180,7 +181,7 @@ app.views.Entered = Backbone.View.extend
 
                 if window.location.pathname.search('/search/') != -1
                     do app.views.search.render
-                    do app.views.searchside.render
+                    # do app.views.searchside.render
 
                 if window.location.pathname.search('/settings/') != -1
                     do app.views.setting.render
@@ -192,8 +193,9 @@ app.views.Entered = Backbone.View.extend
         #    offset: 0
         #    count: 20
         #    , ->
-                do app.views.search.render
-                do app.views.searchside.render
+        do @slideHide
+        do app.views.search.render
+                
 
     season: ->
         if $(event.target).hasClass('season')
@@ -208,6 +210,7 @@ app.views.Entered = Backbone.View.extend
         $(event.target).toggleClass 'hg-icon'
 
     statuses: ->
+        do @slideHide
         do app.views.statuses.render
 
     guests: ->

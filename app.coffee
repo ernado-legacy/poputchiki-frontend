@@ -22,6 +22,7 @@ server.get '/favourites/', index
 server.get '/guests/', index
 server.get '/search/', index
 server.get '/settings/', index
+server.get '/settings/:type', index
 
 
 

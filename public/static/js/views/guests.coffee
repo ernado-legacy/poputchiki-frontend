@@ -11,7 +11,7 @@ app.views.Guests = Backbone.View.extend
     #         success: ->
     #             callback user
 
-    render: ->
+    render: ()->
         that = @
         history.pushState null, 'poputchiki', '/guests/'
         app.views.profile.get_my_user (user) ->
@@ -21,12 +21,9 @@ app.views.Guests = Backbone.View.extend
                     user: user.attributes
                     guests: collection.toJSON()
                 that.renderGuest guest for guest in collection.models
+                $('#menu-photos').addClass 'current'
 
     renderGuest: (user) ->
-        time = new Date user.get('time')
-        user.set 'time',
-            date: time.getDate()+"."+time.getMonth()+"."+(time.getYear()*1+1900)
-            time: time.getHours()+":"+time.getMinutes()
 
         listUserView = new app.views.UserListView 
             model:user,

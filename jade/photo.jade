@@ -1,20 +1,27 @@
-.view-back
-  span
-    div #{time}
-  span
-    div нравится #{likes}
-    a.action-like
-      i.fui-heart
-.slice.s1(style="background-image: url('"+url+"');")
-      span.overlay
-      .slice.s2(style="background-image: url('"+url+"');")
-        span.overlay
-        .slice.s3(style="background-image: url('"+url+"');")
-          span.overlay
-          .slice.s4(style="background-image: url('"+url+"');")
-            span.overlay
-            .slice.s5(style="background-image: url('"+url+"');")
-              span.overlay
+//- .view-back
+//-   span
+//-     div #{time}
+//-   span
+//-     div нравится #{likes}
+//-     a.action-like
+//-       i.fui-heart
+//- .slice.s1(style="background-image: url('"+url+"');")
+//-       span.overlay
+//-       .slice.s2(style="background-image: url('"+url+"');")
+//-         span.overlay
+//-         .slice.s3(style="background-image: url('"+url+"');")
+//-           span.overlay
+//-           .slice.s4(style="background-image: url('"+url+"');")
+//-             span.overlay
+//-             .slice.s5(style="background-image: url('"+url+"');")
+//-               span.overlay
  
         
- 
+//-  
+div.photo-time #{photo.time.date}
+img(src=photo.url)
+if(liked_by)
+  a(class="action-remove-like custom-link") нравится
+else
+  a(class="action-like custom-link") нравится
+span.like-counter  #{photo.likes}

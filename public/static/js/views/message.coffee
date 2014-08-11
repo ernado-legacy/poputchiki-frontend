@@ -1,4 +1,4 @@
-app.views.Message = Backbone.View.extend
+app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     el: '.mainContentProfile'
 
@@ -30,6 +30,8 @@ app.views.Message = Backbone.View.extend
                 success: =>
                     $('.chatContainer').append jade.templates.dialog_item
                         dialog: user
+                    $('.leftMenu li').removeClass 'current'
+                    $('#menu-messgaes').addClass 'current'
 
     new_massage: (id, mess) ->
         url = '/api/user/' + id + '/messages'
@@ -63,7 +65,8 @@ app.views.Message = Backbone.View.extend
         @dialogs.fetch
             success: () ->
                 if that.olddialogssize < _.size that.dialogs.models
-                    do app.views.messageside.render
+                    that.slideHideAndShow ()->
+                        do app.views.messageside.render
                 _.each that.dialogs.models, (dialog) ->
                     messages = new app.models.Messages
                     messages.urluser = dialog.get 'id'

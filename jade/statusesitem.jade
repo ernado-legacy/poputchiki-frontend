@@ -1,16 +1,17 @@
 each status in statuses.models
   .statusBlock(data-status='#{status.get('id')}')
-    img(src='#{users[status.get("user")].get("avatar_url")}')
+    a(href="/user/#{users[status.get("user")].get("id")}")
+      img(src='#{users[status.get("user")].get("avatar_url")}')
     .profileInfoBox.leftPart     
       .name-in-profile #{users[status.get("user")].get('name')}, 23
       .city-in-profile=users[status.get("user")].get('city')
-      //- h1 #{users[status.get("user")]}
-      .money-icon.hg-icon
-      //- if(users[status.get("user")].get('is_sponsor'))
-      .house-icon.hg-icon
+      if(users[status.get("user")].get('is_sponsor'))
+        .money-icon.mg-icon
+      if(users[status.get("user")].get('is_sponsor'))
+        .house-icon.hg-icon
     .rightPart
       .status=status.get('text')
-      .writeBtn
+      a(class='writeBtn fui-bubble', href="/message/#{users[status.get("user")].get("id")}")
       .controlLinks.clearfix
         .like(data-like="true")
         .note пожаловаться

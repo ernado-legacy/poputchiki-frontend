@@ -38,3 +38,5 @@ app.views.UserListView = Backbone.View.extend
 
     to_journey: ->
         alert 'Пригласить пользователя в путешествие'
+
+

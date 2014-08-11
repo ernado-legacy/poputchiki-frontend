@@ -1,0 +1,14 @@
+.header 
+    h1 Настройки
+h1 ЭЛЕКТРОННАЯ ПОЧТА
+.greenDots
+.profileInfoBox 
+    .infoBox.infoEdit.post          
+        .currentEmail Текущий емейл: 
+            a(href='#') #{user.email}
+        .clearfix
+            input(type='text', placeholder="Новый емейл", name='email')
+        .clearfix
+            input(type='text', placeholder="Продублируйте новый емейл", name='emailagain')
+        .profile-edit-slideup
+            span сохранить

@@ -1,0 +1,45 @@
+.header 
+    h1 Счет
+h1 Пополнение счета
+.greenDots
+.profileInfoBox 
+    .infoBox.infoEdit.post.payment
+        .currentEmail Состояние счета: 
+            a(href='#') #{user.balance}
+            | монет
+        .pay-item
+            div.price 100
+                    small монет
+                        span (30 рублей)
+            .profile-edit-slideup.pay(data-sum='100')
+                span Пополнить
+
+        .pay-item
+            div.price 600 
+                    small монет
+                        span (150 рублей)
+            .profile-edit-slideup.pay(data-sum='600')
+                span Пополнить
+
+
+        .pay-item
+            div.price 1300
+                    small монет
+                        span (400 рублей)
+            .profile-edit-slideup.pay(data-sum='1300')
+                span Пополнить
+
+        .pay-item
+            div.price 2800
+                    small монет
+                        span (800 рублей)
+            .profile-edit-slideup.pay(data-sum='2800')
+                span Пополнить
+
+h1 Куда потратить?
+.greenDots
+.profileInfoBox 
+    .infoBox.infoEdit.post          
+        ul
+            li Морда лента - 100 монет
+            li Вип статус - 400 монет(неделя), 100- монет(месяц)
