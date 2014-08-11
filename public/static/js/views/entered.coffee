@@ -6,8 +6,8 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click #header-journeys': 'search'
         # 'click .header-profile-statuses': 'guests'
         'click .header-profile-statuses': 'statuses'
-        'click .audio': 'play_audio'
-        'click .video': 'play_video'
+        #'click .audio': 'play_audio'
+        #'click .video': 'play_video'
         'click .leftMenu li': 'changemenu'
         'click #profile-arrow-left': 'carousel_left'
         'click #profile-arrow-right': 'carousel_right'
@@ -119,6 +119,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $('.promo-photo').click ->
             $('.popup').fadeOut('slow')
             $('.chopPopup').fadeIn('slow')
+            do app.views.stripechoppopup.update
 
         $('.choose-promo-photo').click ->
             $('.popup').fadeOut('slow')
@@ -155,6 +156,9 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.guests = new app.views.Guests
                 app.views.favs = new app.views.Favs
                 app.views.popupphoto = new app.views.PopupPhoto
+                app.views.stripechoppopup = new app.views.StripechopPopup
+                app.views.stripe = new app.views.Stripe
+
 
                 if window.location.pathname == '/guests/'
                     do app.views.guests.render
@@ -181,6 +185,8 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
                 if window.location.pathname.search('/settings/') != -1
                     do app.views.setting.render
+
+                do app.views.stripe.render
 
     search: ->
         # app.models.search
@@ -266,6 +272,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $('.videoBox').hide()
         $('.photoBox').show()
 
+    ###
     stopMedia: ->
         $('.audio').children().each ->
             this.pause()
@@ -321,6 +328,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 return
             ), 1000
         return
+    ###
 
     carousel_left: ->
         $(".carouselBox").animate
@@ -365,11 +373,15 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $(popup).fadeIn('slow')
 
     closepopup: (btn) ->
-        $(btn).click ->
-            $('body').removeClass 'bodyPopup'
-            $('.popup').fadeOut('slow')
-            $('.popupWrapper').fadeOut('slow')
-            $('.popupBack').fadeOut('slow')
+        $(btn).click (event) =>
+            do event.preventDefault
+            @closepopuprun()
+
+    closepopuprun: ->
+        $('body').removeClass 'bodyPopup'
+        $('.popup').fadeOut('slow')
+        $('.popupWrapper').fadeOut('slow')
+        $('.popupBack').fadeOut('slow')        
 
     rating_popup: ->
         @showpopup('.ratingPopup')
