@@ -206,10 +206,12 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $(event.target).parent().toggleClass 'seasonChecked'
 
     moneyIcon: ->
-        $(event.target).toggleClass 'mg-icon'
+        if $(event.target).hasClass 'money-icon'
+            $(event.target).toggleClass 'mg-icon'
 
     houseIcon: ->
-        $(event.target).toggleClass 'hg-icon'
+        if $(event.target).hasClass 'house-icon'
+            $(event.target).toggleClass 'hg-icon'
 
     statuses: ->
         do @slideHide
