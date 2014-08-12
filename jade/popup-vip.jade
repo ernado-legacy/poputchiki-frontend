@@ -1,0 +1,59 @@
+.popup.vipPopup
+  a(href='#', class='closepopup') Закрыть
+  form
+    h1 Вип статус
+    .greenDots
+    p Тут общий текст про систему рейтинга. Для чего он нужен пользователю и какие преимущества может получить пользователь с высоким рейтингом.
+
+
+    h2 Узнайте кто добавляет вас в избранное
+    .greenDots
+
+    .vip-status-icon-block
+      .fui-star-2
+      
+    .textBox.clearfix
+      p.pnct - смотрите пользователей котоыре добавляют вас в избранное
+      p.pnct - получайте уведомления на почту когда вас доабвляют в избранное
+
+    h2 Режим невидимки
+    .greenDots
+
+    .vip-status-icon-block
+      .fui-eye
+      
+    .textBox.clearfix
+      p.pnct - Не хотите чтобы пользователи видели что вы заходите к ним на страницу?
+      p.pnct - Вы всегда можете включить и выключить режим невидимки в настройках
+
+    h2  Статусы путешествий
+    .greenDots
+    .vip-status-icon-block
+      .fui-list-bulleted
+      
+    .textBox.clearfix
+      p.pnct - Сообщайте всем пользователям о своих путешествиях чаще
+      p.pnct - Вы всегда можете добавть новый статус
+
+    h2   Расширенный поиск
+    .greenDots
+    .vip-status-icon-block
+      img(src='/static/img/money_active2.png')
+      
+    .textBox.clearfix
+      p.pnct - Включайте дополнительыне фильтры поиска
+      p.pnct - Включите поиск только тех людей кто готов взять на себя расходы на путешествие
+    h2 Подключить вип статус
+    .greenDots
+    .bilContainer.clearfix
+      .regButton.profile-edit-slideup.upload-money
+        span.active-vip(data-vip-time='week') включить 
+      .price 400
+        small  монет
+          span (1 - неделя)
+    .bilContainer.clearfix
+      .regButton.profile-edit-slideup.upload-money
+        span.active-vip(data-vip-time='month') включить 
+      .price 1000
+        small  монет
+          span (1 - месяц)

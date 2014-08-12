@@ -97,6 +97,15 @@ app.models.Guests = Backbone.Collection.extend
 
     model: User
 
+app.models.Followers = Backbone.Collection.extend
+    initialize: (models,options) ->
+        @id = options.id
+        return
+    url: -> 
+        '/api/user/'+this.id+'/followers'
+
+    model: User
+
 app.models.BlackList = Backbone.Collection.extend
     initialize: (models,options) ->
         @id = options.id

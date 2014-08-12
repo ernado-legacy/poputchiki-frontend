@@ -938,7 +938,7 @@ a.blue-link
                 padding-left: 50px
                 line-height: 20px
                 padding-right: 15px
-            .house-icon, .money-icon
+            .house-icon, .money-icon, .money-icon-inactive 
                 margin-top: 0px
                 margin-right: 15px
                 color: #4b4b4b
@@ -1046,7 +1046,7 @@ a.blue-link
     padding: 11px 15px 15px 15px
     font-size: 14px
     max-width: 1060px
-    .money-icon, .house-icon, .edit
+    .money-icon, .house-icon, .edit, .money-icon-inactive
         .tooltip
             bottom: -19px
     h1
@@ -1300,7 +1300,7 @@ a.blue-link
 #edit-profile
     right: 10px
 
-.money-icon, .house-icon
+.money-icon, .house-icon, .money-icon-inactive
     float: left
     background-image: url('../img/money3.png')
     background-repeat: no-repeat
@@ -1311,7 +1311,7 @@ a.blue-link
     position: relative
     background-size: 30px
 
-.money-icon, .house-icon, .edit
+.money-icon, .house-icon, .edit, .money-icon-inactive
     .tooltip
         visibility: hidden
         opacity: 0
@@ -1336,7 +1336,7 @@ a.blue-link
             position: absolute
             left: 5px
             top: -4px
-.money-icon:hover, .house-icon:hover, .edit:hover
+.money-icon:hover, .house-icon:hover, .edit:hover, .money-icon-inactive
     .tooltip
         visibility: visible
         opacity: 1
@@ -2411,7 +2411,7 @@ a.blue-link
             height: 5px
             width: 0%
             z-index: 200
-.chavaPopup, .promoPopup, .chopPopup, .ratingPopup
+.chavaPopup, .promoPopup, .chopPopup, .ratingPopup, .vipPopup
     top: 10%
     width: 558px
     left: -moz-calc((100% - 560px)/2)
@@ -2512,7 +2512,7 @@ a.blue-link
         width: 100%
         margin-left: 0px
         +border-radius(0px, 0px, 4px, 4px)
-.promoPopup, .ratingPopup
+.promoPopup, .ratingPopup, .vipPopup
     top: 5%
     width: 618px
     left: -moz-calc((100% - 620px)/2)
@@ -2562,6 +2562,9 @@ a.blue-link
                 small
                     color: $header_blue
                     +italic-font
+                    span
+                        color: $profile_status_text
+                        +simple-font
         .videoContainer
             margin-bottom: 20px
             .crsItem
@@ -2627,7 +2630,7 @@ a.ldblock
     display: block
     text-decoration: none
 
-.ratingPopup
+.ratingPopup, .vipPopup
     form
         border: none
         .pnct

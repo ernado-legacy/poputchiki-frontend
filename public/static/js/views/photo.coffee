@@ -58,17 +58,18 @@ app.views.Photo = Backbone.View.extend
             react @, 'left'
 
     like: ()->
+        
         that = @
-        @model.like true, ()->
+        @model.like true, (likes)->
             counter_container = that.$el.find('.like-counter')
-            counter_container.text counter_container.text()*1+1
+            counter_container.text likes
             that.$el.find('.custom-link').removeClass('action-like').addClass('action-remove-like')
         return false
 
     unlike: ()->
         that = @
-        @model.like false, ()->
+        @model.like false, (likes)->
             counter_container = that.$el.find('.like-counter')
-            counter_container.text counter_container.text()*1-1
+            counter_container.text likes
             that.$el.find('.custom-link').removeClass('action-remove-like').addClass('action-like')
         return false

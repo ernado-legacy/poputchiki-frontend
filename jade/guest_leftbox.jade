@@ -3,13 +3,15 @@
     .imgBox
       img(src=user.avatar_url)
     #profile-rating 96%
-  .playerBox.clearfix
-    .audio.audio-change-avatar
-      audio
-        source(src='/static/audio/audio.mp3', type="audio/mp3")
-        source(src='/static/audio/audio.ogg', type="audio/ogg")
-    .timeBar
-      .progress
+  if (user.audio_url)
+    .playerBox.clearfix
+      .audio.audio-change-avatar
+        audio
+          //- source(src='/static/audio/audio.mp3', type="audio/mp3")
+          //- source(src='/static/audio/audio.ogg', type="audio/ogg")
+          source(src=user.audio_url)
+      .timeBar
+        .progress
   .searchBox.profileAction        
     .write 
       .fui-bubble.act

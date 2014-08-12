@@ -1,0 +1,11 @@
+.fui-play
+div.photo-time #{video.time.date}
+if (video.thumbnail_url)
+  img(src=video.thumbnail_url)
+else
+  img(src='http://lorempixel.com/400/400/')
+if(liked_by)
+  a(class="action-remove-like custom-link") нравится
+else
+  a(class="action-like custom-link") нравится
+span.like-counter  #{video.likes}

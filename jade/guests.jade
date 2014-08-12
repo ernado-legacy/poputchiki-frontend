@@ -11,9 +11,19 @@
       .title МОИ ГОСТИ
         .title-help-text
           small
-            | Вы можете
-            a(class="custom-link")  стать невидимкой
-            |  и вы не будете попадать в список гостей других пользователей
+
+            if (user.vip)
+              |Режим невидики 
+              if (user.invisible)
+                a(class="custom-link menu-settings", data-id="invisible") включен
+              else
+                a(class="custom-link menu-settings", data-id="invisible") выключен
+              |  Вы всегда можете изменить это в 
+              a(class="custom-link menu-settings", data-id="invisible") настройках
+            else
+              | Вы можете
+              a(class="custom-link show-vip")  стать невидимкой
+              |  и вы не будете попадать в список гостей других пользователей
       .people
         ul.chatLine
           //- for guest in guests

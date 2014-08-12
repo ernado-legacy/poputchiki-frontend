@@ -16,9 +16,11 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .closeChat': 'closechat'
         'click #profile-rating': 'rating_popup'
         'click #menu-rating': 'rating_popup'
+        'click .show-vip': 'vip_popup'
         'click .userBox img': 'promo_popup'
         'click #change-avatar': 'chava_popup'
         'click #menu-go': 'letsgo_popup'
+        'click .menu-settings': 'settings'
         'click .videoBox img': 'video_popup'
         'click .imgGrid .photo-wrapper': 'imggrid_popup'
         'click #search-slideup': 'left_sup'
@@ -162,6 +164,9 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.popupphoto = new app.views.PopupPhoto
                 app.views.stripechoppopup = new app.views.StripechopPopup
                 app.views.stripe = new app.views.Stripe
+                app.views.vip = new app.views.VipStatus
+
+                
 
 
                 if window.location.pathname == '/guests/'
@@ -183,6 +188,9 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 if window.location.pathname.search('/favourites/') != -1
                     do app.views.favs.render
 
+                if window.location.pathname.search('/followers/') != -1
+                    do app.views.favs.renderFollowers
+
                 if window.location.pathname.search('/search/') != -1
                     do app.views.search.render
                     # do app.views.searchside.render
@@ -200,6 +208,11 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $('.leftMenu li').removeClass 'current'
         do @slideHide
         do app.views.search.render
+
+    settings: (e)->
+        $('.leftMenu li').removeClass 'current'
+        do @slideHide
+        do app.views.setting.render e
                 
 
     season: ->
@@ -391,6 +404,10 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     rating_popup: ->
         @showpopup('.ratingPopup')
+
+    vip_popup: ->
+        @showpopup('.vipPopup')
+
 
     promo_popup: ->
         @showpopup('.promoPopup')

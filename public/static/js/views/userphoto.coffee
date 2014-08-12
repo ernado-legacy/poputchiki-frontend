@@ -21,8 +21,15 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
 
     render: (id)->
         $ @.$el.append jade.templates.photo_video()
-        collection = new app.models.Photos id
+        
         that = @
+        videocollection = new app.models.Videos id
+
+        videocollection.fetch().done () ->
+            $('.photoBox .videoBox .pb-wr').empty()
+            that.renderVideo video for video in videocollection.models
+
+        collection = new app.models.Photos id
         collection.fetch().done () ->
             $('.photoBox .photoBoxWrapper .pb-wr').empty()
             that.renderPhoto photo for photo in collection.models
@@ -37,13 +44,12 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
             return
 
     renderPhoto: (photo)->
-        
-        # time = new Date photo.get('time')
-        # photo.set 'time', time.getDate()+"."+time.getMonth()+"."+(time.getYear()*1+1900)
         photoView = new app.views.Photo model:photo
         $('.photoBox .photoBoxWrapper .pb-wr').append photoView.render()
-        # bookView = new app.BookView model:item
-        # @$el.append bookView.render()
+
+    renderVideo: (video)->
+        videoView = new app.views.Video model:video
+        $('.videoBox .photoBoxWrapper .pb-wr').append videoView.render()
 
     #showpopup: (cnt, popup) ->
     #    $(cnt).click ->

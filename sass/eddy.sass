@@ -34,16 +34,28 @@ $profile_status_text: #4b4b4b
       img:hover
         border: 1px solid white
       .custom-link
-        font-size: 13px
+        font-size: 11px
         color: #eaeaea
       .like-counter, .photo-time
         // text-decoration: none!important
         +italic-font
         font-size: 13px
         margin-left: 8px
-      .action-remove-like
+      .action-like
+        font-size: 13px
+        
         // color: #9cabae
-        font-size: 11px
+  .videoBox
+    .photo-wrapper
+      img
+        width: 300px
+        height: 300px
+    .fui-play
+      color: #eaeaea
+      position: absolute
+      font-size: 45px
+      margin-left: 85px
+      margin-top: 40px
 
 
     .photo-wrapper:hover
@@ -54,6 +66,8 @@ $profile_status_text: #4b4b4b
       img
         border: 1px solid white
         +no-border-shadow
+      .fui-play
+        color: white
       .custom-link
         color: $profile_status_text
       .action-remove-like
@@ -100,6 +114,30 @@ $profile_status_text: #4b4b4b
         text-align: center
     .seasonChecked
       background-image: url('../img/season_c.png')
+  .nearBox.show-vip
+    opacity: 0.5
+    filter: alpha(opacity=50) /* For IE8 and earlier */
 
 .photoVideoBlock
   display: none
+
+
+.vipPopup
+  .vip-status-icon-block
+    float: left
+    .fui-star-2, .fui-eye, .fui-list-bulleted
+      font-size: 80px
+      color: $menu_favorites
+    .fui-eye
+      color: $menu_photos
+    .fui-list-bulleted
+      color: $menu_messages
+
+
+.guests.favs
+  .rightBox
+    .custom-link.active
+      font-size: 11px
+      color: #eaeaea
+      text-decoration: none
+
