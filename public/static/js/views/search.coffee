@@ -15,7 +15,7 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         query =
             offset: 0
-            count: 100
+            count: 20
             sex: 'female'
 
         from = $('#search-age-from').val()
@@ -44,14 +44,12 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
 
         query.sex = if $('.manBox .checked').length == 1 then 'male' else 'female'
-        app.models.search query,
-            (data) ->
-                that.renderSearchingUser  new app.models.User user for user in data.result
-                # that.$el.find('.gallery').html jade.templates.search_users 
-                #     users: data
-                that.$el.find('.results small').text(' попутчик')
-                that.$el.find('.results small').first().text('найден ')
-                that.$el.find('.results span.count').text(data.count)
+
+        @query = query
+
+        @research 1, (data) =>
+            @pagination.render 1 + data.count/20
+            @pagination.setreaction (i) => @research i
 
         that = @
         app.models.searchphoto query,
@@ -59,7 +57,22 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 that.slideHideAndShow ()->
                     do app.views.searchside.render
                     app.views.searchside.renderitems data
-        do @render
+        #do @render
+
+    research: (item, callback) ->
+        query = @query
+        item = item - 1
+        query.offset = item * 20
+        query.count = 20
+        app.models.search query, (data) =>
+            @$el.find('.gallery ul').html ''
+            @renderSearchingUser  new app.models.User user for user in data.result
+                # that.$el.find('.gallery').html jade.templates.search_users 
+                #     users: data
+            @$el.find('.results small').text(' попутчик')
+            @$el.find('.results small').first().text('найден ')
+            @$el.find('.results span.count').text(data.count)
+            callback(data) if callback
 
     renderSearchingUser: (user) ->
         listUserView = new app.views.UserListView 
@@ -79,7 +92,20 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
     render: ->
         that = @
         history.pushState null, 'poputchiki', '/search/'
-        app.views.profile.get_my_user (user) ->
+        app.views.profile.get_my_user (user) =>
             $ that.$el.html jade.templates.search
                 user: user.attributes
+            that.pagination = new app.views.Pagination
+                el: that.$el.find('.pagination')[0]
+            #ms = @$el.find '.mainSelectElement'
+            #_.each ms, (item) ->
+            #    autocomplete = new app.views.Autocomplete
+            #        el: item
+            sc = @$el.find '.searchCountry'
+            scv = new app.views.AutocompleteCountry
+                el: sc
+            sct = @$el.find '.searchCity'
+            sctv = new app.views.AutocompleteCity
+                el: sct
+            sctv.country = scv
         # do @.search
