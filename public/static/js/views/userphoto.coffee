@@ -18,15 +18,26 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         form = '.photovideoform'
 
         url = $('.photovideoform input[name=loading_url]').val()
+
+        @slideHide ()->
+
         that = @
+        console.log url
+        console.log url.search 'photo'
         success = (data) ->
             app.models.myuser.get (user)->
-                that.render user.get('id'), @is_my_user
+                if url.search 'photo' == -1
+                    do that.refreshVideos
+                else
+                    do that.refreshPhotos
+                    
         @uploadphoto url, form, success
 
     render: (id, is_my_user)->
+        @user_id = id
         @is_my_user = is_my_user
-        $ @.$el.append jade.templates.photo_video()
+        $ @.$el.append jade.templates.photo_video
+            is_my_user: is_my_user
         that = @
         collection = new app.models.Photos id
         collection.fetch().done () ->
@@ -34,7 +45,7 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
             that.renderPhoto photo for photo in collection.models
             videocollection = new app.models.Videos id
             videocollection.fetch().done () ->
-                $('.photoBox .videoBox .pb-wr').empty()
+                $('.videoBox .photoBoxWrapper .pb-wr').empty()
                 that.renderVideo video for video in videocollection.models
                 that.slideHideAndShow ()->
 
@@ -53,6 +64,26 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
     renderVideo: (video)->
         videoView = new app.views.Video model:video
         $('.videoBox .photoBoxWrapper .pb-wr').append videoView.render(@is_my_user)
+
+    refreshPhotos: ->
+        $('.photoBox .photoBoxWrapper .pb-wr').empty()
+        that = @
+        collection = new app.models.Photos @user_id
+        collection.fetch().done () ->
+            $('.photoBox .photoBoxWrapper .pb-wr').empty()
+            that.renderPhoto photo for photo in collection.models
+            that.slideShow ()->
+
+    refreshVideos: ->
+        $('.videoBox .photoBoxWrapper .pb-wr').empty()
+        that = @
+        videocollection = new app.models.Videos @user_id
+        videocollection.fetch().done () ->
+            $('.photoBox .videoBox .pb-wr').empty()
+            console.log  video for video in videocollection.models
+            that.renderVideo video for video in videocollection.models
+            that.slideShow ()->
+
 
 
     video_header: ->

@@ -4,9 +4,15 @@ app.models.Photo = Backbone.Model.extend
 	url: ->
         '/api/photo/'+@.get('id')
 	
-	like: (like,callback)->
-    	query_type =  if like then 'POST' else 'DELETE'
-    	$.ajax
+	like: (callback)->
+        @sendLikeQuery 'POST', callback
+        
+
+    unlike: (callback)->
+        @sendLikeQuery 'DELETE', callback
+
+    sendLikeQuery: (query_type, callback)->
+        $.ajax
             url: '/api/photo/'+@.get('id')+'/like'
             type: query_type
             # data: "target="+@.get('id')

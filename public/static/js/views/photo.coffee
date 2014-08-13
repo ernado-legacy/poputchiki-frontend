@@ -63,7 +63,7 @@ app.views.Photo = Backbone.View.extend
     like: ()->
         
         that = @
-        @model.like true, (likes)->
+        @model.like (likes)->
             counter_container = that.$el.find('.like-counter')
             counter_container.text likes
             that.$el.find('.action-like').removeClass('action-like').addClass('action-remove-like')
@@ -71,7 +71,7 @@ app.views.Photo = Backbone.View.extend
 
     unlike: ()->
         that = @
-        @model.like false, (likes)->
+        @model.unlike (likes)->
             counter_container = that.$el.find('.like-counter')
             counter_container.text likes
             that.$el.find('.action-remove-like').removeClass('action-remove-like').addClass('action-like')

@@ -1,11 +1,17 @@
 
 
 app.models.Video = Backbone.Model.extend 
-    url: 'api/video'
+    url: ->
+        '/api/video/'+@.get('id')
     
-    like: (like,callback)->
-        console.log 'model like'
-        query_type =  if like then 'POST' else 'DELETE'
+    like: (callback)->
+        @sendLikeQuery 'POST', callback
+        
+
+    unlike: (callback)->
+        @sendLikeQuery 'DELETE', callback
+
+    sendLikeQuery: (query_type, callback)->
         $.ajax
             url: '/api/video/'+@.get('id')+'/like'
             type: query_type
@@ -13,6 +19,7 @@ app.models.Video = Backbone.Model.extend
             dataType: "json"
             success: (data) ->
                 callback data.likes
+
 
 Video = app.models.Video
 
