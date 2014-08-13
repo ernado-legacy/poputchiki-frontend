@@ -38,7 +38,7 @@ app.views.GuestProfile = app.views.UserListView.extend
                 is_fav = if my_user.get('favorites').indexOf(user.get('id')) != -1 then true else false
                 is_in_blacklist = if my_user.get('blacklist').indexOf(user.get('id')) != -1 then true else false
                 that.model = user
-                app.views.user_photo_block.render(window.location.pathname.split('/').slice(2)[0])
+                app.views.user_photo_block.render(window.location.pathname.split('/').slice(2)[0], false)
                 user_id = app.models.myuser.getid()
                 user.visit_user_by() if user_id
                 $ that.$el.html jade.templates.guest_profile

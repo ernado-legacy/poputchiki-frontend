@@ -18,6 +18,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click #menu-rating': 'rating_popup'
         'click .show-vip': 'vip_popup'
         'click .userBox img': 'promo_popup'
+        'click .open-promo': 'promo_popup'
         'click #change-avatar': 'chava_popup'
         'click #menu-go': 'letsgo_popup'
         'click .menu-settings': 'settings'
@@ -30,8 +31,6 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .nearBox .money-icon': 'moneyIcon'
         'click #my-profile .house-icon': 'houseIcon'
         'click .nearBox .house-icon': 'houseIcon'
-        'click .videoHeader': 'video_header'
-        'click .photoHeader': 'photo_header'
         'click .searchBody .dd': 'open_box'
         'click .searchBody .du': 'close_box'
         'click .searchBody .dl': 'select_box'
@@ -271,27 +270,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $("#profile-slidedown").css display: "block"
         $(".profileInfoBox .infoView").slideUp "slow"
 
-    video_header: ->
-        $('.activeHeader').removeClass 'activeHeader'
-        if $(event.target).hasClass '.videoHeader'
-            $(event.target).addClass 'activeHeader'
-        else if $(event.target).hasClass '.title'
-            $(event.target).parent().addClass 'activeHeader'
-        else
-            $(event.target).parent().parent().addClass 'activeHeader'
-        $('.photoBox').hide()
-        $('.videoBox').show()
-
-    photo_header: ->
-        $('.activeHeader').removeClass 'activeHeader'
-        if $(event.target).hasClass '.photoHeader'
-            $(event.target).addClass 'activeHeader'
-        else if $(event.target).hasClass '.title'
-            $(event.target).parent().addClass 'activeHeader'
-        else
-            $(event.target).parent().parent().addClass 'activeHeader'
-        $('.videoBox').hide()
-        $('.photoBox').show()
+    
 
     stopMedia: ->
         $('.audio').children().each ->

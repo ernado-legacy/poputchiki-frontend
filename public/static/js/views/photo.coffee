@@ -6,15 +6,18 @@ app.views.Photo = Backbone.View.extend
         'click': 'clck'
         'click .action-like':'like'
         'click .action-remove-like':'unlike'
+        'click .remove-photo': 'removePhoto'
+        'click .new-ava': 'removePhoto'
 
-    render: ->
+    render: (is_my_user)->
         @listenTo @model, 'changeimg', @changeimg
         that = @
         app.models.myuser.get (user)->
             liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false
             $ that.$el.html jade.templates.photo 
                 photo: that.model.toJSON(),
-                liked_by: liked_by
+                liked_by: liked_by,
+                is_my_user: is_my_user
 
     clck: ->
         $('body').addClass 'bodyPopup'
@@ -63,7 +66,7 @@ app.views.Photo = Backbone.View.extend
         @model.like true, (likes)->
             counter_container = that.$el.find('.like-counter')
             counter_container.text likes
-            that.$el.find('.custom-link').removeClass('action-like').addClass('action-remove-like')
+            that.$el.find('.action-like').removeClass('action-like').addClass('action-remove-like')
         return false
 
     unlike: ()->
@@ -71,5 +74,10 @@ app.views.Photo = Backbone.View.extend
         @model.like false, (likes)->
             counter_container = that.$el.find('.like-counter')
             counter_container.text likes
-            that.$el.find('.custom-link').removeClass('action-remove-like').addClass('action-like')
+            that.$el.find('.action-remove-like').removeClass('action-remove-like').addClass('action-like')
+        return false
+
+    removePhoto: ()->
+        do @model.destroy
+        do @remove
         return false

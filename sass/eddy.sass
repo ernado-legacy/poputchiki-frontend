@@ -45,19 +45,16 @@ $profile_status_text: #4b4b4b
         font-size: 13px
         
         // color: #9cabae
-  .videoBox
-    .photo-wrapper
-      img
-        width: 300px
-        height: 300px
-    .fui-play
-      color: #eaeaea
-      position: absolute
-      font-size: 45px
-      margin-left: 85px
-      margin-top: 40px
-
-
+      .actions
+        text-align: center
+        .like-counter
+          margin-left: 0px
+        a
+          margin: 0px 10px 0px 10px
+        .action-remove-like, .action-like, .like-counter-box
+          float: left
+        .remove-photo
+          float: right
     .photo-wrapper:hover
       background-color: white
       border: 1px solid white
@@ -73,7 +70,17 @@ $profile_status_text: #4b4b4b
       .action-remove-like
         color: #9cabae
         font-size: 11px
-
+  .videoBox
+    .photo-wrapper
+      img
+        width: 300px
+        height: 300px
+    .fui-play
+      color: #eaeaea
+      position: absolute
+      font-size: 45px
+      margin-left: 85px
+      margin-top: 40px
 .settings
   .guests 
     .rightBox 

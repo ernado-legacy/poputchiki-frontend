@@ -264,11 +264,19 @@ small
 .view
     cursor: pointer
 
-a.custom-link
+.custom-link
     color: $profile_status_text
     font-weight: bold
     text-decoration: underline
     cursor: pointer
+
+.custom-blue-link
+    text-decoration: underline
+    font-size: 15px
+    cursor: pointer
+    color: $header_blue
+    +italic-font
+
 
 a.blue-link
     +italic-font
@@ -2366,7 +2374,7 @@ a.blue-link
             +border-radius(50%,50%,50%,50%)
             float: left
             margin: 10px
-        .leftPart
+        .leftPart, .rightPart
             float: left
             margin-left: 10px
             width: 210px
@@ -2379,6 +2387,8 @@ a.blue-link
                 margin-bottom: 5px
             .city-in-profile
                 font-size: 15px
+        .rightPart
+            float: right
 .photoPopup
     .imgBox
         height: 500px

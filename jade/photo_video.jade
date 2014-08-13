@@ -15,10 +15,12 @@ div#profile-arrow-down
         .button
           button Загрузить фотографию
           input(type='file')
+      input(type='hidden',name='loading_url', value='/api/photo')
       input.photovideoformfile(type="file", name="file", style="visibility: hidden;")
 .photoBox
   .photoBoxWrapper.clearfix
     .pb-wr.clearfix
+
 .videoBox
   .photoBoxWrapper.clearfix
     .pb-wr.clearfix

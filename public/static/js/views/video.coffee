@@ -6,14 +6,15 @@ app.views.Video = Backbone.View.extend
         'click .action-like':'like'
         'click .action-remove-like':'unlike'
 
-    render: ->
+    render: (is_my_user)->
         console.log typeof @model
         that = @
         app.models.myuser.get (user)->
             liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false
             $ that.$el.html jade.templates.video 
                 video: that.model.toJSON(),
-                liked_by: liked_by
+                liked_by: liked_by,
+                is_my_user: is_my_user
 
     clck: ->
         $('body').addClass 'bodyPopup'
