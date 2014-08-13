@@ -1,10 +1,10 @@
 
 
-app.models.Photo = Backbone.Model.extend 
-	url: ->
-        '/api/photo/'+@.get('id')
-	
-	like: (callback)->
+app.models.Video = Backbone.Model.extend 
+    url: ->
+        '/api/video/'+@.get('id')
+    
+    like: (callback)->
         @sendLikeQuery 'POST', callback
         
 
@@ -13,7 +13,7 @@ app.models.Photo = Backbone.Model.extend
 
     sendLikeQuery: (query_type, callback)->
         $.ajax
-            url: '/api/photo/'+@.get('id')+'/like'
+            url: '/api/video/'+@.get('id')+'/like'
             type: query_type
             # data: "target="+@.get('id')
             dataType: "json"
@@ -28,17 +28,17 @@ app.models.Photo = Backbone.Model.extend
         return response
 
 
-Photo = app.models.Photo
+Video = app.models.Video
 
-app.models.Photos = Backbone.Collection.extend
+app.models.Videos = Backbone.Collection.extend
     initialize: (id)->
         @id = id
         return
         
-    model: Photo
+    model: Video
 
     url: ()->
-    	'/api/user/'+@id+'/photo'
+        '/api/user/'+@id+'/video'
 
 
     # parse: (response)->

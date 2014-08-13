@@ -3,22 +3,24 @@
     .imgBox
       img(src=user.avatar_url)
     #profile-rating 96%
-  .playerBox.clearfix
-    .audio.audio-change-avatar
-      audio
-        source(src='/static/audio/audio.mp3', type="audio/mp3")
-        source(src='/static/audio/audio.ogg', type="audio/ogg")
-    .timeBar
-      .progress
+  if (user.audio_url)
+    .playerBox.clearfix
+      .audio.audio-change-avatar
+        audio
+          //- source(src='/static/audio/audio.mp3', type="audio/mp3")
+          //- source(src='/static/audio/audio.ogg', type="audio/ogg")
+          source(src=user.audio_url)
+      .timeBar
+        .progress
   .searchBox.profileAction        
     .write 
       .fui-bubble.act
       .myaction Написать сообщение
-    .add 
+    .add.fav-action
       if is_fav
         .fui-star-2.act(style="color:grey;")
-        .myaction #{user.name} у вас в избранных 
-          a.remove_from_fav.custom-link убрать
+        .myaction 
+          a.remove_from_fav.custom-link Убрать из избрыннх
       else
         .fui-star-2.act
         .myaction.add_to_fav Добавить в избранное

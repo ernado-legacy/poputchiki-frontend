@@ -8,18 +8,24 @@ app.models.User = Backbone.Model.extend
             dataType: "json"
             success: (data) ->
                 undefined
-    add_to_fav: (remove) ->
-        type = if remove then "DELETE" else "PUT"
-        data = target : @.get('id')
+    add_to_fav: () ->
+        @sendFavQuery 'PUT', @.get('id'), app.models.myuser.getid()
+
+    remove_from_fav: () ->
+        @sendFavQuery 'DELETE', @.get('id'), app.models.myuser.getid()
+
+    sendFavQuery: (query_type,target,user_id)->
+        data = target : target
         $.ajax
-            url: '/api/user/'+app.models.myuser.getid()+'/fav'
-            type: type
+            url: '/api/user/'+user_id+'/fav'
+            type: query_type
             data: JSON.stringify data
             dataType: "json"
             contentType: "application/json; charset=utf-8"
             success: (data) ->
                 app.models.myuser.favs = undefined
                 app.models.myuser.clear ->
+
 
     add_to_blacklist: (remove) ->
         type = if remove then "DELETE" else "PUT"
@@ -94,6 +100,15 @@ app.models.Guests = Backbone.Collection.extend
                 time: time_param.getHours()+":"+time_param.getMinutes()
         # item.parseTimeParameter  'last_action' for item in response
         return response
+
+    model: User
+
+app.models.Followers = Backbone.Collection.extend
+    initialize: (models,options) ->
+        @id = options.id
+        return
+    url: -> 
+        '/api/user/'+this.id+'/followers'
 
     model: User
 

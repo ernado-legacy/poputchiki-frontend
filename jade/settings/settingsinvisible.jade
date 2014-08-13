@@ -9,7 +9,9 @@ h1 РЕЖИМ НЕВИДИМКИ
             .clearfix
                 div(class = user.invisible ? "box checked" : "box")
                 span Включить режим невидимки
-        .currentEmail Режим невидимки доступен только пользователям с вип-статусом 
+        .currentEmail
+            span.fui-alert 
+            |  Режим невидимки доступен только пользователям с вип-статусом 
             a(href='#')  активировать вип статус
         .profile-edit-slideup
             span сохранить

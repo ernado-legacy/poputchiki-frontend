@@ -19,6 +19,7 @@ server.get '/message/:id', index
 server.get '/user/:id', index
 server.get '/statuses/', index
 server.get '/favourites/', index
+server.get '/followers/', index
 server.get '/guests/', index
 server.get '/search/', index
 server.get '/settings/', index

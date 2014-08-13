@@ -15,10 +15,14 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click #profile-arrow-down': 'carousel_down'
         'click .closeChat': 'closechat'
         'click #profile-rating': 'rating_popup'
+        'click #menu-rating': 'rating_popup'
+        'click .show-vip': 'vip_popup'
         'click .userBox img': 'promo_popup'
+        'click .open-promo': 'promo_popup'
         'click #change-avatar': 'chava_popup'
         'click #menu-go': 'letsgo_popup'
-        'click .videoBox img': 'video_popup'
+        'click .menu-settings': 'settings'
+        'click .video-wr video': 'video_block'
         'click .imgGrid .photo-wrapper': 'imggrid_popup'
         'click #search-slideup': 'left_sup'
         'click #search-slidedown': 'left_sdown'
@@ -27,8 +31,6 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .nearBox .money-icon': 'moneyIcon'
         'click #my-profile .house-icon': 'houseIcon'
         'click .nearBox .house-icon': 'houseIcon'
-        'click .videoHeader': 'video_header'
-        'click .photoHeader': 'photo_header'
         'click .searchBody .dd': 'open_box'
         'click .searchBody .du': 'close_box'
         'click .searchBody .dl': 'select_box'
@@ -88,15 +90,16 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             'menu-messgaes': app.views.message
             'menu-favorites': app.views.favs
             'menu-photos': app.views.guests
-            'menu-rating': app.views.rating
+            'menu-rating': @rating_popup
             'menu-tools': app.views.setting
 
         $('.leftMenu li').removeClass 'current'
         # $(event.currentTarget).addClass 'current'
 
         id = event.currentTarget.id
-        view = menuhash[id]
-        do view.render 
+        if id != 'menu-rating'
+            view = menuhash[id]
+            do view.render 
 
     render: ->
         $ @.$el.html jade.templates.entered()
@@ -160,6 +163,9 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.popupphoto = new app.views.PopupPhoto
                 app.views.stripechoppopup = new app.views.StripechopPopup
                 app.views.stripe = new app.views.Stripe
+                app.views.vip = new app.views.VipStatus
+
+                
 
 
                 if window.location.pathname == '/guests/'
@@ -181,6 +187,9 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 if window.location.pathname.search('/favourites/') != -1
                     do app.views.favs.render
 
+                if window.location.pathname.search('/followers/') != -1
+                    do app.views.favs.renderFollowers
+
                 if window.location.pathname.search('/search/') != -1
                     do app.views.search.render
                     # do app.views.searchside.render
@@ -195,8 +204,14 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         #    offset: 0
         #    count: 20
         #    , ->
+        $('.leftMenu li').removeClass 'current'
         do @slideHide
         do app.views.search.render
+
+    settings: (e)->
+        $('.leftMenu li').removeClass 'current'
+        do @slideHide
+        do app.views.setting.render e
                 
 
     season: ->
@@ -214,6 +229,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $(event.target).toggleClass 'hg-icon'
 
     statuses: ->
+        $('.leftMenu li').removeClass 'current'
         do @slideHide
         do app.views.statuses.render
 
@@ -254,27 +270,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $("#profile-slidedown").css display: "block"
         $(".profileInfoBox .infoView").slideUp "slow"
 
-    video_header: ->
-        $('.activeHeader').removeClass 'activeHeader'
-        if $(event.target).hasClass '.videoHeader'
-            $(event.target).addClass 'activeHeader'
-        else if $(event.target).hasClass '.title'
-            $(event.target).parent().addClass 'activeHeader'
-        else
-            $(event.target).parent().parent().addClass 'activeHeader'
-        $('.photoBox').hide()
-        $('.videoBox').show()
-
-    photo_header: ->
-        $('.activeHeader').removeClass 'activeHeader'
-        if $(event.target).hasClass '.photoHeader'
-            $(event.target).addClass 'activeHeader'
-        else if $(event.target).hasClass '.title'
-            $(event.target).parent().addClass 'activeHeader'
-        else
-            $(event.target).parent().parent().addClass 'activeHeader'
-        $('.videoBox').hide()
-        $('.photoBox').show()
+    
 
     stopMedia: ->
         $('.audio').children().each ->
@@ -332,6 +328,9 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             ), 1000
         return
 
+    
+
+
     carousel_left: ->
         $(".carouselBox").animate
             scrollLeft: "+=480"
@@ -388,6 +387,10 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
     rating_popup: ->
         @showpopup('.ratingPopup')
 
+    vip_popup: ->
+        @showpopup('.vipPopup')
+
+
     promo_popup: ->
         @showpopup('.promoPopup')
 
@@ -396,9 +399,6 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     letsgo_popup: ->
         @showpopup('.letsgoPopup')
-
-    video_popup: ->
-        @showpopup('.videoPopup')
 
     imggrid_popup: ->
         @showpopup('.photoPopup')

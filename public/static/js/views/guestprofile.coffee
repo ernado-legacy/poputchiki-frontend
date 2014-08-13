@@ -38,7 +38,7 @@ app.views.GuestProfile = app.views.UserListView.extend
                 is_fav = if my_user.get('favorites').indexOf(user.get('id')) != -1 then true else false
                 is_in_blacklist = if my_user.get('blacklist').indexOf(user.get('id')) != -1 then true else false
                 that.model = user
-                app.views.user_photo_block.render(window.location.pathname.split('/').slice(2)[0])
+                app.views.user_photo_block.render(window.location.pathname.split('/').slice(2)[0], false)
                 user_id = app.models.myuser.getid()
                 user.visit_user_by() if user_id
                 $ that.$el.html jade.templates.guest_profile
@@ -47,12 +47,20 @@ app.views.GuestProfile = app.views.UserListView.extend
                     is_in_blacklist: is_in_blacklist
 
     add_to_fav: ->
-        @model.add_to_fav false
-        do @render
+        do @model.add_to_fav 
+        @$el.find('.fav-action .fui-star-2.act').css('color','grey')
+        @$el.find('.fav-action .myaction').removeClass 'add_to_fav'
+        @$el.find('.fav-action .myaction').empty()
+        @$el.find('.fav-action .myaction').append '<a class="remove_from_fav custom-link">Убрать из избранных</a>'
+
 
     remove_from_fav: ->
-        @model.add_to_fav true
-        do @render
+        do @model.remove_from_fav
+        @$el.find('.fav-action .fui-star-2.act').css 'color','#03aada'
+        do @$el.find('.fav-action .myaction').empty
+        @$el.find('.fav-action .myaction').addClass 'add_to_fav'
+        @$el.find('.fav-action .myaction').text 'Добавить в избранное'
+
 
     to_blacklist: (e)->
         that = @

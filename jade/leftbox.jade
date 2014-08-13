@@ -5,13 +5,15 @@
       .cover
       span#change-avatar Изменить фото
     #profile-rating рейтинг
-  .playerBox.clearfix
-    .audio.audio-change-avatar
-      audio
-        source(src='/static/audio/audio.mp3', type="audio/mp3")
-        source(src='/static/audio/audio.ogg', type="audio/ogg")
-    .timeBar
-      .progress
+  if (user.audio_url)
+    .playerBox.clearfix
+      .audio.audio-change-avatar
+        audio
+          //- source(src='/static/audio/audio.mp3', type="audio/mp3")
+          //- source(src='/static/audio/audio.ogg', type="audio/ogg")
+          source(src=user.audio_url)
+      .timeBar
+        .progress
   .searchBox
     .searchBody.clearfix#my-wishes
       h1 мои предпочтения
@@ -96,12 +98,16 @@
             li.dl Европа
         .tagsBox.clearfix#tb-f
       .greenDots
-      .nearBox.clearfix.sponsor-search
-          .money-icon - 
+      div(class = user.vip === true ? 'nearBox clearfix sponsor-search' : 'nearBox clearfix sponsor-search show-vip')
+          .inactiveblock
+          if (user.vip)
+            .money-icon - 
+          else
+            .money-icon-inactive - 
             .tooltip.clearfix
               .tooltip-arrow
               span Денежка
-          .sponsor-search-description Включите иконку чтобы искать только тех кто готов взяь на себя расходы на путешествие
+          .sponsor-search-description Включите иконку чтобы искать только тех кто готов взять на себя расходы на путешествие
           //- .house-icon
           //-   .tooltip.clearfix
           //-     .tooltip-arrow

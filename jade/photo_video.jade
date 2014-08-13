@@ -7,19 +7,27 @@ div#profile-arrow-down
   .videoHeader
     .title
       span видео
-  .addPhoto
-    span Добавить фото
-  form.photovideoform(style="display:none")
+  if (is_my_user)
+    .addPhoto
       span Добавить фото
-      .photo-load
-        .button
-          button Загрузить фотографию
-          input(type='file')
-      input.photovideoformfile(type="file", name="file", style="visibility: hidden;")
+    form.photovideoform(style="display:none")
+        span Добавить фото
+        .photo-load
+          .button
+            button Загрузить фотографию
+            input(type='file')
+        input(type='hidden',name='loading_url', value='/api/photo')
+        input.photovideoformfile(type="file", name="file", style="visibility: hidden;")
 .photoBox
   .photoBoxWrapper.clearfix
     .pb-wr.clearfix
+
 .videoBox
-  //- .photoBoxWrapper.clearfix
-  //-   .pb-wr.clearfix
-  //-     img(src='/static/img/photo1.png')
+  .photoBoxWrapper.clearfix
+    .pb-wr.clearfix
+      //- .photo-wrapper
+      //-   div.photo-time 12
+      //-   img(src='/static/img/photo1.png')
+      //-   a(class="action-remove-like custom-link") нравится
+      //-   span.like-counter  12
+        
