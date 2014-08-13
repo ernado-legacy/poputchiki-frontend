@@ -18,20 +18,17 @@ $profile_status_text: #4b4b4b
       border: 1px solid #eaeaea
       text-align: center
       // +border-shadow
-      img
+      img, video, .video-wr
         padding: 5px
         background: white
         border: 1px solid white
         width: initial
-        height: 175px 
-        margin: 0 auto
+        height: 175px
         display: block
-        margin-left: auto
-        margin-right: auto
-        margin-top: 3px
-        margin-bottom: 3px
+        margin: 3px auto
+      img,video
         +border-shadow
-      img:hover
+      img:hover, video:hover
         border: 1px solid white
       .custom-link
         font-size: 11px
@@ -43,7 +40,7 @@ $profile_status_text: #4b4b4b
         margin-left: 8px
       .action-like
         font-size: 13px
-        
+        // line-height: 40px
         // color: #9cabae
       .actions
         text-align: center
@@ -60,7 +57,7 @@ $profile_status_text: #4b4b4b
       border: 1px solid white
       color: #777
       +border-shadow
-      img
+      img, video
         border: 1px solid white
         +no-border-shadow
       .fui-play
@@ -72,15 +69,46 @@ $profile_status_text: #4b4b4b
         font-size: 11px
   .videoBox
     .photo-wrapper
-      img
+      img, video
         width: 300px
         height: 300px
+        cursor: pointer
+        // position: absolute
+      .video-wr
+        width: 300px
+        height: 300px
+        border: none
+        padding: 0px
+        position: relative
+        background: none
+        img, video
+          width: 300px
+          height: 300px
+          position: absolute
+        img
+          opacity: 1
+          -webkit-transition: opacity 0.5s ease-in-out
+          -moz-transition: opacity 0.5s ease-in-out
+          -ms-transition: opacity 0.5s ease-in-out
+          -o-transition: opacity 0.5s ease-in-out
+          transition: opacity 0.5s ease-in-out
+          z-index: 100
+        video
+          z-index: 99
     .fui-play
       color: #eaeaea
       position: absolute
       font-size: 45px
       margin-left: 85px
       margin-top: 40px
+      cursor: pointer
+      opacity: 1
+      -webkit-transition: opacity 0.5s ease-in-out
+      -moz-transition: opacity 0.5s ease-in-out
+      -ms-transition: opacity 0.5s ease-in-out
+      -o-transition: opacity 0.5s ease-in-out
+      transition: opacity 0.5s ease-in-out
+      z-index: 101
 .settings
   .guests 
     .rightBox 

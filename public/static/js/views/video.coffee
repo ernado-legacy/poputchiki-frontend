@@ -6,7 +6,11 @@ app.views.Video = Backbone.View.extend
         'click .action-like':'like'
         'click .action-remove-like':'unlike'
         'click .remove-photo': 'removeVideo'
+        'click video': 'video_block'
 
+
+    initialize: ->
+        @listenTo @model,'change:url',@refreshSource
 
     render: (is_my_user)->
         that = @
@@ -47,7 +51,7 @@ app.views.Video = Backbone.View.extend
             that.$el.find('.custom-link').removeClass('action-remove-like').addClass('action-like')
         return false
 
-        
+
     removeVideo: ()->
         do @model.destroy
         do @remove
@@ -55,7 +59,27 @@ app.views.Video = Backbone.View.extend
 
     updateUrl: ()->
         that = @
-        @model.fetch.done ->
-            if that.model.get('url')
-                clearInterval that.interval
-                that.render that.is_my_user
+        do @model.fetch
+        console.log @model.toJSON()
+        # .done ->
+        #     if that.model.get('url')
+        #         clearInterval that.interval
+        #         that.render that.is_my_user
+
+    video_block: ->
+        $('video').each ->
+            this.pause()
+            this.currentTime = 0
+        animVideo = $(event.target)
+        animVideo.parent().prev().css "opacity", "0"
+        setTimeout (->
+            animVideo.get(0).play()
+            return
+        ), 2000
+        animVideo.bind "ended", ->
+            animVideo.currentTime = 0
+            animVideo.parent().prev().css "opacity", "1"
+
+    refreshSource: ->
+        clearInterval @interval
+        @render @is_my_user

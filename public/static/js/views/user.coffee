@@ -29,11 +29,11 @@ app.views.UserListView = Backbone.View.extend
 
     add_to_fav: (e)->
         do e.preventDefault
-        @model.add_to_fav false
+        do @model.add_to_fav
         $(e.currentTarget).addClass('active-action').removeClass('add_to_fav')
 
     remove_from_fav: ->
-        @model.add_to_fav true
+        do @model.remove_from_fav
         do @.remove
 
     to_journey: ->

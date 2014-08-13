@@ -47,12 +47,20 @@ app.views.GuestProfile = app.views.UserListView.extend
                     is_in_blacklist: is_in_blacklist
 
     add_to_fav: ->
-        @model.add_to_fav false
-        do @render
+        do @model.add_to_fav 
+        @$el.find('.fav-action .fui-star-2.act').css('color','grey')
+        @$el.find('.fav-action .myaction').removeClass 'add_to_fav'
+        @$el.find('.fav-action .myaction').empty()
+        @$el.find('.fav-action .myaction').append '<a class="remove_from_fav custom-link">Убрать из избранных</a>'
+
 
     remove_from_fav: ->
-        @model.add_to_fav true
-        do @render
+        do @model.remove_from_fav
+        @$el.find('.fav-action .fui-star-2.act').css 'color','#03aada'
+        do @$el.find('.fav-action .myaction').empty
+        @$el.find('.fav-action .myaction').addClass 'add_to_fav'
+        @$el.find('.fav-action .myaction').text 'Добавить в избранное'
+
 
     to_blacklist: (e)->
         that = @
