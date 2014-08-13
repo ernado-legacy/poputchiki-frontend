@@ -1,9 +1,12 @@
-.fui-play
 div.photo-time #{video.time.date}
-if (video.thumbnail_url)
-  img(src=video.thumbnail_url)
-else
-  img(src='http://lorempixel.com/400/400/')
+.fui-play
+.video-wr
+  //if (video.thumbnail_url)
+    img(src=video.thumbnail_url)
+  //else
+    img(src='http://lorempixel.com/400/400/')
+  video
+    source(src="http://msk1.cydev.ru:8080/3,f4b3185c5ef2")
 
 if (is_my_user)
   .actions

@@ -22,7 +22,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click #change-avatar': 'chava_popup'
         'click #menu-go': 'letsgo_popup'
         'click .menu-settings': 'settings'
-        'click .videoBox img': 'video_popup'
+        'click .video-wr video': 'video_block'
         'click .imgGrid .photo-wrapper': 'imggrid_popup'
         'click #search-slideup': 'left_sup'
         'click #search-slidedown': 'left_sdown'
@@ -328,6 +328,21 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             ), 1000
         return
 
+    video_block: ->
+        $('video').each ->
+            this.pause()
+            this.currentTime = 0
+        animVideo = $(event.target)
+        animVideo.parent().prev().css "opacity", "0"
+        setTimeout (->
+            animVideo.get(0).play()
+            return
+        ), 2000
+        animVideo.bind "ended", ->
+            animVideo.currentTime = 0
+            animVideo.parent().prev().css "opacity", "1"
+
+
     carousel_left: ->
         $(".carouselBox").animate
             scrollLeft: "+=480"
@@ -396,9 +411,6 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     letsgo_popup: ->
         @showpopup('.letsgoPopup')
-
-    video_popup: ->
-        @showpopup('.videoPopup')
 
     imggrid_popup: ->
         @showpopup('.photoPopup')
