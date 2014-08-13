@@ -4,8 +4,21 @@ if (video.thumbnail_url)
   img(src=video.thumbnail_url)
 else
   img(src='http://lorempixel.com/400/400/')
-if(liked_by)
-  a(class="action-remove-like custom-link") нравится
+
+if (is_my_user)
+  .actions
+    if(liked_by)
+      a(class="action-remove-like custom-link") нравится
+    else
+      a(class="action-like custom-link") нравится
+    span.like-counter-box
+      i &nbsp;
+      span.like-counter #{video.likes}
+    a(class="custom-blue-link open-promo") в ленту
+    a(class="custom-link remove-photo") удалить
 else
-  a(class="action-like custom-link") нравится
-span.like-counter  #{video.likes}
+  if(liked_by)
+    a(class="action-remove-like custom-link") нравится
+  else
+    a(class="action-like custom-link") нравится
+  span.like-counter  #{video.likes}

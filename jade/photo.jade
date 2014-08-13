@@ -20,8 +20,20 @@
 //-  
 div.photo-time #{photo.time.date}
 img(src=photo.url)
-if(liked_by)
-  a(class="action-remove-like custom-link") нравится
+if (is_my_user)
+  .actions
+      if(liked_by)
+        a(class="action-remove-like custom-link") нравится
+      else
+        a(class="action-like custom-link") нравится
+      span.like-counter-box
+        i &nbsp;
+        span.like-counter #{photo.likes}
+      a(class="custom-blue-link new-ava") на аватарку
+      a(class="custom-link remove-photo") удалить
 else
-  a(class="action-like custom-link") нравится
-span.like-counter  #{photo.likes}
+  if(liked_by)
+    a(class="action-remove-like custom-link") нравится
+  else
+    a(class="action-like custom-link") нравится
+  span.like-counter  #{photo.likes}
