@@ -31,7 +31,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .nearBox .house-icon': 'houseIcon'
         'click .searchBody .dd': 'open_box'
         'click .searchBody .du': 'close_box'
-        'click .searchBody .dl': 'select_box'
+        #'click .searchBody .dl': 'select_box'
         'focus .ageBox input': 'activeAgeBox'
         'focusout .ageBox input': 'deactiveAgeBox'
         'click #profile-slidedown': 'show_about'
@@ -39,7 +39,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .filterBlock .title .dd': 'show_filters'
         'click .filterBlock .title .du': 'hide_filters'
         'focus .bottomPart input': 'activeChat'
-        #'focusout .bottomPart input': 'deactiveChat'
+        'click #folowers-tags .searchCountry ul .dl': 'addSearchTag'
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")
@@ -214,8 +214,16 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         do @slideHide
         do app.views.setting.render e
                 
+    addSearchTag: -> 
+        newCountry = $(event.target).text()
+        #$(this).val ""
+        z = "<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
+        $('#tb-f').append z
+        $('#folowers-new-tag').val("")
+        $(event.target).parent().slideUp('slow')
+        $(event.target).parent().prev().css 'display', 'none'
+        $(event.target).parent().prev().prev().css 'display', 'block'
 
-    
 
     moneyIcon: ->
         if $(event.target).hasClass 'money-icon'

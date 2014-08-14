@@ -33,8 +33,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             that.showInputDrop '.newCountry'
             that.hideInputDrop '.newCountry'
             that.openTagWithInput '.newCountry'
-            that.addSearchTag '#profile-new-tag', '#profile-tags', 1
-            that.addSearchTag '#folowers-new-tag', '#tb-f', 1
+            that.addSearchTag '.newCountry ul .dl', '#profile-new-tag', '#profile-tags', 1
 
             sc = @$el.find '.countryEdit'
             scv = new app.views.AutocompleteCountry
@@ -64,12 +63,19 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 $("#main-status").slideDown "slow"
                 $(".statusBoxEdit").slideUp "slow"
 
-            #$("#profile-new-tag").keydown (event) ->
-                #if event.which is 13
-                    #newCountry = $(this).val()
-                    #unless newCountry is ""
-                        #$(this).val ""
-                        #$("#profile-tags").append "<div class='mainSelectElement profileTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
+    addSearchTag: (list, newtag, oldtags, variant) ->
+        $(list).click ->
+            newCountry = $(this).text()
+            unless newCountry is ""
+                $(this).val ""
+                z = "<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
+                if variant is 1
+                    $(oldtags).append z
+                else
+                    $(oldtags).prepend z
+            $(newtag).val("")
+
+
 
     showInputDrop: (box) ->
         $(box).children(".dd").click ->
@@ -127,18 +133,6 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $(this).parent().parent().children('span').text(text)
             # event.preventDefault()
             # event.stopPropagation()
-
-    addSearchTag: (newtag, oldtags, variant) ->
-        $(newtag).keydown (event) ->
-            if event.which is 13
-                newCountry = $(this).val()
-                unless newCountry is ""
-                    $(this).val ""
-                    z = "<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
-                    if variant is 1
-                        $(oldtags).append z
-                    else
-                        $(oldtags).prepend z
 
     # showMenu: (end) ->
     #    anim = document.getElementById("left-menu")
