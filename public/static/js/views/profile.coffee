@@ -18,7 +18,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
     render: ->
         that = @
         history.pushState null, 'poputchiki', '/profile/'
-        @get_my_user (user) ->
+        @get_my_user (user) =>
             that.model = user
             app.views.user_photo_block.render(user.id, true)
 
@@ -28,13 +28,21 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             that.newtag '#year-select'
             that.newtag '#month-select'
             that.newtag '#day-select'
-            that.newtag '#city-select'
-            that.newtag '#country-select'
+            #that.newtag '#city-select'
+            #that.newtag '#country-select'
             that.showInputDrop '.newCountry'
             that.hideInputDrop '.newCountry'
             that.openTagWithInput '.newCountry'
             that.addSearchTag '#profile-new-tag', '#profile-tags', 1
             that.addSearchTag '#folowers-new-tag', '#tb-f', 1
+
+            sc = @$el.find '.countryEdit'
+            scv = new app.views.AutocompleteCountry
+                el: sc
+            sct = @$el.find '.cityEdit'
+            sctv = new app.views.AutocompleteCity
+                el: sct
+            sctv.country = scv
 
             $("#edit-profile").click ->
                 $("#about-in-info").css "display", "none"

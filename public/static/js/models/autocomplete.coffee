@@ -15,6 +15,7 @@ app.models.cities = (sdata, callback) ->
         url: "/api/cities",
         data: sdata,
         success: callback
+        dataType: "json"
         #error: error
 
 app.models.citypairs = (sdata, callback) ->
@@ -24,4 +25,5 @@ app.models.citypairs = (sdata, callback) ->
         url: "/api/citypairs",
         data: sdata,
         success: callback
+        dataType: "json"
         #error: error
