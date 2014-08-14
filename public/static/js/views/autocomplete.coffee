@@ -1,9 +1,9 @@
 app.views.Autocomplete = Backbone.View.extend
 
     events: 
-        'keydown input': 'press'
+        'keyup input': 'press'
         'focusout input': 'out'
-        'focusout li.dl': 'lc'
+        'click li.dl': 'lc'
 
     getdata: (val, callback) ->
         callback ["1","2","3"]
@@ -30,9 +30,10 @@ app.views.Autocomplete = Backbone.View.extend
         true
 
     out: ->
-        setTimeout 200, =>
+        setTimeout (=>
             droped = @$el.find '.droped'
             droped.css 'display', 'none'
+        ), 200
 
     lc: (event) ->
         el = $ event.currentTarget
@@ -52,21 +53,27 @@ app.views.AutocompleteCity = app.views.Autocomplete.extend
     
     getdata: (val, callback) ->
 
-        if country
+        if not @country
             condition = false
         else
             country = @country.$el.find('input').val()
             condition = Boolean country
 
-        if condition
-            app.models.cities
-                start: val
-                country: country
-            , callback
-        else
+        #REMOVE IT!!!!11
+        condition = false
+
+        if not condition
             app.models.citypairs
                 start: val
             , (data) -> 
                 d = _.map data, (item) ->
-                    data.title
+                    item.title
+                callback d
+        else
+            app.models.cities
+                start: val
+                country: country
+            , (data) -> 
+                d = _.map data, (item) ->
+                    item.title
                 callback d

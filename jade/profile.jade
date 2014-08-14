@@ -204,27 +204,18 @@
           span.lp Страна:
           span.rp
             .mainSelectElement.countryEdit.withShadow#country-select
-              span#country-edit-select #{user.country}
+              input.search-select(placeholder='Страна', type='text',  maxlength="20", value="#{user.country}")
               .dd
               .du
               ul.droped.withShadow
-                li.dl Россия
-                li.dl Украина
-                li.dl США
-
         #city-edit.clearfix
           span.lp Город:
           span.rp
             .mainSelectElement.cityEdit.withShadow#city-select
-              span#city-edit-select #{user.city}
+              input.search-select(placeholder='Город', type='text',  maxlength="20", value="#{user.city}")
               .dd
               .du
               ul.droped.withShadow
-                li.dl Москва
-                li.dl Киев
-                li.dl Екатеринбург
-                li.dl Пермь
-
         #about-edit.clearfix
           span.lp О себе:
           span.rp
