@@ -957,6 +957,8 @@ a.blue-link
         .mainSelectElement
             width: 78%
             margin-bottom: 5px
+            input
+                width: 140px
             input::-moz-placeholder
                 +simple-font
             input::-webkit-input-placeholder
@@ -1028,9 +1030,6 @@ a.blue-link
     margin: 0 auto
 .rightBox
     float: left
-    // width: -moz-calc(100% - 460px)
-    // width: -webkit-calc(100% - 460px)
-    // width: calc(100% - 460px)
     width: -moz-calc(100% - 610px)
     width: -webkit-calc(100% - 610px)
     width: calc(100% - 610px)
@@ -1583,9 +1582,12 @@ a.blue-link
                     color: $chat_grey
                     +italic-font
                     font-size: 13px
+                    padding-right: 10px
                 .recordText
                     color: $title_text
                     font-size: 15px
+                .myMessage
+                    text-align: right
         .centerPart::-webkit-scrollbar
             height: 1ex
             width: 8px
@@ -1621,6 +1623,8 @@ a.blue-link
                 cursor: pointer
     .darkBlock
         background-color: $chat_block_a
+        box-shadow: 0px 0px 30px $header_blue
+
 
 /*STATUSES*/
 .statusesContainer
@@ -2377,7 +2381,7 @@ a.blue-link
         .leftPart, .rightPart
             float: left
             margin-left: 10px
-            width: 210px
+            //width: 210px
             margin-top: 20px
             padding: 10px 0 0 0
             background: transparent

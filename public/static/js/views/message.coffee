@@ -83,7 +83,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                                 else
                                     cb.remove()
                                     that.updatedialog messages.urluser
-                            console.log messages
+                            #console.log messages
 
     reupdate: ->
         that = @
@@ -117,7 +117,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         dialog = @dialogs.find (item) -> user == item.get 'id'
         $('.chatContainer').append jade.templates.dialog_item
-            dialog: dialog
+            dialog: dialog  
 
         @messages[user].each (mess) =>
             @render_message get_cb(),

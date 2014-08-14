@@ -40,6 +40,8 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click #profile-slideup': 'hide_about'
         'click .filterBlock .title .dd': 'show_filters'
         'click .filterBlock .title .du': 'hide_filters'
+        'focus .bottomPart input': 'activeChat'
+        #'focusout .bottomPart input': 'deactiveChat'
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")
@@ -416,6 +418,11 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         
     deactiveAgeBox: ->
         $(event.target).parent().removeClass 'activeAgeBox'
+
+    activeChat: ->
+        if !($(event.target).parent().parent().hasClass 'darkBlock')
+            $('.chatBlock').removeClass 'darkBlock'
+            $(event.target).parent().parent().addClass 'darkBlock'
 
     show_filters: ->
         $(event.target).parent().parent().children('.filters').slideDown('slow')
