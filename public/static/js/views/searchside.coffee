@@ -14,7 +14,6 @@ app.views.SearchSide = Backbone.View.extend
         _.each data, (item) ->
             photomodel = new app.models.Photo
             photomodel.set item
-            console.log photomodel.toJSON()
             
             photoView = new app.views.Photo model:photomodel
             $('.photoBox .photoBoxWrapper .pb-wr').append photoView.render(false)

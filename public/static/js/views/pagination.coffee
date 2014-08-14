@@ -17,5 +17,5 @@ app.views.Pagination = Backbone.View.extend
         @$el.html ''
         _.each _.range(1, count), (item) =>
             @$el.append '<button>'+item+'</button>'
-        @$el.find('button').addClass 'paginationitem'
+        @$el.find('button').addClass 'paginationitem custom-blue-link'
         @$el.find('button:first').addClass 'active'

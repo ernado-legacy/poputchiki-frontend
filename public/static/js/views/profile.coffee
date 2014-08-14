@@ -147,13 +147,22 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         "click #my-profile .money-icon": 'setSponsor'
         "click #my-profile .house-icon": 'setHost'
         "click #my-seasons .season": 'setSeasons'
+        # 'click #my-profile .money-icon': 'moneyIcon'
+        # 'click #my-profile .house-icon': 'houseIcon'
 
-    setSeasons: ()->
-        @model.set('seasons',[])
-        seasons = @$el.find '#my-seasons .season'
-        @model.get('seasons').push(season.id)  for season in seasons when $(season).hasClass('seasonChecked')
-        # console.log($(season).id)  for season in seasons
-        do @model.save
+    setSeasons: (e)->
+        if $(e.currentTarget).hasClass('season')
+            $(e.currentTarget).toggleClass 'seasonChecked'
+        else
+            $(e.currentTarget).parent().toggleClass 'seasonChecked'
+
+        seasons = @$el.find '#my-seasons .season.seasonChecked'
+        new_seasons = []
+        new_seasons.push(season.id) for season in seasons
+
+        formData = {}
+        formData['seasons'] = new_seasons
+        @model.save formData, patch: true
         return
 
     saveProfile: ->
@@ -174,16 +183,29 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         formData['city'] = $('#city-edit-select').text()
         formData['birthday'] = @getDate $('#birtday-edit')
         formData['about'] = about_text
-        @model.set(formData)
-        @model.save()
+        # @model.set()
+        @model.save formData, patch: true
         do @render
 
-    setSponsor: ->
-        @model.save 'is_sponsor', @$el.find('.money-icon').hasClass 'mg-icon' 
-    setHost: ->
-        @model.save 'is_host', @$el.find('.house-icon').hasClass 'hg-icon'
+    setSponsor: (e)->
+        $(e.currentTarget).toggleClass 'mg-icon'
+        formData = {}
+        formData['is_sponsor'] = @$el.find('.money-icon').hasClass 'mg-icon' 
+        @model.save formData, patch: true
+    setHost: (e)->
+        $(e.currentTarget).toggleClass 'hg-icon'
+        formData = {}
+        formData['is_host'] = @$el.find('.house-icon').hasClass 'hg-icon'
+        @model.save formData, patch: true
+
+
+        # moneyIcon: ->
+        # if $(event.target).hasClass 'money-icon'
+        #     $(event.target).toggleClass 'mg-icon'
+
     getDate: (date_block)->
         d = date_block.find('#day-edit-select').text()
+        d = '0'+d if d.length == 1
         m = date_block.find('#month-edit-select').text()
         m = $("li:contains('"+m+"')").attr 'month'
         y = date_block.find('#year-edit-select').text()

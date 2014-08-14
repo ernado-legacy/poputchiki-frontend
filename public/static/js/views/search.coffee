@@ -62,8 +62,8 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
     research: (item, callback) ->
         query = @query
         item = item - 1
-        query.offset = item * 20
-        query.count = 20
+        query.offset = item * 21
+        query.count = 21
         app.models.search query, (data) =>
             @$el.find('.gallery ul').html ''
             @renderSearchingUser  new app.models.User user for user in data.result
@@ -108,4 +108,5 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             sctv = new app.views.AutocompleteCity
                 el: sct
             sctv.country = scv
+            do that.search
         # do @.search

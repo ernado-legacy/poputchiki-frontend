@@ -56,7 +56,12 @@ app.mixins.RenderSettingItem =
                 user: @model.attributes
 
     changeUserSettings: (callback)->
-        do callback
+        @$el.find('.profile-edit-slideup').addClass('loading')
+        aftersavefunction = ->
+            f = ->
+                $('.profile-edit-slideup').removeClass('loading');
+            setTimeout f, 1000
+        callback aftersavefunction
         do app.models.myuser.clear
     
             
@@ -74,7 +79,7 @@ app.views.SettingsPassword = Backbone.View.extend _.extend app.mixins.RenderSett
 
     clck: ->
         that = @
-        @changeUserSettings ->
+        @changeUserSettings (aftersavefunction)->
             formData = {}
             input = that.$el.find('input[name=pass]')
             input2 = that.$el.find('input[name=passagain]')
@@ -83,10 +88,13 @@ app.views.SettingsPassword = Backbone.View.extend _.extend app.mixins.RenderSett
             if input.val() and (input.val() == input2.val())
                 formData['password'] = input.val()
                 that.model.set formData
-                that.model.save formData, patch: true if _.size(that.model.changed)>0
+                if _.size(that.model.changed)>0
+                    that.model.save formData, patch: true, success: ->
+                            do aftersavefunction 
                 that.$el.find('.currentEmail a').text(formData[input.attr('name')])
             else
-                alert 'введите верный пароль'
+                console.log  'введите верный пароль'
+                do aftersavefunction 
 
 
 app.views.SettingsEmail = Backbone.View.extend _.extend app.mixins.RenderSettingItem,
@@ -94,28 +102,38 @@ app.views.SettingsEmail = Backbone.View.extend _.extend app.mixins.RenderSetting
     
     clck: ->
         that = @
-        @changeUserSettings ->
+        @changeUserSettings (aftersavefunction)->
             formData = {}
             input = that.$el.find('input[name=email]')
             input2 = that.$el.find('input[name=emailagain]')
             if input.val() and (input.val() == input2.val())
                 formData[input.attr('name')] = input.val()
                 that.model.set formData
-                that.model.save formData, patch: true if _.size(that.model.changed)>0
+                if _.size(that.model.changed)>0
+                    that.model.save formData, patch: true, success: ->
+                            do aftersavefunction 
                 that.$el.find('.currentEmail a').text(formData[input.attr('name')])
             else
-                alert 'введите верный имейл'
+                console.log  'введите верный имейл'
+                do aftersavefunction 
 
 app.views.SettingsInvisible = Backbone.View.extend _.extend app.mixins.RenderSettingItem,
     template: jade.templates.settingsinvisible
     clck: ->
-        that = @
-        @changeUserSettings ->
-            formData = {}
-            checked = if that.$el.find('.box').hasClass('checked') then true else false
-            formData['invisible'] = checked
-            console.log formData
-            that.model.save formData, patch: true if _.size(that.model.changed)>0
+        console.log 
+        if @model.get('vip')
+            that = @
+            @changeUserSettings (aftersavefunction)->
+                formData = {}
+                checked = if that.$el.find('.box').hasClass('checked') then true else false
+                formData['invisible'] = checked
+                console.log formData
+                if _.size(that.model.changed)>0
+                    that.model.save formData, patch: true , success: ->
+                        do aftersavefunction
+        else
+            do $('.show-vip').click
+            do aftersavefunction 
 
 app.views.SettingsPayment = Backbone.View.extend _.extend app.mixins.RenderSettingItem,
     template: jade.templates.settingspayment

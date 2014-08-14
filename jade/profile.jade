@@ -83,34 +83,36 @@
       .infoBox.infoView
         #birtday-in-info.clearfix
           span.lp День рождения:
-          span.rp #{user.birthday}
-        #zodiac-in-info.clearfix
-          span.lp Знак зодиака:
-          span.rp лев
+          span.rp #{user.birthdayDay} #{user.birthdayMonth} 
+        //- #zodiac-in-info.clearfix
+        //-   span.lp Знак зодиака:
+        //-   span.rp лев
+        br
         #country-in-info.clearfix
           span.lp Страна:
           span.rp #{user.country}
+        br
         #city-in-info.clearfix
           span.lp Город:
           span.rp #{user.city}
-        #skype-in-info.clearfix.hide
-          span.lp Skype:
-          span.rp skype
-        #interests-in-info.clearfix.hide
-          span.lp Интересы:
-          span.rp Велотуризм, яхтинг, скалолазание, серфинг, виндсерфинг, дайвинг, воздухоплавание, конный спорт, теннис, путешествия, музыка, йога, общение
-        #music-in-info.clearfix.hide
-          span.lp Любимая музыка:
-          span.rp Jazz, Rock '70 '80, Trance
-        #films-in-info.clearfix.hide
-          span.lp Любимые фильмы:
-          span.rp Боги сошли с ума
-        #quote-in-info.clearfix.hide
-          span.lp Любимые цитаты:
-          span.rp 
-            p если существует несколько логически непротиворечивых объяснений какого-либо явления, объясняющих его одинаково хорошо, то следует, при прочих равных условиях, считать верным самое простое из них
-            p ------
-            p бритва Оккама
+        //- #skype-in-info.clearfix.hide
+        //-   span.lp Skype:
+        //-   span.rp skype
+        //- #interests-in-info.clearfix.hide
+        //-   span.lp Интересы:
+        //-   span.rp Велотуризм, яхтинг, скалолазание, серфинг, виндсерфинг, дайвинг, воздухоплавание, конный спорт, теннис, путешествия, музыка, йога, общение
+        //- #music-in-info.clearfix.hide
+        //-   span.lp Любимая музыка:
+        //-   span.rp Jazz, Rock '70 '80, Trance
+        //- #films-in-info.clearfix.hide
+        //-   span.lp Любимые фильмы:
+        //-   span.rp Боги сошли с ума
+        //- #quote-in-info.clearfix.hide
+        //-   span.lp Любимые цитаты:
+        //-   span.rp 
+        //-     p если существует несколько логически непротиворечивых объяснений какого-либо явления, объясняющих его одинаково хорошо, то следует, при прочих равных условиях, считать верным самое простое из них
+        //-     p ------
+        //-     p бритва Оккама
       .infoBox.infoEdit
 
         #name-edit.clearfix
@@ -123,19 +125,19 @@
           span.lp День рождения:
           span.rp
             .mainSelectElement.dayEdit.withShadow#day-select
-              span#day-edit-select 20
+              span#day-edit-select #{user.birthdayDay}
               .dd
               .du
               ul.droped.withShadow
-                li.dl 01
-                li.dl 02
-                li.dl 03
-                li.dl 04
-                li.dl 05
-                li.dl 06
-                li.dl 07
-                li.dl 08
-                li.dl 09
+                li.dl 1
+                li.dl 2
+                li.dl 3
+                li.dl 4
+                li.dl 5
+                li.dl 6
+                li.dl 7
+                li.dl 8
+                li.dl 9
                 li.dl 10
                 li.dl 11
                 li.dl 12
@@ -159,25 +161,25 @@
                 li.dl 30
                 li.dl 31
             .mainSelectElement.monthEdit.withShadow#month-select
-              span#month-edit-select Август
+              span#month-edit-select #{user.birthdayMonth}
               .dd
               .du
               ul.droped.withShadow
-                li(class="dl", month="01") Январь
-                li(class="dl", month="02") Февраль
-                li(class="dl", month="03") Март
-                li(class="dl", month="04") Апрель
-                li(class="dl", month="05") Май
-                li(class="dl", month="06") Июнь
-                li(class="dl", month="07") Июль
-                li(class="dl", month="08") Август
-                li(class="dl", month="09") Сентябрь
-                li(class="dl", month="10") Октябрь
-                li(class="dl", month="11") Ноябрь
-                li(class="dl", month="12") Декабрь
+                li(class="dl", month="01") Января
+                li(class="dl", month="02") Февраля
+                li(class="dl", month="03") Марта
+                li(class="dl", month="04") Апреля
+                li(class="dl", month="05") Мая
+                li(class="dl", month="06") Июня
+                li(class="dl", month="07") Июля
+                li(class="dl", month="08") Августа
+                li(class="dl", month="09") Сентября
+                li(class="dl", month="10") Октября
+                li(class="dl", month="11") Ноября
+                li(class="dl", month="12") Декабря
               .statusDrop
             .mainSelectElement.yearEdit.withShadow#year-select
-              span#year-edit-select 1983
+              span#year-edit-select #{user.birthdayYear}
               .dd
               .du
               ul.droped.withShadow

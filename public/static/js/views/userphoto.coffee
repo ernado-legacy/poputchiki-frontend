@@ -36,7 +36,8 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
     render: (id, is_my_user)->
         @user_id = id
         @is_my_user = is_my_user
-        $ @.$el.append jade.templates.photo_video
+        @$el.empty
+        $ @.$el.html jade.templates.photo_video
             is_my_user: is_my_user
         that = @
         collection = new app.models.Photos id

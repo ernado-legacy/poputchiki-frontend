@@ -4,7 +4,7 @@
       img(src=user.avatar_url)
       .cover
       span#change-avatar Изменить фото
-    #profile-rating рейтинг
+    #profile-rating #{user.rating} %
   if (user.audio_url)
     .playerBox.clearfix
       .audio.audio-change-avatar
@@ -104,9 +104,9 @@
             .money-icon - 
           else
             .money-icon-inactive - 
-            .tooltip.clearfix
-              .tooltip-arrow
-              span Денежка
+              .tooltip.clearfix
+                .tooltip-arrow
+                span Спонсорство
           .sponsor-search-description Включите иконку чтобы искать только тех кто готов взять на себя расходы на путешествие
           //- .house-icon
           //-   .tooltip.clearfix

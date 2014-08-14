@@ -45,11 +45,14 @@ app.views.GuestProfile = app.views.UserListView.extend
                     user: user.attributes,
                     is_fav: is_fav
                     is_in_blacklist: is_in_blacklist
+                do $('#profile-slidedown').click
 
     add_to_fav: ->
         do @model.add_to_fav 
         @$el.find('.fav-action .fui-star-2.act').css('color','grey')
         @$el.find('.fav-action .myaction').removeClass 'add_to_fav'
+        # @$el.find('.fav-action').removeClass 'add_to_fav'
+        # @$el.find('.fav-action').addClass 'remove_from_fav'
         @$el.find('.fav-action .myaction').empty()
         @$el.find('.fav-action .myaction').append '<a class="remove_from_fav custom-link">Убрать из избранных</a>'
 
@@ -58,7 +61,9 @@ app.views.GuestProfile = app.views.UserListView.extend
         do @model.remove_from_fav
         @$el.find('.fav-action .fui-star-2.act').css 'color','#03aada'
         do @$el.find('.fav-action .myaction').empty
+        @$el.find('.fav-action .myaction').removeClass 'remove_from_fav'
         @$el.find('.fav-action .myaction').addClass 'add_to_fav'
+        # @$el.find('.fav-action').addClass 'add_to_fav'
         @$el.find('.fav-action .myaction').text 'Добавить в избранное'
 
 
@@ -77,6 +82,11 @@ app.views.GuestProfile = app.views.UserListView.extend
                $(e.currentTarget).text('убрать из черного списка')
                # console.log $(e.currentTarget).closest('add').remove()
                # $('.add.not_in_blacklist').removeClass('not_in_blacklist').addClass('in_blacklist')
+
+    to_journey: ->
+        do @model.invite_to_travel
+        @$el.find('.to_journey').text 'Вы пригласили '+ @model.get('name') + ' в путешествие'
+        @$el.find('.to_journey').removeClass('to_journey')
 
 
 

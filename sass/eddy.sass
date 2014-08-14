@@ -8,6 +8,12 @@ $profile_status_text: #4b4b4b
   -moz-box-shadow: none
   box-shadow: none
 .photoVideoBlock
+  .photoHeaderBox
+    .searchPhotoHeader
+      width: 80%
+      // text-align: center
+      div.title
+        background-image: none!important
   .photoBox, .videoBox
     color: #eaeaea
     background: #eaeaea
@@ -124,6 +130,31 @@ $profile_status_text: #4b4b4b
 .favs
   li
     border-right: 1px solid $menu_favorites!important
+  li.fav-status
+    background: none
+    border: none
+    width: initial!important
+    height: initial!important
+    padding: 7px 20px
+    background-color: $profile_info
+    border: 1px solid $chat_line_border!important
+    float: left
+    margin-left: 90px
+    margin-right: 20px
+      // border-bottom: 1px solid $chat_line_border
+  li.fav-status::after, li.fav-status::before
+    content: ""
+    position: absolute
+    left: 10px
+    top: -20px
+    border: 10px solid transparent
+    border-bottom: 10px solid #e0e0e0
+
+  li.fav-status::after
+    top: -19px
+    border-bottom: 10px solid #f1f1f1
+
+
 .settings
   .guests
     li
@@ -167,6 +198,14 @@ $profile_status_text: #4b4b4b
       color: $menu_photos
     .fui-list-bulleted
       color: $menu_messages
+  .bilContainer.status-success
+    .price 
+      color: $menu_photos
+      float: left
+  .bilContainer.status-error
+    .price 
+      float: left
+      color: $menu_rating
 
 
 .guests.favs
@@ -176,3 +215,7 @@ $profile_status_text: #4b4b4b
       color: #eaeaea
       text-decoration: none
 
+
+.profile-edit-slideup.loading
+  background: url(http://poputchiki/static/img/settingpreloader.GIF) no-repeat!important
+  text-indent: -10000px

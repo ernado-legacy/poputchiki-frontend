@@ -27,20 +27,13 @@ app.views.Video = Backbone.View.extend
                 liked_by: liked_by,
                 is_my_user: is_my_user
 
-    clck: ->
-        $('body').addClass 'bodyPopup'
-
-        _.each ['.popupBack', '.popupWrapper', '.photoPopup'], (item) ->
-            $(item).fadeIn 'slow'
-
-        do @changeimg
 
     like: ()->
         that = @
         @model.like (likes)->
             counter_container = that.$el.find('.like-counter')
             counter_container.text likes
-            that.$el.find('.custom-link').removeClass('action-like').addClass('action-remove-like')
+            that.$el.find('.action-like').removeClass('action-like').addClass('action-remove-like')
         return false
 
     unlike: ()->
@@ -48,7 +41,7 @@ app.views.Video = Backbone.View.extend
         @model.unlike (likes)->
             counter_container = that.$el.find('.like-counter')
             counter_container.text likes
-            that.$el.find('.custom-link').removeClass('action-remove-like').addClass('action-like')
+            that.$el.find('.action-remove-like').removeClass('action-remove-like').addClass('action-like')
         return false
 
 
