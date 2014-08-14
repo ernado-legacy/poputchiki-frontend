@@ -2,7 +2,7 @@
   .profileBox
     .imgBox
       img(src=user.avatar_url)
-    #profile-rating 96%
+    //- #profile-rating 96%
   if (user.audio_url)
     .playerBox.clearfix
       .audio.audio-change-avatar
@@ -16,12 +16,14 @@
     .write 
       .fui-bubble.act
       .myaction Написать сообщение
-    .add.fav-action
-      if is_fav
+    
+    if is_fav
+      .add.fav-action
         .fui-star-2.act(style="color:grey;")
         .myaction 
           a.remove_from_fav.custom-link Убрать из избрыннх
-      else
+    else
+      .add.fav-action
         .fui-star-2.act
         .myaction.add_to_fav Добавить в избранное
     .show 

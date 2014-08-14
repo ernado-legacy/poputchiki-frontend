@@ -5,13 +5,19 @@ h1 РЕЖИМ НЕВИДИМКИ
 .profileInfoBox 
     .infoBox.infoEdit          
         .head.clearfix Режим невидимки позваляет не палиться когда вы заходите на другого пользователя
-        .clearfix.notifications.email
-            .clearfix
-                div(class = user.invisible ? "box checked" : "box")
-                span Включить режим невидимки
-        .currentEmail
-            span.fui-alert 
-            |  Режим невидимки доступен только пользователям с вип-статусом 
-            a(href='#')  активировать вип статус
+        if user.vip
+            .clearfix.notifications.email
+                .clearfix
+                    div(class = user.invisible ? "box checked" : "box")
+                    span Включить режим невидимки
+        else
+            .clearfix.notifications.email
+                .clearfix(style="opacity:0.6")
+                    div(class = user.invisible ? "box checked" : "box")
+                    span Включить режим невидимки
+            .currentEmail
+                span.fui-alert 
+                |  Режим невидимки доступен только пользователям с вип-статусом 
+                a(class="custom-blue-link")  активировать вип статус
         .profile-edit-slideup
             span сохранить

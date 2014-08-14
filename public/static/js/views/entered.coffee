@@ -26,10 +26,8 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .imgGrid .photo-wrapper': 'imggrid_popup'
         'click #search-slideup': 'left_sup'
         'click #search-slidedown': 'left_sdown'
-        'click .season': 'season'
-        'click #my-profile .money-icon': 'moneyIcon'
+        # 'click .season': 'season'
         'click .nearBox .money-icon': 'moneyIcon'
-        'click #my-profile .house-icon': 'houseIcon'
         'click .nearBox .house-icon': 'houseIcon'
         'click .searchBody .dd': 'open_box'
         'click .searchBody .du': 'close_box'
@@ -211,16 +209,13 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         do app.views.search.render
 
     settings: (e)->
+        @closepopuprun()
         $('.leftMenu li').removeClass 'current'
         do @slideHide
         do app.views.setting.render e
                 
 
-    season: ->
-        if $(event.target).hasClass('season')
-            $(event.target).toggleClass 'seasonChecked'
-        else
-            $(event.target).parent().toggleClass 'seasonChecked'
+    
 
     moneyIcon: ->
         if $(event.target).hasClass 'money-icon'
@@ -391,6 +386,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     vip_popup: ->
         @showpopup('.vipPopup')
+        return false
 
 
     promo_popup: ->

@@ -1,5 +1,39 @@
-app.models.User = Backbone.Model.extend
+app.models.User = Backbone.Model.extend 
     urlRoot: '/api/user/'
+
+
+    initialize: ()->
+        @listenTo @, 'change:birthday', (object)->
+            @updateDate object, 'birthday'
+            
+
+
+    updateDate: (object, time_param_name)->
+        console.log time_param_name
+        console.log 'updateDate'
+        time_param = new Date @get time_param_name
+        # user.time = 
+        #     date: +"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
+        #     time: time_param.getHours()+":"+time_param.getMinutes()
+        month = new Array()
+        month[0] = "Января"
+        month[1] = "Февраля"
+        month[2] = "Марта"
+        month[3] = "Апреля"
+        month[4] = "Мая"
+        month[5] = "Июня"
+        month[6] = "Июля"
+        month[7] = "Августа"
+        month[8] = "Сентября"
+        month[9] = "Октября"
+        month[10] = "Ноября"
+        month[11] = "Декабря"
+
+        n = month[time_param.getMonth()]
+        @set(time_param_name+'Day',time_param.getDate())
+        @set(time_param_name+'Month',n)
+        @set(time_param_name+'Year',(time_param.getYear()*1+1900))
+
     visit_user_by: () ->
         $.ajax
             url: '/api/user/'+app.models.myuser.getid()+'/guests'
@@ -40,6 +74,20 @@ app.models.User = Backbone.Model.extend
                 app.models.myuser.favs = undefined
                 app.models.myuser.clear ->
 
+
+    invite_to_travel: () ->
+        $.ajax
+            url: '/api/user/'+@.get('id')+'/invite'
+            type: 'POST'
+            # data: "target="+@.get('id')
+            dataType: "json"
+            success: (data) ->
+
+                
+
+    parse: (response)->
+        response.rating = Math.round(parseInt(response.rating) / 10)*10 
+        return response
 
 
 User = app.models.User

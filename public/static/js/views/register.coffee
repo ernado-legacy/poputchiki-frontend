@@ -54,7 +54,10 @@ app.views.Register = Backbone.View.extend
         @newtag '#year-select'
         @newtag '#month-select'
         @newtag '#day-select'
-        @newtag '#city-select'
+        #@newtag '#city-select'
+        sct = @$el.find '.cityEdit'
+        sctv = new app.views.AutocompleteCity
+            el: sct
         $('.box').click ->
             $('.box').toggleClass('checked')
 

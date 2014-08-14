@@ -1,8 +1,15 @@
 
 
 app.models.Photo = Backbone.Model.extend 
+    initialize: ()->
+        @listenToOnce @, 'change:time', @updateDate
+
 	url: ->
         '/api/photo/'+@.get('id')
+
+    updateDate: (object)->
+        console.log object
+
 	
 	like: (callback)->
         @sendLikeQuery 'POST', callback
