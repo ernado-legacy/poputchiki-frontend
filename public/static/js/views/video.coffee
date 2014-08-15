@@ -10,7 +10,7 @@ app.views.Video = Backbone.View.extend
 
 
     initialize: ->
-        @listenTo @model,'change:url',@refreshSource
+        # @listenTo @model,'change:url',@refreshSource
 
     render: (is_my_user)->
         that = @

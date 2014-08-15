@@ -55,6 +55,8 @@ app.views.Statuses = Backbone.View.extend
                 $('#main-status .status').text status.get 'text'
                 $("#main-status").slideDown "slow"
                 $(".statusBoxEdit").slideUp "slow"
+            error: =>
+                do $('.show-vip').click
         #$.ajax
         #    type: "PUT",
         #    url: "/api/status",

@@ -17,7 +17,8 @@ app.views.UserListView = Backbone.View.extend
         user = @model
         app.models.myuser.get (my_user)->
             that.model = user
-            is_fav = if my_user.get('favorites').indexOf(user.get('id')) != -1 then true else false
+            if my_user.get('favorites')
+                is_fav = if my_user.get('favorites').indexOf(user.get('id')) != -1 then true else false
             $ that.$el.html that.template
                 user: user.attributes,
                 is_fav: is_fav

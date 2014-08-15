@@ -7,6 +7,13 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .profile-search': 'search'
         'click a.ldblock': 'link'
         'click .box': 'toogle'
+        "click #my-folowers .season": 'setSeasons'
+
+    setSeasons: (e)->
+        if $(e.currentTarget).hasClass('season')
+            $(e.currentTarget).toggleClass 'seasonChecked'
+        else
+            $(e.currentTarget).parent().toggleClass 'seasonChecked'
 
     search: ->
 

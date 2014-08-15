@@ -44,6 +44,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         cp.append jade.templates.dialog_record h
         if (cp.children().last().find('.recordAuthor').text() == "Вы")
             cp.children().last().find('.recordAuthor').addClass 'myMessage'
+            cp.children().last().find('.recordText').addClass 'myMessage'
         div = cp[0]
         div.scrollTop = div.scrollHeight;
 
