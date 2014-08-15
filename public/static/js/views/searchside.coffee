@@ -11,11 +11,16 @@ app.views.SearchSide = Backbone.View.extend
 
         # $('#searchPhotoVideo .imgGrid').html ''
         $('.videoBox .photoBoxWrapper .pb-wr').empty()
-        _.each data, (item) ->
-            photomodel = new app.models.Photo
-            photomodel.set item
-            
-            photoView = new app.views.Photo model:photomodel
+
+        collection = _.reduce data, (result, item) ->
+            result.add new app.models.Photo item
+            result
+        , new app.models.Photos
+
+        collection.each (item) ->
+
+            item.collection = collection
+            photoView = new app.views.Photo model:item
             $('.photoBox .photoBoxWrapper .pb-wr').append photoView.render(false)
 
 

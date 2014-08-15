@@ -5,3 +5,6 @@ app.views.PopupPhoto = Backbone.View.extend
     changeuser: (user) ->
         @$el.find('.infoBox').html jade.templates.popup_photo_infobox
             user: user
+
+    clearuser: (user) ->
+        @$el.find('.infoBox').html ''
