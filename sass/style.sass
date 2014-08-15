@@ -134,6 +134,20 @@ $timebar_progress: #46c713
     input::-webkit-input-placeholder
         color: $profile_status_text
 
+    input::-webkit-input-placeholder
+        color:    #999
+        +italic-font
+    input:-moz-placeholder 
+        color:    #999
+        opacity:  1
+        +italic-font
+    input::-moz-placeholder
+        color:    #999
+        opacity:  1
+        +italic-font
+    input:-ms-input-placeholder 
+        color:    #999
+        +italic-font
 =add-title
     .title
         color: $title_text
@@ -1589,6 +1603,18 @@ a.blue-link
                     font-size: 15px
                 .myMessage
                     text-align: right
+            .record.invite
+
+                padding: 10px 20px 10px 20px
+                background-color: rgba(3, 170, 218, 0.49)
+                text-align: center
+                .recordAuthor
+                    color: black
+                .recordText
+                    color: white
+                .fui-radio-checked
+                    float: left
+                    font-size: 30px
         .centerPart::-webkit-scrollbar
             height: 1ex
             width: 8px

@@ -63,6 +63,17 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 $("#main-status").slideDown "slow"
                 $(".statusBoxEdit").slideUp "slow"
 
+            sc = @$el.find '.newTagBox .newCountry'
+            scv = new app.views.AutocompleteCountry
+                el: sc
+
+            sc = @$el.find '.searchCountry'
+            scv = new app.views.AutocompleteCountry
+                el: sc
+            sct = @$el.find '.searchCity'
+            sctv = new app.views.AutocompleteCity
+                el: sct
+
     addSearchTag: (list, newtag, oldtags, variant) ->
         $(list).click ->
             newCountry = $(this).text()
