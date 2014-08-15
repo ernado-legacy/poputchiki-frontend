@@ -34,17 +34,39 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         searchFormData['likings_sex'] = query.sex
 
+        # searchFormData['country'] = query.sex $('#search-country-input').val() if  query.sex $('#search-country-input').val()
+        # searchFormData['city'] = query.sex $('#search-country-input').val() if query.sex $('#search-country-input').val()
+        country = $('#search-country-input').val()
+        if country
+            searchFormData['likings_country'] = country
+            query.country = country
+        else
+            searchFormData['likings_country'] = ''
+
+        city = $('#search-city-input').val()
+        if city
+            searchFormData['likings_city'] = city
+            query.city = city
+        else
+            searchFormData['likings_city'] = ''
+
+        host =  $('#my-wishes .house-icon').hasClass 'hg-icon'
+        sponsor =  $('#my-folowers .money-icon').hasClass 'mg-icon'
+        if host
+            query.host = true
+        if sponsor
+            query.host = true
         app.models.myuser.get (user) ->
             # user.set searchFormData
             console.log searchFormData
             # do user.save searchFormData,{patch: true}
-
             user.set searchFormData
             user.save searchFormData, patch: true if _.size(user.changed)>0
 
 
         query.sex = if $('.manBox .checked').length == 1 then 'male' else 'female'
 
+        query.avatar = true
         @query = query
 
         @research 1, (data) =>
@@ -54,24 +76,32 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         that = @
         app.models.searchphoto query,
             (data) ->
-                that.slideHideAndShow ()->
-                    do app.views.searchside.render
-                    app.views.searchside.renderitems data
+                if data.length > 0
+                    that.slideHideAndShow ()->
+                        do app.views.searchside.render
+                        app.views.searchside.renderitems data
+                else
+                    that.slideHide ()->
         #do @render
 
     research: (item, callback) ->
         query = @query
         item = item - 1
-        query.offset = item * 21
-        query.count = 21
+        query.offset = item * 20
+        query.count = 20
         app.models.search query, (data) =>
             @$el.find('.gallery ul').html ''
             @renderSearchingUser  new app.models.User user for user in data.result
                 # that.$el.find('.gallery').html jade.templates.search_users 
                 #     users: data
-            @$el.find('.results small').text(' попутчик')
-            @$el.find('.results small').first().text('найден ')
-            @$el.find('.results span.count').text(data.count)
+            if data.count == 0
+                @$el.find('.results small').text('')
+                @$el.find('.results small').first().text('Нет пользователей удовлетворяющих запросу')
+                @$el.find('.results span.count').text('')
+            else
+                @$el.find('.results small').text(' попутчик')
+                @$el.find('.results small').first().text('найден ')
+                @$el.find('.results span.count').text(data.count)
             callback(data) if callback
 
     renderSearchingUser: (user) ->

@@ -20,6 +20,6 @@ img(src=user.avatar_url)
   .name=user.name
     span.year , #{user.age}
   .city=user.city
-  .online
-//- if(user.online)
+  if(user.online)
+    .online
   

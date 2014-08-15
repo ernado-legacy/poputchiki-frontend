@@ -55,7 +55,8 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         user = cb.attr 'data-user'
         @render_message cb,
             text: mess
-            author: 'Вы'
+            author: 'Вы',
+            invite: false
         @new_massage user, mess
 
     du: (id) ->
@@ -122,9 +123,11 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             dialog: dialog  
 
         @messages[user].each (mess) =>
+            console.log mess.attributes
             @render_message get_cb(),
                 text: mess.get 'text'
                 author: if mess.get('origin')==user then dialog.get('name') else 'Вы'
+                invite: mess.get 'invite'
 
     closechat: (event) ->
         do $(event.currentTarget).parent().parent().remove
