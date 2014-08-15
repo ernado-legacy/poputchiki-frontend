@@ -1,14 +1,14 @@
 
 
 app.models.Photo = Backbone.Model.extend 
-    initialize: ()->
-        @listenToOnce @, 'change:time', @updateDate
+    # initialize: ()->
+    #     @listenToOnce @, 'change:time', @updateDate
 
 	url: ->
         '/api/photo/'+@.get('id')
 
-    updateDate: (object)->
-        console.log object
+    # updateDate: (object)->
+    #     console.log object
 
 	
 	like: (callback)->

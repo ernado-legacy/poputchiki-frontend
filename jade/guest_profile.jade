@@ -14,21 +14,22 @@
             .tooltip-arrow
             span В гости
       .city-in-profile #{user.city}
-    .wantToTravelBox.clearfix
-      //- .newStatus Новый статус
-      .statusBoxCompleted.clearfix
-        .statusBox#main-status
-          .status Завтра вылетаю, есть билет на халяву, кто со мной? Время поджимает, давайте поторопитесь. Бла-бла          
-          .comments.clearfix
-            span.delete-comments удалить
-            span.share-comments нравится
-        .statusBoxEdit.clearfix
-          .greenDots
-          input#new-status(placeholder='...', type='text',  maxlength="140")
-          .writeBtn#write-new-main-status
-    .tagBox
-      h1 Сезоны
-      if user.seasons
+    if user.status
+      .wantToTravelBox.clearfix
+        //- .newStatus Новый статус
+        .statusBoxCompleted.clearfix
+          .statusBox#main-status
+            .status #{user.status}
+            .comments.clearfix
+              span.delete-comments удалить
+              span.share-comments нравится
+          .statusBoxEdit.clearfix
+            .greenDots
+            input#new-status(placeholder='...', type='text',  maxlength="140")
+            .writeBtn#write-new-main-status
+    if user.seasons
+      .tagBox
+        h1 Сезоны
         .seasonsBox.clearfix
           if user.seasons.indexOf("spring")>-1
             div(id = "spring", class = "season seasonChecked")
@@ -100,28 +101,28 @@
       .slideDown#profile-slidedown(style='display:none') показать все
       .slideUp#profile-slideup(style='display:none!important') скрыть
 
-    .statuses.wantToTravelBox.clearfix        
-        .title СТАТУСЫ
+    //- .statuses.wantToTravelBox.clearfix        
+    //-     .title СТАТУСЫ
 
-        .statusBoxCompleted.clearfix
-          .statusBox#main-status
-            .status Завтра вылетаю, есть билет на халяву, кто со мной? Время поджимает, давайте поторопитесь. Бла-бла        
-            .comments.clearfix
-              .right
-                span.delete-comments удалить
-                span.share-comments поделиться
-              .left
-                span.count 12
-                span#show-all   показать все
+    //-     .statusBoxCompleted.clearfix
+    //-       .statusBox#main-status
+    //-         .status Завтра вылетаю, есть билет на халяву, кто со мной? Время поджимает, давайте поторопитесь. Бла-бла        
+    //-         .comments.clearfix
+    //-           .right
+    //-             span.delete-comments удалить
+    //-             span.share-comments поделиться
+    //-           .left
+    //-             span.count 12
+    //-             span#show-all   показать все
 
-    .statuses.wantToTravelBox.clearfix        
-        .statusBoxCompleted.clearfix
-          .statusBox#main-status
-            .status Завтра вылетаю, есть билет на халяву, кто со мной? Время поджимает, давайте поторопитесь. Бла-бла        
-            .comments.clearfix
-              .right
-                span.delete-comments удалить
-                span.share-comments поделиться
-              .left
-                span.count 12
-                span#show-all   показать все
+    //- .statuses.wantToTravelBox.clearfix        
+    //-     .statusBoxCompleted.clearfix
+    //-       .statusBox#main-status
+    //-         .status Завтра вылетаю, есть билет на халяву, кто со мной? Время поджимает, давайте поторопитесь. Бла-бла        
+    //-         .comments.clearfix
+    //-           .right
+    //-             span.delete-comments удалить
+    //-             span.share-comments поделиться
+    //-           .left
+    //-             span.count 12
+    //-             span#show-all   показать все

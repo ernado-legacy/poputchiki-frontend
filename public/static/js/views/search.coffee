@@ -66,6 +66,7 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         query.sex = if $('.manBox .checked').length == 1 then 'male' else 'female'
 
+        query.avatar = true
         @query = query
 
         @research 1, (data) =>

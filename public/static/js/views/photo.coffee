@@ -63,6 +63,7 @@ app.views.Photo = Backbone.View.extend
     like: ()->
         
         that = @
+        console.log @model.like
         @model.like (likes)->
             counter_container = that.$el.find('.like-counter')
             counter_container.text likes

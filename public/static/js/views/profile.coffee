@@ -67,12 +67,12 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             scv = new app.views.AutocompleteCountry
                 el: sc
 
-            sc = @$el.find '.searchCountry'
-            scv = new app.views.AutocompleteCountry
-                el: sc
-            sct = @$el.find '.searchCity'
-            sctv = new app.views.AutocompleteCity
-                el: sct
+            # sc = @$el.find '.searchCountry'
+            # scv = new app.views.AutocompleteCountry
+            #     el: sc
+            # sct = @$el.find '.searchCity'
+            # sctv = new app.views.AutocompleteCity
+            #     el: sct
 
     addSearchTag: (list, newtag, oldtags, variant) ->
         $(list).click ->

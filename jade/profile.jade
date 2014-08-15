@@ -16,7 +16,7 @@
       //- .newStatus Новый статус
       .statusBoxCompleted.clearfix
         .statusBox#main-status
-          .status #{user.status}
+          .status= user.status ? user.status: 'Добавьте ваш первый статус путешественника'
           .edit#edit-status
             .tooltip.clearfix
               .tooltip-arrow
