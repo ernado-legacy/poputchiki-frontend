@@ -120,7 +120,6 @@ app.views.SettingsEmail = Backbone.View.extend _.extend app.mixins.RenderSetting
 app.views.SettingsInvisible = Backbone.View.extend _.extend app.mixins.RenderSettingItem,
     template: jade.templates.settingsinvisible
     clck: ->
-        console.log 
         if @model.get('vip')
             that = @
             @changeUserSettings (aftersavefunction)->

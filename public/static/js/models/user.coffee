@@ -2,15 +2,18 @@ app.models.User = Backbone.Model.extend
     urlRoot: '/api/user/'
 
 
-    initialize: ()->
-        @listenTo @, 'change:birthday', (object)->
-            @updateDate object, 'birthday'
+    # initialize: ()->
+    #     if @.get 'last_action'
+    #         @updateDate {}, 'last_action'
+    #     @listenTo @, 'change:birthday', (object)->
+    #         @updateDate object, 'birthday'
+
+    #     @listenTo @, 'change:last_action', (object)->
+    #         @updateDate object, 'last_action'
             
 
 
-    updateDate: (object, time_param_name)->
-        console.log time_param_name
-        console.log 'updateDate'
+    updateDate:  (time_param_name)->
         time_param = new Date @get time_param_name
         # user.time = 
         #     date: +"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
@@ -33,6 +36,7 @@ app.models.User = Backbone.Model.extend
         @set(time_param_name+'Day',time_param.getDate())
         @set(time_param_name+'Month',n)
         @set(time_param_name+'Year',(time_param.getYear()*1+1900))
+        @set(time_param_name+'Time',time_param.getHours()+":"+time_param.getMinutes())
 
     visit_user_by: () ->
         $.ajax
@@ -112,15 +116,15 @@ app.models.FavUsers = Backbone.Collection.extend
         id = app.models.myuser.getid()
         '/api/user/'+id+'/fav'
 
-    parse: (response)->
-        for user in response
-            # user = @parseLastActionParameter item  
-            time_param = new Date user.last_action
-            user.last_action = 
-                date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
-                time: time_param.getHours()+":"+time_param.getMinutes()
-        # item.parseTimeParameter  'last_action' for item in response
-        return response
+    # parse: (response)->
+    #     for user in response
+    #         # user = @parseLastActionParameter item  
+    #         time_param = new Date user.last_action
+    #         user.last_action = 
+    #             date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
+    #             time: time_param.getHours()+":"+time_param.getMinutes()
+    #     # item.parseTimeParameter  'last_action' for item in response
+    #     return response
 
     # # parseLastActionParameter: (user)->
     #     time_param = new Date user.get('last_action')
@@ -139,15 +143,15 @@ app.models.Guests = Backbone.Collection.extend
     url: -> 
         '/api/user/'+this.id+'/guests'
 
-    parse: (response)->
-        for user in response
-            # user = @parseLastActionParameter item  
-            time_param = new Date user.time
-            user.time = 
-                date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
-                time: time_param.getHours()+":"+time_param.getMinutes()
-        # item.parseTimeParameter  'last_action' for item in response
-        return response
+    # parse: (response)->
+    #     for user in response
+    #         # user = @parseLastActionParameter item  
+    #         time_param = new Date user.time
+    #         user.time = 
+    #             date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
+    #             time: time_param.getHours()+":"+time_param.getMinutes()
+    #     # item.parseTimeParameter  'last_action' for item in response
+    #     return response
 
     model: User
 

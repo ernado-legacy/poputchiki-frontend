@@ -16,8 +16,7 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $(e.currentTarget).parent().toggleClass 'seasonChecked'
 
     search: ->
-
-
+        $('.pagination').html("<img src='http://poputchiki/static/img/searchpreloader.GIF',class='loading-gif')'>")
         that = this
 
         query =
@@ -65,7 +64,6 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             query.host = true
         app.models.myuser.get (user) ->
             # user.set searchFormData
-            console.log searchFormData
             # do user.save searchFormData,{patch: true}
             user.set searchFormData
             user.save searchFormData, patch: true if _.size(user.changed)>0

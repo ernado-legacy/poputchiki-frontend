@@ -2,6 +2,14 @@
   include guest_leftbox
   .rightBox
     .profileInfoBox.pIBTitle
+      .user-last-action
+        if user.online
+          .online
+        else
+          .last-action Был(а) на сайте 
+            b  #{user.last_actionDay} #{user.last_actionMonth}
+          .last-time в 
+            b  #{user.last_actionTime}
       .name-in-profile #{user.name}, #{user.age}
       if (user.is_sponsor)
         div(class = "money-icon mg-icon")
@@ -22,7 +30,7 @@
             .status #{user.status}
             .comments.clearfix
               span.delete-comments удалить
-              span.share-comments нравится
+              span.share-comments.like нравится
           .statusBoxEdit.clearfix
             .greenDots
             input#new-status(placeholder='...', type='text',  maxlength="140")

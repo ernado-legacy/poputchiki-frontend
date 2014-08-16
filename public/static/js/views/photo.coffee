@@ -12,7 +12,6 @@ app.views.Photo = Backbone.View.extend
     render: (is_my_user)->
         @listenTo @model, 'changeimg', @changeimg
         that = @
-        console.log @model
         app.models.myuser.get (user)->
             liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false
             $ that.$el.html jade.templates.photo 

@@ -3,9 +3,9 @@ a(href="/user/#{user.id}", data-user-id="#{user.id}")
 .info
   .right
     .last-date Заходил(а) 
-      b #{user.time.date}
+      b #{user.timeDay} #{user.timeMonth}
     .last-time в 
-      b #{user.time.time}
+      b #{user.timeTime}
     br
     //- ul.action-list
     //-   li 

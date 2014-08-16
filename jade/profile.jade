@@ -13,7 +13,7 @@
           span Жду&nbsp;в&nbsp;гости
       .city-in-profile #{user.city}
     .wantToTravelBox.clearfix
-      //- .newStatus Новый статус
+      .newStatus Новый статус
       .statusBoxCompleted.clearfix
         .statusBox#main-status
           .status= user.status ? user.status: 'Добавьте ваш первый статус путешественника'
@@ -27,7 +27,7 @@
         .statusBoxEdit.clearfix
           h1 добавить новый статус
           .greenDots
-          input#new-status(placeholder='...', type='text',  maxlength="140")
+          input#new-status(placeholder='...', type='text',  maxlength="140", value=user.status ? user.status: 'Добавьте ваш первый статус путешественника')
           .writeBtn#write-new-main-status
     .tagBox
       h1 Сезоны

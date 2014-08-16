@@ -10,7 +10,7 @@ app.views.Video = Backbone.View.extend
 
 
     initialize: ->
-        # @listenTo @model,'change:url',@refreshSource
+        @listenTo @model,'change:url',@refreshSource
 
     render: (is_my_user)->
         that = @
@@ -18,7 +18,7 @@ app.views.Video = Backbone.View.extend
         if not @model.get('url')
             @interval = setInterval ->
                 do that.updateUrl
-            , 500
+            , 2
         
         app.models.myuser.get (user)->
             liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false
@@ -53,7 +53,7 @@ app.views.Video = Backbone.View.extend
     updateUrl: ()->
         that = @
         do @model.fetch
-        console.log @model.toJSON()
+        # console.log @model.toJSON()
         # .done ->
         #     if that.model.get('url')
         #         clearInterval that.interval
