@@ -166,6 +166,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.favs = new app.views.Favs
                 app.views.popupphoto = new app.views.PopupPhoto
                 app.views.stripechoppopup = new app.views.StripechopPopup
+                app.views.popupaudio = new app.views.PopupAudio
                 app.views.stripe = new app.views.Stripe
                 app.views.vip = new app.views.VipStatus
                 app.views.main_status = new app.views.userMainStatus
