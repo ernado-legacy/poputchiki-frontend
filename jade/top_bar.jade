@@ -17,6 +17,12 @@
             .audio
               audio
                 source(src='#{item.get('url')}', type="audio/ogg")
+          if item.get('type')=='video'
+            .videoBox
+              .frontLayer
+              video
+                source(src='#{item.get('url')}', type="video/webm", codecs="vp8, vorbis")
+            .video
     //
       - for (var i = 1; i <= 14; i++)
         .crsItem.mainCrs
