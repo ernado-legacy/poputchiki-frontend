@@ -213,15 +213,17 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         do @render
 
     setSponsor: (e)->
-        $(e.currentTarget).toggleClass 'mg-icon'
-        formData = {}
-        formData['is_sponsor'] = @$el.find('.money-icon').hasClass 'mg-icon' 
-        @model.save formData, patch: true
+        if $(event.target).hasClass 'money-icon'
+            $(e.currentTarget).toggleClass 'mg-icon'
+            formData = {}
+            formData['is_sponsor'] = @$el.find('.money-icon').hasClass 'mg-icon' 
+            @model.save formData, patch: true
     setHost: (e)->
-        $(e.currentTarget).toggleClass 'hg-icon'
-        formData = {}
-        formData['is_host'] = @$el.find('.house-icon').hasClass 'hg-icon'
-        @model.save formData, patch: true
+        if $(event.target).hasClass 'house-icon'
+            $(e.currentTarget).toggleClass 'hg-icon'
+            formData = {}
+            formData['is_host'] = @$el.find('.house-icon').hasClass 'hg-icon'
+            @model.save formData, patch: true
 
 
         # moneyIcon: ->

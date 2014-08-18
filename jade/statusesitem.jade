@@ -11,7 +11,10 @@ each status in statuses.models
         .house-icon.hg-icon
     .rightPart
       .status=status.get('text')
-      a(class='writeBtn fui-bubble', href="/message/#{users[status.get("user")].get("id")}")
+      a(class='writeBtn fui-bubble wmwt', href="/message/#{users[status.get("user")].get("id")}")
+        .tooltip.clearfix
+          .tooltip-arrow
+          span Написать
       .controlLinks.clearfix
         .like(data-like="true")
         .note пожаловаться

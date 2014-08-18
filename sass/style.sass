@@ -1333,7 +1333,7 @@ a.blue-link
     position: relative
     background-size: 30px
 
-.money-icon, .house-icon, .edit, .money-icon-inactive
+.money-icon, .house-icon, .edit, .money-icon-inactive, .wmwt
     .tooltip
         visibility: hidden
         opacity: 0
@@ -1358,11 +1358,15 @@ a.blue-link
             position: absolute
             left: 5px
             top: -4px
-.money-icon:hover, .house-icon:hover, .edit:hover, .money-icon-inactive:hover
+.money-icon:hover, .house-icon:hover, .edit:hover, .money-icon-inactive:hover, .wmwt:hover
     .tooltip
         visibility: visible
         opacity: 1
         transition-delay: 0s
+.wmwt
+    position: relative
+    .tooltip
+        bottom: -12px
 .mg-icon
     background-image: url('../img/money_active2.png')
 
@@ -1697,6 +1701,14 @@ a.blue-link
                 text-transform: uppercase
                 padding: 10px 20px 10px 10px
                 float: left
+            .letsFilter
+                font-size: 13px
+                padding: 0px
+                padding-top: 12px
+                text-transform: none
+                cursor: pointer
+            .letsFilter:hover
+                text-decoration: underline
         .sortBy
             float: right
             margin-top: 10px
