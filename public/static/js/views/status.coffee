@@ -33,8 +33,10 @@ app.views.Status = Backbone.View.extend
     like: ->
         statusLike = new app.models.StatusLike
         statusLike.status = @get_status_id()
+        that = @
         if @if_like()
-            do statusLike.save
+            statusLike.save {},
+                success: ->
             @size += 1
         else
             statusLike.isNew = -> false

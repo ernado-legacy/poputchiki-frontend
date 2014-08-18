@@ -19,11 +19,14 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         that = @
         history.pushState null, 'poputchiki', '/profile/'
         @get_my_user (user) =>
+            user.updateDate {},'birthday'
             that.model = user
             app.views.user_photo_block.render(user.id, true)
 
             $ that.$el.html jade.templates.profile
                 user: user.attributes
+
+            app.views.main_status.render user
             # do profile_script
             that.newtag '#year-select'
             that.newtag '#month-select'

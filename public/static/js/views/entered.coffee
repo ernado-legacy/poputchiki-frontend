@@ -120,6 +120,10 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $("#main-status").slideUp "slow"
             $(".statusBoxEdit").slideDown "slow"
 
+        $(".newStatus").click ->
+            $("#main-status").slideUp "slow"
+            $(".statusBoxEdit").slideDown "slow"
+
         $('.promo-photo').click ->
             $('.popup').fadeOut('slow')
             $('.chopPopup').fadeIn('slow')
@@ -164,6 +168,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.popupaudio = new app.views.PopupAudio
                 app.views.stripe = new app.views.Stripe
                 app.views.vip = new app.views.VipStatus
+                app.views.main_status = new app.views.userMainStatus
 
                 
 

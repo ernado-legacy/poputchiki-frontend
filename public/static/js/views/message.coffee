@@ -124,7 +124,6 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             dialog: dialog  
 
         @messages[user].each (mess) =>
-            console.log mess.attributes
             @render_message get_cb(),
                 text: mess.get 'text'
                 author: if mess.get('origin')==user then dialog.get('name') else 'Вы'

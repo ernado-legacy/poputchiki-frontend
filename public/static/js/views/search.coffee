@@ -4,10 +4,18 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     events:
         # 'click .searchBox button': 'search'
-        'click .profile-search': 'search'
+        'click .profile-search': 'dosearchbubuttonclick'
+        # 'click .profile-search': 'render'
         'click a.ldblock': 'link'
         'click .box': 'toogle'
         "click #my-folowers .season": 'setSeasons'
+
+    dosearchbubuttonclick: ->
+        if $('.pagination').length==0 
+            do @render
+        else 
+            do @search 
+
 
     setSeasons: (e)->
         if $(e.currentTarget).hasClass('season')
@@ -16,14 +24,13 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $(e.currentTarget).parent().toggleClass 'seasonChecked'
 
     search: ->
-
-
+        $('.pagination').html("<img src='http://poputchiki/static/img/searchpreloader.GIF' class='loading-gif')'>")
         that = this
 
         query =
             offset: 0
             count: 20
-            sex: 'female'
+            sex: ""
 
         from = $('#search-age-from').val()
         to = $('#search-age-to').val()
@@ -36,9 +43,10 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         if to
             searchFormData['likings_age_max'] = to*1
             query.agemax = to
-
         query.sex = if $('.manBox .checked').length == 1 then 'male' else 'female'
-
+        if ($('.manBox .checked').length == 1) and ($('.womanBox .checked').length == 1)
+            query.sex = ''
+        # query.sex = if ($('.manBox .checked').length == 1) and ($('.womanBox .checked').length == 1)  then ''
         searchFormData['likings_sex'] = query.sex
 
         # searchFormData['country'] = query.sex $('#search-country-input').val() if  query.sex $('#search-country-input').val()
@@ -59,23 +67,26 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         host =  $('#my-wishes .house-icon').hasClass 'hg-icon'
         sponsor =  $('#my-folowers .money-icon').hasClass 'mg-icon'
+        console.log sponsor
         if host
             query.host = true
         if sponsor
-            query.host = true
+            query.sponsor = true
+
+        seasons = @$el.find '#my-folowers .season.seasonChecked'
+        new_seasons = []
+        new_seasons.push(season.id) for season in seasons
+        query.seasons_list =  new_seasons
+        searchFormData['likings_seasons'] = new_seasons
+
         app.models.myuser.get (user) ->
             # user.set searchFormData
-            console.log searchFormData
             # do user.save searchFormData,{patch: true}
             user.set searchFormData
             user.save searchFormData, patch: true if _.size(user.changed)>0
 
-
-        query.sex = if $('.manBox .checked').length == 1 then 'male' else 'female'
-
         query.avatar = true
         @query = query
-
         @research 1, (data) =>
             @pagination.render 1 + data.count/20
             @pagination.setreaction (i) => @research i

@@ -22,11 +22,9 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         @slideHide ()->
 
         that = @
-        console.log url
-        console.log url.search 'photo'
         success = (data) ->
             app.models.myuser.get (user)->
-                if url.search 'photo' == -1
+                if url.search('photo') == -1
                     do that.refreshVideos
                 else
                     do that.refreshPhotos
@@ -81,7 +79,6 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         videocollection = new app.models.Videos @user_id
         videocollection.fetch().done () ->
             $('.photoBox .videoBox .pb-wr').empty()
-            console.log  video for video in videocollection.models
             that.renderVideo video for video in videocollection.models
             that.slideShow ()->
 

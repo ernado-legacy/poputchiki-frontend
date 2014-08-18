@@ -51,7 +51,7 @@ app.views.Favs = Backbone.View.extend
 
 
     renderFav: (user) ->
-        
+        user.updateDate('last_action')
         listUserView = new app.views.UserListView 
             model:user,
             template:jade.templates.fav_user_list
@@ -63,4 +63,4 @@ app.views.Favs = Backbone.View.extend
 
 
     doAction: (view)->
-        console.log view
+        # console.log view

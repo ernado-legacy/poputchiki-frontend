@@ -19,7 +19,7 @@
         
 //-  
 div.photo-time #{photo.time.date}
-img(src=photo.url)
+img(src=photo.url,id=photo.id)
 if (is_my_user)
   .actions
       if(liked_by)

@@ -8,15 +8,13 @@ app.views.GuestProfile = app.views.UserListView.extend
         'click #guest_profile .remove_from_fav': 'remove_from_fav'
         'click #guest_profile .to_journey': 'to_journey'
         'click #guest_profile .to_blacklist': 'to_blacklist'
-        
-        
+        'click .profileGuest .imgBox': 'avatar_open'
+
+
+    avatar_open: ->
+        do $('img#'+@model.get('avatar')).click
 
     initialize: ->
-        # id = window.location.href.split('/').slice(4)[0]
-        # @.model = new app.models.User 
-        #     id: id
-        # @.model.fetch()
-        # return
         @custom_tag_id = "guest_profile"
 
     get_user: (callback) ->
@@ -41,10 +39,14 @@ app.views.GuestProfile = app.views.UserListView.extend
                 app.views.user_photo_block.render(window.location.pathname.split('/').slice(2)[0], false)
                 user_id = app.models.myuser.getid()
                 user.visit_user_by() if user_id
+                user.updateDate 'last_action'
+                user.updateDate 'birthday'
+                console.log user.attributes
                 $ that.$el.html jade.templates.guest_profile
                     user: user.attributes,
                     is_fav: is_fav
                     is_in_blacklist: is_in_blacklist
+                app.views.main_status.render user
                 do $('#profile-slidedown').click
 
     add_to_fav: ->

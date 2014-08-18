@@ -24,7 +24,7 @@ app.views.Guests = Backbone.View.extend
                 $('#menu-photos').addClass 'current'
 
     renderGuest: (user) ->
-
+        user.updateDate('time')
         listUserView = new app.views.UserListView 
             model:user,
             template:jade.templates.guest_user_list

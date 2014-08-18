@@ -1,0 +1,25 @@
+if is_mystatus
+  .newStatus Новый статус 
+.statusBoxCompleted.clearfix
+  .statusBox#main-status
+    .status= status.get('text')
+    if is_mystatus
+      .edit#edit-status
+        .tooltip.clearfix
+          .tooltip-arrow
+          span Редактировать
+    .comments.clearfix
+      if is_mystatus
+        span.delete-comments удалить
+        span.share-comments поделиться
+      else
+        span.share-comments.likes #{status.get('likes')}
+        if is_liked
+          span.delete-comments.like(data-like= 'false' )  не нравиться
+        else
+          span.delete-comments.like(data-like= 'true' )  нравиться
+  .statusBoxEdit.clearfix
+    h1 добавить новый статус
+    .greenDots
+    input#new-status(placeholder='...', type='text', value=status.get('text'))
+    .writeBtn#write-new-main-status

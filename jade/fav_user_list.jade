@@ -3,9 +3,9 @@ a(href="/user/#{user.id}", data-user-id="#{user.id}")
 .info
   .right
     .last-date Был(а) на сайте 
-      b  #{user.last_action.date}
+      b  #{user.last_actionDay} #{user.last_actionMonth}
     .last-time в 
-      b  #{user.last_action.time}
+      b  #{user.last_actionTime}
     br
     //- .last-date
     //-   a(id="remove-from-fav", class="remove_from_fav custom-link") удалить из избранных

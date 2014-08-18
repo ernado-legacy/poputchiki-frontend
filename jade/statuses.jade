@@ -29,12 +29,12 @@
     .filters.clearfix
       .leftPart.clearfix
         .title Поиск по городам:
-        .tagsBox.clearfix
-          .mainSelectElement.searcTagPlaces.withShadow
-            span.tagCountry Россия
-            .close
+        //- .tagsBox.clearfix
+        //-   .mainSelectElement.searcTagPlaces.withShadow
+        //-     span.tagCountry Россия
+        //-     .close
         .mainSelectElement.searchCountry.withShadow
-          input.search-select(placeholder='...', type='text',  maxlength="20")
+          input.search-select(placeholder='Страна...', type='text',  maxlength="20")
           .dd
           .du
           ul.droped.withShadow
@@ -42,23 +42,25 @@
             li.dl Африка
             li.dl Европа
         .mainSelectElement.searchCity.withShadow
-          input.search-select(placeholder='...', type='text',  maxlength="20")
+          input.search-select(placeholder='Город...', type='text',  maxlength="20")
           .dd
           .du
           ul.droped.withShadow
-            li.dl Москва
-            li.dl Киев
-            li.dl Минск
+            //- li.dl Москва
+            //- li.dl Киев
+            //- li.dl Минск
         .nearBox.clearfix
-          .box.checked
-          span Искать рядом
+          //- .box.checked
+          //- span Искать рядом
+          a.custom-blue-link.search_by_place Искать
       .rightPart.clearfix
         .sexBox.clearfix
           .manBox
             .box
             span Мужчины
           .womanBox
-            .box.checked
+            .box
             span Женщины
   .statusBlockWrap
+    img(src='/static/img/searchpreloader.GIF',class="loading-gif")
 a(style="display:none", class="show-vip")

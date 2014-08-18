@@ -1,12 +1,14 @@
 //- <<<<<<< HEAD
-.fui-play
-div.photo-time #{video.time.date}
-
+if video.url
+  .fui-play
+  div.photo-time #{video.time.date}
+else
+  div.photo-time загрузка...
 if video.url
   video(poster=video.thumbnail_url)
       source(src=video.url)
 else
-  img(src=video.thumbnail_url)
+  img(src="/static/img/searchpreloader.GIF", class='loading')
 //- .video-wr
   //if (video.thumbnail_url)
     img(src=video.thumbnail_url)
@@ -29,21 +31,21 @@ else
 //-   video
 //-     source(src="http://msk1.cydev.ru:8080/3,f4b3185c5ef2")
 //- >>>>>>> 3c0240e6bcf4f881a29a2cd352040e5e16738c42
-
-if (is_my_user)
-  .actions
+if video.url
+  if (is_my_user)
+    .actions
+      if(liked_by)
+        a(class="action-remove-like custom-link") нравится
+      else
+        a(class="action-like custom-link") нравится
+      span.like-counter-box
+        i &nbsp;
+        span.like-counter #{video.likes}
+      a(class="custom-blue-link open-promo") в ленту
+      a(class="custom-link remove-photo") удалить
+  else
     if(liked_by)
       a(class="action-remove-like custom-link") нравится
     else
       a(class="action-like custom-link") нравится
-    span.like-counter-box
-      i &nbsp;
-      span.like-counter #{video.likes}
-    a(class="custom-blue-link open-promo") в ленту
-    a(class="custom-link remove-photo") удалить
-else
-  if(liked_by)
-    a(class="action-remove-like custom-link") нравится
-  else
-    a(class="action-like custom-link") нравится
-  span.like-counter  #{video.likes}
+    span.like-counter  #{video.likes}
