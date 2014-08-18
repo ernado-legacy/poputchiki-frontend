@@ -67,7 +67,7 @@ app.views.AutocompleteCity = app.views.Autocomplete.extend
             condition = Boolean country
 
         #REMOVE IT!!!!11
-        condition = false
+        #condition = false
 
         if not condition
             app.models.citypairs
@@ -80,14 +80,7 @@ app.views.AutocompleteCity = app.views.Autocomplete.extend
             app.models.cities
                 start: val
                 country: country
-            , (data) -> 
-                d = _.map data, (item) ->
-                    item.title
-                callback d
-
-app.views.AutocompletePlace = app.views.Autocomplete.extend
-    
-    getdata: (val, callback) ->
-        app.models.places
-            start: val
-        , callback
+            , callback #(data) -> 
+            #    d = _.map data, (item) ->
+            #        item.title
+            #    callback d

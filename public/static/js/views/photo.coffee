@@ -33,7 +33,7 @@ app.views.Photo = Backbone.View.extend
         n = ($(window).width() - $('.photoPopup').width())/2
         $('.photoPopup').css 'margin-left', n
 
-        _.each ['.arrow-left', '.arrow-right', '.photoPopup img'], (item) ->
+        _.each ['.arrow-left', '.arrow-right', 'img'], (item) ->
             do $('.photoPopup ' + item).unbind
 
         fix = (index, a, b, change) ->
