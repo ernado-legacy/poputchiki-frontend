@@ -36,8 +36,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'focusout .ageBox input': 'deactiveAgeBox'
         'click #profile-slidedown': 'show_about'
         'click #profile-slideup': 'hide_about'
-        'click .filterBlock .title .dd': 'show_filters'
-        'click .filterBlock .title .du': 'hide_filters'
+        'click .letsFilter': '_filters'
         'focus .bottomPart input': 'activeChat'
         'click #folowers-tags .searchCountry ul .dl': 'addSearchTag'
 
@@ -121,6 +120,10 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $("#main-status").slideUp "slow"
             $(".statusBoxEdit").slideDown "slow"
 
+        $(".newStatus").click ->
+            $("#main-status").slideUp "slow"
+            $(".statusBoxEdit").slideDown "slow"
+
         $('.promo-photo').click ->
             $('.popup').fadeOut('slow')
             $('.chopPopup').fadeIn('slow')
@@ -170,6 +173,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.popupaudio = new app.views.PopupAudio
                 app.views.stripe = new app.views.Stripe
                 app.views.vip = new app.views.VipStatus
+                app.views.main_status = new app.views.userMainStatus
 
                 
 
@@ -434,15 +438,18 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $('.chatBlock').removeClass 'darkBlock'
             $(event.target).parent().parent().addClass 'darkBlock'
 
+    _filters: ->
+        $(event.target).toggleClass 'open-filters'
+        if $(event.target).hasClass 'open-filters'
+            do @show_filters
+        else
+            do @hide_filters
+
     show_filters: ->
         $(event.target).parent().parent().children('.filters').slideDown('slow')
-        $(event.target).css('display','none')
-        $(event.target).next().css('display','block')
 
     hide_filters: ->
         $(event.target).parent().parent().children('.filters').slideUp('slow')
-        $(event.target).css('display','none')
-        $(event.target).prev().css('display','block')
 $ ->
     app.views.entered = new app.views.Entered
     app.views.entered.init()

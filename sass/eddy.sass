@@ -10,8 +10,8 @@ $profile_status_text: #4b4b4b
 .photoVideoBlock
   .photoHeaderBox
     .searchPhotoHeader
-      width: 80%
-      // text-align: center
+      width: 95%
+      text-align: center
       div.title
         background-image: none!important
   .photoBox, .videoBox
@@ -32,6 +32,9 @@ $profile_status_text: #4b4b4b
         height: 175px
         display: block
         margin: 3px auto
+      img.loading
+        width: initial
+        height: initial
       img,video
         +border-shadow
       img:hover, video:hover
@@ -219,3 +222,24 @@ $profile_status_text: #4b4b4b
 .profile-edit-slideup.loading
   background: url(http://poputchiki/static/img/settingpreloader.GIF) no-repeat!important
   text-indent: -10000px
+#guest_profile
+  .season, .money-icon, .house-icon
+    cursor: initial!important
+  .online
+    background-image: url('../img/circle.png')
+    background-repeat: no-repeat
+    position: absolute
+    right: 12px
+    top: 10px
+    width: 18px
+    height: 18px
+    z-index: 100
+  .profileGuest 
+    .imgBox
+      cursor: pointer
+
+
+img.loading-gif
+  display: block!important
+  margin-left: auto!important
+  margin-right: auto!important

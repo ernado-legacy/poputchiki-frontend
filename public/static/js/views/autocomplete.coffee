@@ -54,6 +54,8 @@ app.views.AutocompleteCountry = app.views.Autocomplete.extend
             start: val
         , callback
 
+
+
 app.views.AutocompleteCity = app.views.Autocomplete.extend
     
     getdata: (val, callback) ->

@@ -1,3 +1,4 @@
+subscriptions = {"likes_photo":"Пользователям понравились мои фото", "likes_status":"Пользователям понравился мой статус", "messages":"Мне написали сообщение", "invites":"Меня хотят пригласить в поездку", "guests":"Пользователь зашел на мой профиль", "news":"Новости сайта"}
 .header 
     h1 Настройки
 
@@ -6,60 +7,45 @@ h1 УВЕДОМЛЕНИЯ
 .profileInfoBox 
     .infoBox.infoEdit
         .head.clearfix Я хочу получать на свой емайл рассылки:                              
-        .clearfix.notifications.email
-            .clearfix
-                .box.checked
-                span Пользователям понравились мои фото
-            .clearfix
-                .box
-                span Пользователям понравился мой статус
-            .clearfix
-                .box
-                span Меня хотят пригласить в поездку
-            .clearfix
-                .box
-                span Мне написали сообщение
-            .clearfix
-                .box
-                span Пользователь зашел на мой профиль
-            .clearfix
-                .box
-                span новости сайта
-            .spam.clearfix
-                span.one
-                    .box.checked
-                    span Раз в день
-                span.one
-                    .box
-                    span Раз в неделю
-                span.one
-                    .box
-                    span Никогда
-        .profile-edit-slideup
-            span сохранить
+        .clearfix.notifications.email#notifications
+            each value, key in subscriptions
+                .clearfix
+                    if user.subscriptions
+                        .box.subscrition(data-notification=key, class= (user.subscriptions.indexOf(key)>-1)? 'checked' : '')
+                        span #{value}
+                    else
+                        .box.subscrition(data-notification=key)
+                        span #{value}
+            .clearfix.notifications.last
+                .spam.clearfix
+                    span.one
+                        .box.checked
+                        span Получать
+                    span.one
+                        .box
+                        span Не получать
+            .profile-edit-slideup
+                span сохранить
 
-h1 КОНФИДЕНЦИАЛЬНОСТЬ
-.greenDots
-.profileInfoBox 
-    .infoBox.infoEdit
-        .clearfix.notifications.email
-            .clearfix
-                .box.checked
-                span Показывать расстояние до меня
-            .clearfix
-                .box
-                span Отображать мой онлайн статус
-        .head.clearfix Кто может видеть мой профиль 
-        .clearfix.notifications.last
-            .spam.clearfix
-                span.one
-                    .box.checked
-                    span Все
-                span.one
-                    .box
-                    span Пользователи сайта
-                span.one
-                    .box
-                    span Избранные
-        .profile-edit-slideup
-            span сохранить
+//- h1 КОНФИДЕНЦИАЛЬНОСТЬ
+//- .greenDots
+//- .profileInfoBox 
+//-     .infoBox.infoEdit
+//-         .clearfix.notifications.email
+//-             .clearfix
+//-                 .box.checked
+//-                 span Показывать расстояние до меня
+//-             .clearfix
+//-                 .box
+//-                 span Отображать мой онлайн статус
+//-         .head.clearfix Кто может видеть мой профиль 
+//-         .clearfix.notifications.last
+//-             .spam.clearfix
+//-                 span.one
+//-                     .box.checked
+//-                     span Все
+//-                 span.one
+//-                     .box
+//-                     span Пользователи сайта
+//-         .profile-edit-slideup
+//-             span сохранить

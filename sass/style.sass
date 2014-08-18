@@ -187,7 +187,7 @@ body
     position: relative
 .loginRegisterBody
     header
-        background-color: white
+        background-color: rgba(246, 247, 249, 0.82)
 
 header  
     min-width: 980px
@@ -588,6 +588,10 @@ a.blue-link
             position: absolute
             right: -15px
             top: 20px
+        #rating.middle-rating
+            color: $menu-favorites
+        #rating.low-rating
+            color: $menu-rating
         #name
             margin-top: 9px
             margin-left: 12px
@@ -598,6 +602,10 @@ a.blue-link
             text-align: left
             font-weight: bold
             color: $header_blue
+    .userBox.middle-rating
+        background-image: url('../img/b_ellips_middle.png')
+    .userBox.low-rating
+        background-image: url('../img/b_ellips_low.png')
     #profile-arrow-left, #profile-arrow-right
         float: left
         margin: 84px 0 0 7px
@@ -708,11 +716,11 @@ a.blue-link
 .photoVideoBlock
     margin: 7px 0px 0px 0px
     right: 6px
-    //right: -40px //for large screen
     top: 0px
     width: 384px
-    //width: 315px
-    position: absolute    
+    position: absolute
+    max-height: 732px
+    overflow-y: hidden
     #profile-arrow-up, #profile-arrow-down
         background-image: url('../img/profile_arrow_u.png')
         background-repeat: no-repeat
@@ -814,7 +822,9 @@ a.blue-link
                 margin-right: 8px
     .videoBox
         display: none
-
+.icl
+    left: 70% !important
+    z-index: 1
 .profileBox
     float: left
     background-image: url('../img/b_ellips.png')
@@ -870,6 +880,17 @@ a.blue-link
         color: $header_blue
         cursor: pointer
         z-index: 1024
+    #profile-rating.middle-rating, .profile-rating.middle-rating
+        color: $menu-favorites
+    #profile-rating.low-rating, .profile-rating.low-rating
+        color: $menu-rating
+
+
+.profileBox.middle-rating
+    background-image: url('../img/b_ellips_middle.png')
+.profileBox.low-rating
+    background-image: url('../img/b_ellips_low.png')
+
 /*PROFILE*/
 .searchBox
     float: left
@@ -1088,6 +1109,12 @@ a.blue-link
         float: left
         width: 100%
         color: $title_text
+    .user-last-action
+        float: right
+        color: $title_text
+        font-size: 11px
+        margin: 0px 0px 12px 1px
+        text-align: right
     .description
         font-size: 14px
         margin-top: 15px
@@ -1199,7 +1226,8 @@ a.blue-link
     background-image: url('../img/drop_arrow2.png')
     display: none
 .droped
-    max-height: 235px
+    // max-height: 235px
+    max-height: 200px
     overflow: auto
     position: absolute
     top: 100%
@@ -1210,6 +1238,7 @@ a.blue-link
     width: 100%
     +border-radius(0px, 0px, 4px, 4px)
     border: 1px solid $ti_dd_border
+    text-overflow: ellipsis
     li
         height: 38px
         font-size: 14px
@@ -1221,6 +1250,8 @@ a.blue-link
         border-bottom: 1px solid $ti_dd_sep
         cursor: pointer
         +simple-font
+        overflow: hidden
+        text-overflow: ellipsis
     li:hover
         background-color: $ti_dd_select
     li:last-child
@@ -1264,6 +1295,8 @@ a.blue-link
     margin-left: 20px
     .newCountry
         +add-input
+        input
+            width: 100px
     .newCountry, .newSeason, .newYear
         +italic-font
         font-size: 14px
@@ -1329,11 +1362,15 @@ a.blue-link
     width: 35px
     height: 35px
     margin-top: -6px
-    cursor: pointer
     position: relative
     background-size: 30px
 
-.money-icon, .house-icon, .edit, .money-icon-inactive
+
+.searchContainer, .myProfileContainer
+    .money-icon, .house-icon, .money-icon-inactive
+        cursor: pointer
+
+.money-icon, .house-icon, .edit, .money-icon-inactive, .wmwt
     .tooltip
         visibility: hidden
         opacity: 0
@@ -1358,11 +1395,15 @@ a.blue-link
             position: absolute
             left: 5px
             top: -4px
-.money-icon:hover, .house-icon:hover, .edit:hover, .money-icon-inactive:hover
+.money-icon:hover, .house-icon:hover, .edit:hover, .money-icon-inactive:hover, .wmwt:hover
     .tooltip
         visibility: visible
         opacity: 1
         transition-delay: 0s
+.wmwt
+    position: relative
+    .tooltip
+        bottom: -12px
 .mg-icon
     background-image: url('../img/money_active2.png')
 
@@ -1504,7 +1545,7 @@ a.blue-link
 .chatLine
     top: 0
     right: 0
-    // position: absolute
+    position: relative
     float: right
     margin-top: 7px
     width: 230px
@@ -1536,9 +1577,22 @@ a.blue-link
         background-color: $chat_line_a
         border-top: 1px solid $chat_line_a_border
         border-bottom: 1px solid $chat_line_a_border
+.inDialogs    
+    overflow-y: scroll
+    max-height: 612px
+    margin-bottom: 50px
+    margin-top: 70px
+.inDialogs::-webkit-scrollbar
+    height: 1px
+    width: 1px
+    background: rgba(0, 0, 0, 0.0)
+.inDialogs::-webkit-scrollbar-thumb
+    background: rgba(0, 0, 0, 0.0)
 .chatContainer
     width: 1200px
     margin: 0 auto
+    max-height: 732px
+    overflow-y: auto
     .chatBlock
         width: 348px
         height: 278px
@@ -1546,7 +1600,7 @@ a.blue-link
         border: 1px solid $chat_block_border
         +border-radius(4px, 4px, 4px, 4px)
         margin-top: 45px
-        margin-right: 50px
+        margin-right: 46px
         float: left
         position: relative
         img
@@ -1697,6 +1751,14 @@ a.blue-link
                 text-transform: uppercase
                 padding: 10px 20px 10px 10px
                 float: left
+            .letsFilter
+                font-size: 13px
+                padding: 0px
+                padding-top: 12px
+                text-transform: none
+                cursor: pointer
+            .letsFilter:hover
+                text-decoration: underline
         .sortBy
             float: right
             margin-top: 10px
@@ -1771,7 +1833,7 @@ a.blue-link
         width: -webkit-calc(100% - 31px) !important
         width: calc(100% - 31px) !important
         margin-left: 30px
-        height: 78px
+        min-height: 78px
         border: 1px solid $statuses_border
         border-left: none
         background-color: $statuses_block
@@ -1795,7 +1857,8 @@ a.blue-link
             .name-in-profile
                 font-size: 15px
             .city-in-profile
-                margin-bottom: 5px
+                margin-bottom: 15px
+
         .rightPart
             float: left
             width: -moz-calc(100% - 270px)
@@ -2335,6 +2398,7 @@ a.blue-link
                     opacity: 1
     .popupBody
         background-color: $profile_info
+        background-color: white
         border: 1px solid $profile_status_border
         padding: 19px
         +border-radius(0px, 4px, 4px, 4px)
@@ -2407,6 +2471,11 @@ a.blue-link
         iframe
             height: 500px        
     .infoBox
+        min-height: 100px
+        a
+            +simple-font
+            position: static
+            text-decoration: none
         img
             height: 80px
             width: 80px
@@ -2428,6 +2497,10 @@ a.blue-link
                 font-size: 15px
         .rightPart
             float: right
+    .infoBox.loading
+        background-image: url('../img/searchpreloader.GIF')
+        background-repeat: no-repeat
+        background-position: 50% 50%
 .photoPopup
     .imgBox
         height: 500px

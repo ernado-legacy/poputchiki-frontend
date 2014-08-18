@@ -19,11 +19,14 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         that = @
         history.pushState null, 'poputchiki', '/profile/'
         @get_my_user (user) =>
+            user.updateDate {},'birthday'
             that.model = user
             app.views.user_photo_block.render(user.id, true)
 
             $ that.$el.html jade.templates.profile
                 user: user.attributes
+
+            app.views.main_status.render user
             # do profile_script
             that.newtag '#year-select'
             that.newtag '#month-select'
@@ -213,15 +216,17 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         do @render
 
     setSponsor: (e)->
-        $(e.currentTarget).toggleClass 'mg-icon'
-        formData = {}
-        formData['is_sponsor'] = @$el.find('.money-icon').hasClass 'mg-icon' 
-        @model.save formData, patch: true
+        if $(event.target).hasClass 'money-icon'
+            $(e.currentTarget).toggleClass 'mg-icon'
+            formData = {}
+            formData['is_sponsor'] = @$el.find('.money-icon').hasClass 'mg-icon' 
+            @model.save formData, patch: true
     setHost: (e)->
-        $(e.currentTarget).toggleClass 'hg-icon'
-        formData = {}
-        formData['is_host'] = @$el.find('.house-icon').hasClass 'hg-icon'
-        @model.save formData, patch: true
+        if $(event.target).hasClass 'house-icon'
+            $(e.currentTarget).toggleClass 'hg-icon'
+            formData = {}
+            formData['is_host'] = @$el.find('.house-icon').hasClass 'hg-icon'
+            @model.save formData, patch: true
 
 
         # moneyIcon: ->

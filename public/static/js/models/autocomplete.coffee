@@ -27,3 +27,13 @@ app.models.citypairs = (sdata, callback) ->
         success: callback
         dataType: "json"
         #error: error
+
+app.models.places = (sdata, callback) ->
+
+    $.ajax
+        type: "GET",
+        url: "/api/places",
+        data: sdata,
+        success: callback
+        dataType: "json"
+        #error: error

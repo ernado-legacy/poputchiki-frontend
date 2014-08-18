@@ -1,17 +1,27 @@
 each status in statuses.models
   .statusBlock(data-status='#{status.get('id')}')
-    a(href="/user/#{users[status.get("user")].get("id")}")
-      img(src='#{users[status.get("user")].get("avatar_url")}')
+    a(href="/user/#{status.get('user_object').id}")
+      img(src=status.get('user_object').avatar_url)
     .profileInfoBox.leftPart     
-      .name-in-profile #{users[status.get("user")].get('name')}, 23
-      .city-in-profile=users[status.get("user")].get('city')
-      if(users[status.get("user")].get('is_sponsor'))
+      .name-in-profile #{status.get('user_object').name}, 23
+      .city-in-profile=status.get('user_object').city
+      br
+      if(status.get('user_object').is_sponsor)
         .money-icon.mg-icon
-      if(users[status.get("user")].get('is_sponsor'))
+          .tooltip.clearfix
+            .tooltip-arrow
+            span Спонсортство
+      if(status.get('user_object').is_host)
         .house-icon.hg-icon
+          .tooltip.clearfix
+            .tooltip-arrow
+            span Жду&nbsp;в&nbsp;гости
     .rightPart
       .status=status.get('text')
-      a(class='writeBtn fui-bubble', href="/message/#{users[status.get("user")].get("id")}")
+      a(class='writeBtn fui-bubble wmwt', href="/message/#{status.get('user_object').id}")
+        .tooltip.clearfix
+          .tooltip-arrow
+          span Написать
       .controlLinks.clearfix
         .like(data-like="true")
         .note пожаловаться
