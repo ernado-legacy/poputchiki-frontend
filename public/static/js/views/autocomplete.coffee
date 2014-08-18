@@ -15,6 +15,7 @@ app.views.Autocomplete = Backbone.View.extend
         if event.which==13
             input.val $(droped.find('li')[0]).text()
             droped.css 'display', 'none'
+            @afterchange()
             do event.preventDefault
             return
 
@@ -40,7 +41,11 @@ app.views.Autocomplete = Backbone.View.extend
         text = el.text()
         input = @$el.find 'input'
         input.val text
+        @afterchange()
         do @out
+
+    afterchange: () ->
+        return
 
 app.views.AutocompleteCountry = app.views.Autocomplete.extend
     
