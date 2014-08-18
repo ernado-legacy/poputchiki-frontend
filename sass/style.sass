@@ -716,11 +716,11 @@ a.blue-link
 .photoVideoBlock
     margin: 7px 0px 0px 0px
     right: 6px
-    //right: -40px //for large screen
     top: 0px
     width: 384px
-    //width: 315px
-    position: absolute    
+    position: absolute
+    max-height: 732px
+    overflow-y: hidden
     #profile-arrow-up, #profile-arrow-down
         background-image: url('../img/profile_arrow_u.png')
         background-repeat: no-repeat
@@ -822,7 +822,9 @@ a.blue-link
                 margin-right: 8px
     .videoBox
         display: none
-
+.icl
+    left: 70% !important
+    z-index: 1
 .profileBox
     float: left
     background-image: url('../img/b_ellips.png')
@@ -1538,11 +1540,14 @@ a.blue-link
 .chatLine
     top: 0
     right: 0
-    // position: absolute
+    position: relative
     float: right
-    margin-top: 7px
+    margin-top: 70px
     width: 230px
     list-style: none
+    overflow-y: scroll
+    max-height: 612px
+    margin-bottom: 50px
     li
         float: right
         background-color: $chat_line
@@ -1570,9 +1575,17 @@ a.blue-link
         background-color: $chat_line_a
         border-top: 1px solid $chat_line_a_border
         border-bottom: 1px solid $chat_line_a_border
+.chatLine::-webkit-scrollbar
+    height: 1px
+    width: 1px
+    background: rgba(0, 0, 0, 0.0)
+.chatLine::-webkit-scrollbar-thumb
+    background: rgba(0, 0, 0, 0.0)
 .chatContainer
     width: 1200px
     margin: 0 auto
+    max-height: 732px
+    overflow-y: auto
     .chatBlock
         width: 348px
         height: 278px
@@ -1580,7 +1593,7 @@ a.blue-link
         border: 1px solid $chat_block_border
         +border-radius(4px, 4px, 4px, 4px)
         margin-top: 45px
-        margin-right: 50px
+        margin-right: 46px
         float: left
         position: relative
         img
