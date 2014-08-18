@@ -36,7 +36,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             that.showInputDrop '.newCountry'
             that.hideInputDrop '.newCountry'
             that.openTagWithInput '.newCountry'
-            that.addSearchTag '.newCountry ul .dl', '#profile-new-tag', '#profile-tags', 1
+            #that.addSearchTag '.newCountry ul .dl', '#profile-new-tag', '#profile-tags', 1
 
             sc = @$el.find '.countryEdit'
             scv = new app.views.AutocompleteCountry
@@ -69,6 +69,18 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             sc = @$el.find '.newTagBox .newCountry'
             scv = new app.views.AutocompleteCountry
                 el: sc
+            scv.oldtags = '#profile-tags'
+            scv.afterchange = () ->
+                newCountry = @$el.find('input').val()
+                unless newCountry is ""
+                    $(this).val ""
+                    z = "<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
+                    #if variant is 1
+                    $(@oldtags).append z
+                    #else
+                    #    $(@oldtags).prepend z
+                    @$el.find('input').val ''
+                #$(newtag).val("")
 
             # sc = @$el.find '.searchCountry'
             # scv = new app.views.AutocompleteCountry
