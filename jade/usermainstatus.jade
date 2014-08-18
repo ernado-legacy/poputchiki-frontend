@@ -1,11 +1,13 @@
-.newStatus Новый статус
+if is_mystatus
+  .newStatus Новый статус 
 .statusBoxCompleted.clearfix
   .statusBox#main-status
     .status= status.get('text')
-    .edit#edit-status
-      .tooltip.clearfix
-        .tooltip-arrow
-        span Редактировать
+    if is_mystatus
+      .edit#edit-status
+        .tooltip.clearfix
+          .tooltip-arrow
+          span Редактировать
     .comments.clearfix
       if is_mystatus
         span.delete-comments удалить
@@ -19,5 +21,5 @@
   .statusBoxEdit.clearfix
     h1 добавить новый статус
     .greenDots
-    input#new-status(placeholder='...', type='text',  maxlength="140", value=status.get('text'))
+    input#new-status(placeholder='...', type='text', value=status.get('text'))
     .writeBtn#write-new-main-status

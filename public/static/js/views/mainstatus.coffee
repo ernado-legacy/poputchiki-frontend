@@ -1,4 +1,5 @@
-app.views.userMainStatus = app.views.Status.extend
+app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBlock,
+    # app.views.Status.extend
 
     events: 
         'click #edit-status': 'openeditstatus'
@@ -11,20 +12,21 @@ app.views.userMainStatus = app.views.Status.extend
         @$el.attr 'data-status'
 
     render: (user)->
-        # if user.get 'status'
-        @user_id = user.get 'id'
-        status = new app.models.MyStatus 'user':user.get('id')
-        that = @
-        status.fetch
-            success: =>
-                is_mystatus = if app.models.myuser.getid() == user.get 'id' then true else false
-                is_liked = true if app.models.myuser.getid() in status.get 'liked_users'
-                $('.wantToTravelBox').html that.$el.html jade.templates.usermainstatus
-                        status: status
-                        is_mystatus: is_mystatus
-                        is_liked: is_liked
-                that.$el.attr 'data-status', status.get 'id'
-                that.status = status
+        if user.get 'status'
+            @user_id = user.get 'id'
+            status = new app.models.MyStatus 'user':user.get('id')
+            that = @
+            status.fetch
+                success: =>
+                    is_mystatus = if app.models.myuser.getid() == user.get 'id' then true else false
+                    is_liked = true if app.models.myuser.getid() in status.get 'liked_users'
+                    $('.wantToTravelBox').html that.$el.html jade.templates.usermainstatus
+                            status: status
+                            is_mystatus: is_mystatus
+                            is_liked: is_liked
+                    that.$el.attr 'data-status', status.get 'id'
+                    that.status = status
+                    do that.delegateEvents
 
     openeditstatus: ->
         $('#new-status').val @status.get 'text'
@@ -41,8 +43,8 @@ app.views.userMainStatus = app.views.Status.extend
 
     updatestatus: (e)->
         if $('#new-status').val() == ''
-            $('.wantToTravelBox').addClass 'shiv-block'
-            $('.loginRegisterBlock').removeClass 'shiv-block'
+            $('.wantToTravelBox').toggleClass 'shiv-block'
+            # $('.loginRegisterBlock').removeClass 'shiv-block'
         else
             if $(e.currentTarget).data('mode')== 'new'
                 do @newstatus
@@ -59,11 +61,15 @@ app.views.userMainStatus = app.views.Status.extend
         #        user: app.models.myuser.getid()
 
     editstatus: ->
-        @status.save 'text': $('#new-status').val(),
-            success: =>
-                $('#main-status .status').text @status.get 'text'
-                $("#main-status").slideDown "slow"
-                $(".statusBoxEdit").slideUp "slow"
+        if $('#new-status').val() == @status.get 'text'
+            $("#main-status").slideDown "slow"
+            $(".statusBoxEdit").slideUp "slow"
+        else
+            @status.save 'text': $('#new-status').val(),
+                success: =>
+                    $('#main-status .status').text @status.get 'text'
+                    $("#main-status").slideDown "slow"
+                    $(".statusBoxEdit").slideUp "slow"
 
     newstatus: ->
         that = @

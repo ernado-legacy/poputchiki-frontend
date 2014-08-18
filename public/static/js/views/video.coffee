@@ -18,7 +18,7 @@ app.views.Video = Backbone.View.extend
         if not @model.get('url')
             @interval = setInterval ->
                 do that.updateUrl
-            , 2
+            , 2000
         
         app.models.myuser.get (user)->
             liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false

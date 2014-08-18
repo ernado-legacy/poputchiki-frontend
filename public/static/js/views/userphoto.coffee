@@ -24,12 +24,9 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         that = @
         success = (data) ->
             app.models.myuser.get (user)->
-                console.log  url.search 'photo'
                 if url.search('photo') == -1
-                    console.log 'video дфдфдф'
                     do that.refreshVideos
                 else
-                    console.log 'photo'
                     do that.refreshPhotos
                     
         @uploadphoto url, form, success

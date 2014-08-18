@@ -71,8 +71,32 @@ app.views.SettingsProfile = Backbone.View.extend _.extend app.mixins.RenderSetti
     template: jade.templates.settingsprofile
     # render: ()->
     #     @renderItem jade.templates.settingsprofile, 'profile'
+    # clck: ->
+    #     # "subscriptions": ["likes_photo", "likes_status", "messages", "invites", "guests", "news"]
+    #     console.log 'save profile'
     clck: ->
-        console.log 'save profile'
+        that = @
+        @changeUserSettings (aftersavefunction)=>
+            formData = {}
+            subscriptions = []
+            subscriptions.push($(notification).data 'notification') for notification in @$el.find '#notifications .box.subscrition.checked'
+            # console.log notification for notification in @$el.find '#notifications .box.subscrition.checked'
+            formData['subscriptions'] = subscriptions
+            if @model.get('subscriptions') != formData['subscriptions']
+                @model.save formData, patch: true, success: ->
+                    do aftersavefunction 
+            else
+                do aftersavefunction 
+            # if input.val() and (input.val() == input2.val())
+            #     formData[input.attr('name')] = input.val()
+            #     that.model.set formData
+            #     if _.size(that.model.changed)>0
+            #         that.model.save formData, patch: true, success: ->
+            #                 do aftersavefunction 
+            #     that.$el.find('.currentEmail a').text(formData[input.attr('name')])
+            # else
+            #     console.log  'введите верный имейл'
+            #     do aftersavefunction 
 
 app.views.SettingsPassword = Backbone.View.extend _.extend app.mixins.RenderSettingItem,
     template: jade.templates.settingspassword

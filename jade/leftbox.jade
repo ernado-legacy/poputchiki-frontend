@@ -1,10 +1,10 @@
 .leftBox
-  .profileBox
+  div(class = user.rating < 70 ? user.rating < 35 ? "profileBox low-rating" : "profileBox middle-rating" : "profileBox")
     .imgBox
       img(src=user.avatar_url)
       .cover
       span#change-avatar Изменить фото
-    #profile-rating #{user.rating} %
+    #profile-rating(class = user.rating < 70 ? user.rating < 35 ? "low-rating" : "middle-rating" : "") #{user.rating} %
   if (user.audio_url)
     .playerBox.clearfix
       .audio.audio-change-avatar
@@ -29,12 +29,20 @@
       .greenDots
       #search-sex Пол
       .sexBox.clearfix
-        .manBox
-          div(class =  user.likings_sex === 'male' ? 'box checked': 'box')
-          span Мужчины
-        .womanBox
-          div(class =  user.likings_sex === 'female' ? 'box checked': 'box')
-          span Женщины
+        if user.likings_sex
+          .manBox
+            div(class =  user.likings_sex === 'male' ? 'box checked': 'box')
+            span Мужчины
+          .womanBox
+            div(class =  user.likings_sex === 'female' ? 'box checked': 'box')
+            span Женщины
+        else
+          .manBox
+            div(class =  user.sex === 'female' ? 'box checked': 'box')
+            span Мужчины
+          .womanBox
+            div(class =  user.likings_sex === 'male' ? 'box checked': 'box')
+            span Женщины
       .greenDots
       span#search-places Cтраны/города
       .mainSelectElement.searchCountry.withShadow
@@ -76,15 +84,26 @@
       if user.seasons
         .greenDots
         #seasons Сезоны:
-        .seasonsBox.clearfix
-          div(id = "spring", class = user.seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
+        if user.likings_seasons
+          .seasonsBox.clearfix
+            div(id = "spring", class = user.likings_seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
               span весна
-          div(id = "summer", class = user.seasons.indexOf("summer")>-1 ? "season seasonChecked" : "season")
-            span лето
-          div(id = "autumn", class = user.seasons.indexOf("autumn")>-1 ? "season seasonChecked" : "season")
-            span осень
-          div(id = "winter", class = user.seasons.indexOf("winter")>-1 ? "season seasonChecked" : "season")
-            span зима
+            div(id = "summer", class = user.likings_seasons.indexOf("summer")>-1 ? "season seasonChecked" : "season")
+              span лето
+            div(id = "autumn", class = user.likings_seasons.indexOf("autumn")>-1 ? "season seasonChecked" : "season")
+              span осень
+            div(id = "winter", class = user.likings_seasons.indexOf("winter")>-1 ? "season seasonChecked" : "season")
+              span зима
+        else 
+          .seasonsBox.clearfix
+            div(id = "spring", class = "season")
+              span весна
+            div(id = "summer", class = "season")
+              span лето
+            div(id = "autumn", class = "season")
+              span осень
+            div(id = "winter", class = "season")
+              span зима
       .greenDots
       span#search-places-f Cтраны/города
       .folowersWrapper.clearfix#folowers-tags

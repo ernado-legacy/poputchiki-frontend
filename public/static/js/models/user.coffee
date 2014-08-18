@@ -90,7 +90,7 @@ app.models.User = Backbone.Model.extend
                 
 
     parse: (response)->
-        response.rating = Math.round(parseInt(response.rating) / 10)*10 
+        response.rating = Math.round(response.rating)
         return response
 
 

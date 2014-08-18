@@ -60,12 +60,20 @@ app.views.Photo = Backbone.View.extend
         $('.photoPopup img').click =>
             react @, 'left'
 
-        user = new app.models.User
-        user.set 'id', @model.get 'user'
-        user.fetch
-            success: ->
-                app.views.popupphoto.changeuser user
-        do app.views.popupphoto.clearuser
+        
+        if @model.get 'user_object'
+            do app.views.popupphoto.clearuser
+            user = new app.models.User @model.get 'user_object'
+            app.views.popupphoto.changeuser user
+        else
+            user = new app.models.User
+            $('.photoPopup .infoBox').addClass 'loading'
+            user.set 'id', @model.get 'user'
+            user.fetch
+                success: ->
+                    $('.photoPopup .infoBox').removeClass 'loading'
+                    app.views.popupphoto.changeuser user
+            do app.views.popupphoto.clearuser
 
     like: ()->
         

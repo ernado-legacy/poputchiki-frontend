@@ -588,6 +588,10 @@ a.blue-link
             position: absolute
             right: -15px
             top: 20px
+        #rating.middle-rating
+            color: $menu-favorites
+        #rating.low-rating
+            color: $menu-rating
         #name
             margin-top: 9px
             margin-left: 12px
@@ -598,6 +602,10 @@ a.blue-link
             text-align: left
             font-weight: bold
             color: $header_blue
+    .userBox.middle-rating
+        background-image: url('../img/b_ellips_middle.png')
+    .userBox.low-rating
+        background-image: url('../img/b_ellips_low.png')
     #profile-arrow-left, #profile-arrow-right
         float: left
         margin: 84px 0 0 7px
@@ -870,6 +878,17 @@ a.blue-link
         color: $header_blue
         cursor: pointer
         z-index: 1024
+    #profile-rating.middle-rating, .profile-rating.middle-rating
+        color: $menu-favorites
+    #profile-rating.low-rating, .profile-rating.low-rating
+        color: $menu-rating
+
+
+.profileBox.middle-rating
+    background-image: url('../img/b_ellips_middle.png')
+.profileBox.low-rating
+    background-image: url('../img/b_ellips_low.png')
+
 /*PROFILE*/
 .searchBox
     float: left
@@ -1205,7 +1224,8 @@ a.blue-link
     background-image: url('../img/drop_arrow2.png')
     display: none
 .droped
-    max-height: 235px
+    // max-height: 235px
+    max-height: 200px
     overflow: auto
     position: absolute
     top: 100%
@@ -1335,9 +1355,12 @@ a.blue-link
     width: 35px
     height: 35px
     margin-top: -6px
-    cursor: pointer
     position: relative
     background-size: 30px
+
+.searchContainer, .myProfileContainer
+    .money-icon, .house-icon, .money-icon-inactive
+        cursor: pointer
 
 .money-icon, .house-icon, .edit, .money-icon-inactive
     .tooltip
@@ -1777,7 +1800,7 @@ a.blue-link
         width: -webkit-calc(100% - 31px) !important
         width: calc(100% - 31px) !important
         margin-left: 30px
-        height: 78px
+        min-height: 78px
         border: 1px solid $statuses_border
         border-left: none
         background-color: $statuses_block
@@ -1801,7 +1824,8 @@ a.blue-link
             .name-in-profile
                 font-size: 15px
             .city-in-profile
-                margin-bottom: 5px
+                margin-bottom: 15px
+
         .rightPart
             float: left
             width: -moz-calc(100% - 270px)
@@ -2414,6 +2438,7 @@ a.blue-link
         iframe
             height: 500px        
     .infoBox
+        min-height: 100px
         img
             height: 80px
             width: 80px
@@ -2435,6 +2460,10 @@ a.blue-link
                 font-size: 15px
         .rightPart
             float: right
+    .infoBox.loading
+        background-image: url('../img/searchpreloader.GIF')
+        background-repeat: no-repeat
+        background-position: 50% 50%
 .photoPopup
     .imgBox
         height: 500px
