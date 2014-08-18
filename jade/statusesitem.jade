@@ -18,7 +18,10 @@ each status in statuses.models
             span Жду&nbsp;в&nbsp;гости
     .rightPart
       .status=status.get('text')
-      a(class='writeBtn fui-bubble', href="/message/#{status.get('user_object').id}")
+      a(class='writeBtn fui-bubble wmwt', href="/message/#{status.get('user_object').id}")
+        .tooltip.clearfix
+          .tooltip-arrow
+          span Написать
       .controlLinks.clearfix
         .like(data-like="true")
         .note пожаловаться

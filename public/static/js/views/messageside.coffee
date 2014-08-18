@@ -4,6 +4,8 @@ app.views.MessageSide = Backbone.View.extend
 
     events: 
         'click ul.chatLine li': 'newdialog'
+        'click #profile-arrow-up': 'carousel_up'
+        'click #profile-arrow-down': 'carousel_down'
 
     render: ->
         $ @$el.html jade.templates.chat_line
@@ -11,3 +13,13 @@ app.views.MessageSide = Backbone.View.extend
 
     newdialog: (event) ->
         app.views.message.newdialog event
+
+    carousel_up: ->
+        $('.chatLine').animate
+                scrollTop: "-=256"
+                , "slow"
+
+    carousel_down: ->
+        $('.chatLine').animate
+                scrollTop: "+=256"
+                , "slow"
