@@ -1238,6 +1238,7 @@ a.blue-link
     width: 100%
     +border-radius(0px, 0px, 4px, 4px)
     border: 1px solid $ti_dd_border
+    text-overflow: ellipsis
     li
         height: 38px
         font-size: 14px
@@ -1249,6 +1250,8 @@ a.blue-link
         border-bottom: 1px solid $ti_dd_sep
         cursor: pointer
         +simple-font
+        overflow: hidden
+        text-overflow: ellipsis
     li:hover
         background-color: $ti_dd_select
     li:last-child
@@ -1292,6 +1295,8 @@ a.blue-link
     margin-left: 20px
     .newCountry
         +add-input
+        input
+            width: 100px
     .newCountry, .newSeason, .newYear
         +italic-font
         font-size: 14px
@@ -1542,12 +1547,9 @@ a.blue-link
     right: 0
     position: relative
     float: right
-    margin-top: 70px
+    margin-top: 7px
     width: 230px
     list-style: none
-    overflow-y: scroll
-    max-height: 612px
-    margin-bottom: 50px
     li
         float: right
         background-color: $chat_line
@@ -1575,11 +1577,16 @@ a.blue-link
         background-color: $chat_line_a
         border-top: 1px solid $chat_line_a_border
         border-bottom: 1px solid $chat_line_a_border
-.chatLine::-webkit-scrollbar
+.inDialogs    
+    overflow-y: scroll
+    max-height: 612px
+    margin-bottom: 50px
+    margin-top: 70px
+.inDialogs::-webkit-scrollbar
     height: 1px
     width: 1px
     background: rgba(0, 0, 0, 0.0)
-.chatLine::-webkit-scrollbar-thumb
+.inDialogs::-webkit-scrollbar-thumb
     background: rgba(0, 0, 0, 0.0)
 .chatContainer
     width: 1200px
@@ -2465,6 +2472,10 @@ a.blue-link
             height: 500px        
     .infoBox
         min-height: 100px
+        a
+            +simple-font
+            position: static
+            text-decoration: none
         img
             height: 80px
             width: 80px
