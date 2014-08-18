@@ -175,8 +175,40 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         "click #my-profile .money-icon": 'setSponsor'
         "click #my-profile .house-icon": 'setHost'
         "click #my-seasons .season": 'setSeasons'
+        "click #my-destinations .droped .dl": 'setDestinations'
+        "click #my-destinations .close": 'removeDestinations'
         # 'click #my-profile .money-icon': 'moneyIcon'
         # 'click #my-profile .house-icon': 'houseIcon'
+
+    setDestinations: (e)->
+        new_destination = $(e.currentTarget).text()
+        destinations = if @model.get('destinations') then @model.get('destinations') else []
+        if not _.contains(destinations, new_destination)
+            destinations.push new_destination
+            console.log destinations
+            @model.set 'destinations', destinations
+            @model.fetch
+                success:=>
+                    console.log @model.attributes
+                    $('#profile-tags').html jade.templates.user_destinations
+                        user: @model.attributes
+
+
+        $('#profile-tags').html jade.templates.user_destinations
+            user: @model.attributes
+
+    removeDestinations: (e) ->
+        console.log d
+        d = $(e.currentTarget).closest('.withShadow').text()
+        destinations = @model.get('destinations')
+        destinations =  _.without(destinations, d)
+        console.log destinations
+        @model.save 
+            'destinations': destinations,
+            success:=>
+                $('#profile-tags').html jade.templates.user_destinations
+                    user: @model.attributes
+        
 
     setSeasons: (e)->
         if $(e.currentTarget).hasClass('season')

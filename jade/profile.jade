@@ -30,7 +30,9 @@
           input#new-status(placeholder='...', type='text',  maxlength="140", value=user.status ? user.status: 'Добавьте ваш первый статус путешественника')
           .writeBtn#write-new-main-status
     .tagBox
-      h1 Сезоны
+      h1 Сезоны 
+        small  Укажите  сезоны, когда бы вы хотели поехать отдыхать   
+          i.fui-question  
       if user.seasons
         .seasonsBox.clearfix#my-seasons
           div(id = "spring", class = user.seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
@@ -51,18 +53,12 @@
             span осень
           div(id = "winter", class = "season")
             span зима
-    .tagBox
+    .tagBox#my-destinations
       h1 Мои направления
+        small  Укажите напрвления в которые вы бы хотел попутешествовать  
+          i.fui-question
       .tagsLine#profile-tags
-        .mainSelectElement.profileTagPlaces.withShadow
-          span.tagCountry Россия
-          .close
-        .mainSelectElement.profileTagPlaces.withShadow
-          span.tagCountry Европа
-          .close
-        .mainSelectElement.profileTagPlaces.withShadow
-          span.tagCountry Африка
-          .close
+        include user_destinations
       .newTagBox
         .mainSelectElement.newCountry.withShadow
           input#profile-new-tag(placeholder='...', type='text',  maxlength="20")
