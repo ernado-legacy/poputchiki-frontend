@@ -1,6 +1,6 @@
 .popup.chavaPopup.clearfix
   a(href='#', class='closepopup') Закрыть
-  form
+  form.audioform
     h1 Изменить аватар
     .greenDots
     .changeAvatarBox.clearfix
@@ -24,5 +24,7 @@
     .mainSelectElement.upload-new-audio
       span Загрузить файл
     input.upload-new-audio-input(type='file')
+  form.avatarform(style="display:none")
+    input.upload-new-avatar-input(type='file')  
   .regButton.profile-edit-slideup.save-new-ava-audio
     span сохранить
