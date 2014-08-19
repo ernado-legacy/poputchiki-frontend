@@ -2,9 +2,9 @@ app.views.Stripe = Backbone.View.extend
 
     el: '.mainTopContainer'
 
-    events:
-        'click .audio': 'play_audio'
-        'click .video': 'play_video'
+    #events:
+        #'click .audio': 'play_audio'
+        #'click .video': 'play_video'
 
     set_coockie: ->
         # detect webp support
@@ -105,14 +105,19 @@ app.views.StripechopPopup = Backbone.View.extend
     #events:
     #    '': ''
 
-    update: ->
-        collection = new app.models.Photos app.models.myuser.getid()
+    update: (video) ->
+        id = app.models.myuser.getid()
+        if video
+            collection = new app.models.Videos id
+        else
+            collection = new app.models.Photos id
         collection.fetch().done () =>
             hash = collection.groupBy (val, index) ->
                 Math.floor index / 3
             arrays = _.map hash, (item) -> item
             @$el.find('form').html jade.templates.popup_choose_item
                 arrays: arrays
+                video: video
             _.each @$el.find('.imgBox'), (item) ->
                 view = new app.views.StripePhoto
                     el: item
@@ -124,10 +129,15 @@ app.views.StripePhoto = Backbone.View.extend
 
     clck: ->
         id = @$el.attr 'data-id'
+        if @$el.attr('data-video') == 'true'
+            type = 'video'
+        else
+            type = "photo"
         model = new app.models.Stripe
             id: id
-            type: "photo"
+            type: type
         model.url = -> "/api/stripe"
         model.save {},
             success: ->
                 app.views.entered.closepopuprun()
+                do app.views.stripe.render

@@ -64,7 +64,7 @@ app.views.Video = Backbone.View.extend
             this.pause()
             this.currentTime = 0
         animVideo = $(event.target)
-        animVideo.parent().prev().css "opacity", "0"
+        animVideo.prev().prev().css "opacity", "0"
         setTimeout (->
             animVideo.get(0).play()
             return
