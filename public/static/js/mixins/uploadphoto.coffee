@@ -10,4 +10,5 @@ app.mixins.UploadPhoto =
             'cache': false,
             'processData': false,
             'contentType': false,
+            dataType: "json"
             success: success
