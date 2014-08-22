@@ -1,9 +1,9 @@
 .topContainer.clearfix
   div(class = user.get('rating') < 70 ? user.get('rating') < 35 ? "userBox low-rating" : "userBox middle-rating" : "userBox")
+    #nick-name Хочу сюда!
     img(src='#{user.get("avatar_url")}', width=100)
     #rating(class = user.get('rating') < 70 ? user.get('rating') < 35 ? "low-rating" : "middle-rating" : "") #{user.get("rating")}%
-    #name=user.get('name')
-    #nick-name LuckyStar
+    //- #name=user.get('name')
   #profile-arrow-left
   .carouselBox
     .carousel
@@ -16,12 +16,12 @@
           if item.get('type')=='audio'
             .audio
               audio
-                source(src='#{item.get('url')}', type="audio/ogg")
+                source(src='#{item.get('url')}')
           if item.get('type')=='video'
             .videoBox
               .frontLayer
               video
-                source(src='#{item.get('url')}', type="video/webm", codecs="vp8, vorbis")
+                source(src='#{item.get('url')}')
             .video
     //
       - for (var i = 1; i <= 14; i++)

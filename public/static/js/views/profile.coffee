@@ -19,7 +19,8 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         that = @
         history.pushState null, 'poputchiki', '/profile/'
         @get_my_user (user) =>
-            user.updateDate {},'birthday'
+            app.views.entered.setmenuitem '#menu-profile'
+            user.updateDate 'birthday'
             that.model = user
             app.views.user_photo_block.render(user.id, true)
 
@@ -184,10 +185,13 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         new_destination = $(e.currentTarget).text()
         destinations = if @model.get('destinations') then @model.get('destinations') else []
         if not _.contains(destinations, new_destination)
+            console.log 123
             destinations.push new_destination
             console.log destinations
+            console.log @model
             @model.set 'destinations', destinations
-            @model.fetch
+            console.log @model.get 'destinations'
+            @model.save
                 success:=>
                     console.log @model.attributes
                     $('#profile-tags').html jade.templates.user_destinations
@@ -202,7 +206,6 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         d = $(e.currentTarget).closest('.withShadow').text()
         destinations = @model.get('destinations')
         destinations =  _.without(destinations, d)
-        console.log destinations
         @model.save 
             'destinations': destinations,
             success:=>

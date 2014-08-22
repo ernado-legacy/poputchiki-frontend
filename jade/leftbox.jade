@@ -14,9 +14,15 @@
           source(src=user.audio_url)
       .timeBar
         .progress
+
+
+  .searchBox
+    .searchBody.clearfix.balance
+      h1 баланс:
+        a(class="custom-blue-link menu-settings", data-id="payment") #{user.balance} 
   .searchBox
     .searchBody.clearfix#my-wishes
-      h1 мои предпочтения
+      h1 хочу найти
       .greenDots
       #search-age Возраст
       .ageBox.clearfix
@@ -78,12 +84,11 @@
       .tagsBox.clearfix#tb-s
 
       .greenDots
-      .slideDown#search-slidedown Поиски попутчиков
+      .slideDown#search-slidedown расширенный поиск
     .searchBody.clearfix#my-folowers
-      h1 поиск попутчиков
-      if user.seasons
-        .greenDots
-        #seasons Сезоны:
+      h1 расширенный поиск
+      .greenDots
+      #seasons Выберите сезон:
         if user.likings_seasons
           .seasonsBox.clearfix
             div(id = "spring", class = user.likings_seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
@@ -105,7 +110,7 @@
             div(id = "winter", class = "season")
               span зима
       .greenDots
-      span#search-places-f Cтраны/города
+      span#search-places-f Выберите направления
       .folowersWrapper.clearfix#folowers-tags
         .mainSelectElement.searchCountry.withShadow
           input.search-select(placeholder='...', type='text',  maxlength="20", id="folowers-new-tag")
@@ -133,7 +138,7 @@
           //-     span Домик
       
       .greenDots
-      .slideDown#search-slideup Мои предпочтения
+      .slideDown#search-slideup хочу найти
   div
     span.lp
     span.rp

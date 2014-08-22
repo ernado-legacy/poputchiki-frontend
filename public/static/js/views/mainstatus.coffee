@@ -27,6 +27,14 @@ app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBl
                     that.$el.attr 'data-status', status.get 'id'
                     that.status = status
                     do that.delegateEvents
+        else
+            @user_id = user.get 'id'
+            status = new app.models.MyStatus 'user':user.get('id')
+            is_mystatus = false
+            is_liked = false
+            @$el.addClass 'new-clear-status'
+            $('.wantToTravelBox').html @$el.html jade.templates.usermainstatusnew()
+            do @delegateEvents
 
     openeditstatus: ->
         $('#new-status').val @status.get 'text'
@@ -36,7 +44,7 @@ app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBl
 
     opennewstatus: ->
         $('#new-status').val('')
-        $('#new-status').attr 'placeholder','Введите нвоый статус'
+        $('#new-status').attr 'placeholder','Введите новый статус'
         $("#main-status").slideUp "slow"
         $(".statusBoxEdit").slideDown "slow"
         $('#write-new-main-status').data "mode", 'new'
@@ -79,11 +87,18 @@ app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBl
         status.save null,
             success: =>
                 do app.views.statuses.getstatuses
+                @status = status
+                app.models.myuser.get (myuser) =>
+                    @render myuser
                 $('#main-status .status').text status.get 'text'
                 $("#main-status").slideDown "slow"
                 $(".statusBoxEdit").slideUp "slow"
             error: =>
-                do app.views.entered.vip_popup
-                $("#main-status").slideDown "slow"
-                $(".statusBoxEdit").slideUp "slow"
-    
+                app.models.myuser.get (myuser) =>
+                    if myuser.get 'vip'
+                        do @$el.find('.popup-info').click
+                    else
+                        do app.views.entered.vip_popup
+                    $("#main-status").slideDown "slow"
+                    $(".statusBoxEdit").slideUp "slow"
+        

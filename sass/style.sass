@@ -488,6 +488,22 @@ a.blue-link
             border-color: $menu_tools
         #menu-tools:before
             background-color: $menu_tools
+        #menu-profile
+            width: 80%
+            .fui-user
+                color: grey
+                font-size: 40px
+            -webkit-transition: background-color 0.5s ease-in-out
+            -moz-transition: background-color 0.5s ease-in-out
+            -o-transition: background-color 0.5s ease-in-out
+            transition: background-color 0.5s ease-in-out
+        #menu-profile:hover, #menu-profile.current
+            background-color: $menu_tools!important
+            border-color: $menu_tools
+            .fui-user
+                color: white
+        #menu-profile:before
+            background-color: $menu_tools
 
         #menu-go
             border-color: $lets_go
@@ -579,10 +595,15 @@ a.blue-link
         position: relative
         font-size: 14px
         img
+            z-index: 1
             margin: 10px 0 0 10px
             cursor: pointer
             width: 100px
             +border-radius(50%, 50%, 50%, 50%)
+            filter: alpha(opacity=50)
+            -moz-opacity: 0.5
+            -khtml-opacity: 0.5
+            opacity: 0.5
         #rating
             color: $header_blue
             position: absolute
@@ -598,10 +619,19 @@ a.blue-link
             text-align: left
             color: $header_blue
         #nick-name
-            margin-left: 12px
+            z-index: 100
+            position: absolute
+            margin-top: 55px
+            margin-left: 20px
             text-align: left
             font-weight: bold
             color: $header_blue
+            text-align: center
+            width: 90%
+            display: block
+            margin-left: 10px
+            background-color: white
+            cursor: pointer
     .userBox.middle-rating
         background-image: url('../img/b_ellips_middle.png')
     .userBox.low-rating
@@ -973,7 +1003,9 @@ a.blue-link
             +search-checkboxes
         #search-slidedown, #search-slideup
             margin-top: 5px
-            float: left
+            // float: left
+            text-align: center
+            float: none
         .sponsor-search, .host-search
             margin-top: 15px
             margin-bottom: 15px
@@ -989,6 +1021,15 @@ a.blue-link
                 text-indent: 35px
                 .tooltip
                     text-indent: 0px
+    .balance
+        .custom-blue-link
+            text-decoration: none
+            padding-left: 15px
+            font-size: 20px
+            small
+                font-size: 14px
+                color: #4b4b4b
+                color: $profile_status_text
     #my-wishes
         .mainSelectElement
             width: 78%
@@ -1451,6 +1492,7 @@ a.blue-link
                 padding-bottom: 8px
                 opacity: 1
                 margin: 10px 10px 0px 0px
+                text-align: center
                 span
                     font-weight: bold
                 .share-comments, .delete-comments
@@ -1459,6 +1501,18 @@ a.blue-link
                     padding-left: 7px
                     float: right
                     color: $profile_status_text
+                .share-comments
+                    text-decoration: none
+                    float: none
+                .share-comments:hover
+                    color: #eaeaea
+                .share-comments:first-child:hover
+                    color: $profile_status_text
+                .share-comments:first-child
+                    cursor: initial
+                    text-decoration: underline
+
+
             .inputBox
                 padding-top: 5px
                 input
@@ -1812,7 +1866,7 @@ a.blue-link
                             font-size: 14px
                 .searchCountry, .searchCity
                     float: left
-                    width: 40px
+                    width: 140px
                     margin-left: 5px
                     margin-top: 5px
                     +add-input
@@ -2368,7 +2422,7 @@ a.blue-link
         right: 20px
         top: 20px
         text-decoration: underline
-.letsgoPopup
+.letsgoPopup,.popupInfo
     left: -moz-calc((100% - 365px)/2)
     left: -webkit-calc((100% - 365px)/2)
     left: calc((100% - 365px)/2)

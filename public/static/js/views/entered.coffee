@@ -17,7 +17,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click #profile-rating': 'rating_popup'
         'click #menu-rating': 'rating_popup'
         'click .show-vip': 'vip_popup'
-        'click .userBox img': 'promo_popup'
+        'click .userBox': 'promo_popup'
         'click .open-promo': 'promo_popup'
         'click #change-avatar': 'chava_popup'
         'click #menu-go': 'letsgo_popup'
@@ -39,6 +39,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .letsFilter': '_filters'
         'focus .bottomPart input': 'activeChat'
         'click #folowers-tags .searchCountry ul .dl': 'addSearchTag'
+        'click .popup-info': 'info_popup'
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")
@@ -91,6 +92,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             'menu-photos': app.views.guests
             'menu-rating': @rating_popup
             'menu-tools': app.views.setting
+            'menu-profile': app.views.profile
 
         $('.leftMenu li').removeClass 'current'
         # $(event.currentTarget).addClass 'current'
@@ -222,7 +224,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         @closepopuprun()
         $('.leftMenu li').removeClass 'current'
         do @slideHide
-        do app.views.setting.render e
+        app.views.setting.render e
                 
     addSearchTag: -> 
         newCountry = $(event.target).text()
@@ -415,6 +417,12 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     letsgo_popup: ->
         @showpopup('.letsgoPopup')
+
+    info_popup: (e)->
+
+        $('.popupInfo .infopopup-title').text $(e.currentTarget).data 'infopopup-title'
+        $('.popupInfo .infopopup-text').text $(e.currentTarget).data 'infopopup-text'
+        @showpopup('.popupInfo')
 
     imggrid_popup: ->
         @showpopup('.photoPopup')

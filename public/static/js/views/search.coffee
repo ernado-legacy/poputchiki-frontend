@@ -149,12 +149,16 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             #_.each ms, (item) ->
             #    autocomplete = new app.views.Autocomplete
             #        el: item
-            sc = @$el.find '.searchCountry'
+            sc = @$el.find '#my-wishes .searchCountry'
             scv = new app.views.AutocompleteCountry
                 el: sc
-            sct = @$el.find '.searchCity'
+            sct = @$el.find '#my-wishes .searchCity'
             sctv = new app.views.AutocompleteCity
                 el: sct
             sctv.country = scv
+
+            sc = @$el.find '#my-folowers .searchCountry'
+            scv = new app.views.AutocompleteCountry
+                el: sc
             do that.search
         # do @.search

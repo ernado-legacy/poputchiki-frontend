@@ -19,7 +19,8 @@ a(href="/user/#{user.id}", data-user-id="#{user.id}")
     //- .status=status.get('text')
     //- .writeBtn.write.fui-bubble
     .controlLinks.clearfix
-      div(class="like remove_from_fav", id="remove-from-fav") убрать из избранных
+      if(is_fav)
+        div(class="like remove_from_fav", id="remove-from-fav") убрать из избранных
       div(class="note write") написать
       //- div(class="note to_journey",) пригласить
       //- .note пожаловаться

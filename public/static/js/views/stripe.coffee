@@ -93,6 +93,7 @@ app.views.Stripe = Backbone.View.extend
                         items: stripes.models
                         user: user
 
+
 app.views.StripePopup = Backbone.View.extend
 
     el: '.promoPopup'

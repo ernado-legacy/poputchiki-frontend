@@ -58,7 +58,8 @@
         small  Укажите напрвления в которые вы бы хотел попутешествовать  
           i.fui-question
       .tagsLine#profile-tags
-        include user_destinations
+        if user.destinations
+          include user_destinations
       .newTagBox
         .mainSelectElement.newCountry.withShadow
           input#profile-new-tag(placeholder='...', type='text',  maxlength="20")
