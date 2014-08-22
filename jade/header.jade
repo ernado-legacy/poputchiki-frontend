@@ -1,0 +1,14 @@
+header
+  .hLogo
+    span попутчики.ru
+  ul.navigation
+    if login
+      li#header-profile.header-profile-statuses
+        span статусы попутчиков
+      li#header-journeys
+        span знакомства
+      li#header-exit
+        span выход
+    else
+      li#header-profile
+        span войти

@@ -1,8 +1,8 @@
-app.views.Rating = Backbone.View.extend
+app.views.AboutUs = Backbone.View.extend
 
     el: 'body'
 
     render: ->
         app.views.login.check_status (result) =>
-            $ @.$el.html jade.templates.rating
+            $ @.$el.html jade.templates.aboutus
                 login: result
