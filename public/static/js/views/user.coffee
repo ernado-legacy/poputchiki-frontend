@@ -23,7 +23,8 @@ app.views.UserListView = Backbone.View.extend
                 user: user.attributes,
                 is_fav: is_fav
 
-    write: ->
+    write: (event) ->
+        do event.preventDefault
         app.views.message.set_url @model.get('id')
         do app.views.message.render
         do app.views.messageside.render

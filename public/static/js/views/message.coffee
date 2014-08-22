@@ -29,7 +29,9 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             user.fetch
                 success: =>
                     $('.chatContainer').append jade.templates.dialog_item
-                        dialog: user
+                        dialog: 
+                            get: () ->
+                                user.attributes
                     $('.leftMenu li').removeClass 'current'
                     $('#menu-messgaes').addClass 'current'
 
