@@ -45,10 +45,11 @@ app.views.Login = Backbone.View.extend
                 # $.cookie('user', data['id'], { expires: 7, path: '/' });
                 app.models.myuser.check data.id
 
-                do app.views.entered.render
+                do app.views.entered.init
+                #do app.views.entered.render
                 app.views.profile = new app.views.Profile
                 do app.views.profile.render
-                console.log data
+                #console.log data
             , (data) ->
                 $('.loginRegisterBlock').addClass 'shiv-block'
                 do $('span.error').show 
