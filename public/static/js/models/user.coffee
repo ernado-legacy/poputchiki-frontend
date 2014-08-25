@@ -94,6 +94,7 @@ app.models.User = Backbone.Model.extend
         return response
 
 
+
 User = app.models.User
 
 app.models.Users = Backbone.Collection.extend

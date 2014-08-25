@@ -15,10 +15,10 @@ body
       .enterContainer.clearfix
         .form-line
           span Имя:
-          input(type='text', placeholder='Введите свое имя', name='firstname')
-        .form-line
-          span Фамилия:
-          input(type='text', placeholder='Ваша фамилия', name='lastname')        
+          input(type='text', placeholder='Введите свое имя', name='name')
+          p.error-text 
+            span.fui-alert 
+            span.error-info error-text
         .form-line.clearfix#birdth-reg
           .mainSelectElement.yearEdit.withShadow#year-select
             span#year-edit-select 1983
@@ -97,11 +97,17 @@ body
             input.search-select(placeholder='Город', type='text',  maxlength="20")
             .dd
             .du
-            ul.droped.withShadow        
+            ul.droped.withShadow
+            p.error-text 
+              span.fui-alert 
+              span.error-info Введите город
           span.d-r Город:
         .form-line
           span Телефон:
           input#tel(type='tel', placeholder='+7 (---) --- -- --')
+          p.error-text 
+            span.fui-alert 
+            span.error-info error-text
         .form-line.clearfix
           .regButton.profile-edit-slideup.regsteptwo
             span ПРОДОЛЖИТЬ
