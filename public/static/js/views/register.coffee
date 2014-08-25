@@ -77,7 +77,8 @@ app.views.Register = Backbone.View.extend
         that = @
         app.models.register @reghash, (data) ->
             $.cookie 'token', data['token']
-            $.cookie 'user', data['id']
+            that.id = data['id']
+            #$.cookie 'user', data['id']
             arr = $('form.loginRegisterBlock').serializeArray()
 
             date_block = $('#birdth-reg')
@@ -88,7 +89,7 @@ app.views.Register = Backbone.View.extend
             birthday = y+"-"+m+"-"+d+"T00:00:00Z"
 
             user = new app.models.User
-                id: $.cookie 'user'
+                id: that.id
                 name: arr[0].value + ' ' + arr[1].value
                 birthday: birthday
                 city: $('#city-edit-select').text()
@@ -134,7 +135,7 @@ app.views.Register = Backbone.View.extend
             'contentType': false,
             success: (data) ->
                 user = new app.models.User
-                    id: $.cookie 'user'
+                    id: that.id
                 user.set 'avatar', data.id
                 user.save()
                 $('.img img').attr 'src', data.url
