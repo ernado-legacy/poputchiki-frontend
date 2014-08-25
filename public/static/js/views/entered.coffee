@@ -22,7 +22,6 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click #change-avatar': 'chava_popup'
         'click #menu-go': 'letsgo_popup'
         'click .menu-settings': 'settings'
-        'click .video-wr video': 'video_block'
         'click .imgGrid .photo-wrapper': 'imggrid_popup'
         'click #search-slideup': 'left_sup'
         'click #search-slidedown': 'left_sdown'
@@ -40,6 +39,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'focus .bottomPart input': 'activeChat'
         'click #folowers-tags .searchCountry ul .dl': 'addSearchTag'
         'click .popup-info': 'info_popup'
+        'click .mainCrs .wrapper': 'stopMedia'
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")
@@ -344,9 +344,6 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 return
             ), 1000
         return
-
-    
-
 
     carousel_left: ->
         $(".carouselBox").animate

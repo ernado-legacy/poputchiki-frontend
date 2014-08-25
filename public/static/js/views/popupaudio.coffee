@@ -14,7 +14,7 @@ app.views.PopupAudio = Backbone.View.extend _.extend app.mixins.UploadPhoto,
             .trigger 'click'
 
     upload: ->
-        @uploadphoto '/api/audio', '.chavaPopup form.audioform', ->
+        @uploadphoto '/api/audio', '.chavaPopup form.audioform', (data) ->
             console.log 'hi'
 
     uploadphotoc: ->
