@@ -45,7 +45,7 @@ app.mixins.UserValidationMixin =
                 errors.name = "Имя слишком короткое"
             else unless @validators.maxLength(attrs.name, 15)
                 errors.name = "Имя слишком длинное"
-            else errors.name = "Имя не може тсодержать спец. символы"  if @validators.hasSpecialCharacter(attrs.name)
+            # else errors.name = "Имя не может содержать спец. символы"  if @validators.hasSpecialCharacter(attrs.name)
         if attrs.email?
             unless attrs.email
                 errors.email = "Введите имейл"
