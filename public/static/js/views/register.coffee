@@ -122,7 +122,6 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
 
     regsteptwo: ->
         arr = $('form.loginRegisterBlock').serializeArray()
-
         date_block = $('#birdth-reg')
         d = date_block.find('#day-edit-select').text()
         m = date_block.find('#month-edit-select').text()
@@ -132,7 +131,6 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
 
         user = new app.models.User
         attrs =
-            id: $.cookie 'user'
             name: arr[0].value
             birthday: birthday
             city: $('#city-select input').val()
@@ -140,7 +138,6 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
 
         @validate attrs
         errors = @validate attrs
-        console.log errors
         if errors
             $('.loginRegisterBlock').toggleClass 'shiv-block'
 
@@ -174,7 +171,7 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
             that = @
             app.models.register @reghash, (data) ->
                 $.cookie 'token', data['token']
-                $.cookie 'user', data['id']
+                that.id = data['id']
                 arr = $('form.loginRegisterBlock').serializeArray()
 
                 # date_block = $('#birdth-reg')
@@ -185,14 +182,40 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
                 # birthday = y+"-"+m+"-"+d+"T00:00:00Z"
 
                 user = new app.models.User that.updatehash
+                user.set 'id', that.id
                     # id: $.cookie 'user'
                     # name: arr[0].value + ' ' + arr[1].value
                     # birthday: birthday
                     # city: $('#city-edit-select').text()
                     # phone: $('#tel').text()
-                user.set 'avatar', data.id
+                user.set 'avatar', that.id
                 user.save()
                 that.render 3
+# =======
+#         that = @
+#         app.models.register @reghash, (data) ->
+#             $.cookie 'token', data['token']
+#             that.id = data['id']
+#             #$.cookie 'user', data['id']
+#             arr = $('form.loginRegisterBlock').serializeArray()
+
+#             date_block = $('#birdth-reg')
+#             d = date_block.find('#day-edit-select').text()
+#             m = date_block.find('#month-edit-select').text()
+#             m = $("li:contains('"+m+"')").attr 'month'
+#             y = date_block.find('#year-edit-select').text()
+#             birthday = y+"-"+m+"-"+d+"T00:00:00Z"
+
+#             user = new app.models.User
+#                 id: that.id
+#                 name: arr[0].value + ' ' + arr[1].value
+#                 birthday: birthday
+#                 city: $('#city-edit-select').text()
+#                 phone: $('#tel').text()
+#             user.set 'avatar', data.id
+#             user.save()
+#             that.render 3
+# >>>>>>> e9372896a8888898652128ccfef7ee31c7014894
 
     
 
@@ -231,7 +254,7 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
             'contentType': false,
             success: (data) ->
                 user = new app.models.User
-                    id: $.cookie 'user'
+                    id: that.id
                 user.set 'avatar', data.id
                 user.save()
                 $('.img img').attr 'src', data.url
