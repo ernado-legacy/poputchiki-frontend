@@ -185,12 +185,8 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         new_destination = $(e.currentTarget).text()
         destinations = if @model.get('destinations') then @model.get('destinations') else []
         if not _.contains(destinations, new_destination)
-            console.log 123
             destinations.push new_destination
-            console.log destinations
-            console.log @model
             @model.set 'destinations', destinations
-            console.log @model.get 'destinations'
             @model.save
                 success:=>
                     console.log @model.attributes

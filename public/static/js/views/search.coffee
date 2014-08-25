@@ -73,6 +73,17 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         if sponsor
             query.sponsor = true
 
+        destinations = []
+        _.each $('.searchBox .tagCountry'), (value, key, list)=>
+            console.log value
+            destinations.push($(value).text())
+
+        if _.size(destinations) > 0
+            searchFormData['likings_destinations'] = destinations
+            query.destinations_list = destinations
+        else
+            searchFormData['likings_destinations'] = []
+
         seasons = @$el.find '#my-folowers .season.seasonChecked'
         new_seasons = []
         new_seasons.push(season.id) for season in seasons

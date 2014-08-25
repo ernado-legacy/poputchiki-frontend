@@ -244,3 +244,81 @@ img.loading-gif
   margin-left: auto!important
   margin-right: auto!important
 
+.textContent
+  margin: 50px auto 0 auto
+  width: 960px
+  color: $text_color
+  a
+    color: $link
+    text-decoration: none
+  h1, h2
+    font-weight: bold
+    opacity: 0.9
+  h1
+    font-size: 20px
+  h1, .links, .desc 
+    margin: 30px 0
+  .links
+    img
+      padding: 3px
+    a:hover
+      border-bottom: 1px dotted $link   
+  .desc
+    color: #4b4b4b
+    font-size: 14px
+    h4
+      font-weight: bold
+      margin-bottom: 25px
+    p
+      // text-indent: 40px
+      margin-bottom: 15px
+      a 
+        text-decoration: underline
+  // accordion
+  .accordion-toggle 
+    cursor: pointer
+    margin: 5px 0
+    a
+      margin-left: 10px
+  .accordion-content
+    display: none
+    margin: 15px 0 15px 23px
+    p
+      text-indent: 20px
+      margin-bottom: 15px
+
+  .accordion-content.default 
+    display: block
+header.info-header
+  .navigation
+    height: 64px
+    // margin-top: 9px
+    float: right
+    list-style: none
+    li
+      float: left
+      background-repeat: no-repeat
+      background-position: 75% 60%
+      height: inherit
+      cursor: pointer
+      padding-right: 10px
+      span
+        float: left
+        line-height: 64px
+        text-transform: uppercase
+        padding: 0px 7px 0px 7px
+        border-left: 1px solid $chat_line
+        border-right: 1px solid $chat_line
+      span:hover
+        background: #eff5f6
+        border-left: 1px solid $profile_status_border
+        border-right: 1px solid $profile_status_border
+    #header-abouts
+      color: $header_blue
+      background-image: none
+    #header-journeys
+      color: $header_green
+      background-image: none
+    #header-exit
+      color: $header_orange
+      background-image: none

@@ -24,9 +24,9 @@ app.views.Status = Backbone.View.extend
         likes = @$el.find '.likes'
         if size
             if size == 1
-                likes.text size + ' like'
+                likes.text size + ' '
             else
-                likes.text size + ' likes'
+                likes.text size + ' '
         else
             likes.text ''
 
@@ -34,6 +34,7 @@ app.views.Status = Backbone.View.extend
         statusLike = new app.models.StatusLike
         statusLike.status = @get_status_id()
         that = @
+        console.log @size
         if @if_like()
             statusLike.save {},
                 success: ->
@@ -42,6 +43,7 @@ app.views.Status = Backbone.View.extend
             statusLike.isNew = -> false
             do statusLike.destroy
             @size += -1
+        console.log @size
         @update_layout @if_like(), @size
 
     updatelike: ->

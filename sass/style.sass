@@ -271,6 +271,10 @@ small
     float: left
     width: 277px
     margin: 19px 23px 0 0
+    .playerBox
+        .timeBar
+            .progress
+                margin-top: 0px!important
 .vsbl
     visibility: visible
 
@@ -981,9 +985,11 @@ a.blue-link
             margin-top: 10px
         .searchCountry, .searchCity
             float: left
-            width: 40px
+            min-width: 115px
             margin-left: 4%
             +add-input
+            input
+                width: initial
         .tagsBox
             float: left
             margin-top: 5px
@@ -1496,7 +1502,7 @@ a.blue-link
                 padding-bottom: 8px
                 opacity: 1
                 margin: 10px 10px 0px 0px
-                text-align: center
+                text-align: left
                 span
                     font-weight: bold
                 .share-comments, .delete-comments
@@ -1808,6 +1814,7 @@ a.blue-link
         .title
             position: relative
             float: left
+            padding-right: 20px
             span
                 font-size: 15px
                 color: $status_filter_text
@@ -1820,6 +1827,7 @@ a.blue-link
                 padding-top: 12px
                 text-transform: none
                 cursor: pointer
+
             .letsFilter:hover
                 text-decoration: underline
         .sortBy

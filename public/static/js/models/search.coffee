@@ -1,10 +1,16 @@
 app.models.search = (data, callback) ->
+    console.log data
     str = ""
     if data.seasons_list
         if data.seasons_list.length <4
             for season in data.seasons_list
                 str += "&"  unless str is ""
                 str += "seasons" + "=" + season
+
+    if data.destinations_list
+        for dest in data.destinations_list
+            str += "&"  unless str is ""
+            str += "destinations" + "=" + dest
 
     for key of data
         str += "&"  unless str is ""

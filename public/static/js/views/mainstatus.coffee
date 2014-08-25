@@ -1,5 +1,5 @@
-app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBlock,
-    # app.views.Status.extend
+app.views.userMainStatus = app.views.Status.extend
+    
 
     events: 
         'click #edit-status': 'openeditstatus'
@@ -18,6 +18,7 @@ app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBl
             that = @
             status.fetch
                 success: =>
+                    @size = status.get 'likes'
                     is_mystatus = if app.models.myuser.getid() == user.get 'id' then true else false
                     is_liked = true if app.models.myuser.getid() in status.get 'liked_users'
                     $('.wantToTravelBox').html that.$el.html jade.templates.usermainstatus
@@ -101,4 +102,3 @@ app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBl
                         do app.views.entered.vip_popup
                     $("#main-status").slideDown "slow"
                     $(".statusBoxEdit").slideUp "slow"
-        

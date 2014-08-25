@@ -4,6 +4,7 @@ app.views.Main = Backbone.View.extend
 
     events: 
         'click .aboutInfo li': 'clickfooter'
+        'header.info-header .navigation li': 'clickfooter'
 
     init: ->
         app.views.aboutus = new app.views.AboutUs
@@ -12,7 +13,9 @@ app.views.Main = Backbone.View.extend
         return
 
     clickfooter: (event) ->
+        console.log 123
         target = $ event.currentTarget
+        console.log target.attr 'data-view'
         view = app.views[target.attr 'data-view']
         do view.render
 

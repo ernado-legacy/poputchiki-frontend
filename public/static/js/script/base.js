@@ -16,6 +16,10 @@ $(function(){
 	$('.addPhoto').click(function() {
 		$('.addPhoto input').click();
 	});
+    $('#accordion').find('.accordion-toggle').click(function() {
+        $(this).next().slideToggle('fast');
+        $(".accordion-content").not($(this).next()).slideUp('fast');
+    });
 });
 function get_user_id() {
     return $.cookie('user');
