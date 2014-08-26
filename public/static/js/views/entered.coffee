@@ -169,6 +169,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.guests = new app.views.Guests
                 app.views.favs = new app.views.Favs
                 app.views.popupphoto = new app.views.PopupPhoto
+                app.views.stripepopup = new app.views.StripePopup
                 app.views.stripechoppopup = new app.views.StripechopPopup
                 app.views.popupaudio = new app.views.PopupAudio
                 app.views.stripe = new app.views.Stripe
@@ -290,7 +291,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
     stopMedia: ->
         $('.audio').children().each ->
             this.pause()
-            this.currentTime = 0
+            #this.currentTime = 0
         $('.video').parent().children('.videoBox').children('video').each ->
             this.pause()
             this.currentTime = 0
