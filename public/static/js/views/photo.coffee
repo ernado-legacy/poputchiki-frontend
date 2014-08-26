@@ -9,11 +9,15 @@ app.views.Photo = Backbone.View.extend
         'click .remove-photo': 'removePhoto'
         'click .new-ava': 'removePhoto'
 
+
     render: (is_my_user)->
         @listenTo @model, 'changeimg', @changeimg
         that = @
         app.models.myuser.get (user)->
-            liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false
+            if that.model.get('liked_users') and _.size(that.model.get('liked_users'))>0
+                liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false
+            else
+                liked_by = false
             $ that.$el.html jade.templates.photo 
                 photo: that.model.toJSON(),
                 liked_by: liked_by,

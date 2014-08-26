@@ -1,4 +1,3 @@
-//- <<<<<<< HEAD
 if video.url
   .fui-play
   div.photo-time #{video.time.date}
@@ -9,28 +8,6 @@ if video.url
       source(src=video.url)
 else
   img(src="/static/img/searchpreloader.GIF", class='loading')
-//- .video-wr
-  //if (video.thumbnail_url)
-    img(src=video.thumbnail_url)
-  //else
-    img(src='http://lorempixel.com/400/400/')
-  video
-    source(src="http://msk1.cydev.ru:8080/3,f4b3185c5ef2")
-//- if (video.thumbnail_url)
-//-   img(src=video.thumbnail_url)
-//- else
-//-   img(src='http://lorempixel.com/400/400/')
-//- =======
-//- div.photo-time #{video.time.date}
-//- .fui-play
-//- .video-wr
-//-   //if (video.thumbnail_url)
-//-     img(src=video.thumbnail_url)
-//-   //else
-//-     img(src='http://lorempixel.com/400/400/')
-//-   video
-//-     source(src="http://msk1.cydev.ru:8080/3,f4b3185c5ef2")
-//- >>>>>>> 3c0240e6bcf4f881a29a2cd352040e5e16738c42
 if video.url
   if (is_my_user)
     .actions
