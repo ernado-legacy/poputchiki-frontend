@@ -55,9 +55,16 @@ app.views.Register = Backbone.View.extend
         @newtag '#month-select'
         @newtag '#day-select'
         #@newtag '#city-select'
+
+        sc = @$el.find '.countryEdit'
+        scv = new app.views.AutocompleteCountry
+            el: sc
+
         sct = @$el.find '.cityEdit'
         sctv = new app.views.AutocompleteCity
             el: sct
+        sctv.country = scv
+
         $('.box').click ->
             $('.box').toggleClass('checked')
 
@@ -92,7 +99,8 @@ app.views.Register = Backbone.View.extend
                 id: that.id
                 name: arr[0].value + ' ' + arr[1].value
                 birthday: birthday
-                city: $('#city-edit-select').text()
+                city: $('#city-select .search-select').val()
+                country: $('#country-select .search-select').val()
                 phone: $('#tel').text()
             user.set 'avatar', data.id
             user.save()
