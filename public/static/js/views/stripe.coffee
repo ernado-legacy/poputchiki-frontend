@@ -2,7 +2,8 @@ app.views.Stripe = Backbone.View.extend
 
     el: '.mainTopContainer'
 
-    #events:
+    events:
+        'click .crsItem': 'clickstripe'
         #'click .audio': 'play_audio'
         #'click .video': 'play_video'
 
@@ -93,11 +94,43 @@ app.views.Stripe = Backbone.View.extend
                         items: stripes.models
                         user: user
 
+    clickstripe: (event) ->
+        app.views.guestprofile.set_user $(event.currentTarget).attr 'data-user-id'
+        do app.views.guestprofile.render
 
 app.views.StripePopup = Backbone.View.extend
 
     el: '.promoPopup'
 
+    events:
+        'click .upload-new-audio': 'audio'
+        'click .add-to-promo': 'addtopromo'
+
+    audio: ->
+        app.models.myuser.get (user) =>
+            #console.log user
+            if user.get 'audio_url'
+                box = @$el.find '.playerBox'
+                audio = box.find 'audio'
+                audio.html ''
+                audio.html '<source type="audio/ogg" src="' + user.get('audio_url') + '">'
+                #source.attr 'src', user.get 'audio_url'
+                box.css 'display', 'block'
+
+    addtopromo: ->
+        box = @$el.find '.playerBox'
+        if box.css('display')=='block'
+            app.models.myuser.get (user) =>
+                id = user.get 'audio'
+                type = 'audio'
+                model = new app.models.Stripe
+                    id: id
+                    type: type
+                model.url = -> "/api/stripe"
+                model.save {},
+                    success: ->
+                        app.views.entered.closepopuprun()
+                        do app.views.stripe.render
 
 app.views.StripechopPopup = Backbone.View.extend
 

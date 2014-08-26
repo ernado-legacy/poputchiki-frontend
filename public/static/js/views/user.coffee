@@ -32,11 +32,18 @@ app.views.UserListView = Backbone.View.extend
     add_to_fav: (e)->
         do e.preventDefault
         do @model.add_to_fav
-        $(e.currentTarget).addClass('active-action').removeClass('add_to_fav')
+        $(e.currentTarget).addClass('remove_from_fav').removeClass('add_to_fav')
+        $(e.currentTarget).text('убрать из избранного')
 
-    remove_from_fav: ->
+    remove_from_fav: (e)->
         do @model.remove_from_fav
-        do @.remove
+        console.log  $(e.currentTarget).data('remove-from-fav-clear')
+        if $(e.currentTarget).data('remove-from-fav-clear') == true
+            do @.remove
+            @trigger 'user-removed-from-favs',@model
+        else
+            $(e.currentTarget).addClass('add_to_fav').removeClass('remove_from_fav')
+            $(e.currentTarget).text('в избранное')
 
     to_journey: ->
         alert 'Пригласить пользователя в путешествие'

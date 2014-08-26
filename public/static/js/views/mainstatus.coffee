@@ -1,13 +1,16 @@
 app.views.userMainStatus = app.views.Status.extend
     
 
-    events: 
+    events:
+        'keyup input': 'press'
         'click #edit-status': 'openeditstatus'
         'click .newStatus': 'opennewstatus'
         'click #write-new-main-status': 'updatestatus'
         'click .like': 'like'
 
-
+    press: (event)->
+        if event.which==13
+            do $('#write-new-main-status').click
     get_status_id: ->
         @$el.attr 'data-status'
 
@@ -59,15 +62,6 @@ app.views.userMainStatus = app.views.Status.extend
                 do @newstatus
             else
                 do @editstatus
-        #$.ajax
-        #    type: "PUT",
-        #    url: "/api/status",
-            #success: callback
-            #error: error
-        #    dataType: "json"
-        #    data:
-        #        text: "hello"
-        #        user: app.models.myuser.getid()
 
     editstatus: ->
         if $('#new-status').val() == @status.get 'text'

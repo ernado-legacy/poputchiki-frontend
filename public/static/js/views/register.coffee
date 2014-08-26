@@ -188,10 +188,40 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
                     # birthday: birthday
                     # city: $('#city-edit-select').text()
                     # phone: $('#tel').text()
-                user.set 'avatar', that.id
+                # user.set 'avatar', data.id
                 user.save()
                 that.render 3
+# # =======
+# #         that = @
+# #         app.models.register @reghash, (data) ->
+# #             $.cookie 'token', data['token']
+# #             that.id = data['id']
+# #             #$.cookie 'user', data['id']
+# #             arr = $('form.loginRegisterBlock').serializeArray()
+
+# #             date_block = $('#birdth-reg')
+# #             d = date_block.find('#day-edit-select').text()
+# #             m = date_block.find('#month-edit-select').text()
+# #             m = $("li:contains('"+m+"')").attr 'month'
+# #             y = date_block.find('#year-edit-select').text()
+# #             birthday = y+"-"+m+"-"+d+"T00:00:00Z"
+
+# #             user = new app.models.User
+# #                 id: that.id
+# #                 name: arr[0].value + ' ' + arr[1].value
+# #                 birthday: birthday
+# #                 city: $('#city-edit-select').text()
+# #                 phone: $('#tel').text()
+# #             user.set 'avatar', data.id
+# #             user.save()
+# #             that.render 3
+# # >>>>>>> e9372896a8888898652128ccfef7ee31c7014894
 # =======
+#         # @updatehash = 
+#         #    name: arr[0].value + ' ' + arr[1].value
+#         #    birthday: $('#day-edit-select').text() + ' ' + $('#month-edit-select').text() + ' ' + $('#year-edit-select').text()
+#         #    city: $('#city-edit-select').text()
+#         #    phone: $('#tel').text()
 #         that = @
 #         app.models.register @reghash, (data) ->
 #             $.cookie 'token', data['token']
@@ -210,12 +240,13 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
 #                 id: that.id
 #                 name: arr[0].value + ' ' + arr[1].value
 #                 birthday: birthday
-#                 city: $('#city-edit-select').text()
+#                 city: $('#city-select .search-select').val()
+#                 country: $('#country-select .search-select').val()
 #                 phone: $('#tel').text()
 #             user.set 'avatar', data.id
 #             user.save()
 #             that.render 3
-# >>>>>>> e9372896a8888898652128ccfef7ee31c7014894
+# >>>>>>> 9078d3c2353977a73b35156f5c4aa1f7c1774373
 
     
 

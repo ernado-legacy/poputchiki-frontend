@@ -18,8 +18,9 @@
 
   .searchBox
     .searchBody.clearfix.balance
-      h1 баланс:
+      h1 Ваш баланс:
         a(class="custom-blue-link menu-settings", data-id="payment") #{user.balance} 
+        .pop-coin
   .searchBox
     .searchBody.clearfix#my-wishes
       h1 хочу найти
@@ -76,7 +77,7 @@
             .tooltip.clearfix
               .tooltip-arrow
               span В&nbsp;гости
-          .host-search-description Включите иконку чтобы найти людей, которые могу принять попутчиков у себя!
+          .host-search-description Включите иконку, чтобы найти людей, которые могут принять Вас в гости!
           //- .house-icon
           //-   .tooltip.clearfix
           //-     .tooltip-arrow
@@ -127,12 +128,15 @@
           .inactiveblock
           if (user.vip)
             .money-icon - 
+              .tooltip.clearfix
+                .tooltip-arrow
+                span Спонсорство
           else
             .money-icon-inactive - 
               .tooltip.clearfix
                 .tooltip-arrow
                 span Спонсорство
-          .sponsor-search-description Включите иконку чтобы искать только тех кто готов взять на себя расходы на путешествие
+          .sponsor-search-description Включите иконку, чтобы искать только тех, кто готов взять все расходы!
           //- .house-icon
           //-   .tooltip.clearfix
           //-     .tooltip-arrow

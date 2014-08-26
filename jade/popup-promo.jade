@@ -45,11 +45,12 @@
     h2 Добавить аудио
     .greenDots
     p Загрузите аудио-приветствие, чтобы ваш голос могли услышать ваши друзья и получите еще больше посещений для своего профайла!
-    .playerBox.clearfix
+    .playerBox.clearfix(style="display:none")
       .audio.audio-change-avatar
         audio
-          source(src='/static/audio/audio.mp3', type="audio/mp3")
-          source(src='/static/audio/audio.ogg', type="audio/ogg")
+          //source(type="audio/ogg")
+          //source(src='/static/audio/audio.mp3', type="audio/mp3")
+          //source(src='/static/audio/audio.ogg', type="audio/ogg")
       .timeBar
         .progress
     .mainSelectElement.upload-new-audio
