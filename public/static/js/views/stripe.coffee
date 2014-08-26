@@ -2,7 +2,8 @@ app.views.Stripe = Backbone.View.extend
 
     el: '.mainTopContainer'
 
-    #events:
+    events:
+        'click .crsItem': 'clickstripe'
         #'click .audio': 'play_audio'
         #'click .video': 'play_video'
 
@@ -92,6 +93,10 @@ app.views.Stripe = Backbone.View.extend
                     @$el.html jade.templates.top_bar
                         items: stripes.models
                         user: user
+
+    clickstripe: (event) ->
+        app.views.guestprofile.set_user $(event.currentTarget).attr 'data-user-id'
+        do app.views.guestprofile.render
 
 app.views.StripePopup = Backbone.View.extend
 

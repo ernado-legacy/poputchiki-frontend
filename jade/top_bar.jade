@@ -8,7 +8,7 @@
   .carouselBox
     .carousel
       each item in items
-        .crsItem.mainCrs
+        .crsItem.mainCrs(data-user-id="#{item.get('user')}")
           .wrapper(data-anim="base wrapper")
             .circle.c_left(data-anim="base left")
             .circle.c_right(data-anim="base right")
