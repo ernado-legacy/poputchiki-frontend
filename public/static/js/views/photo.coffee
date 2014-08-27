@@ -8,6 +8,7 @@ app.views.Photo = Backbone.View.extend
         'click .action-remove-like':'unlike'
         'click .remove-photo': 'removePhoto'
         'click .new-ava': 'removePhoto'
+        'click .likes': 'getlikers'
 
 
     render: (is_my_user)->
@@ -85,7 +86,11 @@ app.views.Photo = Backbone.View.extend
         console.log @model.like
         @model.like (likes)->
             counter_container = that.$el.find('.like-counter')
-            counter_container.text likes
+            console.log likes
+            if likes<1 
+                counter_container.text ''
+            else
+                counter_container.text likes+'...'
             that.$el.find('.action-like').removeClass('action-like').addClass('action-remove-like')
         return false
 
@@ -93,11 +98,22 @@ app.views.Photo = Backbone.View.extend
         that = @
         @model.unlike (likes)->
             counter_container = that.$el.find('.like-counter')
-            counter_container.text likes
+            if likes<1 
+                counter_container.text ''
+            else
+                counter_container.text likes+'...'
             that.$el.find('.action-remove-like').removeClass('action-remove-like').addClass('action-like')
         return false
 
     removePhoto: ()->
         do @model.destroy
         do @remove
+        return false
+    getlikers: (e)->
+        that = @
+
+        likers_url = $(e.currentTarget).data 'likers-url'
+        if likers_url
+            app.views.likers.render likers_url,()->
+                app.views.entered.showpopup('.popupLikers')
         return false

@@ -238,8 +238,8 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         appendFormData input for input in inputs when $(input).val()
 
-        formData['country'] = $('#country-edit-select').text()
-        formData['city'] = $('#city-edit-select').text()
+        formData['country'] = $('#country-select input').val()
+        formData['city'] = $('#city-select input').val()
         formData['birthday'] = @getDate $('#birtday-edit')
         formData['about'] = about_text
         # @model.set()

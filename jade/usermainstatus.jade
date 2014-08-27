@@ -17,10 +17,18 @@ if is_mystatus
         span.share-comments.fui-vimeo(onclick="Share.vkontakte('http://poputchiki.ru','Мой статус на попутиках','http://poputchiki.onesockteam.com/static/img/logo.png','"+status.get('text')+"')")
         span.share-comments.fui-facebook(onclick="Share.facebook('http://poputchiki.ru','Мой статус на попутиках','http://poputchiki.onesockteam.com/static/img/logo.png','"+status.get('text')+"')")
         span.share-comments.fui-twitter(onclick="Share.twitter('http://poputchiki.ru','Мой статус на попутиках','http://poputchiki.onesockteam.com/static/img/logo.png','"+status.get('text')+"')")
-
+        
         if status.get('likes') && status.get('likes')>0
-          span.delete-comments понарвилось 
-            span.likes #{status.get('likes')}
+          span.delete-comments 
+              span.likes(data-likers-url=status.likers_url())
+                  | #{status.get('likes')}
+                  | ...
+        else
+          span.delete-comments 
+              span.likes 
+                  | #{status.get('likes')}
+                  | ...
+        span.delete-comments.like(data-like = is_liked?'false':'true')=is_liked?'вам это нравится':'нравиться'
       else
         span.delete-comments.likes #{status.get('likes')}
         if is_liked

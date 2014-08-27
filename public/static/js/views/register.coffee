@@ -135,12 +135,14 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
             birthday: birthday
             city: $('#city-select input').val()
             phone: $('#tel').val()
+            country: $('#country-reg input').val()
+            city: $('#city-select input').val()
 
         @validate attrs
         errors = @validate attrs
         if errors
             $('.loginRegisterBlock').toggleClass 'shiv-block'
-
+            console.log errors
             if 'name' in _.keys(errors)
                 @addErrorToFormLine $('input[name=name]'), errors.name
             else
@@ -152,9 +154,16 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
                 @removeErrorToFormLine $('#tel')
 
             if 'city' in _.keys(errors)
+                console.log 'city errors'
                 @addErrorToFormLine $('#city-select'), errors.city
             else
                 @removeErrorToFormLine $('#city-select')
+
+            if 'country' in _.keys(errors)
+                console.log 'country errors'
+                @addErrorToFormLine $('#country-select'), errors.country
+            else
+                @removeErrorToFormLine $('#country-select')
 
             # if 'password' in _.keys(errors)
             #     @addErrorToInputContainer $('#password-reg'), errors.password

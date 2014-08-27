@@ -4,17 +4,20 @@ if photo.url
   if (is_my_user)
     .actions
         if(liked_by)
-          a(class="action-remove-like custom-link") нравится
+          a(class="action-remove-like custom-link") вам нравится
         else
           a(class="action-like custom-link") нравится
         span.like-counter-box
           i &nbsp;
-          span.like-counter #{photo.likes}
+          if photo.likes >0
+            span.like-counter.likes.my-likes(data-likers-url=photo.likers_url) #{photo.likes}...
+          else 
+            span.like-counter.likes.my-likes(data-likers-url=photo.likers_url)
         a(class="custom-blue-link new-ava") на аватарку
         a(class="custom-link remove-photo") удалить
   else
     if(liked_by)
-      a(class="action-remove-like custom-link") нравится
+      a(class="action-remove-like custom-link") вам нравится
     else
       a(class="action-like custom-link") нравится
     span.like-counter  #{photo.likes}

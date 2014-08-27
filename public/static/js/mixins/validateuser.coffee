@@ -65,6 +65,10 @@ app.mixins.UserValidationMixin =
             # console.log attrs.city
             unless attrs.city
                 errors.city = "Введите город"
+        if attrs.country?
+            # console.log attrs.city
+            unless attrs.country
+                errors.country = "Введите страну"
     # if attrs.lastname?
     #   unless attrs.lastname
     #     errors.lastname = "lastname is required"

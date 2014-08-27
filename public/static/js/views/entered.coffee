@@ -40,6 +40,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click #folowers-tags .searchCountry ul .dl': 'addSearchTag'
         'click .popup-info': 'info_popup'
         'click .mainCrs .wrapper': 'stopMedia'
+        'click .likes': 'likers_popup'
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")
@@ -176,6 +177,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.popupaudio = new app.views.PopupAudio
                 app.views.stripe = new app.views.Stripe
                 app.views.vip = new app.views.VipStatus
+                app.views.likers = new app.views.Likers
                 app.views.main_status = new app.views.userMainStatus
 
                 
@@ -415,6 +417,14 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     letsgo_popup: ->
         @showpopup('.letsgoPopup')
+
+    likers_popup: (e)->
+        that = @
+        likers_url = $(e.currentTarget).data 'likers-url'
+        if likers_url
+            app.views.likers.render likers_url,()->
+                that.showpopup('.popupLikers')
+        
 
     info_popup: (e)->
 

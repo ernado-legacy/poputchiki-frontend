@@ -1,12 +1,19 @@
+StatusLikersUrl =
+    likers_url: ()->
+        console.log @
+        '/api/status/'+@.get('id')+'/like'
+
+
 app.models.Status = Backbone.Model.extend
     urlRoot: '/api/status'
 
-app.models.MyStatus = Backbone.Model.extend
+app.models.MyStatus = Backbone.Model.extend _.extend {}, StatusLikersUrl,
     urlRoot: ->
         if @get 'id'
             '/api/status'
         else
             '/api/user/'+@get('user')+'/status'
+
             
 
 app.models.Statuses = Backbone.Collection.extend

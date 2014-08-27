@@ -17,7 +17,7 @@ app.views.Status = Backbone.View.extend
         like = @get_like_el()
         if condition
             like.attr 'data-like', 'false'
-            like.text 'не нравится'
+            like.text 'вам это нравится'
         else
             like.attr 'data-like', 'true'
             like.text 'нравится'
@@ -38,13 +38,18 @@ app.views.Status = Backbone.View.extend
         if @if_like()
             statusLike.save {},
                 success: ->
-            @size += 1
+            if @size
+                @size += 1
+            else 
+                @size = 1
         else
             statusLike.isNew = -> false
             do statusLike.destroy
             @size += -1
-        console.log @size
-        @update_layout @if_like(), @size
+        if @size!=0
+            @update_layout @if_like(), @size+'...'
+        else
+            @update_layout @if_like(), ''
 
     updatelike: ->
         statusLikes = new app.models.StatusLikes
