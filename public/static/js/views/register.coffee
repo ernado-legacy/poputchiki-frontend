@@ -292,6 +292,7 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
             'cache': false,
             'processData': false,
             'contentType': false,
+            dataType: "json"
             success: (data) ->
                 user = new app.models.User
                     id: that.id
