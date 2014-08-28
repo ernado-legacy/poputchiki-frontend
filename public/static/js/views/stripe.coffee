@@ -131,6 +131,30 @@ app.views.StripePopup = Backbone.View.extend
                     success: ->
                         app.views.entered.closepopuprun()
                         do app.views.stripe.render
+        photoatr = $('.promoPopup .changeAvatarBox').attr 'data-id'
+        if photoatr
+            id = photoatr
+            type = 'photo'
+            model = new app.models.Stripe
+                id: id
+                type: type
+            model.url = -> "/api/stripe"
+            model.save {},
+                success: ->
+                    app.views.entered.closepopuprun()
+                    do app.views.stripe.render
+        videoatr = $('.promoPopup .videoContainer').attr 'data-id'
+        if videoatr
+            id = videoatr
+            type = 'video'
+            model = new app.models.Stripe
+                id: id
+                type: type
+            model.url = -> "/api/stripe"
+            model.save {},
+                success: ->
+                    app.views.entered.closepopuprun()
+                    do app.views.stripe.render
 
 app.views.StripechopPopup = Backbone.View.extend
 
@@ -155,6 +179,23 @@ app.views.StripechopPopup = Backbone.View.extend
             _.each @$el.find('.imgBox'), (item) ->
                 view = new app.views.StripePhoto
                     el: item
+                    #clck: ->
+                    #    id = @$el.attr 'data-id'
+                    #    $('.changeAvatarBox').attr 'data-id', id
+                    #    $('.popup').fadeIn('slow')
+                    #    $('.chopPopup').fadeOut('slow')
+                if not video
+                    view.change = ->
+                        id = @$el.attr 'data-id'
+                        $('.promoPopup .changeAvatarBox').attr 'data-id', id
+                        $('.popup').fadeOut('slow')
+                        $('.promoPopup').fadeIn('slow')
+                else
+                    view.change = ->
+                        id = @$el.attr 'data-id'
+                        $('.promoPopup .videoContainer').attr 'data-id', id
+                        $('.popup').fadeOut('slow')
+                        $('.promoPopup').fadeIn('slow')
 
 app.views.StripePhoto = Backbone.View.extend
 
@@ -162,16 +203,18 @@ app.views.StripePhoto = Backbone.View.extend
         'click': 'clck'
 
     clck: ->
-        id = @$el.attr 'data-id'
-        if @$el.attr('data-video') == 'true'
-            type = 'video'
-        else
-            type = "photo"
-        model = new app.models.Stripe
-            id: id
-            type: type
-        model.url = -> "/api/stripe"
-        model.save {},
-            success: ->
-                app.views.entered.closepopuprun()
-                do app.views.stripe.render
+        do @change
+    #clck: ->
+    #    id = @$el.attr 'data-id'
+    #    if @$el.attr('data-video') == 'true'
+    #        type = 'video'
+    #    else
+    #        type = "photo"
+    #    model = new app.models.Stripe
+    #        id: id
+    #        type: type
+    #    model.url = -> "/api/stripe"
+    #    model.save {},
+    #        success: ->
+    #            app.views.entered.closepopuprun()
+    #            do app.views.stripe.render
