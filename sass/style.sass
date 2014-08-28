@@ -1,3 +1,4 @@
+// xui
 $simple_font: 'Helvetica Neue', Helvetica, Arial, sans-serif
 
 $header_blue: #25bef0
@@ -370,24 +371,24 @@ a.blue-link
         line-height: 28px
         font-size: 14px
         text-transform: uppercase
-
-.aboutInfo
-    height: 22px
-    margin-top: 9px
-    float: left
-    list-style: none
-    margin-left: 60px
-    li
+footer
+    .aboutInfo
+        height: 22px
+        margin-top: 9px
         float: left
-        padding-right: 20px
-        height: inherit
-        cursor: pointer
-        span
+        list-style: none
+        margin-left: 60px
+        li
             float: left
-            line-height: 28px
-            text-transform: uppercase
-        span:hover
-            text-decoration: underline
+            padding-right: 20px
+            height: inherit
+            cursor: pointer
+            span
+                float: left
+                line-height: 28px
+                text-transform: uppercase
+            span:hover
+                text-decoration: underline
 .menuBox
     position: absolute
     left: 0
@@ -674,6 +675,7 @@ a.blue-link
     .carouselBox::-webkit-scrollbar-thumb
         background: rgba(0, 0, 0, 0.0)
 
+// .topContainer
 .crsItem:hover
     -webkit-transform: scale(1.1)
     -ms-transform: scale(1.1)
@@ -894,9 +896,9 @@ a.blue-link
         span
             color: white
             cursor: pointer
-            background-image: url('../img/profile_photos.png')
+            // background-image: url('../img/profile_photos.png')
             background-repeat: no-repeat
-            padding-left: 40px
+            padding-left: 0px
             position: absolute
             line-height: 36px
             font-size: 16px
@@ -2780,8 +2782,10 @@ a.blue-link
                 width: 94px
                 height: 94px
                 .frontLayer
-                    width: 94px
+
+                    width: 95px
                     height: 94px
+                    left: -1px
                 video
                     width: 94px
                     height: 94px
@@ -2819,7 +2823,10 @@ a.blue-link
                     span
                         color: $profile_status_text
                         +simple-font
+            .price.alert
+                color: $menu_rating
         .videoContainer
+            height: 0px
             margin-bottom: 20px
             .crsItem
                 margin-top: 0px

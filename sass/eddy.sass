@@ -312,7 +312,12 @@ header.info-header
         padding: 0px 7px 0px 7px
         border-left: 1px solid $chat_line
         border-right: 1px solid $chat_line
+        color: black
       span:hover
+        background: #eff5f6
+        border-left: 1px solid $profile_status_border
+        border-right: 1px solid $profile_status_border
+      span.active
         background: #eff5f6
         border-left: 1px solid $profile_status_border
         border-right: 1px solid $profile_status_border
@@ -345,3 +350,10 @@ header.info-header
             position: initial
 #notification-sound
   display: none
+
+.choose-video, .choose-audio, .choose-photo
+  opacity: 0.5
+  filter: alpha(opacity=50)
+.choose-video.active, .choose-audio.active, .choose-photo.active
+  opacity: 1
+  filter: alpha(opacity=1000)

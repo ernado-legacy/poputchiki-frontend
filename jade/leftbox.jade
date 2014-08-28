@@ -2,8 +2,10 @@
   div(class = user.rating < 70 ? user.rating < 35 ? "profileBox low-rating" : "profileBox middle-rating" : "profileBox")
     .imgBox
       img(src=user.avatar_url)
-      .cover
-      span#change-avatar Изменить фото
+      .coverfalt
+      span#change-avatar
+        i.fui-photo 
+        | Изменить фото
     #profile-rating(class = user.rating < 70 ? user.rating < 35 ? "low-rating" : "middle-rating" : "") #{user.rating} %
   if (user.audio_url)
     .playerBox.clearfix

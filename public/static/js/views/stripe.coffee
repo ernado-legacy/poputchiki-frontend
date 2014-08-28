@@ -3,7 +3,7 @@ app.views.Stripe = Backbone.View.extend
     el: '.mainTopContainer'
 
     events:
-        'click .crsItem': 'clickstripe'
+        'click .crsItem img': 'clickstripe'
         #'click .audio': 'play_audio'
         #'click .video': 'play_video'
 
@@ -93,6 +93,18 @@ app.views.Stripe = Backbone.View.extend
                     @$el.html jade.templates.top_bar
                         items: stripes.models
                         user: user
+                    # console.log 'stripe item'
+                    # console.log stripes.models[2]
+                    $('.promoPopup .changeAvatarBox .crsItem').remove()
+                    $('.promoPopup .changeAvatarBox #promo-add-photo').attr 'src',user.get 'avatar_url'
+                    $('.carouselBox .crsItem').first().hide()
+                    $('.carouselBox .crsItem').first().show('slide',{dicrection:'left'})
+                    $('.promoPopup .choose-photo').addClass('active')
+                    $('.promoPopup .choose-audio').addClass('active')
+                    $('.promoPopup .choose-video').addClass('active')
+                    for i in [0..2]
+                        $('.promoPopup .changeAvatarBox').append jade.templates.top_bar_crs_item
+                            item:stripes.models[i]
 
     clickstripe: (event) ->
         app.views.guestprofile.set_user $(event.currentTarget).attr 'data-user-id'
@@ -116,6 +128,11 @@ app.views.StripePopup = Backbone.View.extend
                 audio.html '<source type="audio/ogg" src="' + user.get('audio_url') + '">'
                 #source.attr 'src', user.get 'audio_url'
                 box.css 'display', 'block'
+                $('.promoPopup .changeAvatarBox #promo-add-photo').attr 'src',user.get 'avatar_url'
+                $('.promoPopup .choose-photo').removeClass 'active'
+                $('.promoPopup .choose-audio').removeClass 'active'
+                $('.promoPopup .choose-video').removeClass 'active'
+                $('.promoPopup .choose-audio').addClass 'active'
 
     addtopromo: ->
         box = @$el.find '.playerBox'
@@ -131,6 +148,13 @@ app.views.StripePopup = Backbone.View.extend
                     success: ->
                         app.views.entered.closepopuprun()
                         do app.views.stripe.render
+                        
+
+                    error: (data, textStatus, jqXHR) =>
+                        element = @$el.find('.price')
+                        element.html('Недостаточно <small>попиков</small>')
+                        element.addClass 'alert'
+
         photoatr = $('.promoPopup .changeAvatarBox').attr 'data-id'
         if photoatr
             id = photoatr
@@ -177,6 +201,11 @@ app.views.StripechopPopup = Backbone.View.extend
                 arrays: arrays
                 video: video
             _.each @$el.find('.imgBox'), (item) ->
+                activaPromoChoice = (id) ->
+                    $('.promoPopup .choose-photo').removeClass 'active'
+                    $('.promoPopup .choose-audio').removeClass 'active'
+                    $('.promoPopup .choose-video').removeClass 'active'
+                    $('.promoPopup .'+id).addClass 'active'
                 view = new app.views.StripePhoto
                     el: item
                     #clck: ->
@@ -187,15 +216,29 @@ app.views.StripechopPopup = Backbone.View.extend
                 if not video
                     view.change = ->
                         id = @$el.attr 'data-id'
+                        img_src = @$el.data 'media-url'
+                        $(".promoPopup #promo-add-photo").attr 'src', img_src
+                        console.log @$el
                         $('.promoPopup .changeAvatarBox').attr 'data-id', id
                         $('.popup').fadeOut('slow')
                         $('.promoPopup').fadeIn('slow')
+                        activaPromoChoice 'choose-photo'
                 else
                     view.change = ->
                         id = @$el.attr 'data-id'
+                        thumb_src = @$el.data 'thumb-url'
+                        video_src = @$el.data 'media-url'
+                        # $('.promoPopup .videoBox video source').attr 'src', video_src
+                        $('.promoPopup .videoBox video').remove()
+                        $('.promoPopup .videoBox').append('<video><source src="'+video_src+'"></video>')
+                        $('.promoPopup .videoContainer .crsItem img').attr 'src', thumb_src
+                        $(".promoPopup #promo-add-photo").attr 'src', thumb_src
+                        # $('.promoPopup .videoBox video').append '<source src="'+video_src+'"></source>'
                         $('.promoPopup .videoContainer').attr 'data-id', id
                         $('.popup').fadeOut('slow')
                         $('.promoPopup').fadeIn('slow')
+                        activaPromoChoice 'choose-video'
+
 
 app.views.StripePhoto = Backbone.View.extend
 
