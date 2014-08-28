@@ -19,15 +19,28 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
 
         url = $('.photovideoform input[name=loading_url]').val()
 
-        @slideHide ()->
+        # @slideHide ()->
 
         that = @
+        if url.search('photo') == -1
+            model = new app.models.Video
+            view = new app.views.Video model:model
+            container = $('.videoBox .photoBoxWrapper .pb-wr')
+
+        else
+            model = new app.models.Photo
+            view = new app.views.Photo model:model
+            container = $('.photoBox .photoBoxWrapper .pb-wr')
+
+        container.prepend view.render(@is_my_user)
+
         success = (data) ->
-            app.models.myuser.get (user)->
-                if url.search('photo') == -1
-                    do that.refreshVideos
-                else
-                    do that.refreshPhotos
+            model.set data
+            media = model
+            view.model = media
+            view.render(that.is_my_user)
+
+            
                     
         @uploadphoto url, form, success
 

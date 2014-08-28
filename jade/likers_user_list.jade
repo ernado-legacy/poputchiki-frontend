@@ -1,0 +1,14 @@
+a(href="/user/#{user.id}", data-user-id="#{user.id}")
+  img(src=user.avatar_url)
+.info
+  //- .right
+  //-   .last-date Заходил #{user.last_actionDay} #{user.last_actionMonth}
+  //-   .last-time в #{user.last_actionTime}
+  .left
+    .name #{user.name}, #{user.age}
+    .city #{user.city}
+    span
+     if(user.is_sponsor)
+        img(src='/static/img/money_active2.png')
+     if(user.is_host)
+        img(src='/static/img/house_active2.png') 

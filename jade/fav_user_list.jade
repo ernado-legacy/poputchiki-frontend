@@ -19,8 +19,12 @@ a(href="/user/#{user.id}", data-user-id="#{user.id}")
     //- .status=status.get('text')
     //- .writeBtn.write.fui-bubble
     .controlLinks.clearfix
-      div(class="like remove_from_fav", id="remove-from-fav") убрать из избранных
       div(class="note write") написать
+      if(is_fav)
+        div(class="like remove_from_fav", id="remove-from-fav",data-remove-from-fav-clear="true") убрать из избранных
+      else
+        div(class="like add_to_fav") в избранные
+      
       //- div(class="note to_journey",) пригласить
       //- .note пожаловаться
       //- .share поделиться

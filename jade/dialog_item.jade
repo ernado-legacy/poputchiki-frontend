@@ -1,10 +1,11 @@
 .chatBlock(data-user="#{dialog.get('user').id}")
   img(src='#{dialog.get("user").avatar_url}')
   .topPart
-    .chatName=dialog.get('user').name
-    .invite пригласить в путешествие
+    .chatName #{dialog.get('user').name}, 
+        small=dialog.get('user').age
+    //- .invite пригласить в путешествие
     .closeChat закрыть
   .centerPart
   .bottomPart.clearfix
     input(type='text')
-    .pstMsg
+    .pstMsg.fui-bubble

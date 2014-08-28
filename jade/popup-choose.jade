@@ -2,10 +2,4 @@
   .regButton.profile-edit-slideup.choose-promo-photo
     span загрузить
   form
-    - for (var i = 1; i <= 4; i++)
-      .imgRow.clearfix
-        - for (var j = 1; j <= 3; j++)
-          .imgBox.clearfix
-            img(src='/static/img/photo1.png')
-            .cover
-            span выбрать
+    img(src='/static/img/searchpreloader.GIF', class="loading-gif")

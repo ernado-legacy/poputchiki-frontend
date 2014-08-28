@@ -120,7 +120,7 @@ $timebar_progress: #46c713
 
 =add-input
     input
-        width: 50px
+        // width: 50px
         +italic-font
         background: transparent
         font-size: 14px
@@ -271,6 +271,10 @@ small
     float: left
     width: 277px
     margin: 19px 23px 0 0
+    .playerBox
+        .timeBar
+            .progress
+                margin-top: 0px!important
 .vsbl
     visibility: visible
 
@@ -308,7 +312,8 @@ a.blue-link
     text-decoration: none
     span
         padding-left: 70px
-        color: $header_logo
+        // color: $header_logo
+        color: $menu_messages
         line-height: 40px
         font-weight: bold
         text-transform: uppercase
@@ -339,7 +344,8 @@ a.blue-link
             border-left: 1px solid $profile_status_border
             border-right: 1px solid $profile_status_border
     #header-profile
-        color: $header_blue
+        // color: $header_blue
+        color: $menu_messages
         background-image: url('../img/profile.png')
         background-position: 85% 100%
         background-position-y: 10px
@@ -486,6 +492,22 @@ a.blue-link
             border-color: $menu_tools
         #menu-tools:before
             background-color: $menu_tools
+        #menu-profile
+            width: 80%
+            .fui-user
+                color: grey
+                font-size: 40px
+            -webkit-transition: background-color 0.5s ease-in-out
+            -moz-transition: background-color 0.5s ease-in-out
+            -o-transition: background-color 0.5s ease-in-out
+            transition: background-color 0.5s ease-in-out
+        #menu-profile:hover, #menu-profile.current
+            background-color: $menu_tools!important
+            border-color: $menu_tools
+            .fui-user
+                color: white
+        #menu-profile:before
+            background-color: $menu_tools
 
         #menu-go
             border-color: $lets_go
@@ -577,10 +599,15 @@ a.blue-link
         position: relative
         font-size: 14px
         img
+            z-index: 1
             margin: 10px 0 0 10px
             cursor: pointer
             width: 100px
             +border-radius(50%, 50%, 50%, 50%)
+            filter: alpha(opacity=50)
+            -moz-opacity: 0.5
+            -khtml-opacity: 0.5
+            opacity: 0.5
         #rating
             color: $header_blue
             position: absolute
@@ -596,10 +623,19 @@ a.blue-link
             text-align: left
             color: $header_blue
         #nick-name
-            margin-left: 12px
+            z-index: 100
+            position: absolute
+            margin-top: 55px
+            margin-left: 20px
             text-align: left
             font-weight: bold
             color: $header_blue
+            text-align: center
+            width: 90%
+            display: block
+            margin-left: 10px
+            background-color: white
+            cursor: pointer
     .userBox.middle-rating
         background-image: url('../img/b_ellips_middle.png')
     .userBox.low-rating
@@ -649,6 +685,7 @@ a.blue-link
     width: 144px
     height: 144px
     z-index: 100
+    cursor: pointer
     .videoBox
         position: absolute
         top: 0
@@ -951,9 +988,11 @@ a.blue-link
             margin-top: 10px
         .searchCountry, .searchCity
             float: left
-            width: 40px
+            min-width: 115px
             margin-left: 4%
             +add-input
+            input
+                width: initial
         .tagsBox
             float: left
             margin-top: 5px
@@ -971,7 +1010,9 @@ a.blue-link
             +search-checkboxes
         #search-slidedown, #search-slideup
             margin-top: 5px
-            float: left
+            // float: left
+            text-align: center
+            float: none
         .sponsor-search, .host-search
             margin-top: 15px
             margin-bottom: 15px
@@ -987,6 +1028,15 @@ a.blue-link
                 text-indent: 35px
                 .tooltip
                     text-indent: 0px
+    .balance
+        .custom-blue-link
+            text-decoration: none
+            padding-left: 15px
+            font-size: 20px
+            small
+                font-size: 14px
+                color: #4b4b4b
+                color: $profile_status_text
     #my-wishes
         .mainSelectElement
             width: 78%
@@ -1211,6 +1261,11 @@ a.blue-link
         margin-bottom: 12px
         color: $title_text
         text-transform: uppercase
+        small
+            text-transform: none
+            font-size: 13px
+            +italic-font
+            font-weight: normal
 
 .close, .dd, .du
     background-image: url('../img/close.png')
@@ -1450,6 +1505,9 @@ a.blue-link
                 padding-bottom: 8px
                 opacity: 1
                 margin: 10px 10px 0px 0px
+                text-align: left
+                .greenDots
+                    margin-bottom: 10px
                 span
                     font-weight: bold
                 .share-comments, .delete-comments
@@ -1458,6 +1516,18 @@ a.blue-link
                     padding-left: 7px
                     float: right
                     color: $profile_status_text
+                .share-comments
+                    text-decoration: none
+                    float: none
+                .share-comments:hover
+                    color: #eaeaea
+                .share-comments:first-child:hover
+                    color: $profile_status_text
+                .share-comments:first-child
+                    cursor: initial
+                    text-decoration: underline
+
+
             .inputBox
                 padding-top: 5px
                 input
@@ -1597,6 +1667,7 @@ a.blue-link
     margin: 0 auto
     height: 732px
     overflow-y: auto
+    padding: 0px 30px
     .chatBlock
         width: 348px
         height: 278px
@@ -1623,6 +1694,10 @@ a.blue-link
                 margin-left: 30px
                 padding: 10px 0 0 10px
                 font-weight: bold
+                small
+                    font-size: 12px
+                    font-weight: normal
+
             .invite
                 color: $chat_grey
                 font-size: 11px
@@ -1710,8 +1785,11 @@ a.blue-link
                 margin-right: 10px
                 width: 30px
                 height: 30px
-                background-image: url('../img/dialog/chat.png')
+                // background-image: url('../img/dialog/chat.png')
                 cursor: pointer
+                font-size: 25px
+                padding-top: 5px
+                color: $chat_grey
     .darkBlock
         background-color: $chat_block_a
         box-shadow: 0px 0px 30px $header_blue
@@ -1731,7 +1809,7 @@ a.blue-link
                 width: 100% !important
                 .comments
                     margin-left: 10px
-                    padding-bottom: 0px
+                    padding-bottom: 10px
                     height: 26px
                     span
                         line-height: 26px
@@ -1749,6 +1827,7 @@ a.blue-link
         .title
             position: relative
             float: left
+            padding-right: 20px
             span
                 font-size: 15px
                 color: $status_filter_text
@@ -1761,6 +1840,7 @@ a.blue-link
                 padding-top: 12px
                 text-transform: none
                 cursor: pointer
+
             .letsFilter:hover
                 text-decoration: underline
         .sortBy
@@ -1811,7 +1891,7 @@ a.blue-link
                             font-size: 14px
                 .searchCountry, .searchCity
                     float: left
-                    width: 40px
+                    width: 140px
                     margin-left: 5px
                     margin-top: 5px
                     +add-input
@@ -1896,6 +1976,8 @@ a.blue-link
                     margin-right: 10px
                     font-weight: bold
                     cursor: pointer
+                .likes
+                    text-decoration: none
 /*END STATUSES*/
 
 /*LOGIN REGISTER*/
@@ -1914,6 +1996,40 @@ a.blue-link
         .greenDots
             margin-bottom: 15px
         +add-input
+        .input, .form-line
+            .fui-alert
+                display: none
+            .error-text
+                display: none
+        .input.error
+            .fui-alert
+                display: block
+                position: absolute
+                right: 25px
+                margin-top: 15px
+                color: red
+            .error-text
+                display: initial
+                color: red
+                padding-left: 10px
+                font-size: 12px
+        .form-line.error
+            .error-text
+                margin-top: 7px
+                display: block
+                color: red
+                padding-left: 10px
+                font-size: 12px
+                .fui-alert
+                    display: block
+                    float: right
+                    padding-left: 15px
+                    color: red
+        #country-reg
+            margin-bottom: 20px
+        #city-reg
+            margin-bottom: 20px
+
         input
             margin-top: 5px
             height: 37px
@@ -2218,6 +2334,10 @@ a.blue-link
                 border-right: 1px solid $chat_line_border
                 cursor: default
                 .info
+                    .right
+                        .last-date,.last-time
+                            text-align: right
+                .info
                     padding: 10px
                     margin-left: 40px
                     line-height: 15px
@@ -2373,7 +2493,7 @@ a.blue-link
         right: 20px
         top: 20px
         text-decoration: underline
-.letsgoPopup
+.letsgoPopup,.popupInfo,.popupLikers
     left: -moz-calc((100% - 365px)/2)
     left: -webkit-calc((100% - 365px)/2)
     left: calc((100% - 365px)/2)

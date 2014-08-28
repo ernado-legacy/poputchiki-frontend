@@ -19,11 +19,11 @@ a(href="/user/#{user.id}", data-user-id="#{user.id}")
     //-   li
     //-     a.fui-radio-checked.to_journey
     .controlLinks.clearfix
+      div(class="note write") написать
       if(is_fav)
-        div(class="like active-action") в избранные
+        div(class="like remove_from_fav") убрать из избранных
       else
         div(class="like add_to_fav") в избранные
-      div(class="note write") написать
   .left
     .name #{user.name}
     .city #{user.age}, #{user.country}

@@ -13,8 +13,18 @@
     .enterContainer.clearfix
       .title зарегистрироваться
       .greenDots
-      input#email(type='text', placeholder='Емэйл', name="email")
-      input#password-reg(type='password', placeholder='Пароль', name="password")
+      //- span.error
+      //-   span.fui-alert
+      //-   span  такой пользователь существует
+      .clearfix
+      .input
+        .fui-alert
+        input#email(type='text', placeholder='Емэйл', name="email")
+        p.error-text
+      .input
+        .fui-alert
+        input#password-reg(type='password', placeholder='Пароль', name="password")
+        p.error-text
       .noteBox
         span Регистрируясь, вы соглашаетесь с 
         a правилами

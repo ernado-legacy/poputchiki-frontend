@@ -14,9 +14,16 @@
           source(src=user.audio_url)
       .timeBar
         .progress
+
+
+  .searchBox
+    .searchBody.clearfix.balance
+      h1 Ваш баланс:
+        a(class="custom-blue-link menu-settings", data-id="payment") #{user.balance} 
+        .pop-coin
   .searchBox
     .searchBody.clearfix#my-wishes
-      h1 мои предпочтения
+      h1 хочу найти
       .greenDots
       #search-age Возраст
       .ageBox.clearfix
@@ -70,7 +77,7 @@
             .tooltip.clearfix
               .tooltip-arrow
               span В&nbsp;гости
-          .host-search-description Включите иконку чтобы найти людей, которые могу принять попутчиков у себя!
+          .host-search-description Включите иконку, чтобы найти людей, которые могут принять Вас в гости!
           //- .house-icon
           //-   .tooltip.clearfix
           //-     .tooltip-arrow
@@ -78,12 +85,11 @@
       .tagsBox.clearfix#tb-s
 
       .greenDots
-      .slideDown#search-slidedown Поиски попутчиков
+      .slideDown#search-slidedown расширенный поиск
     .searchBody.clearfix#my-folowers
-      h1 поиск попутчиков
-      if user.seasons
-        .greenDots
-        #seasons Сезоны:
+      h1 расширенный поиск
+      .greenDots
+      #seasons Выберите сезон:
         if user.likings_seasons
           .seasonsBox.clearfix
             div(id = "spring", class = user.likings_seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
@@ -105,7 +111,7 @@
             div(id = "winter", class = "season")
               span зима
       .greenDots
-      span#search-places-f Cтраны/города
+      span#search-places-f Выберите направления
       .folowersWrapper.clearfix#folowers-tags
         .mainSelectElement.searchCountry.withShadow
           input.search-select(placeholder='...', type='text',  maxlength="20", id="folowers-new-tag")
@@ -116,24 +122,28 @@
             li.dl Африка
             li.dl Европа
         .tagsBox.clearfix#tb-f
+
       .greenDots
       div(class = user.vip === true ? 'nearBox clearfix sponsor-search' : 'nearBox clearfix sponsor-search show-vip')
           .inactiveblock
           if (user.vip)
             .money-icon - 
+              .tooltip.clearfix
+                .tooltip-arrow
+                span Спонсорство
           else
             .money-icon-inactive - 
               .tooltip.clearfix
                 .tooltip-arrow
                 span Спонсорство
-          .sponsor-search-description Включите иконку чтобы искать только тех кто готов взять на себя расходы на путешествие
+          .sponsor-search-description Включите иконку, чтобы искать только тех, кто готов взять все расходы!
           //- .house-icon
           //-   .tooltip.clearfix
           //-     .tooltip-arrow
           //-     span Домик
       
       .greenDots
-      .slideDown#search-slideup Мои предпочтения
+      .slideDown#search-slideup хочу найти
   div
     span.lp
     span.rp

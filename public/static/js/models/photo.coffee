@@ -1,5 +1,3 @@
-
-
 app.models.Photo = Backbone.Model.extend 
     # initialize: ()->
     #     @listenToOnce @, 'change:time', @updateDate
@@ -32,6 +30,8 @@ app.models.Photo = Backbone.Model.extend
         response.time = 
             date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
             time: time_param.getHours()+":"+time_param.getMinutes()
+        
+        response.likers_url = '/api/photo/'+response.id+'/like'
         return response
 
 

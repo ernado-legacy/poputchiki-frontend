@@ -51,17 +51,21 @@
           if user.seasons.indexOf("winter")>-1
             div(id = "spring", class = "season seasonChecked")
               span зима  
-    .tagBox
-      h1 Мои направления
-      .tagsLine#profile-tags
-        .mainSelectElement.profileTagPlaces.withShadow
-          span.tagCountry Россия
-          //- .close
-        .mainSelectElement.profileTagPlaces.withShadow
-          span.tagCountry Европа
-          //- .close
-        .mainSelectElement.profileTagPlaces.withShadow
-          span.tagCountry Африка
+    if user.destinations
+      .tagBox
+        h1  Направления
+        .tagsLine#profile-tags
+            for d in user.destinations
+              .mainSelectElement.profileTagPlaces.withShadow
+                span.tagCountry=d
+        //- .mainSelectElement.profileTagPlaces.withShadow
+        //-   span.tagCountry Россия
+        //-   //- .close
+        //- .mainSelectElement.profileTagPlaces.withShadow
+        //-   span.tagCountry Европа
+        //-   //- .close
+        //- .mainSelectElement.profileTagPlaces.withShadow
+        //-   span.tagCountry Африка
           //- .close
       //- .newTagBox
       //-   .mainSelectElement.newCountry.withShadow

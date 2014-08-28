@@ -19,7 +19,8 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         that = @
         history.pushState null, 'poputchiki', '/profile/'
         @get_my_user (user) =>
-            user.updateDate {},'birthday'
+            app.views.entered.setmenuitem '#menu-profile'
+            user.updateDate 'birthday'
             that.model = user
             app.views.user_photo_block.render(user.id, true)
 
@@ -175,8 +176,38 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         "click #my-profile .money-icon": 'setSponsor'
         "click #my-profile .house-icon": 'setHost'
         "click #my-seasons .season": 'setSeasons'
+        "click #my-destinations .droped .dl": 'setDestinations'
+        "click #my-destinations .close": 'removeDestinations'
         # 'click #my-profile .money-icon': 'moneyIcon'
         # 'click #my-profile .house-icon': 'houseIcon'
+
+    setDestinations: (e)->
+        new_destination = $(e.currentTarget).text()
+        destinations = if @model.get('destinations') then @model.get('destinations') else []
+        if not _.contains(destinations, new_destination)
+            destinations.push new_destination
+            @model.set 'destinations', destinations
+            @model.save
+                success:=>
+                    console.log @model.attributes
+                    $('#profile-tags').html jade.templates.user_destinations
+                        user: @model.attributes
+
+
+        $('#profile-tags').html jade.templates.user_destinations
+            user: @model.attributes
+
+    removeDestinations: (e) ->
+        console.log d
+        d = $(e.currentTarget).closest('.withShadow').text()
+        destinations = @model.get('destinations')
+        destinations =  _.without(destinations, d)
+        @model.save 
+            'destinations': destinations,
+            success:=>
+                $('#profile-tags').html jade.templates.user_destinations
+                    user: @model.attributes
+        
 
     setSeasons: (e)->
         if $(e.currentTarget).hasClass('season')
@@ -207,8 +238,8 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         appendFormData input for input in inputs when $(input).val()
 
-        formData['country'] = $('#country-edit-select').text()
-        formData['city'] = $('#city-edit-select').text()
+        formData['country'] = $('#country-select input').val()
+        formData['city'] = $('#city-select input').val()
         formData['birthday'] = @getDate $('#birtday-edit')
         formData['about'] = about_text
         # @model.set()

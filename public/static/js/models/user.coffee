@@ -94,6 +94,7 @@ app.models.User = Backbone.Model.extend
         return response
 
 
+
 User = app.models.User
 
 app.models.Users = Backbone.Collection.extend
@@ -142,17 +143,11 @@ app.models.Guests = Backbone.Collection.extend
         return
     url: -> 
         '/api/user/'+this.id+'/guests'
+    model: User
 
-    # parse: (response)->
-    #     for user in response
-    #         # user = @parseLastActionParameter item  
-    #         time_param = new Date user.time
-    #         user.time = 
-    #             date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
-    #             time: time_param.getHours()+":"+time_param.getMinutes()
-    #     # item.parseTimeParameter  'last_action' for item in response
-    #     return response
-
+app.models.Likers = Backbone.Collection.extend
+    url: -> 
+        '/api/status/53fcb3f42d116c00010000fe/like'
     model: User
 
 app.models.Followers = Backbone.Collection.extend

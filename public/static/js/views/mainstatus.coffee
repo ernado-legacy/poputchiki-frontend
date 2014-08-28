@@ -1,13 +1,16 @@
-app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBlock,
-    # app.views.Status.extend
+app.views.userMainStatus = app.views.Status.extend
+    
 
-    events: 
+    events:
+        'keyup input': 'press'
         'click #edit-status': 'openeditstatus'
         'click .newStatus': 'opennewstatus'
         'click #write-new-main-status': 'updatestatus'
         'click .like': 'like'
 
-
+    press: (event)->
+        if event.which==13
+            do $('#write-new-main-status').click
     get_status_id: ->
         @$el.attr 'data-status'
 
@@ -18,6 +21,7 @@ app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBl
             that = @
             status.fetch
                 success: =>
+                    that.size = status.get 'likes'
                     is_mystatus = if app.models.myuser.getid() == user.get 'id' then true else false
                     is_liked = true if app.models.myuser.getid() in status.get 'liked_users'
                     $('.wantToTravelBox').html that.$el.html jade.templates.usermainstatus
@@ -27,6 +31,14 @@ app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBl
                     that.$el.attr 'data-status', status.get 'id'
                     that.status = status
                     do that.delegateEvents
+        else
+            @user_id = user.get 'id'
+            status = new app.models.MyStatus 'user':user.get('id')
+            is_mystatus = false
+            is_liked = false
+            @$el.addClass 'new-clear-status'
+            $('.wantToTravelBox').html @$el.html jade.templates.usermainstatusnew()
+            do @delegateEvents
 
     openeditstatus: ->
         $('#new-status').val @status.get 'text'
@@ -36,7 +48,7 @@ app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBl
 
     opennewstatus: ->
         $('#new-status').val('')
-        $('#new-status').attr 'placeholder','Введите нвоый статус'
+        $('#new-status').attr 'placeholder','Введите новый статус'
         $("#main-status").slideUp "slow"
         $(".statusBoxEdit").slideDown "slow"
         $('#write-new-main-status').data "mode", 'new'
@@ -50,15 +62,6 @@ app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBl
                 do @newstatus
             else
                 do @editstatus
-        #$.ajax
-        #    type: "PUT",
-        #    url: "/api/status",
-            #success: callback
-            #error: error
-        #    dataType: "json"
-        #    data:
-        #        text: "hello"
-        #        user: app.models.myuser.getid()
 
     editstatus: ->
         if $('#new-status').val() == @status.get 'text'
@@ -79,11 +82,17 @@ app.views.userMainStatus = Backbone.View.extend #_.extend app.mixins.SlideRigtBl
         status.save null,
             success: =>
                 do app.views.statuses.getstatuses
+                @status = status
+                app.models.myuser.get (myuser) =>
+                    @render myuser
                 $('#main-status .status').text status.get 'text'
                 $("#main-status").slideDown "slow"
                 $(".statusBoxEdit").slideUp "slow"
             error: =>
-                do app.views.entered.vip_popup
-                $("#main-status").slideDown "slow"
-                $(".statusBoxEdit").slideUp "slow"
-    
+                app.models.myuser.get (myuser) =>
+                    if myuser.get 'vip'
+                        do @$el.find('.popup-info').click
+                    else
+                        do app.views.entered.vip_popup
+                    $("#main-status").slideDown "slow"
+                    $(".statusBoxEdit").slideUp "slow"

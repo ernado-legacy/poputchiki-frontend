@@ -15,13 +15,15 @@ app.views.Video = Backbone.View.extend
     render: (is_my_user)->
         that = @
         @is_my_user = is_my_user
-        if not @model.get('url')
+        if @model.get('id') and (not @model.get('url'))
             @interval = setInterval ->
                 do that.updateUrl
             , 2000
-        
         app.models.myuser.get (user)->
-            liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false
+            if that.model.get('liked_users') and _.size(that.model.get('liked_users'))>0
+                liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false
+            else
+                liked_by = false
             $ that.$el.html jade.templates.video 
                 video: that.model.toJSON(),
                 liked_by: liked_by,
@@ -52,12 +54,11 @@ app.views.Video = Backbone.View.extend
 
     updateUrl: ()->
         that = @
-        do @model.fetch
-        # console.log @model.toJSON()
-        # .done ->
-        #     if that.model.get('url')
-        #         clearInterval that.interval
-        #         that.render that.is_my_user
+        @model.fetch
+            success:->
+                if that.model.get('url')
+                    console.log 'okay'
+                    clearInterval that.interval
 
     video_block: ->
         $('video').each ->
@@ -74,5 +75,6 @@ app.views.Video = Backbone.View.extend
             animVideo.parent().prev().css "opacity", "1"
 
     refreshSource: ->
+        console.log 'clear interval'
         clearInterval @interval
         @render @is_my_user

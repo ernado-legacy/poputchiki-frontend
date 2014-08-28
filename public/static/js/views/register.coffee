@@ -1,4 +1,4 @@
-app.views.Register = Backbone.View.extend
+app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixin,
 
     el: 'body'
 
@@ -48,25 +48,70 @@ app.views.Register = Backbone.View.extend
                 rows: 5
                 columns: 1
 
+    addErrorToInputContainer: (inputtag,error_message)->
+        emailinput = inputtag.parent('.input')
+        emailinput.addClass 'error'
+        emailinput.children('.error-text').text error_message
+
+    removeErrorToInputContainer: (inputtag)->
+        emailinput = inputtag.parent('.input')
+        emailinput.removeClass 'error'
+
+    addErrorToFormLine: (inputtag,error_message)->
+        emailinput = inputtag.parent('.form-line')
+        emailinput.addClass 'error'
+        error_text = emailinput.children('.error-text')
+        error_info = error_text.children('.error-info')
+        error_info.text error_message
+
+    removeErrorToFormLine: (inputtag)->
+        emailinput = inputtag.parent('.form-line')
+        emailinput.removeClass 'error'
+
     regstepone: ->
-        @reghash = $('form.loginRegisterBlock').serialize()
-        @render 2
-        @newtag '#year-select'
-        @newtag '#month-select'
-        @newtag '#day-select'
-        #@newtag '#city-select'
+        @reg_attrs = {}
+        @reg_attrs['email'] =  $(".loginRegisterBlock #email").val()
+        @reg_attrs['password'] =  $(".loginRegisterBlock #password-reg").val()
 
-        sc = @$el.find '.countryEdit'
-        scv = new app.views.AutocompleteCountry
-            el: sc
+        errors =  @validate @reg_attrs
+        if errors
+            $('.loginRegisterBlock').toggleClass 'shiv-block'
+            if 'email' in _.keys(errors)
+                @addErrorToInputContainer $('#email'), errors.email
+            else
+                @removeErrorToInputContainer $('#email')
+            if 'password' in _.keys(errors)
+                @addErrorToInputContainer $('#password-reg'), errors.password
+            else
+                @removeErrorToInputContainer $('#password-reg')
 
-        sct = @$el.find '.cityEdit'
-        sctv = new app.views.AutocompleteCity
-            el: sct
-        sctv.country = scv
 
-        $('.box').click ->
-            $('.box').toggleClass('checked')
+        if _.size(errors) < 1
+            app.models.login $(".loginRegisterBlock").serialize()
+                ,(data)=>
+                    $('.loginRegisterBlock').toggleClass 'shiv-block'
+                    @addErrorToInputContainer $('#email'), 'имейл уже зарегистрирован'
+                    return
+                ,(data)=>
+                    if data.status!=404
+                        $('.loginRegisterBlock').toggleClass 'shiv-block'
+                        @addErrorToInputContainer $('#email'), 'имейл уже зарегистрирован'
+                        return
+                    else
+                        @reghash = $('form.loginRegisterBlock').serialize()
+                        @render 2
+                        @newtag '#year-select'
+                        @newtag '#month-select'
+                        @newtag '#day-select'
+                        #@newtag '#city-select'
+                        sc = @$el.find '.countryEdit'
+                        scv = new app.views.AutocompleteCountry
+                            el: sc
+                        sct = @$el.find '.cityEdit'
+                        sctv = new app.views.AutocompleteCity
+                            el: sct
+                        $('.box').click ->
+                            $('.box').toggleClass('checked')
 
     getDate: (date_block)->
         d = date_block.find('#day-edit-select').text()
@@ -76,35 +121,141 @@ app.views.Register = Backbone.View.extend
         y+"-"+m+"-"+d+"T00:00:00Z"
 
     regsteptwo: ->
-        # @updatehash = 
-        #    name: arr[0].value + ' ' + arr[1].value
-        #    birthday: $('#day-edit-select').text() + ' ' + $('#month-edit-select').text() + ' ' + $('#year-edit-select').text()
-        #    city: $('#city-edit-select').text()
-        #    phone: $('#tel').text()
-        that = @
-        app.models.register @reghash, (data) ->
-            $.cookie 'token', data['token']
-            that.id = data['id']
-            #$.cookie 'user', data['id']
-            arr = $('form.loginRegisterBlock').serializeArray()
+        arr = $('form.loginRegisterBlock').serializeArray()
+        date_block = $('#birdth-reg')
+        d = date_block.find('#day-edit-select').text()
+        m = date_block.find('#month-edit-select').text()
+        m = $("li:contains('"+m+"')").attr 'month'
+        y = date_block.find('#year-edit-select').text()
+        birthday = y+"-"+m+"-"+d+"T00:00:00Z"
 
-            date_block = $('#birdth-reg')
-            d = date_block.find('#day-edit-select').text()
-            m = date_block.find('#month-edit-select').text()
-            m = $("li:contains('"+m+"')").attr 'month'
-            y = date_block.find('#year-edit-select').text()
-            birthday = y+"-"+m+"-"+d+"T00:00:00Z"
+        user = new app.models.User
+        attrs =
+            name: arr[0].value
+            birthday: birthday
+            city: $('#city-select input').val()
+            phone: $('#tel').val()
+            country: $('#country-reg input').val()
+            city: $('#city-select input').val()
 
-            user = new app.models.User
-                id: that.id
-                name: arr[0].value + ' ' + arr[1].value
-                birthday: birthday
-                city: $('#city-select .search-select').val()
-                country: $('#country-select .search-select').val()
-                phone: $('#tel').text()
-            user.set 'avatar', data.id
-            user.save()
-            that.render 3
+        @validate attrs
+        errors = @validate attrs
+        if errors
+            $('.loginRegisterBlock').toggleClass 'shiv-block'
+            console.log errors
+            if 'name' in _.keys(errors)
+                @addErrorToFormLine $('input[name=name]'), errors.name
+            else
+                @removeErrorToFormLine $('input[name=name]')
+
+            if 'phone' in _.keys(errors)
+                @addErrorToFormLine $('#tel'), errors.phone
+            else
+                @removeErrorToFormLine $('#tel')
+
+            if 'city' in _.keys(errors)
+                console.log 'city errors'
+                @addErrorToFormLine $('#city-select'), errors.city
+            else
+                @removeErrorToFormLine $('#city-select')
+
+            if 'country' in _.keys(errors)
+                console.log 'country errors'
+                @addErrorToFormLine $('#country-select'), errors.country
+            else
+                @removeErrorToFormLine $('#country-select')
+
+            # if 'password' in _.keys(errors)
+            #     @addErrorToInputContainer $('#password-reg'), errors.password
+            # else
+            #     @removeErrorToInputContainer $('#password-reg')
+        else
+            user.set attrs
+
+            @updatehash = attrs
+               # name: arr[0].value + ' ' + arr[1].value
+               # birthday: $('#day-edit-select').text() + ' ' + $('#month-edit-select').text() + ' ' + $('#year-edit-select').text()
+               # city: $('#city-edit-select').text()
+               # phone: $('#tel').text()
+            that = @
+            app.models.register @reghash, (data) ->
+                $.cookie 'token', data['token']
+                that.id = data['id']
+                arr = $('form.loginRegisterBlock').serializeArray()
+
+                # date_block = $('#birdth-reg')
+                # d = date_block.find('#day-edit-select').text()
+                # m = date_block.find('#month-edit-select').text()
+                # m = $("li:contains('"+m+"')").attr 'month'
+                # y = date_block.find('#year-edit-select').text()
+                # birthday = y+"-"+m+"-"+d+"T00:00:00Z"
+
+                user = new app.models.User that.updatehash
+                user.set 'id', that.id
+                    # id: $.cookie 'user'
+                    # name: arr[0].value + ' ' + arr[1].value
+                    # birthday: birthday
+                    # city: $('#city-edit-select').text()
+                    # phone: $('#tel').text()
+                # user.set 'avatar', data.id
+                user.save()
+                that.render 3
+# # =======
+# #         that = @
+# #         app.models.register @reghash, (data) ->
+# #             $.cookie 'token', data['token']
+# #             that.id = data['id']
+# #             #$.cookie 'user', data['id']
+# #             arr = $('form.loginRegisterBlock').serializeArray()
+
+# #             date_block = $('#birdth-reg')
+# #             d = date_block.find('#day-edit-select').text()
+# #             m = date_block.find('#month-edit-select').text()
+# #             m = $("li:contains('"+m+"')").attr 'month'
+# #             y = date_block.find('#year-edit-select').text()
+# #             birthday = y+"-"+m+"-"+d+"T00:00:00Z"
+
+# #             user = new app.models.User
+# #                 id: that.id
+# #                 name: arr[0].value + ' ' + arr[1].value
+# #                 birthday: birthday
+# #                 city: $('#city-edit-select').text()
+# #                 phone: $('#tel').text()
+# #             user.set 'avatar', data.id
+# #             user.save()
+# #             that.render 3
+# # >>>>>>> e9372896a8888898652128ccfef7ee31c7014894
+# =======
+#         # @updatehash = 
+#         #    name: arr[0].value + ' ' + arr[1].value
+#         #    birthday: $('#day-edit-select').text() + ' ' + $('#month-edit-select').text() + ' ' + $('#year-edit-select').text()
+#         #    city: $('#city-edit-select').text()
+#         #    phone: $('#tel').text()
+#         that = @
+#         app.models.register @reghash, (data) ->
+#             $.cookie 'token', data['token']
+#             that.id = data['id']
+#             #$.cookie 'user', data['id']
+#             arr = $('form.loginRegisterBlock').serializeArray()
+
+#             date_block = $('#birdth-reg')
+#             d = date_block.find('#day-edit-select').text()
+#             m = date_block.find('#month-edit-select').text()
+#             m = $("li:contains('"+m+"')").attr 'month'
+#             y = date_block.find('#year-edit-select').text()
+#             birthday = y+"-"+m+"-"+d+"T00:00:00Z"
+
+#             user = new app.models.User
+#                 id: that.id
+#                 name: arr[0].value + ' ' + arr[1].value
+#                 birthday: birthday
+#                 city: $('#city-select .search-select').val()
+#                 country: $('#country-select .search-select').val()
+#                 phone: $('#tel').text()
+#             user.set 'avatar', data.id
+#             user.save()
+#             that.render 3
+# >>>>>>> 9078d3c2353977a73b35156f5c4aa1f7c1774373
 
     
 
@@ -179,6 +330,8 @@ app.views.Register = Backbone.View.extend
             $(this).parent().parent().children('span').text(text)
             # event.preventDefault()
             # event.stopPropagation()
+
+
 
 $ ->
     app.views.register = new app.views.Register
