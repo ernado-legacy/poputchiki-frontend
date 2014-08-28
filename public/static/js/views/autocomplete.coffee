@@ -66,6 +66,8 @@ app.views.AutocompleteCity = app.views.Autocomplete.extend
             country = @country.$el.find('input').val()
             condition = Boolean country
 
+        console.log country
+
         #REMOVE IT!!!!11
         #condition = false
 

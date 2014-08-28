@@ -17,12 +17,15 @@ if video.url
         a(class="action-like custom-link") нравится
       span.like-counter-box
         i &nbsp;
-        span.like-counter #{video.likes}
+        if video.likes >0
+            span.like-counter.likes.my-likes(data-likers-url=video.likers_url) #{video.likes}...
+        else 
+          span.like-counter.likes.my-likes(data-likers-url=video.likers_url)
       a(class="custom-blue-link open-promo") в ленту
       a(class="custom-link remove-photo") удалить
   else
     if(liked_by)
-      a(class="action-remove-like custom-link") нравится
+      a(class="action-remove-like custom-link") вам нравится
     else
       a(class="action-like custom-link") нравится
     span.like-counter  #{video.likes}

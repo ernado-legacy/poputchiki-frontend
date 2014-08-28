@@ -6,6 +6,25 @@ app.views.MessageSide = Backbone.View.extend
         'click ul.chatLine li': 'newdialog'
         'click #profile-arrow-up': 'carousel_up'
         'click #profile-arrow-down': 'carousel_down'
+    initialize: ->
+        do @check_unread
+        that = @
+        @message_interval = setInterval ->
+                do that.check_unread
+            , 4000
+
+    check_unread: ->
+        $.get '/api/user/539ee75ba2f2b60001000006/unread',
+            (data)->
+                if isNaN(parseInt($('#menu-messgaes .menuIcon.new div').text())) 
+                    $('#menu-messgaes .menuIcon.new div').text data.count
+                else 
+                    if (parseInt($('#menu-messgaes .menuIcon.new div').text()) < data.count)
+                        do playSoundNotification
+                        $('#menu-messgaes .menuIcon.new div').text data.count
+
+            ,
+            'json'
 
     render: ->
         $ @$el.html jade.templates.chat_line
