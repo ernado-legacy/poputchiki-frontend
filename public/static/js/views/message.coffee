@@ -6,6 +6,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .pstMsg': 'postmsg'
         'click .closeChat': 'closechat'
 
+
     set_url: (url) ->
         if not url
             url = ''

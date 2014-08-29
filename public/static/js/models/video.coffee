@@ -25,6 +25,7 @@ app.models.Video = Backbone.Model.extend
         response.time = 
             date: time_param.getDate()+"."+time_param.getMonth()+"."+(time_param.getYear()*1+1900)
             time: time_param.getHours()+":"+time_param.getMinutes()
+        response.likers_url = '/api/video/'+response.id+'/like'
         return response
 
 

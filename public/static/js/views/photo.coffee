@@ -86,7 +86,6 @@ app.views.Photo = Backbone.View.extend
         console.log @model.like
         @model.like (likes)->
             counter_container = that.$el.find('.like-counter')
-            console.log likes
             if likes<1 
                 counter_container.text ''
             else

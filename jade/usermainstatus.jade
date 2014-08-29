@@ -25,9 +25,7 @@ if is_mystatus
                   | ...
         else
           span.delete-comments 
-              span.likes 
-                  | #{status.get('likes')}
-                  | ...
+              span.likes(data-likers-url=status.likers_url())
         span.delete-comments.like(data-like = is_liked?'false':'true')=is_liked?'вам это нравится':'нравиться'
       else
         span.delete-comments.likes #{status.get('likes')}

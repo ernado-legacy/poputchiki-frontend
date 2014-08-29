@@ -311,6 +311,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $(button).parent().children('.wrapper').children('.c_right').addClass('circle2')
 
     play_audio: (event) ->
+        console.log 'play audio'
         @stopMedia()
         @showProgress event.target
         z = $(event.target)

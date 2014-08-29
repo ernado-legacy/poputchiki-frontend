@@ -9,7 +9,7 @@ app.views.Likers = Backbone.View.extend
         'click .active-vip': 'activateVip'
 
     render: (likers_url,callback)->
-        
+        @$el.find('.guests .chatLine').empty()
         that = @
         @$el.find('.guests .chatLine').append("<img src='http://poputchiki/static/img/searchpreloader.GIF' class='loading-gif')'>")
         do callback

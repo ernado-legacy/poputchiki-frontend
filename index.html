@@ -91,7 +91,7 @@
           </li>
           <li id="menu-messgaes">
             <div class="menuIcon new">
-              <div>12</div>
+              <div></div>
             </div><span>сообщения</span>
           </li>
           <li id="menu-favorites">
@@ -165,7 +165,7 @@
       <div class="popup photoPopup"><a href="#" class="closepopup">Закрыть</a>
         <div class="arrow-left"></div>
         <div class="arrow-right"></div>
-        <div class="imgBox"><img src="/static/img/photo1.png"></div>
+        <div class="imgBox"><img src="/static/img/searchpreloader.GIF" class="loading-gif"></div>
         <div class="infoBox clearfix"></div>
       </div>
       <div class="popup videoPopup"><a href="#" class="closepopup">Закрыть</a>
@@ -218,84 +218,65 @@
         <form>
           <h1>Добавиться в промо-ленту</h1>
           <div class="greenDots"></div>
-          <div class="changeAvatarBox clearfix"><img src="/static/img/b_userpic.png">
+          <div class="changeAvatarBox clearfix"><img src="/static/img/b_userpic.png" id="promo-add-photo">
             <div class="popupArrow"></div>
             <div class="crsItem"><img src="/static/img/crs_item.png">
-              <div class="videoBox">
-                <div class="frontLayer"></div>
-                <video>
-                  <source src="/static/video/gizmo.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
-                  <source src="/static/video/gizmo.webm" type="video/webm" codecs="vp8, vorbis">
-                  <source src="/static/video/gizmo.ogv" type="video/ogg" codecs="theora, vorbis">
-                </video>
-              </div>
-              <div class="video"></div>
             </div>
             <div class="crsItem"><img src="/static/img/crs_item.png">
-              <div class="videoBox">
-                <div class="frontLayer"></div>
-                <video>
-                  <source src="/static/video/gizmo.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
-                  <source src="/static/video/gizmo.webm" type="video/webm" codecs="vp8, vorbis">
-                  <source src="/static/video/gizmo.ogv" type="video/ogg" codecs="theora, vorbis">
-                </video>
-              </div>
-              <div class="video"></div>
             </div>
             <div class="crsItem"><img src="/static/img/crs_item.png">
-              <div class="videoBox">
-                <div class="frontLayer"></div>
-                <video>
-                  <source src="/static/video/gizmo.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
-                  <source src="/static/video/gizmo.webm" type="video/webm" codecs="vp8, vorbis">
-                  <source src="/static/video/gizmo.ogv" type="video/ogg" codecs="theora, vorbis">
-                </video>
+            </div>
+          </div>
+          <div class="choose-photo active">
+            <h2>Выбрать фото-ленту</h2>
+            <div class="greenDots"></div>
+            <div class="chooseBox clearfix">
+              <div class="mainSelectElement promo-photo"><span>Выбрать фото</span></div>
+            </div>
+            <p>Вы можете добавить аудиоо-приветствие или видео-аватарку к своему профайлу в промо-ленте. Для того, чтобы подключить дополнительные опции, выберите видео или запишите аудио:</p>
+          </div>
+          <div class="choose-audio active">
+            <h2>Выбрать аудио-ленту</h2>
+            <div class="greenDots"></div>
+            <p>Загрузите аудио-приветствие, чтобы ваш голос могли услышать ваши друзья и получите еще больше посещений для своего профайла!</p>
+            <div style="display:none" class="playerBox clearfix">
+              <div class="audio audio-change-avatar">
+                <audio>
+                  <!--source(type="audio/ogg")-->
+                  <!--source(src='/static/audio/audio.mp3', type="audio/mp3")-->
+                  <!--source(src='/static/audio/audio.ogg', type="audio/ogg")-->
+                </audio>
               </div>
-              <div class="video"></div>
-            </div>
-          </div>
-          <div class="chooseBox clearfix">
-            <div class="mainSelectElement promo-photo"><span>Выбрать фото</span></div>
-          </div>
-          <p>Вы можете добавить аудиоо-приветствие или видео-аватарку к своему профайлу в промо-ленте. Для того, чтобы подключить дополнительные опции, выберите видео или запишите аудио:</p>
-          <div class="bilContainer clearfix">
-            <div class="regButton profile-edit-slideup upload-money"><span>пополнить счет</span></div>
-            <div class="price">30 <small>монет</small></div>
-          </div>
-          <h2>Добавить аудио</h2>
-          <div class="greenDots"></div>
-          <p>Загрузите аудио-приветствие, чтобы ваш голос могли услышать ваши друзья и получите еще больше посещений для своего профайла!</p>
-          <div style="display:none" class="playerBox clearfix">
-            <div class="audio audio-change-avatar">
-              <audio>
-                <!--source(type="audio/ogg")-->
-                <!--source(src='/static/audio/audio.mp3', type="audio/mp3")-->
-                <!--source(src='/static/audio/audio.ogg', type="audio/ogg")-->
-              </audio>
-            </div>
-            <div class="timeBar">
-              <div class="progress"></div>
-            </div>
-          </div>
-          <div class="mainSelectElement upload-new-audio"><span>Загрузить файл</span></div>
-          <input type="file" class="upload-new-audio-input">
-          <h2>Добавить видео</h2>
-          <div class="greenDots"></div>
-          <p>Создайте свою уникальную видео-аватарку и еще больше выделите свой профайл среди тысячи остальных!</p>
-          <div class="videoContainer clearfix">
-            <div class="crsItem"><img src="/static/img/crs_item.png">
-              <div class="videoBox">
-                <div class="frontLayer"></div>
-                <video>
-                  <source src="/static/video/gizmo.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
-                  <source src="/static/video/gizmo.webm" type="video/webm" codecs="vp8, vorbis">
-                  <source src="/static/video/gizmo.ogv" type="video/ogg" codecs="theora, vorbis">
-                </video>
+              <div class="timeBar">
+                <div class="progress"></div>
               </div>
-              <div class="video"></div>
             </div>
-            <div class="mainSelectElement upload-new-video"><span>Выбрать файл</span></div>
+            <div class="mainSelectElement upload-new-audio"><span>Прикрепить аудио-приветствие</span></div>
             <input type="file" class="upload-new-audio-input">
+          </div>
+          <div class="choose-video active">
+            <h2>Добавить видео-ленту</h2>
+            <div class="greenDots"></div>
+            <p>Создайте свою уникальную видео-аватарку и еще больше выделите свой профайл среди тысячи остальных!</p>
+            <div class="videoContainer clearfix">
+              <div class="crsItem"><img src="/static/img/crs_item.png">
+                <div class="videoBox">
+                  <div class="frontLayer"></div>
+                  <video>
+                    <source src="/static/video/gizmo.mp4">
+                  </video>
+                </div>
+                <div class="video"></div>
+              </div>
+              <div class="mainSelectElement upload-new-video"><span>Выбрать видео</span></div>
+              <input type="file" class="upload-new-audio-input">
+            </div>
+          </div>
+          <h2>Добавится в промоленту стоит 50 попиков</h2>
+          <div class="greenDots"></div>
+          <div class="bilContainer clearfix">
+            <div class="regButton profile-edit-slideup upload-money"><span data-id="payment" class="menu-settings">пополнить счет</span></div>
+            <div class="price"><small>у вас на счету </small> 30 <small>попиков</small></div>
           </div>
         </form>
         <div class="regButton profile-edit-slideup add-to-promo"><span>добавить в ленту</span></div>
@@ -411,5 +392,6 @@
         </div>
       </div>
     </div>
+    <div id="notification-sound"></div>
   </body>
 </html>
