@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="/static/css/lib/reset.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/lib/style_common.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/lib/style2.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/all.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/icons.css" type="text/css">
+    <link rel="shortcut icon" href="/static/ico/favicon.ico">
+    <script type="text/javascript" src="/static/js/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="/static/js/lib/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/static/js/lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/static/js/lib/backbone-min.js"></script>
+    <script type="text/javascript" src="/static/js/lib/jquery.hoverfold.js"></script>
+    <script type="text/javascript" src="/static/js/lib/modernizr.custom.69142.js"></script>
+    <script type="text/javascript" src="/static/js/template.js"></script>
+    <script type="text/javascript" src="/static/js/app.js"></script>
+    <script type="text/javascript" src="/static/js/models/login.js"></script>
+    <script type="text/javascript" src="/static/js/models/user.js"></script>
+    <script type="text/javascript" src="/static/js/models/register.js"></script>
+    <script type="text/javascript" src="/static/js/models/dialog.js"></script>
+    <script type="text/javascript" src="/static/js/models/message.js"></script>
+    <script type="text/javascript" src="/static/js/models/search.js"></script>
+    <script type="text/javascript" src="/static/js/models/photo.js"></script>
+    <script type="text/javascript" src="/static/js/models/video.js"></script>
+    <script type="text/javascript" src="/static/js/models/myuser.js"></script>
+    <script type="text/javascript" src="/static/js/models/token.js"></script>
+    <script type="text/javascript" src="/static/js/models/status.js"></script>
+    <script type="text/javascript" src="/static/js/models/stripe.js"></script>
+    <script type="text/javascript" src="/static/js/models/statuslike.js"></script>
+    <script type="text/javascript" src="/static/js/models/autocomplete.js"></script>
+    <script type="text/javascript" src="/static/js/mixins/uploadphoto.js"></script>
+    <script type="text/javascript" src="/static/js/mixins/sideblock.js"></script>
+    <script type="text/javascript" src="/static/js/mixins/validateuser.js"></script>
+    <script type="text/javascript" src="/static/js/views/login.js"></script>
+    <script type="text/javascript" src="/static/js/views/register.js"></script>
+    <script type="text/javascript" src="/static/js/views/profile.js"></script>
+    <script type="text/javascript" src="/static/js/views/autocomplete.js"></script>
+    <script type="text/javascript" src="/static/js/views/message.js"></script>
+    <script type="text/javascript" src="/static/js/views/messageside.js"></script>
+    <script type="text/javascript" src="/static/js/views/searchside.js"></script>
+    <script type="text/javascript" src="/static/js/views/search.js"></script>
+    <script type="text/javascript" src="/static/js/views/vipstatus.js"></script>
+    <script type="text/javascript" src="/static/js/views/stripe.js"></script>
+    <script type="text/javascript" src="/static/js/views/statuses.js"></script>
+    <script type="text/javascript" src="/static/js/views/popupphoto.js"></script>
+    <script type="text/javascript" src="/static/js/views/popupaudio.js"></script>
+    <script type="text/javascript" src="/static/js/views/entered.js"></script>
+    <script type="text/javascript" src="/static/js/views/user.js"></script>
+    <script type="text/javascript" src="/static/js/views/guestprofile.js"></script>
+    <script type="text/javascript" src="/static/js/views/favorite.js"></script>
+    <script type="text/javascript" src="/static/js/views/photo.js"></script>
+    <script type="text/javascript" src="/static/js/views/video.js"></script>
+    <script type="text/javascript" src="/static/js/views/rating.js"></script>
+    <script type="text/javascript" src="/static/js/views/setting.js"></script>
+    <script type="text/javascript" src="/static/js/views/guests.js"></script>
+    <script type="text/javascript" src="/static/js/views/favs.js"></script>
+    <script type="text/javascript" src="/static/js/views/userphoto.js"></script>
+    <script type="text/javascript" src="/static/js/views/status.js"></script>
+    <script type="text/javascript" src="/static/js/views/pagination.js"></script>
+    <script type="text/javascript" src="/static/js/views/mainstatus.js"></script>
+    <script type="text/javascript" src="/static/js/views/main.js"></script>
+    <script type="text/javascript" src="/static/js/views/rating.js"></script>
+    <script type="text/javascript" src="/static/js/views/aboutus.js"></script>
+    <script type="text/javascript" src="/static/js/views/terms.js"></script>
+    <script type="text/javascript" src="/static/js/views/likers.js"></script>
+    <script type="text/javascript" src="/static/js/script/base.js"></script>
+    <!--sources for main page-->
+    <link rel="stylesheet" href="/static/css/mainpage/gridrotator.css">
+    <link rel="stylesheet" href="/static/css/mainpage/style.css">
+    <script src="/static/js/mainpage/modernizr.custom.26633.js"></script>
+    <script src="/static/js/mainpage/jquery.gridrotator.js"></script>
+    <script src="/static/js/mainpage/gridrotator-init.js"></script>
+    <script src="/static/js/mainpage/scripts.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  </head>
+  <body class="clearfix">
+    <div class="mainWrapper cleafix">
+      <header><a href="/" class="hLogo"><span>попутчики.ru</span></a>
+        <ul class="navigation">
+          <li id="header-profile" class="header-profile-statuses"><span>статусы попутчиков</span></li>
+          <li id="header-journeys"><span>знакомства</span></li>
+          <li id="header-exit"><span>выход</span></li>
+        </ul>
+      </header>
+      <div class="menuBox">
+        <ul id="left-menu" class="leftMenu">
+          <li id="menu-profile">
+            <div class="fui-user"></div><span>профиль</span>
+          </li>
+          <li id="menu-messgaes">
+            <div class="menuIcon new">
+              <div>12</div>
+            </div><span>сообщения</span>
+          </li>
+          <li id="menu-favorites">
+            <div class="menuIcon"></div><span>избранное</span>
+          </li>
+          <li id="menu-photos">
+            <div class="menuIcon"></div><span>гости</span>
+          </li>
+          <li id="menu-rating">
+            <div class="menuIcon"></div><span>рейтинг</span>
+          </li>
+          <li id="menu-tools">
+            <div class="menuIcon"></div><span>настройки</span>
+          </li>
+        </ul>
+        <ul class="letsGo">
+          <li id="menu-go">
+            <div class="menuIcon"></div><span>хочу поехать!</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mainTopContainer clearfix">
+      </div>
+      <div class="mainContainer clearfix">
+        <div class="mainContent clearfix">
+          <div class="mainContentProfile">
+          </div>
+        </div>
+        <div class="photoVideoBlock">
+        </div>
+      </div>
+      <footer>
+        <div class="fLogo"><span>попутчики</span></div>
+        <ul class="aboutInfo">
+          <li data-view="aboutus"><span>о нас</span></li>
+          <li data-view="terms"><span>правила</span></li>
+          <li data-view="rating"><span>рейтинг</span></li>
+        </ul>
+      </footer>
+    </div>
+    <div class="popupBack"></div>
+    <div class="popupWrapper">
+      <div class="popupInnerBack"></div>
+      <div class="popup letsgoPopup">
+        <div class="popupHeaderBox clearfix">
+          <div class="popupHeader activeHeader">
+            <div class="title"><span>туры</span></div>
+          </div>
+          <div class="popupHeader">
+            <div class="title"><span>билеты</span></div>
+          </div>
+        </div>
+        <div class="popupBody clearfix"><img src="http://www.bgoperator.ru/v2/images/logo.png"><span class="pop-t">Cтраны:</span>
+          <div id="tb-popup" class="tagsBox clearfix">
+            <div class="mainSelectElement searchCountry withShadow">
+              <input id="popup-select" placeholder="..." type="text" maxlength="20">
+              <div class="dd"></div>
+              <div class="du"></div>
+              <ul class="droped withShadow">
+                <li class="dl">Россия</li>
+                <li class="dl">Африка</li>
+                <li class="dl">Европа</li>
+              </ul>
+            </div>
+          </div><span class="pop-t">Телефон:</span>
+          <input type="text" placeholder="Ваш номер телефона" id="popup-phone">
+          <p>С вами свяжется туроператор для обсуждения всех дополнительных деталей.</p>
+          <div id="send-lg-popup" class="regButton profile-edit-slideup"><span>отправить</span></div>
+        </div>
+      </div>
+      <div class="popup photoPopup"><a href="#" class="closepopup">Закрыть</a>
+        <div class="arrow-left"></div>
+        <div class="arrow-right"></div>
+        <div class="imgBox"><img src="/static/img/photo1.png"></div>
+        <div class="infoBox clearfix"></div>
+      </div>
+      <div class="popup videoPopup"><a href="#" class="closepopup">Закрыть</a>
+        <div class="imgBox">
+          <div class="arrow-left"></div>
+          <div class="arrow-right"></div>
+        </div>
+        <div class="infoBox clearfix"><img src="/static/img/statuses/userpic.png">
+          <div class="leftPart">    
+            <div class="name-in-profile">Вениамин Петров, 23</div>
+            <div class="city-in-profile">Москва</div>
+          </div>
+        </div>
+      </div>
+      <div class="popup chavaPopup clearfix"><a href="#" class="closepopup">Закрыть</a>
+        <form class="audioform">
+          <h1>Изменить аватар</h1>
+          <div class="greenDots"></div>
+          <div class="changeAvatarBox clearfix"><img src="/static/img/b_userpic.png">
+            <div class="popupArrow"></div>
+            <div class="controlBox">
+              <div class="mainSelectElement upload-new-ava"><span>Загрузить фотографию</span></div>
+              <input type="file" class="upload-new-ava-input">
+              <div id="delete-avatar">Удалить</div>
+            </div>
+          </div>
+          <h2>Аудио-приветствие</h2>
+          <div class="greenDots"></div>
+          <p>Загрузите аудио-приветствие, чтобы ваш голос могли услышать ваши друзья и получите еще больше посещений для своего профайла!</p>
+          <div class="playerBox clearfix">
+            <div class="audio audio-change-avatar">
+              <audio>
+                <source src="/static/audio/audio.mp3" type="audio/mp3">
+                <source src="/static/audio/audio.ogg" type="audio/ogg">
+              </audio>
+            </div>
+            <div class="timeBar">
+              <div class="progress"></div>
+            </div>
+          </div>
+          <div class="mainSelectElement upload-new-audio"><span>Загрузить файл</span></div>
+          <input type="file" name="file" class="upload-new-audio-input">
+        </form>
+        <form style="display:none" class="avatarform">
+          <input type="file" name="file" class="upload-new-avatar-input">
+        </form>
+        <div class="regButton profile-edit-slideup save-new-ava-audio"><span>сохранить</span></div>
+      </div>
+      <div class="popup promoPopup"><a href="#" class="closepopup">Закрыть</a>
+        <form>
+          <h1>Добавиться в промо-ленту</h1>
+          <div class="greenDots"></div>
+          <div class="changeAvatarBox clearfix"><img src="/static/img/b_userpic.png">
+            <div class="popupArrow"></div>
+            <div class="crsItem"><img src="/static/img/crs_item.png">
+              <div class="videoBox">
+                <div class="frontLayer"></div>
+                <video>
+                  <source src="/static/video/gizmo.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
+                  <source src="/static/video/gizmo.webm" type="video/webm" codecs="vp8, vorbis">
+                  <source src="/static/video/gizmo.ogv" type="video/ogg" codecs="theora, vorbis">
+                </video>
+              </div>
+              <div class="video"></div>
+            </div>
+            <div class="crsItem"><img src="/static/img/crs_item.png">
+              <div class="videoBox">
+                <div class="frontLayer"></div>
+                <video>
+                  <source src="/static/video/gizmo.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
+                  <source src="/static/video/gizmo.webm" type="video/webm" codecs="vp8, vorbis">
+                  <source src="/static/video/gizmo.ogv" type="video/ogg" codecs="theora, vorbis">
+                </video>
+              </div>
+              <div class="video"></div>
+            </div>
+            <div class="crsItem"><img src="/static/img/crs_item.png">
+              <div class="videoBox">
+                <div class="frontLayer"></div>
+                <video>
+                  <source src="/static/video/gizmo.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
+                  <source src="/static/video/gizmo.webm" type="video/webm" codecs="vp8, vorbis">
+                  <source src="/static/video/gizmo.ogv" type="video/ogg" codecs="theora, vorbis">
+                </video>
+              </div>
+              <div class="video"></div>
+            </div>
+          </div>
+          <div class="chooseBox clearfix">
+            <div class="mainSelectElement promo-photo"><span>Выбрать фото</span></div>
+          </div>
+          <p>Вы можете добавить аудиоо-приветствие или видео-аватарку к своему профайлу в промо-ленте. Для того, чтобы подключить дополнительные опции, выберите видео или запишите аудио:</p>
+          <div class="bilContainer clearfix">
+            <div class="regButton profile-edit-slideup upload-money"><span>пополнить счет</span></div>
+            <div class="price">30 <small>монет</small></div>
+          </div>
+          <h2>Добавить аудио</h2>
+          <div class="greenDots"></div>
+          <p>Загрузите аудио-приветствие, чтобы ваш голос могли услышать ваши друзья и получите еще больше посещений для своего профайла!</p>
+          <div style="display:none" class="playerBox clearfix">
+            <div class="audio audio-change-avatar">
+              <audio>
+                <!--source(type="audio/ogg")-->
+                <!--source(src='/static/audio/audio.mp3', type="audio/mp3")-->
+                <!--source(src='/static/audio/audio.ogg', type="audio/ogg")-->
+              </audio>
+            </div>
+            <div class="timeBar">
+              <div class="progress"></div>
+            </div>
+          </div>
+          <div class="mainSelectElement upload-new-audio"><span>Загрузить файл</span></div>
+          <input type="file" class="upload-new-audio-input">
+          <h2>Добавить видео</h2>
+          <div class="greenDots"></div>
+          <p>Создайте свою уникальную видео-аватарку и еще больше выделите свой профайл среди тысячи остальных!</p>
+          <div class="videoContainer clearfix">
+            <div class="crsItem"><img src="/static/img/crs_item.png">
+              <div class="videoBox">
+                <div class="frontLayer"></div>
+                <video>
+                  <source src="/static/video/gizmo.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
+                  <source src="/static/video/gizmo.webm" type="video/webm" codecs="vp8, vorbis">
+                  <source src="/static/video/gizmo.ogv" type="video/ogg" codecs="theora, vorbis">
+                </video>
+              </div>
+              <div class="video"></div>
+            </div>
+            <div class="mainSelectElement upload-new-video"><span>Выбрать файл</span></div>
+            <input type="file" class="upload-new-audio-input">
+          </div>
+        </form>
+        <div class="regButton profile-edit-slideup add-to-promo"><span>добавить в ленту</span></div>
+      </div>
+      <div class="popup chopPopup">
+        <div class="regButton profile-edit-slideup choose-promo-photo"><span>загрузить</span></div>
+        <form><img src="/static/img/searchpreloader.GIF" class="loading-gif"></form>
+      </div>
+      <div class="popup ratingPopup"><a href="#" class="closepopup">Закрыть</a>
+        <form>
+          <h1>Рейтинг</h1>
+          <div class="greenDots"></div>
+          <p>Тут общий текст про систему рейтинга. Для чего он нужен пользователю и какие преимущества может получить пользователь с высоким рейтингом.</p>
+          <div class="profileBox">
+            <div class="imgBox"><img src="/static/img/b_userpic.png"></div>
+            <div class="profile-rating">100%</div>
+          </div>
+          <div class="textBox clearfix">
+            <p>Ваши перимущества от высокого рейтинга:</p>
+            <p class="pnct">- высокая посещаемость</p>
+            <p class="pnct">- больше новых знакомств</p>
+            <p class="pnct">- масса новых впечатлений</p>
+            <p class="pnct">- приглашения в увлекательные поездки</p>
+            <p class="pnct">- еще что-нибудь полезное...</p>
+          </div>
+          <h2>Бесплатное продвижение</h2>
+          <div class="greenDots"></div>
+          <p>Вы можете бесплатно поднять свой рейтинг в нашей системе. Чтобы поднять свой рейтинг бесплатно можно выполнять следующие действия:</p>
+          <p class="pnct">- добавлять свои фото/видео</p>
+          <p class="pnct">- просматривать страницы других пользователей</p>
+          <p class="pnct">- оценивать фотографии пользователей</p>
+          <p class="pnct">- менять статус один раз в день</p>
+          <p class="pnct">- комментировать статусы других пользователей</p>
+          <h2>Платное продвижение</h2>
+          <div class="greenDots"></div>
+          <p>Тут какой-то текст про то, чем черевато платное продвижение.</p>
+          <div class="bilContainer clearfix">
+            <div class="regButton profile-edit-slideup upload-money"><span>повысить рейтинг</span></div>
+            <div class="price">30 <small>рублей</small></div>
+          </div>
+        </form>
+      </div>
+      <div class="popup vipPopup"><a href="#" class="closepopup">Закрыть</a>
+        <form>
+          <h1>Вип статус</h1>
+          <div class="greenDots"></div>
+          <p>Тут общий текст про систему рейтинга. Для чего он нужен пользователю и какие преимущества может получить пользователь с высоким рейтингом.</p>
+          <h2>Узнайте кто добавляет вас в избранное</h2>
+          <div class="greenDots"></div>
+          <div class="vip-status-icon-block">
+            <div class="fui-star-2"></div>
+          </div>
+          <div class="textBox clearfix">
+            <p class="pnct">- смотрите пользователей котоыре добавляют вас в избранное</p>
+            <p class="pnct">- получайте уведомления на почту когда вас доабвляют в избранное</p>
+          </div>
+          <h2>Режим невидимки</h2>
+          <div class="greenDots"></div>
+          <div class="vip-status-icon-block">
+            <div class="fui-eye"></div>
+          </div>
+          <div class="textBox clearfix">
+            <p class="pnct">- Не хотите чтобы пользователи видели что вы заходите к ним на страницу?</p>
+            <p class="pnct">- Вы всегда можете включить и выключить режим невидимки в настройках</p>
+          </div>
+          <h2> Статусы путешествий</h2>
+          <div class="greenDots"></div>
+          <div class="vip-status-icon-block">
+            <div class="fui-list-bulleted"></div>
+          </div>
+          <div class="textBox clearfix">
+            <p class="pnct">- Сообщайте всем пользователям о своих путешествиях чаще</p>
+            <p class="pnct">- Вы всегда можете добавть новый статус</p>
+          </div>
+          <h2>  Расширенный поиск</h2>
+          <div class="greenDots"></div>
+          <div class="vip-status-icon-block"><img src="/static/img/money_active2.png"></div>
+          <div class="textBox clearfix">
+            <p class="pnct">- Включайте дополнительыне фильтры поиска</p>
+            <p class="pnct">- Включите поиск только тех людей кто готов взять на себя расходы на путешествие</p>
+          </div>
+          <h2>Подключить вип статус</h2>
+          <div class="greenDots"></div>
+          <div class="bilContainer clearfix">
+            <div class="regButton profile-edit-slideup upload-money"><span data-vip-time="week" class="active-vip">включить </span></div>
+            <div class="price">400<small> монет<span>(1 - неделя)</span></small></div>
+          </div>
+          <div class="bilContainer clearfix">
+            <div class="regButton profile-edit-slideup upload-money"><span data-vip-time="month" class="active-vip">включить </span></div>
+            <div class="price">1000<small> монет<span>(1 - месяц)</span></small></div>
+          </div>
+        </form>
+      </div>
+      <div class="popup popupInfo">
+        <div class="popupHeaderBox clearfix"></div>
+        <div class="popupBody clearfix"><span class="pop-t infopopup-title"><span class="fui-alert"></span> :</span>
+          <p class="infopopup-text"></p>
+          <div class="regButton profile-edit-slideup closepopup"><span>ОК</span></div>
+        </div>
+      </div>
+      <div class="popup popupLikers"><a href="#" class="closepopup">Закрыть</a>
+        <div class="popupHeaderBox clearfix"></div>
+        <div class="popupBody clearfix">
+          <div class="guests">
+            <div class="rightBox">
+              <div class="title">ИМ ПОНРАВИЛОСЬ</div>
+              <div class="people">
+                <ul class="chatLine">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
