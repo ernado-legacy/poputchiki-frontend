@@ -110,6 +110,7 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
                         sct = @$el.find '.cityEdit'
                         sctv = new app.views.AutocompleteCity
                             el: sct
+                        sctv.country = scv
                         $('.box').click ->
                             $('.box').toggleClass('checked')
 
