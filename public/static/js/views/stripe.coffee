@@ -187,7 +187,7 @@ app.views.StripechopPopup = Backbone.View.extend
     #events:
     #    '': ''
 
-    update: (video) ->
+    update: (video, ava) ->
         id = app.models.myuser.getid()
         if video
             collection = new app.models.Videos id
@@ -214,15 +214,27 @@ app.views.StripechopPopup = Backbone.View.extend
                     #    $('.popup').fadeIn('slow')
                     #    $('.chopPopup').fadeOut('slow')
                 if not video
-                    view.change = ->
-                        id = @$el.attr 'data-id'
-                        img_src = @$el.data 'media-url'
-                        $(".promoPopup #promo-add-photo").attr 'src', img_src
-                        console.log @$el
-                        $('.promoPopup .changeAvatarBox').attr 'data-id', id
-                        $('.popup').fadeOut('slow')
-                        $('.promoPopup').fadeIn('slow')
-                        activaPromoChoice 'choose-photo'
+                    if not ava
+                        view.change = ->
+                            id = @$el.attr 'data-id'
+                            img_src = @$el.data 'media-url'
+                            $(".promoPopup #promo-add-photo").attr 'src', img_src
+                            console.log @$el
+                            $('.promoPopup .changeAvatarBox').attr 'data-id', id
+                            $('.popup').fadeOut('slow')
+                            $('.promoPopup').fadeIn('slow')
+                            activaPromoChoice 'choose-photo'
+                    else
+                        view.change = ->
+                            app.models.myuser.get (user) =>
+                                id = @$el.attr 'data-id'
+                                user.set 'avatar', id
+                                user.save {},
+                                    success: ->
+                                        user.fetch
+                                            success: ->
+                                                do app.views.profile.render
+                                do app.views.entered.closepopuprun
                 else
                     view.change = ->
                         id = @$el.attr 'data-id'
