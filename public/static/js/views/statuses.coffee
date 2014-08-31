@@ -18,7 +18,7 @@ app.views.Statuses = Backbone.View.extend
             box.addClass 'checked'
         else
             box.removeClass 'checked'
-        do @getstatuses
+        do @rerender
 
     render: ->
         do @loadingstatuses
@@ -26,7 +26,11 @@ app.views.Statuses = Backbone.View.extend
         $ @$el.html jade.templates.statuses()
         app.models.myuser.get (user) =>
             app.views.main_status.render user
-        do @getstatuses
+
+        @pagination = new app.views.Pagination
+            el: @$el.find('.pagination')[0]
+
+        do @rerender
         sc = @$el.find '.searchCountry'
         scv = new app.views.AutocompleteCountry
             el: sc
@@ -34,13 +38,20 @@ app.views.Statuses = Backbone.View.extend
         sctv = new app.views.AutocompleteCity
             el: sct
 
-    getstatuses: ->
+    rerender: ->
+        @getstatuses 1, (statuses) =>
+            @pagination.render 1 + statuses.size()/20
+            @pagination.setreaction (i) => @getstatuses i
+
+    getstatuses: (i, callback) ->
         do @loadingstatuses
         that = @
         statuses = new app.models.Statuses
+        i = i - 1
+        offset = i * 20
         statusfilterdata = 
-            offset: 0
-            count: 100
+            offset: offset
+            count: 20
 
         if $('.manBox .checked').length == 1
             statusfilterdata.sex = 'male'
@@ -62,6 +73,7 @@ app.views.Statuses = Backbone.View.extend
                     view = new app.views.Status 
                         el: item
                     do view.updatelike
+                callback(statuses) if callback
                 # usersidlist = _.uniq statuses.map (item) ->
                 #     item.get 'user'
                 # index = 0
