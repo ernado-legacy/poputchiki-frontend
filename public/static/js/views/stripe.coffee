@@ -18,10 +18,10 @@ app.views.Stripe = Backbone.View.extend
         $.cookie "audio", "ogg"  #if Modernizr.audio.ogg
 
         # priority to aac
-        #$.cookie "audio", "aac"  if Modernizr.audio.aac
+        $.cookie "audio", "aac"  if Modernizr.audio.aac
 
         # detect html5 video support
-        #$.cookie "video", "mp4"  if Modernizr.video.h264
+        $.cookie "video", "mp4"  if Modernizr.video.h264
 
         # priority to webm
         $.cookie "video", "webm"  #if Modernizr.video.webm
