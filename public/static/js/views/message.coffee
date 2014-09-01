@@ -5,6 +5,17 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
     events:
         'click .pstMsg': 'postmsg'
         'click .closeChat': 'closechat'
+        'keyup .chatBlock input': 'press'
+
+    press: (event)->
+        message_btn =  $ '.chatBlock.darkBlock .pstMsg.fui-bubble'
+        has_text = if $(event.currentTarget).val().length > 0 then true else false
+        if has_text
+            message_btn.addClass 'active'
+        else
+            message_btn.removeClass 'active'
+        if event.which==13 and has_text
+            do message_btn.click
 
 
     set_url: (url) ->
@@ -52,16 +63,18 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         div.scrollTop = div.scrollHeight;
 
     postmsg: (event) ->
+
         cb = $(event.currentTarget).parents('.chatBlock')
         input = cb.find('input')
         mess = input.val()
         input.val ''
         user = cb.attr 'data-user'
-        @render_message cb,
-            text: mess
-            author: 'Вы',
-            invite: false
-        @new_massage user, mess
+        if mess.length > 0
+            @render_message cb,
+                text: mess
+                author: 'Вы',
+                invite: false
+            @new_massage user, mess
 
     du: (id) ->
         '[data-user="' + id + '"]'
