@@ -312,42 +312,47 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     play_audio: (event) ->
         console.log 'play audio'
-        @stopMedia()
-        @showProgress event.target
         z = $(event.target)
-        
-        if z.hasClass('audio-change-avatar')
-            z.children().bind 'timeupdate', ->
-                track_length = $(event.target).children().get(0).duration
-                secs = $(event.target).children().get(0).currentTime
-                progress = (secs/track_length) * 100
-                $(event.target).next().children().css 'width', progress + '%'
-        setTimeout (->
-                z.children().get(0).play()
-                return
-            ), 2000
-        return
+        if z.children()[0].paused
+            @stopMedia()
+            @showProgress event.target
+            if z.hasClass('audio-change-avatar')
+                z.children().bind 'timeupdate', ->
+                    track_length = $(event.target).children().get(0).duration
+                    secs = $(event.target).children().get(0).currentTime
+                    progress = (secs/track_length) * 100
+                    $(event.target).next().children().css 'width', progress + '%'
+            setTimeout (->
+                    z.children().get(0).play()
+                    return
+                ), 2000
+            return
+        else
+            @stopMedia()
 
     play_video: (event) ->
-        @stopMedia()
         animImg = $(event.target).parent().children("img")
         animVideo = $(event.target).parent().children(".videoBox")
-        @showProgress event.target
-        animImg.css "opacity", "0"
-        setTimeout (->
-            animVideo.children("video").get(0).play()
-            return
-        ), 2000
-        animVideo.children("video").get(0).onended = ->
+        if animVideo.children("video").get(0).paused
+            @stopMedia()
+            @showProgress event.target
+            animImg.css "opacity", "0"
             setTimeout (->
-                animVideo.removeAttr "style"
-                animImg.removeAttr "style"
-                $(".wrapper").removeClass "wrapper1"
-                $(".c_left").removeClass "circle1"
-                $(".c_right").removeClass "circle2"
+                animVideo.children("video").get(0).play()
                 return
-            ), 1000
-        return
+            ), 2000
+            animVideo.children("video").get(0).onended = ->
+                setTimeout (->
+                    animVideo.removeAttr "style"
+                    animImg.removeAttr "style"
+                    $(".wrapper").removeClass "wrapper1"
+                    $(".c_left").removeClass "circle1"
+                    $(".c_right").removeClass "circle2"
+                    return
+                ), 1000
+            return
+        else
+            @stopMedia()
 
     carousel_left: ->
         $(".carouselBox").animate
