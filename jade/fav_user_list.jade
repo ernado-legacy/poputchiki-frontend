@@ -39,8 +39,13 @@ a(href="/user/#{user.id}", data-user-id="#{user.id}")
   .left
     .name #{user.name}
     .city #{user.age}, #{user.country}
-    span
-      if(user.is_sponsor)
-        img(src='/static/img/money_active2.png') 
-      if(user.is_host)
-        img(src='/static/img/house_active2.png') 
+    if(user.is_sponsor)
+      div.money-icon.mg-icon
+        .tooltip.clearfix
+          .tooltip-arrow
+          span Спонсортство
+    if(user.is_host)
+      div.house-icon.hg-icon
+        .tooltip.clearfix
+          .tooltip-arrow
+          span Жду&nbsp;в&nbsp;гости
