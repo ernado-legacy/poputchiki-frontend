@@ -97,6 +97,7 @@ app.views.Stripe = Backbone.View.extend
                     # console.log stripes.models[2]
                     $('.promoPopup .changeAvatarBox .crsItem').remove()
                     $('.promoPopup .changeAvatarBox #promo-add-photo').attr 'src',user.get 'avatar_url'
+                    $('.promoPopup .price span').text user.get 'balance'
                     $('.carouselBox .crsItem').first().hide()
                     $('.carouselBox .crsItem').first().show('slide',{dicrection:'left'})
                     $('.promoPopup .choose-photo').addClass('active')

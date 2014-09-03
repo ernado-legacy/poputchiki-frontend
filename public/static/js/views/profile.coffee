@@ -27,6 +27,8 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $ that.$el.html jade.templates.profile
                 user: user.attributes
 
+            $('.chavaPopup .changeAvatarBox img').attr 'src',user.get('avatar_url')
+
             app.views.main_status.render user
             # do profile_script
             that.newtag '#year-select'
@@ -46,6 +48,10 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             sctv = new app.views.AutocompleteCity
                 el: sct
             sctv.country = scv
+
+            sc = @$el.find '#my-folowers .searchCountry'
+            scv = new app.views.AutocompleteCountry
+                el: sc
 
             $("#edit-profile").click ->
                 $("#about-in-info").css "display", "none"
