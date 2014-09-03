@@ -122,6 +122,7 @@ app.views.StripePopup = Backbone.View.extend
         app.models.myuser.get (user) =>
             #console.log user
             if user.get 'audio_url'
+                do @clearpromo
                 box = @$el.find '.playerBox'
                 audio = box.find 'audio'
                 audio.html ''
@@ -133,6 +134,12 @@ app.views.StripePopup = Backbone.View.extend
                 $('.promoPopup .choose-audio').removeClass 'active'
                 $('.promoPopup .choose-video').removeClass 'active'
                 $('.promoPopup .choose-audio').addClass 'active'
+
+    clearpromo: ->
+        box = @$el.find '.playerBox'
+        box.css 'display', 'none'
+        $('.promoPopup .changeAvatarBox').removeAttr 'data-id'
+        $('.promoPopup .videoContainer').removeAttr 'data-id'
 
     addtopromo: ->
         box = @$el.find '.playerBox'
@@ -216,6 +223,7 @@ app.views.StripechopPopup = Backbone.View.extend
                 if not video
                     if not ava
                         view.change = ->
+                            do app.views.stripepopup.clearpromo
                             id = @$el.attr 'data-id'
                             img_src = @$el.data 'media-url'
                             $(".promoPopup #promo-add-photo").attr 'src', img_src
@@ -237,6 +245,7 @@ app.views.StripechopPopup = Backbone.View.extend
                                 do app.views.entered.closepopuprun
                 else
                     view.change = ->
+                        do app.views.stripepopup.clearpromo
                         id = @$el.attr 'data-id'
                         thumb_src = @$el.data 'thumb-url'
                         video_src = @$el.data 'media-url'
