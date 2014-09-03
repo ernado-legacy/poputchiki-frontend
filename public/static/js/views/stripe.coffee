@@ -15,7 +15,7 @@ app.views.Stripe = Backbone.View.extend
           $.cookie "webp", "0"
 
         # detect html5 audio format support
-        $.cookie "audio", "ogg"  #if Modernizr.audio.ogg
+        $.cookie "audio", "ogg"  if Modernizr.audio.ogg
 
         # priority to aac
         $.cookie "audio", "aac"  if Modernizr.audio.aac
@@ -24,7 +24,7 @@ app.views.Stripe = Backbone.View.extend
         $.cookie "video", "mp4"  if Modernizr.video.h264
 
         # priority to webm
-        $.cookie "video", "webm"  #if Modernizr.video.webm
+        $.cookie "video", "webm"  if Modernizr.video.webm
 
     ###
     stopMedia: ->
@@ -93,6 +93,9 @@ app.views.Stripe = Backbone.View.extend
                     @$el.html jade.templates.top_bar
                         items: stripes.models
                         user: user
+                        caudio: $.cookie "audio"
+                        cvideo: $.cookie "video"
+                        cwebp: $.cookie "webp"
                     # console.log 'stripe item'
                     # console.log stripes.models[2]
                     $('.promoPopup .changeAvatarBox .crsItem').remove()

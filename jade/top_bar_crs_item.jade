@@ -6,10 +6,16 @@
   if item.get('type')=='audio'
     .audio
       audio
-        source(src='#{item.get('url')}')
+        if caudio=='mp3'
+          source(src='#{item.get('url')}', , type="audio/mp3")
+        else
+          source(src='#{item.get('url')}', , type="audio/ogg")
   if item.get('type')=='video'
     .videoBox
       .frontLayer
       video
-        source(src='#{item.get('url')}')
+        if cvideo=='mp4'
+          source(src='#{item.get('url')}', type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")
+        else
+          source(src='#{item.get('url')}', type="video/webm", codecs="vp8, vorbis")
     .video
