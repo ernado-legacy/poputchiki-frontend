@@ -145,6 +145,10 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $('.imgRow .imgBox').removeClass 'chosenImg'
             $(this).addClass 'chosenImg'
 
+        sc = $ '.letsgoPopup .searchCountry'
+        scv = new app.views.AutocompleteCountry
+            el: sc
+
     init: ->
         that = this
         app.views.login.check_status (result) ->

@@ -16,9 +16,9 @@ if video.url
       else
         a(class="action-like custom-link") нравится
       span.like-counter-box
-        i &nbsp;
+        i.fui-heart &nbsp;
         if video.likes >0
-            span.like-counter.likes.my-likes(data-likers-url=video.likers_url) #{video.likes}...
+            span.like-counter.likes.my-likes(data-likers-url=video.likers_url) #{video.likes}
         else 
           span.like-counter.likes.my-likes(data-likers-url=video.likers_url)
       a(class="custom-blue-link open-promo") в ленту
