@@ -298,7 +298,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             #this.currentTime = 0
         $('.video').parent().children('.videoBox').children('video').each ->
             this.pause()
-            this.currentTime = 0
+            #this.currentTime = 0
             $('.video').parent().parent().children().children('img').removeAttr 'style'
             $('.video').parent().parent().children().children('.videoBox').removeAttr 'style'
 
