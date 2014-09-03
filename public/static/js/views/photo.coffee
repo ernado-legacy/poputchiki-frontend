@@ -100,7 +100,7 @@ app.views.Photo = Backbone.View.extend
             if likes<1 
                 counter_container.text ''
             else
-                counter_container.text likes+'...'
+                counter_container.text likes
             that.$el.find('.action-remove-like').removeClass('action-remove-like').addClass('action-like')
         return false
 
