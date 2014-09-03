@@ -47,7 +47,7 @@ app.views.Status = Backbone.View.extend
             do statusLike.destroy
             @size += -1
         if @size!=0
-            @update_layout @if_like(), @size+'...'
+            @update_layout @if_like(), @size
         else
             @update_layout @if_like(), ''
 

@@ -8,9 +8,9 @@ if photo.url
         else
           a(class="action-like custom-link") нравится
         span.like-counter-box
-          i &nbsp;
+          i.fui-heart &nbsp;
           if photo.likes >0
-            span.like-counter.likes.my-likes(data-likers-url=photo.likers_url) #{photo.likes}...
+            span.like-counter.likes.my-likes(data-likers-url=photo.likers_url) #{photo.likes}
           else 
             span.like-counter.likes.my-likes(data-likers-url=photo.likers_url)
         a(class="custom-blue-link new-ava") на аватарку
