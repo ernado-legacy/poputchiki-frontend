@@ -20,8 +20,11 @@ app.views.Stripe = Backbone.View.extend
 
         # priority to aac
         $.cookie "audio", "aac", { path: '/' } if Modernizr.audio.aac
-        $.cookie "audio", "mp3", { path: '/' } if Modernizr.audio.mp3
+        #$.cookie "audio", "mp3", { path: '/' } if Modernizr.audio.mp3
         $.cookie "audio", "ogg", { path: '/' } if Modernizr.audio.ogg
+
+        is_safari = navigator.userAgent.indexOf("Safari") > -1
+        $.cookie "audio", "aac", { path: '/' }  if is_safari
 
         # detect html5 video support
         $.cookie "video", "mp4", { path: '/' } if Modernizr.video.h264
