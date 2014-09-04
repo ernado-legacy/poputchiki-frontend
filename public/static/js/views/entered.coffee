@@ -423,7 +423,8 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         @showpopup('.promoPopup')
 
     chava_popup: ->
-        @showpopup('.chavaPopup')
+        do app.views.popupaudio.render
+        # @showpopup('.chavaPopup')
 
     letsgo_popup: ->
         @showpopup('.letsgoPopup')

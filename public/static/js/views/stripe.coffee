@@ -3,7 +3,7 @@ app.views.Stripe = Backbone.View.extend
     el: '.mainTopContainer'
 
     events:
-        'click .crsItem': 'clickstripe'
+        'click .crsItem img': 'clickstripe'
         #'click .audio': 'play_audio'
         #'click .video': 'play_video'
 

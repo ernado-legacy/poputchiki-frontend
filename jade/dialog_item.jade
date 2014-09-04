@@ -1,5 +1,6 @@
 .chatBlock(data-user="#{dialog.get('user').id}")
-  img(src='#{dialog.get("user").avatar_url}')
+  a(href='/user/'+dialog.get("user").id)
+    img(src='#{dialog.get("user").avatar_url}')
   .topPart
     .chatName #{dialog.get('user').name}, 
         small=dialog.get('user').age

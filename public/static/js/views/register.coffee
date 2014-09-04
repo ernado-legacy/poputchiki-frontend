@@ -138,6 +138,7 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
             phone: $('#tel').val()
             country: $('#country-reg input').val()
             city: $('#city-select input').val()
+            sex: if $('form.loginRegisterBlock .man .box').hasClass('checked') then 'male' else 'female'
 
         @validate attrs
         errors = @validate attrs
