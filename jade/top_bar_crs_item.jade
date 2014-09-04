@@ -9,7 +9,10 @@
         if caudio=='mp3'
           source(src='#{item.get('url')}', , type="audio/mp3")
         else
-          source(src='#{item.get('url')}', , type="audio/ogg")
+          if caudio=='ogg'
+            source(src='#{item.get('url')}', , type="audio/ogg")
+          else
+            source(src='#{item.get('url')}', , type="audio/aac")
   if item.get('type')=='video'
     .videoBox
       .frontLayer
