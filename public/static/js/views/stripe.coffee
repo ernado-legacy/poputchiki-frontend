@@ -10,21 +10,23 @@ app.views.Stripe = Backbone.View.extend
     set_coockie: ->
         # detect webp support
         if Modernizr.webp
-          $.cookie "webp", "1"
+            $.cookie "webp", "1",
+                path: '/'
         else
-          $.cookie "webp", "0"
+            $.cookie "webp", "0",
+                path: '/'
 
         # detect html5 audio format support
-        $.cookie "audio", "ogg"  if Modernizr.audio.ogg
+        $.cookie "audio", "ogg", { path: '/' } if Modernizr.audio.ogg
 
         # priority to aac
-        $.cookie "audio", "aac"  if Modernizr.audio.aac
+        $.cookie "audio", "aac", { path: '/' } if Modernizr.audio.aac
 
         # detect html5 video support
-        $.cookie "video", "mp4"  if Modernizr.video.h264
+        $.cookie "video", "mp4", { path: '/' } if Modernizr.video.h264
 
         # priority to webm
-        $.cookie "video", "webm"  if Modernizr.video.webm
+        $.cookie "video", "webm", { path: '/' } if Modernizr.video.webm
 
     ###
     stopMedia: ->
@@ -109,6 +111,9 @@ app.views.Stripe = Backbone.View.extend
                     for i in [0..2]
                         $('.promoPopup .changeAvatarBox').append jade.templates.top_bar_crs_item
                             item:stripes.models[i]
+                            caudio: $.cookie "audio"
+                            cvideo: $.cookie "video"
+                            cwebp: $.cookie "webp"
 
     clickstripe: (event) ->
         app.views.guestprofile.set_user $(event.currentTarget).attr 'data-user-id'
