@@ -16,6 +16,7 @@ app.views.UserListView = Backbone.View.extend
         that = @
         user = @model
         app.models.myuser.get (my_user)->
+            that.$el.attr 'data-user-id', user.get 'id'
             that.model = user
             if my_user.get('favorites')
                 is_fav = if my_user.get('favorites').indexOf(user.get('id')) != -1 then true else false
@@ -37,10 +38,9 @@ app.views.UserListView = Backbone.View.extend
 
     remove_from_fav: (e)->
         do @model.remove_from_fav
-        console.log  $(e.currentTarget).data('remove-from-fav-clear')
         if $(e.currentTarget).data('remove-from-fav-clear') == true
-            do @.remove
             @trigger 'user-removed-from-favs',@model
+            do @remove
         else
             $(e.currentTarget).addClass('add_to_fav').removeClass('remove_from_fav')
             $(e.currentTarget).text('в избранное')

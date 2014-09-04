@@ -13,11 +13,11 @@ h1 РЕЖИМ НЕВИДИМКИ
         else
             .clearfix.notifications.email
                 .clearfix(style="opacity:0.6")
-                    div(class = user.invisible ? "box checked" : "box")
+                    div(class = "box show-vip")
                     span Включить/Выключить режим невидимки
             .currentEmail
                 span.fui-alert 
                 |  Режим невидимки доступен только пользователям с вип-статусом 
-                a(class="custom-blue-link")  активировать вип статус
+                a(class="custom-blue-link show-vip")  активировать вип статус
         .profile-edit-slideup
             span сохранить

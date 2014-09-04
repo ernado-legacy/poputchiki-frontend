@@ -3,6 +3,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
     el: 'body'
 
     events:
+        'click .show-vip': 'vip_popup'
         'click #header-journeys': 'search'
         # 'click .header-profile-statuses': 'guests'
         'click .header-profile-statuses': 'statuses'
@@ -16,7 +17,6 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .closeChat': 'closechat'
         'click #profile-rating': 'rating_popup'
         'click #menu-rating': 'rating_popup'
-        'click .show-vip': 'vip_popup'
         'click .userBox': 'promo_popup'
         'click .open-promo': 'promo_popup'
         'click #change-avatar': 'chava_popup'
@@ -28,7 +28,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         # 'click .season': 'season'
         'click .nearBox .money-icon': 'moneyIcon'
         'click .nearBox .house-icon': 'houseIcon'
-        'click .searchBody .dd': 'open_box'
+        # 'click .searchBody .dd': 'open_box'
         'click .searchBody .du': 'close_box'
         #'click .searchBody .dl': 'select_box'
         'focus .ageBox input': 'activeAgeBox'
