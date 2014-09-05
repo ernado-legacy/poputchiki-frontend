@@ -3,28 +3,38 @@ app.views.Stripe = Backbone.View.extend
     el: '.mainTopContainer'
 
     events:
-        'click .crsItem': 'clickstripe'
+        'click .crsItem img': 'clickstripe'
         #'click .audio': 'play_audio'
         #'click .video': 'play_video'
 
     set_coockie: ->
         # detect webp support
         if Modernizr.webp
-          $.cookie "webp", "1"
+            $.cookie "webp", "1",
+                path: '/'
         else
-          $.cookie "webp", "0"
+            $.cookie "webp", "0",
+                path: '/'
 
         # detect html5 audio format support
-        $.cookie "audio", "ogg"  if Modernizr.audio.ogg
 
         # priority to aac
-        $.cookie "audio", "aac"  if Modernizr.audio.aac
+        q = true
+        #$.cookie "audio", "mp3", { path: '/' } if Modernizr.audio.mp3
+        if Modernizr.audio.ogg
+            $.cookie "audio", "ogg", { path: '/' }
+            q = false
+        if Modernizr.audio.m4a
+            $.cookie "audio", "m4a", { path: '/' }
+            q = false
+        #is_safari = navigator.userAgent.indexOf("Safari") > -1
+        $.cookie "audio", "m4a", { path: '/' }  if q
 
         # detect html5 video support
-        $.cookie "video", "mp4"  if Modernizr.video.h264
+        $.cookie "video", "mp4", { path: '/' } if Modernizr.video.h264
 
         # priority to webm
-        $.cookie "video", "webm"  if Modernizr.video.webm
+        $.cookie "video", "webm", { path: '/' } if Modernizr.video.webm
 
     ###
     stopMedia: ->
@@ -109,6 +119,9 @@ app.views.Stripe = Backbone.View.extend
                     for i in [0..2]
                         $('.promoPopup .changeAvatarBox').append jade.templates.top_bar_crs_item
                             item:stripes.models[i]
+                            caudio: $.cookie "audio"
+                            cvideo: $.cookie "video"
+                            cwebp: $.cookie "webp"
 
     clickstripe: (event) ->
         app.views.guestprofile.set_user $(event.currentTarget).attr 'data-user-id'
@@ -191,14 +204,28 @@ app.views.StripePopup = Backbone.View.extend
                     app.views.entered.closepopuprun()
                     do app.views.stripe.render
 
-app.views.StripechopPopup = Backbone.View.extend
+app.views.StripechopPopup = Backbone.View.extend _.extend app.mixins.UploadPhoto,
 
     el: '.chopPopup'
 
-    #events:
-    #    '': ''
+    events:
+        'click .upl': 'upl'
+        'change .photovideoformfile': 'uplc'
+
+    upl: ->
+        do event.preventDefault
+        @$el.find '.photovideoformfile'
+            .trigger 'click'
+
+    uplc: ->
+        url = if @param.video then '/api/video' else '/api/photo'
+        @uploadphoto url, '.uplfrm', (data) =>
+            @update @param.video, @param.ava
 
     update: (video, ava) ->
+        @param =
+            video: video
+            ava: ava
         id = app.models.myuser.getid()
         if video
             collection = new app.models.Videos id
@@ -208,7 +235,7 @@ app.views.StripechopPopup = Backbone.View.extend
             hash = collection.groupBy (val, index) ->
                 Math.floor index / 3
             arrays = _.map hash, (item) -> item
-            @$el.find('form').html jade.templates.popup_choose_item
+            @$el.find('form .wrp').html jade.templates.popup_choose_item
                 arrays: arrays
                 video: video
             _.each @$el.find('.imgBox'), (item) ->
@@ -272,6 +299,8 @@ app.views.StripePhoto = Backbone.View.extend
 
     clck: ->
         do @change
+
+
     #clck: ->
     #    id = @$el.attr 'data-id'
     #    if @$el.attr('data-video') == 'true'

@@ -15,6 +15,7 @@ app.views.MessageSide = Backbone.View.extend
 
     check_unread: ->
         app.models.myuser.get (user)->
+
             $.get '/api/user/'+user.get('id')+'/unread',
                 (data)->
                     if isNaN(parseInt($('#menu-messgaes .menuIcon.new div').text())) 
@@ -23,7 +24,10 @@ app.views.MessageSide = Backbone.View.extend
                         if (parseInt($('#menu-messgaes .menuIcon.new div').text()) < data.count)
                             do playSoundNotification
                             $('#menu-messgaes .menuIcon.new div').text data.count
-
+                    if data.count==0
+                        do $('#menu-messgaes .menuIcon.new div').hide
+                    else
+                        do $('#menu-messgaes .menuIcon.new div').show
                 ,
                 'json'
 

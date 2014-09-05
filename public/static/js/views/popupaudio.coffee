@@ -8,22 +8,31 @@ app.views.PopupAudio = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         'click .upload-new-ava': 'uploadphotoc'
         #'change .upload-new-avatar-input': 'uploadava'
 
-    uploadc: ->
+    uploadc: (event)->
         do event.preventDefault
         @$el.find '.upload-new-audio-input'
             .trigger 'click'
 
-    upload: ->
+    upload: (event)->
         @uploadphoto '/api/audio', '.chavaPopup form.audioform', (data) ->
-            console.log 'hi'
+            console.log data
 
-    uploadphotoc: ->
+    uploadphotoc: (event)->
         do event.preventDefault
         app.views.stripechoppopup.update false, true
         $('.popup').fadeOut('slow')
         $('.chopPopup').fadeIn('slow')
         #@$el.find '.upload-new-avatar-input'
         #    .trigger 'click'
+
+    render: ->
+        app.models.myuser.get (user)=>
+            console.log user
+            app.views.entered.showpopup('.chavaPopup')
+            if user.get 'audio_url'
+                @$el.find('.playerBox.clearfix').html jade.templates.audio_change_ava
+                    source: user.get('audio_url')
+
 
 
     #uploadava: ->

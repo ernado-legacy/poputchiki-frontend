@@ -4,6 +4,8 @@ app.views.Autocomplete = Backbone.View.extend
         'keyup input': 'press'
         'focusout input': 'out'
         'click li.dl': 'lc'
+        'click .dd': 'press',
+        # 'click .du': 'press'
 
     getdata: (val, callback) ->
         callback ["1","2","3"]
@@ -23,8 +25,9 @@ app.views.Autocomplete = Backbone.View.extend
         @getdata val, (data) ->
             if _.size(data) != 0
                 droped.html ''
-                _.each data, (item) ->
-                    droped.append '<li class="dl">' + item + '</li>'
+                _.each data, (item,index) ->
+                    if index < 5
+                        droped.append '<li class="dl">' + item + '</li>'
                 droped.css 'display', 'block' 
             else
                 droped.css 'display', 'none'
