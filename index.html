@@ -210,6 +210,7 @@
             <div class="greenDots"></div>
             <div class="chooseBox clearfix">
               <div class="mainSelectElement promo-photo"><span>Выбрать фото</span></div>
+              <div class="regButton profile-edit-slideup upload-money"><span>добавить в ленту</span></div>
             </div>
             <p>Добавляйте в промо-ленту свои фотографии, которые увидят все пользователи. Чем чаще Вы выкладываете фотографии, тем больше шансов, что попутчик зайдет на Вашу страницу и пригласит в путешествие.</p>
           </div>
@@ -220,7 +221,7 @@
             <div class="price"><small>у вас на счету </small><span>30 </span><small>попиков</small></div>
           </div>
         </form>
-        <div class="regButton profile-edit-slideup add-to-promo"><span>добавить в ленту</span></div>
+        <div class="regButton profile-edit-slideup add-to-promo"><span>Стань популярным</span></div>
       </div>
       <div class="popup chopPopup">
         <div class="regButton profile-edit-slideup choose-promo-photo upl"><span>загрузить</span></div>
@@ -329,5 +330,30 @@
       </div>
     </div>
     <div id="notification-sound"></div>
+    <script>
+      (function (d, w, c) {
+          (w[c] = w[c] || []).push(function() {
+              try {
+                  w.yaCounter24589940 = new Ya.Metrika({id:24589940,
+                          webvisor:true,
+                          clickmap:true,
+                          trackLinks:true,
+                          accurateTrackBounce:true});
+              } catch(e) { }
+          });
+          
+          var n = d.getElementsByTagName("script")[0],
+              s = d.createElement("script"),
+              f = function () { n.parentNode.insertBefore(s, n); };
+          s.type = "text/javascript";
+          s.async = true;
+          s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+          
+          if (w.opera == "[object Opera]") {
+              d.addEventListener("DOMContentLoaded", f, false);
+          } else { f(); }
+      })(document, window, "yandex_metrika_callbacks");
+      
+    </script>
   </body>
 </html>

@@ -136,6 +136,8 @@ app.views.StripePopup = Backbone.View.extend
     events:
         'click .upload-new-audio': 'audio'
         'click .add-to-promo': 'addtopromo'
+        'click .chooseBox .regButton': 'addtopromo'
+        
 
     audio: ->
         app.models.myuser.get (user) =>

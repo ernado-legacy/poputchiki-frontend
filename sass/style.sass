@@ -2691,6 +2691,7 @@ footer
         width: 100%
         margin-left: 0px
         +border-radius(0px, 0px, 4px, 4px)
+        background-color: $menu_rating
 .promoPopup, .ratingPopup, .vipPopup
     top: 5%
     width: 618px
@@ -2730,6 +2731,10 @@ footer
                 float: left
                 span
                     color: $profile_status_text
+            .profile-edit-slideup
+                width: 180px
+                background-color: $menu_favorites
+                float: right
         .bilContainer
             .upload-money
                 float: right
@@ -2845,3 +2850,8 @@ a.ldblock
                 margin-top: 10px
             .regButton
                 margin-right: 140px
+
+.promoPopup
+    .bilContainer
+        .regButton
+            background-color: $menu_photos

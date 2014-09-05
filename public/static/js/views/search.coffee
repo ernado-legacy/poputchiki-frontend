@@ -9,6 +9,9 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click a.ldblock': 'link'
         'click .box': 'toogle'
         "click #my-folowers .season": 'setSeasons'
+        "click .gallery li": 'link_to_user'
+    link_to_user: (e)->
+        window.location.href = "/user/"+$(e.currentTarget).data 'user-id'
 
     dosearchbubuttonclick: ->
         if $('.pagination').length==0 
