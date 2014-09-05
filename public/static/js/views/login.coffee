@@ -5,6 +5,8 @@ app.views.Login = Backbone.View.extend
     events:
         "click .blogin": "login"
         "click #header-exit": "logout"
+        "click #forgot-password": "forgot_password"
+
 
     check_status: (callback) ->
         if Boolean $.cookie 'token'
@@ -22,6 +24,28 @@ app.views.Login = Backbone.View.extend
         $ @.$el.html jade.templates.login()
         $('body').addClass 'loginRegisterBody'
         history.pushState null, 'poputchiki', '/login/'
+
+    forgot_password: ->
+        that = @
+        app.models.login $(".loginRegisterBlock").serialize()
+            ,(data)=>
+                $('.loginRegisterBlock').toggleClass 'shiv-block'
+                console.log  'имейл уже зарегистрирован'
+                return
+            ,(data)=>
+                if data.status!=404
+                    console.log 'forgor'
+                    forgotemail = new app.models.ForgotEmail
+                    forgotemail.set 'email', $('#login').val()
+                    forgotemail.save {},
+                        success: ->
+                            that.$el.find('.enterContainer').html jade.templates.forgot_password_success()
+                            # $('span.error .error-text').text 'Вам на почту должно уведомление'
+                            # do $('span.error').show
+                else
+                    $('span.error .error-text').text ' Пользователя с таким email не сущетсвует'
+                    do $('span.error').show
+
 
     # initialize: ->
     #    that = @
@@ -52,7 +76,7 @@ app.views.Login = Backbone.View.extend
                 #console.log data
             , (data) ->
                 $('.loginRegisterBlock').addClass 'shiv-block'
-                do $('span.error').show 
+                do $('span.error').show
                 return
 
     seturl: ->

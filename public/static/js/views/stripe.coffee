@@ -2,8 +2,8 @@ app.views.Stripe = Backbone.View.extend
 
     el: '.mainTopContainer'
 
-    # events:
-    #     'click .crsItem img': 'clickstripe'
+    events:
+        'click .crsItem a img': 'clickstripe'
     #     #'click .audio': 'play_audio'
     #     #'click .video': 'play_video'
 
@@ -125,8 +125,10 @@ app.views.Stripe = Backbone.View.extend
                             cwebp: $.cookie "webp"
 
     clickstripe: (event) ->
-        app.views.guestprofile.set_user $(event.currentTarget).attr 'data-user-id'
-        do app.views.guestprofile.render
+        console.log  123
+        do $(event.currentTarget).parent('a').click
+        # app.views.guestprofile.set_user $(event.currentTarget).attr 'data-user-id'
+        # do app.views.guestprofile.render
 
 app.views.StripePopup = Backbone.View.extend
 

@@ -349,6 +349,15 @@ a.blue-link
         background-image: url('../img/profile.png')
         background-position: 85% 100%
         background-position-y: 10px
+
+    #header-profile.active
+        span
+            background: #eff5f6
+            border-left: 1px solid $profile_status_border
+            border-right: 1px solid $profile_status_border
+    #header-profile.not-active
+        background: none
+
     #header-journeys
         color: $header_green
         background-image: url('../img/journeys.png')
@@ -732,6 +741,7 @@ footer
         -ms-transition: opacity 0.5s ease-in-out
         -o-transition: opacity 0.5s ease-in-out
         transition: opacity 0.5s ease-in-out
+        z-index: 1024
     #online
         background-image: url('../img/circle.png')
         background-repeat: no-repeat
@@ -2007,6 +2017,9 @@ footer
         .greenDots
             margin-bottom: 15px
         +add-input
+        p
+            color: $profile_status_text
+            font-size: 11px
         .input, .form-line
             .fui-alert
                 display: none
@@ -2505,7 +2518,7 @@ footer
     margin-bottom: 100px
     overflow-x: hidden
     z-index: 10000
-    a 
+    a.closepopup
         color: $header_blue
         +italic-font
         position: absolute
@@ -2706,7 +2719,7 @@ footer
         .greenDots
             margin-bottom: 10px
         .changeAvatarBox
-            margin-bottom: 50px
+            // margin-bottom: 50px
             margin-top: 10px
             img
                 float: left

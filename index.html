@@ -48,6 +48,7 @@
     <script type="text/javascript" src="/static/js/views/popupaudio.js"></script>
     <script type="text/javascript" src="/static/js/views/entered.js"></script>
     <script type="text/javascript" src="/static/js/views/user.js"></script>
+    <script type="text/javascript" src="/static/js/views/letsgo.js"></script>
     <script type="text/javascript" src="/static/js/views/guestprofile.js"></script>
     <script type="text/javascript" src="/static/js/views/favorite.js"></script>
     <script type="text/javascript" src="/static/js/views/photo.js"></script>
@@ -140,9 +141,6 @@
           <div class="popupHeader activeHeader">
             <div class="title"><span>туры</span></div>
           </div>
-          <div class="popupHeader">
-            <div class="title"><span>билеты</span></div>
-          </div>
         </div>
         <div class="popupBody clearfix"><img src="http://www.bgoperator.ru/v2/images/logo.png"><span class="pop-t">Cтраны:</span>
           <div id="tb-popup" class="tagsBox clearfix">
@@ -187,24 +185,11 @@
           <div class="changeAvatarBox clearfix"><img src="/static/img/b_userpic.png">
             <div class="popupArrow"></div>
             <div class="controlBox">
-              <div class="mainSelectElement upload-new-ava"><span>Выбрать фото</span></div>
+              <div class="mainSelectElement upload-new-ava"><span>Выбрать новое фото</span></div>
               <input type="file" class="upload-new-ava-input">
-              <div id="delete-avatar">Удалить</div>
             </div>
           </div>
-          <h2>Аудио-приветствие</h2>
-          <div class="greenDots"></div>
-          <p>Загрузите аудио-приветствие, чтобы ваш голос могли услышать ваши друзья и получите еще больше посещений для своего профайла!</p>
-          <div class="playerBox clearfix">
-            <h2>Добавтье аудио-приветствие</h2>
-          </div>
-          <div class="mainSelectElement upload-new-audio"><span>Загрузить файл</span></div>
-          <input type="file" name="file" class="upload-new-audio-input">
         </form>
-        <form style="display:none" class="avatarform">
-          <input type="file" name="file" class="upload-new-avatar-input">
-        </form>
-        <div class="regButton profile-edit-slideup save-new-ava-audio"><span>сохранить</span></div>
       </div>
       <div class="popup promoPopup"><a href="#" class="closepopup">Закрыть</a>
         <form>
@@ -225,44 +210,7 @@
             <div class="chooseBox clearfix">
               <div class="mainSelectElement promo-photo"><span>Выбрать фото</span></div>
             </div>
-            <p>Вы можете добавить аудиоо-приветствие или видео-аватарку к своему профайлу в промо-ленте. Для того, чтобы подключить дополнительные опции, выберите видео или запишите аудио:</p>
-          </div>
-          <div class="choose-audio active">
-            <h2>Выбрать аудио-ленту</h2>
-            <div class="greenDots"></div>
-            <p>Загрузите аудио-приветствие, чтобы ваш голос могли услышать ваши друзья и получите еще больше посещений для своего профайла!</p>
-            <div style="display:none" class="playerBox clearfix">
-              <div class="audio audio-change-avatar">
-                <audio>
-                  <!--source(type="audio/ogg")-->
-                  <!--source(src='/static/audio/audio.mp3', type="audio/mp3")-->
-                  <!--source(src='/static/audio/audio.ogg', type="audio/ogg")-->
-                </audio>
-              </div>
-              <div class="timeBar">
-                <div class="progress"></div>
-              </div>
-            </div>
-            <div class="mainSelectElement upload-new-audio"><span>Прикрепить аудио-приветствие</span></div>
-            <input type="file" class="upload-new-audio-input">
-          </div>
-          <div class="choose-video active">
-            <h2>Добавить видео-ленту</h2>
-            <div class="greenDots"></div>
-            <p>Создайте свою уникальную видео-аватарку и еще больше выделите свой профайл среди тысячи остальных!</p>
-            <div class="videoContainer clearfix">
-              <div class="crsItem"><img src="/static/img/crs_item.png">
-                <div class="videoBox">
-                  <div class="frontLayer"></div>
-                  <video>
-                    <source src="/static/video/gizmo.mp4">
-                  </video>
-                </div>
-                <div class="video"></div>
-              </div>
-              <div class="mainSelectElement upload-new-video"><span>Выбрать видео</span></div>
-              <input type="file" class="upload-new-audio-input">
-            </div>
+            <p>Добавляйте в промо-ленту свои фотографии, которые увидят все пользователи. Чем чаще Вы выкладываете фотографии, тем больше шансов, что попутчик зайдет на Вашу страницу и пригласит в путешествие.</p>
           </div>
           <h2>Добавится в промоленту стоит 50 попиков</h2>
           <div class="greenDots"></div>

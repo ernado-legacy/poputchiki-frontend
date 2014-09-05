@@ -6,8 +6,10 @@
     .hLogo
       span попутчики.ru
     ul.navigation
-      li#header-profile.header-profile-register
+      li#header-profile.header-profile-register.not-active
         span зарегистрироваться
+      li#header-profile.clicklogin.active
+        span войти
   include background
   form.loginRegisterBlock
     .enterContainer.clearfix
@@ -15,13 +17,13 @@
       .greenDots
       span.error
         span.fui-alert
-        span  неверный логин или пароль!
+        span.error-text  неверный логин или пароль!
       input#login(type='text', placeholder='Логин', name='email')
       input#password(type='password', placeholder='Пароль', name='password')
       .rememberBox
         .box.checked
         span Запомнить меня
-        a Забыли пароль?
+        a#forgot-password Забыли пароль?
       .profile-edit-slideup.blogin
         span войти
       .title или через свой аккаунт

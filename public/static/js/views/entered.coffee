@@ -114,7 +114,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         @resizeonload()
         @scrollmenu()
         @removetag()
-        @closepopup '#send-lg-popup'
+        # @closepopup '#send-lg-popup'
         @closepopup '.closepopup'
         @closepopup '.save-new-ava-audio'
         @closepopup '.popupInnerBack'
@@ -184,6 +184,8 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.vip = new app.views.VipStatus
                 app.views.likers = new app.views.Likers
                 app.views.main_status = new app.views.userMainStatus
+                app.views.lets_go = new app.views.LetsGo
+                
 
                 
 
@@ -444,6 +446,11 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         $('.popupInfo .infopopup-title').text $(e.currentTarget).data 'infopopup-title'
         $('.popupInfo .infopopup-text').text $(e.currentTarget).data 'infopopup-text'
+        @showpopup('.popupInfo')
+
+    info_popup_custom: (header,text)->
+        $('.popupInfo .infopopup-title').text header
+        $('.popupInfo .infopopup-text').text text
         @showpopup('.popupInfo')
 
     imggrid_popup: ->

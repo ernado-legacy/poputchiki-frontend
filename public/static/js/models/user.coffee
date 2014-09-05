@@ -1,3 +1,5 @@
+
+
 app.models.User = Backbone.Model.extend 
     urlRoot: '/api/user/'
 
@@ -167,6 +169,13 @@ app.models.BlackList = Backbone.Collection.extend
         '/api/user/'+this.id+'/blacklist'
 
     model: User
+
+
+app.models.ForgotEmail = Backbone.Model.extend 
+    url: ->
+        '/api/auth/forgot/'+@.get('email')
+
+
 
 Users = app.models.Users
 FavUsers = app.models.FavUsers
