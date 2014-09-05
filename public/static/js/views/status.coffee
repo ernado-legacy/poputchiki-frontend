@@ -18,11 +18,11 @@ app.views.Status = Backbone.View.extend
         likes = @$el.find '.likes'
         if condition
             like.attr 'data-like', 'false'
-            like.text 'Мне нравиться'
+            like.text 'Мне нравится'
             likes.addClass 'liked'
         else
             like.attr 'data-like', 'true'
-            like.text 'Мне нравиться'
+            like.text 'Мне нравится'
             likes.removeClass 'liked'
         if size
             if size == 1
