@@ -205,14 +205,28 @@ app.views.StripePopup = Backbone.View.extend
                     app.views.entered.closepopuprun()
                     do app.views.stripe.render
 
-app.views.StripechopPopup = Backbone.View.extend
+app.views.StripechopPopup = Backbone.View.extend _.extend app.mixins.UploadPhoto,
 
     el: '.chopPopup'
 
-    #events:
-    #    '': ''
+    events:
+        'click .upl': 'upl'
+        'change .photovideoformfile': 'uplc'
+
+    upl: ->
+        do event.preventDefault
+        @$el.find '.photovideoformfile'
+            .trigger 'click'
+
+    uplc: ->
+        url = if @param.video then '/api/video' else '/api/photo'
+        @uploadphoto url, '.uplfrm', (data) =>
+            @update @param.video, @param.ava
 
     update: (video, ava) ->
+        @param =
+            video: video
+            ava: ava
         id = app.models.myuser.getid()
         if video
             collection = new app.models.Videos id
@@ -222,7 +236,7 @@ app.views.StripechopPopup = Backbone.View.extend
             hash = collection.groupBy (val, index) ->
                 Math.floor index / 3
             arrays = _.map hash, (item) -> item
-            @$el.find('form').html jade.templates.popup_choose_item
+            @$el.find('form .wrp').html jade.templates.popup_choose_item
                 arrays: arrays
                 video: video
             _.each @$el.find('.imgBox'), (item) ->
@@ -286,6 +300,8 @@ app.views.StripePhoto = Backbone.View.extend
 
     clck: ->
         do @change
+
+
     #clck: ->
     #    id = @$el.attr 'data-id'
     #    if @$el.attr('data-video') == 'true'

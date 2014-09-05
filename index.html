@@ -282,8 +282,11 @@
         <div class="regButton profile-edit-slideup add-to-promo"><span>добавить в ленту</span></div>
       </div>
       <div class="popup chopPopup">
-        <div class="regButton profile-edit-slideup choose-promo-photo"><span>загрузить</span></div>
-        <form><img src="/static/img/searchpreloader.GIF" class="loading-gif"></form>
+        <div class="regButton profile-edit-slideup choose-promo-photo upl"><span>загрузить</span></div>
+        <form class="uplfrm">
+          <div class="wrp"><img src="/static/img/searchpreloader.GIF" class="loading-gif"></div>
+          <input type="file" name="file" style="visibility: hidden;" class="photovideoformfile">
+        </form>
       </div>
       <div class="popup ratingPopup"><a href="#" class="closepopup">Закрыть</a>
         <form>
