@@ -24,6 +24,8 @@ app.views.Video = Backbone.View.extend
                 liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false
             else
                 liked_by = false
+            that.model.updateDate 'time'
+            console.log that.model.attributes
             $ that.$el.html jade.templates.video 
                 video: that.model.toJSON(),
                 liked_by: liked_by,

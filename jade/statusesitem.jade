@@ -3,7 +3,7 @@ each status in statuses.models
     a(href="/user/#{status.get('user_object').id}")
       img(src=status.get('user_object').avatar_url)
     .profileInfoBox.leftPart     
-      .name-in-profile #{status.get('user_object').name}, 23
+      .name-in-profile #{status.get('user_object').name}, #{status.get('user_object').age}
       .city-in-profile=status.get('user_object').city
       br
       if(status.get('user_object').is_sponsor)
@@ -26,4 +26,4 @@ each status in statuses.models
         .like(data-like="true")
         //- .note пожаловаться
         //- .share поделиться
-        .likes
+        .likes.fui-heart

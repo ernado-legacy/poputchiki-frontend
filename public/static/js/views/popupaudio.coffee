@@ -27,7 +27,6 @@ app.views.PopupAudio = Backbone.View.extend _.extend app.mixins.UploadPhoto,
 
     render: ->
         app.models.myuser.get (user)=>
-            console.log user
             app.views.entered.showpopup('.chavaPopup')
             if user.get 'audio_url'
                 @$el.find('.playerBox.clearfix').html jade.templates.audio_change_ava

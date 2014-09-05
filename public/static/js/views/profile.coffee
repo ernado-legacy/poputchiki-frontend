@@ -184,8 +184,12 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         "click #my-seasons .season": 'setSeasons'
         "click #my-destinations .droped .dl": 'setDestinations'
         "click #my-destinations .close": 'removeDestinations'
+        'click .myProfileContainer .imgBox': 'chava_popup'
         # 'click #my-profile .money-icon': 'moneyIcon'
         # 'click #my-profile .house-icon': 'houseIcon'
+
+    chava_popup: ->
+        do app.views.popupaudio.render
 
     setDestinations: (e)->
         new_destination = $(e.currentTarget).text()

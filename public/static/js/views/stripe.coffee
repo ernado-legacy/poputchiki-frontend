@@ -2,10 +2,10 @@ app.views.Stripe = Backbone.View.extend
 
     el: '.mainTopContainer'
 
-    events:
-        'click .crsItem img': 'clickstripe'
-        #'click .audio': 'play_audio'
-        #'click .video': 'play_video'
+    # events:
+    #     'click .crsItem img': 'clickstripe'
+    #     #'click .audio': 'play_audio'
+    #     #'click .video': 'play_video'
 
     set_coockie: ->
         # detect webp support

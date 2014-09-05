@@ -30,6 +30,7 @@ app.views.userMainStatus = app.views.Status.extend
                             is_liked: is_liked
                     that.$el.attr 'data-status', status.get 'id'
                     that.status = status
+                    that.update_layout is_liked,_.size(status.get('liked_users'))
                     do that.delegateEvents
         else
             @user_id = user.get 'id'

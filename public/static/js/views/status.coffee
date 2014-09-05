@@ -15,13 +15,15 @@ app.views.Status = Backbone.View.extend
 
     update_layout: (condition, size) ->
         like = @get_like_el()
+        likes = @$el.find '.likes'
         if condition
             like.attr 'data-like', 'false'
-            like.text 'вам это нравится'
+            like.text 'Мне нравиться'
+            likes.addClass 'liked'
         else
             like.attr 'data-like', 'true'
-            like.text 'нравится'
-        likes = @$el.find '.likes'
+            like.text 'Мне нравиться'
+            likes.removeClass 'liked'
         if size
             if size == 1
                 likes.text size + ' '
@@ -34,7 +36,6 @@ app.views.Status = Backbone.View.extend
         statusLike = new app.models.StatusLike
         statusLike.status = @get_status_id()
         that = @
-        console.log @size
         if @if_like()
             statusLike.save {},
                 success: ->

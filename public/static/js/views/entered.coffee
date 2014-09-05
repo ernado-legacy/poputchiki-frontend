@@ -41,6 +41,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .popup-info': 'info_popup'
         'click .mainCrs .wrapper': 'stopMedia'
         'click .likes': 'likers_popup'
+        'click .openprofile': 'profilerender'
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")
@@ -477,6 +478,10 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     hide_filters: ->
         $(event.target).parent().parent().children('.filters').slideUp('slow')
+    profilerender: ->
+        @closepopuprun()
+        do app.views.profile.render
+
 $ ->
     app.views.entered = new app.views.Entered
     app.views.entered.init()

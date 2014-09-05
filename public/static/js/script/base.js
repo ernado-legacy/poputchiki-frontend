@@ -27,8 +27,8 @@ function get_user_id() {
 }
 
 function playSoundNotification() {
-    filename = '/static/audio/audio';
-    document.getElementById("notification-sound").innerHTML = '<audio autoplay="autoplay"><source src="' + filename + '.mp3" type="audio/mpeg" /><source src="' + filename + '.ogg" type="audio/ogg" /><embed hidden="true" autostart="true" loop="false" src="' + filename + '.mp3" /></audio>';
+    filename = '/static/audio/message';
+    document.getElementById("notification-sound").innerHTML = '<audio autoplay="autoplay"><source src="' + filename + '.mp3" type="audio/mpeg" /><embed hidden="true" autostart="true" loop="false" src="' + filename + '.mp3" /></audio>';
 }
 
 Share = {

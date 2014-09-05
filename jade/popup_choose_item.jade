@@ -1,7 +1,13 @@
-each array in arrays
-  .imgRow.clearfix
-    each item in array
-      .imgBox.clearfix(data-id="#{item.get('id')}", data-video="#{video}", data-media-url="#{item.get('url')}", data-thumb-url="#{item.get('thumbnail_url')}")
-        img(src='#{item.get('thumbnail_url')}')
-        .cover
-        span выбрать
+if arrays.length>0
+  each array in arrays
+    .imgRow.clearfix
+      each item in array
+        .imgBox.clearfix(data-id="#{item.get('id')}", data-video="#{video}", data-media-url="#{item.get('url')}", data-thumb-url="#{item.get('thumbnail_url')}")
+          img(src='#{item.get('thumbnail_url')}')
+          .cover
+          span выбрать
+else 
+  h2 У вас нет добаленных фото/видео
+  div.greenDots
+  p вы можете добавить нвоые фото/видео на 
+    span.custom-link.openprofile странице профиля

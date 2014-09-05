@@ -18,7 +18,7 @@ $profile_status_text: #4b4b4b
     color: #eaeaea
     background: #eaeaea
     .photo-wrapper
-      padding: 6px 0px 6px 0px
+      padding: 6px 1px 6px 10px
       transition: all .15s ease-out .1s
       transition-duration: .1s
       border: 1px solid #eaeaea
@@ -55,6 +55,7 @@ $profile_status_text: #4b4b4b
         // line-height: 40px
         // color: #9cabae
       .actions
+        margin-top: 15px
         text-align: center
         .like-counter
           margin-left: 0px
@@ -357,3 +358,14 @@ header.info-header
 .choose-video.active, .choose-audio.active, .choose-photo.active
   opacity: 1
   filter: alpha(opacity=1000)
+
+.likes.fui-heart.liked
+  color: black!important
+.likes.fui-heart
+  text-decoration: none
+  color: $chat_grey!important
+.likes.fui-heart.my-likes
+  cursor: pointer!important
+
+.likes.fui-heart::before
+  padding-right: 4px

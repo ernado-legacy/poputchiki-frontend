@@ -15,15 +15,7 @@
     .wantToTravelBox.clearfix
       .newStatus Новый статус
       .statusBoxCompleted.clearfix
-        .statusBox#main-status
-          .status= user.status ? user.status: 'Добавьте ваш первый статус путешественника'
-          .edit#edit-status
-            .tooltip.clearfix
-              .tooltip-arrow
-              span Редактировать
-          .comments.clearfix
-            span.delete-comments удалить
-            span.share-comments поделиться
+        img(src='/static/img/searchpreloader.GIF', class="loading-gif")
         .statusBoxEdit.clearfix
           h1 добавить новый статус
           .greenDots

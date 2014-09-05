@@ -25,13 +25,10 @@ if is_mystatus
         else
           span.delete-comments 
               span.likes.fui-heart(data-likers-url=status.likers_url())
-        span.delete-comments.like(data-like = is_liked?'false':'true')=is_liked?'вам это нравится':'нравиться'
+        span.delete-comments.like(data-like = is_liked?'true':'false')
       else
         span.delete-comments.likes.fui-heart #{status.get('likes')}
-        if is_liked
-          span.delete-comments.like(data-like= 'false' )  не нравиться
-        else
-          span.delete-comments.like(data-like= 'true' )  нравиться
+        span.delete-comments.like(data-like = is_liked?'true':'false')
   .statusBoxEdit.clearfix
     h1 добавить новый статус
     .greenDots
