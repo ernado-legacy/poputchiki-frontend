@@ -305,6 +305,8 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             #this.currentTime = 0
             $('.video').parent().parent().children().children('img').removeAttr 'style'
             $('.video').parent().parent().children().children('.videoBox').removeAttr 'style'
+        $('.vblck video').each ->
+            this.pause()
 
     showProgress: (button) ->
         $('.wrapper').removeClass('wrapper1')
