@@ -1,3 +1,12 @@
+deviceDetection = ->
+    ua = navigator.userAgent;
+    device = ua.match /(iPhone|iPod|iPad|Android|BlackBerry|Opera Mini|IEMobile)/
+    device
+
+mobileVersion = (device) ->
+    if not device
+        $('body').addClass 'desktop'
+
 app.views.Main = Backbone.View.extend
 
     el: 'body'
@@ -30,3 +39,4 @@ app.views.Main = Backbone.View.extend
 $ ->
     app.views.main = new app.views.Main
     app.views.main.init()
+    mobileVersion deviceDetection()
