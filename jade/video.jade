@@ -4,7 +4,8 @@ if video.url
 else
   div.photo-time загрузка...
 if video.url
-  video(poster=video.thumbnail_url)
+  .vblck
+    video(poster=video.thumbnail_url)
       source(src=video.url)
 else
   img(src="/static/img/searchpreloader.GIF", class='loading')

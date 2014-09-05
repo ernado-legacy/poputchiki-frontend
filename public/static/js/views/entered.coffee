@@ -138,9 +138,9 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $('.chopPopup').fadeIn('slow')
             app.views.stripechoppopup.update true
 
-        $('.choose-promo-photo').click ->
-            $('.popup').fadeOut('slow')
-            $('.promoPopup').fadeIn('slow')
+        #$('.choose-promo-photo').click ->
+        #    $('.popup').fadeOut('slow')
+        #    $('.promoPopup').fadeIn('slow')
 
         $('.imgRow .imgBox').click ->
             $('.imgRow .imgBox').removeClass 'chosenImg'
@@ -306,6 +306,8 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             #this.currentTime = 0
             $('.video').parent().parent().children().children('img').removeAttr 'style'
             $('.video').parent().parent().children().children('.videoBox').removeAttr 'style'
+        $('.vblck video').each ->
+            this.pause()
 
     showProgress: (button) ->
         $('.wrapper').removeClass('wrapper1')

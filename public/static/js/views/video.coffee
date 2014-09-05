@@ -66,18 +66,19 @@ app.views.Video = Backbone.View.extend
                     clearInterval that.interval
 
     video_block: ->
-        $('video').each ->
-            this.pause()
-            this.currentTime = 0
-        animVideo = $(event.target)
-        animVideo.prev().prev().css "opacity", "0"
-        setTimeout (->
-            animVideo.get(0).play()
-            return
-        ), 2000
-        animVideo.bind "ended", ->
-            animVideo.currentTime = 0
-            animVideo.parent().prev().css "opacity", "1"
+        if event.target.paused
+            do app.views.entered.stopMedia
+            animVideo = $(event.target)
+            animVideo.prev().prev().css "opacity", "0"
+            setTimeout (->
+                animVideo.get(0).play()
+                return
+            ), 2000
+            animVideo.bind "ended", ->
+                animVideo.currentTime = 0
+                animVideo.parent().prev().css "opacity", "1"
+        else
+            do app.views.entered.stopMedia
 
     refreshSource: ->
         console.log 'clear interval'
