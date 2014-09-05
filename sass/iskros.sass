@@ -74,16 +74,16 @@ $text_color: #403f3f
                 span
                     padding-left: 26px
                     line-height: 24px
-        .activeHeader, .photoHeader:hover, .videoHeader:hover
+        .activeHeader
             background: rgba(0, 0, 0, 0.61)
             .title
                 opacity: 1
                 span
                     color: white
-        .videoHeader:hover, .videoHeader.activeHeader
+        .videoHeader.activeHeader
             .title
                 background-image: url("../img/a_video.png")
-        .photoHeader:hover, .photoHeader.activeHeader
+        .photoHeader.activeHeader
             .title
                 background-image: url("../img/a_photo.png")
     .photoBox, .videoBox
@@ -97,9 +97,6 @@ $text_color: #403f3f
             width: 130px
             float: left
             cursor: pointer
-            &:hover
-                .hidden
-                    display: block
         img
             width: 360px
             margin-bottom: 5px
@@ -129,8 +126,6 @@ $text_color: #403f3f
                     -moz-transition: all 500ms ease-out 100ms
                     -o-transition: all 500ms ease-out 100ms
                     transition: all 500ms ease-out 100ms
-                a:hover
-                    color: #fff
                 .span
                     display: inline-block
                     margin-left: 4px
@@ -176,9 +171,6 @@ $text_color: #403f3f
             -o-transition: all 500ms ease-out 100ms
             transition: all 500ms ease-out 100ms
 
-        span:hover
-            color: rgba(255,255,255,1) !important
-
 .search 
     .gallery 
         li
@@ -221,28 +213,12 @@ $text_color: #403f3f
                 .favorite
                     a.active-action
                         color: grey
-                    a.active-action:hover
-                        text-decoration: none
                 .invite,
                     margin-top: 45px
             a
                 color: #fff
             a.active-action
                 color: grey
-            
-        li:hover 
-            .info
-                display: none
-            a
-                text-decoration: none
-            a:hover
-                text-decoration: underline
-            .shadow             
-                margin-top: 0
-                a 
-                    display: inline
-                .invite
-                    margin-top: 45px
 .menuBox
     .act
         position: absolute
@@ -295,8 +271,6 @@ $text_color: #403f3f
                 padding: 5px 10px
                 font-size: 14px
                 opacity: 0.7
-                &:hover
-                    background: #d8d8d8
             a
                 color: #000
                 opacity: 0.9

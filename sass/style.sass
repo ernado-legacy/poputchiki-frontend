@@ -304,7 +304,7 @@ a.blue-link
 .hLogo
     margin-left: 20px
     margin-top: 15px
-    background-image: url('../img/logo.png')
+    background-image: url('../img/logo2.png')
     background-repeat: no-repeat
     height: 40px
     float: left
@@ -338,11 +338,6 @@ a.blue-link
             padding: 0px 7px 0px 7px
             border-left: 1px solid $chat_line
             border-right: 1px solid $chat_line
-            
-        span:hover
-            background: #eff5f6
-            border-left: 1px solid $profile_status_border
-            border-right: 1px solid $profile_status_border
     #header-profile
         // color: $header_blue
         color: $menu_messages
@@ -395,8 +390,6 @@ footer
                 float: left
                 line-height: 28px
                 text-transform: uppercase
-            span:hover
-                text-decoration: underline
 .menuBox
     position: absolute
     left: 0
@@ -467,7 +460,7 @@ footer
         #menu-messgaes
             .menuIcon
                 background-image: url('../img/profile_messages.png')
-        #menu-messgaes:hover, #menu-messgaes.current
+        #menu-messgaes.current
             background-color: $menu_messages
             border-color: $menu_messages
         #menu-messgaes:before
@@ -476,7 +469,7 @@ footer
         #menu-favorites
             .menuIcon
                 background-image: url('../img/profile_favorites.png')
-        #menu-favorites:hover, #menu-favorites.current
+        #menu-favorites.current
             background-color: $menu_favorites
             border-color: $menu_favorites
         #menu-favorites:before
@@ -485,7 +478,7 @@ footer
         #menu-photos
             .menuIcon
                 background-image: url('../img/profile_photos.png')
-        #menu-photos:hover, #menu-photos.current
+        #menu-photos.current
             background-color: $menu_photos
             border-color: $menu_photos
         #menu-photos:before
@@ -494,7 +487,7 @@ footer
         #menu-rating
             .menuIcon
                 background-image: url('../img/profile_statistics.png')
-        #menu-rating:hover, #menu-rating.current
+        #menu-rating.current
             background-color: $menu_rating
             border-color: $menu_rating
         #menu-rating:before
@@ -503,7 +496,7 @@ footer
         #menu-tools
             .menuIcon
                 background-image: url('../img/profile_settings.png')
-        #menu-tools:hover, #menu-tools.current
+        #menu-tools.current
             background-color: $menu_tools
             border-color: $menu_tools
         #menu-tools:before
@@ -517,7 +510,7 @@ footer
             -moz-transition: background-color 0.5s ease-in-out
             -o-transition: background-color 0.5s ease-in-out
             transition: background-color 0.5s ease-in-out
-        #menu-profile:hover, #menu-profile.current
+        #menu-profile.current
             background-color: $menu_tools!important
             border-color: $menu_tools
             .fui-user
@@ -547,24 +540,6 @@ footer
             span
                 opacity: 1
                 color: white
-    .leftMenu:hover, .onload
-        li
-            //width: 100%
-            background-repeat: no-repeat
-            span
-                opacity: 1
-        li:hover
-            span
-                opacity: 1
-                color: white
-            .menuIcon
-                -webkit-filter: brightness(100%)
-                filter: brightness(100%)
-            .new
-                div
-                    color: white
-        .current
-            width: 153px
     .letsGo
         margin-top: 64px
         li
@@ -583,8 +558,6 @@ footer
                 color: $title_text
                 margin-top: 0px
                 font-size: 11px
-        li:hover
-            width: 153px
 
 .audio, .video
     position: absolute
@@ -689,10 +662,6 @@ footer
         background: rgba(0, 0, 0, 0.0)
 
 // .topContainer
-.crsItem:hover
-    -webkit-transform: scale(1.1)
-    -ms-transform: scale(1.1)
-    transform: scale(1.1)
 .crsItem
     float: left
     position: relative
@@ -760,11 +729,6 @@ footer
 #profile-arrow-left,
 #profile-arrow-right
     opacity: 0.5
-#profile-arrow-up:hover,
-#profile-arrow-down:hover,
-#profile-arrow-left:hover,
-#profile-arrow-right:hover
-    opacity: 1
 
 .photoVideoBlock
     margin: 7px 0px 0px 0px
@@ -822,16 +786,16 @@ footer
                 span
                     padding-left: 26px
                     line-height: 24px
-        .activeHeader, .photoHeader:hover, .videoHeader:hover
+        .activeHeader
             background: rgba(0, 0, 0, 0.61)
             .title
                 opacity: 1
                 span
                     color: white
-        .videoHeader:hover, .videoHeader.activeHeader
+        .videoHeader.activeHeader
             .title
                 background-image: url('../img/a_video.png')
-        .photoHeader:hover, .photoHeader.activeHeader
+        .photoHeader.activeHeader
             .title
                 background-image: url('../img/a_photo.png')
     .photoBox, .videoBox
@@ -921,11 +885,6 @@ footer
             z-index: 300
             left: 20%
             display: none
-    .imgBox:hover
-        .cover
-            display: block
-        span
-            display: inline
     #profile-rating, .profile-rating
         position: absolute
         right: -5px
@@ -1329,8 +1288,6 @@ footer
         +simple-font
         overflow: hidden
         text-overflow: ellipsis
-    li:hover
-        background-color: $ti_dd_select
     li:last-child
         border-bottom: none
 
@@ -1472,11 +1429,6 @@ footer
             position: absolute
             left: 5px
             top: -4px
-.money-icon:hover, .house-icon:hover, .edit:hover, .money-icon-inactive:hover, .wmwt:hover
-    .tooltip
-        visibility: visible
-        opacity: 1
-        transition-delay: 0s
 .wmwt
     position: relative
     .tooltip
@@ -1537,15 +1489,9 @@ footer
                 .share-comments
                     text-decoration: none
                     float: none
-                .share-comments:hover
-                    color: #eaeaea
-                .share-comments:first-child:hover
-                    color: $profile_status_text
                 .share-comments:first-child
                     cursor: initial
                     text-decoration: underline
-
-
             .inputBox
                 padding-top: 5px
                 input
@@ -1861,9 +1807,6 @@ footer
                 padding-top: 12px
                 text-transform: none
                 cursor: pointer
-
-            .letsFilter:hover
-                text-decoration: underline
         .sortBy
             float: right
             margin-top: 10px
@@ -2063,12 +2006,6 @@ footer
             +border-radius(4px, 4px, 4px, 4px)
             padding: 0 0 0 5px
             +simple-font
-        // input:hover
-        //  background-color: black
-        //  -webkit-animation: swing 1s ease
-        //  animation: swing 1s ease
-        //  -webkit-animation-iteration-count: 1
-        //  animation-iteration-count: 1
         input::-moz-placeholder
             color: $profile_status_text
         input::-webkit-input-placeholder
@@ -2121,14 +2058,6 @@ footer
                 color: $header_blue
         .regButton
             width: 212px
-
-
-
-// .loginRegisterBlock:hover
-//  -webkit-animation: swing 1s ease
-//  animation: swing 1s ease
-//  -webkit-animation-iteration-count: 1
-//  animation-iteration-count: 1
 
 .loginRegisterBlock.step    
     position: static
@@ -2264,35 +2193,6 @@ footer
                 font-size: 12px
                 .bot
                     margin-top: 15px
-            &:hover             
-                cursor: default
-                .info
-                    display: none
-                .online
-                    display: none       
-                .shadow     
-                    padding: 10px 0
-                    position: absolute
-                    margin-top: -127px
-                    display: block
-                    width: 125px
-                    height: 125px
-                    background: rgba(0,0,0,0.5)
-                    z-index: 10
-                    text-align: center                              
-                    img
-                        width: 13px
-                        height: 13px
-                        margin-left: 10px
-                    div, a
-                        color: white
-                        display: block
-                        cursor: pointer
-                    a:hover
-                        text-decoration: underline
-                    .invite
-                        margin-top: 30px
-                        line-height: 15px
 .noMarginTop
     margin-top: 0
 
@@ -2321,14 +2221,10 @@ footer
                 margin: 0px 0px 0px 0px
                 padding: 5px
                 font-size: 20px
-            a:hover
-                background-color: white
             a.active-action
                 color: grey
                 cursor: auto
                 border: none!important
-            a.active-action:hover
-                background-color: inherit
         .fui-bubble
             color: $menu_favorites
         .fui-star-2
@@ -2552,7 +2448,7 @@ footer
                     color: $profile_status_text
                     line-height: 29px
                     opacity: 0.52
-        .activeHeader, .popupHeader:hover
+        .activeHeader
             background: $popup-lg-header
             .title
                 span
@@ -2622,8 +2518,6 @@ footer
     .arrow-right
         background-image: url('../img/profile_arrow_r.png')
         left: 0
-    .arrow-left:hover, .arrow-right:hover
-        opacity: 1
     .imgBox
         position: relative
         img
@@ -2899,11 +2793,6 @@ footer
                     z-index: 300
             .imgBox:last-child
                 margin-right: 0px
-            .imgBox:hover
-                .cover
-                    display: block
-                span
-                    display: inline
             .chosenImg
                 .cover
                     display: block

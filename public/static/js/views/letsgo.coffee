@@ -24,7 +24,7 @@ app.views.LetsGo = Backbone.View.extend
                 contentType: "application/json; charset=utf-8"
                 success: (data) ->
                     app.views.entered.closepopuprun()
-                    app.views.entered.info_popup_custom 'Спасибо за заявку!', 'Наши операторы свяжутся с вами в ближайшее время'
+                    app.views.entered.info_popup_custom 'Спасибо за заявку!', 'Надежные операторы свяжутся с вами в ближайшее время'
                 error: (data, textStatus, jqXHR) ->
                     app.views.entered.closepopuprun()
                     app.views.entered.info_popup_custom 'Внимание!', 'Что-то пошло не так'

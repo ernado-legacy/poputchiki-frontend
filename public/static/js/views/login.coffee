@@ -6,7 +6,7 @@ app.views.Login = Backbone.View.extend
         "click .blogin": "login"
         "click #header-exit": "logout"
         "click #forgot-password": "forgot_password"
-
+        'click .box': 'remember'
 
     check_status: (callback) ->
         if Boolean $.cookie 'token'
@@ -78,6 +78,9 @@ app.views.Login = Backbone.View.extend
                 $('.loginRegisterBlock').addClass 'shiv-block'
                 do $('span.error').show
                 return
+
+    remember: (event) ->
+        $(event.target).toggleClass('checked')
 
     seturl: ->
 

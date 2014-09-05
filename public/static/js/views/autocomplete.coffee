@@ -26,8 +26,8 @@ app.views.Autocomplete = Backbone.View.extend
             if _.size(data) != 0
                 droped.html ''
                 _.each data, (item,index) ->
-                    if index < 5
-                        droped.append '<li class="dl">' + item + '</li>'
+                    # if index < 5
+                    droped.append '<li class="dl">' + item + '</li>'
                 droped.css 'display', 'block' 
             else
                 droped.css 'display', 'none'
