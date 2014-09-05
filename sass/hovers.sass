@@ -1,0 +1,251 @@
+.desktop
+    //style
+    .navigation
+        li
+            span:hover
+                background: #eff5f6
+                border-left: 1px solid $profile_status_border
+                border-right: 1px solid $profile_status_border
+    footer
+        .aboutInfo
+            li
+                span:hover
+                    text-decoration: underline
+    .menuBox
+        .leftMenu, .letsGo
+            #menu-messgaes:hover
+                background-color: $menu_messages
+                border-color: $menu_messages
+            #menu-favorites:hover
+                background-color: $menu_favorites
+                border-color: $menu_favorites
+            #menu-photos:hover
+                background-color: $menu_photos
+                border-color: $menu_photos
+            #menu-rating:hover
+                background-color: $menu_rating
+                border-color: $menu_rating
+            #menu-tools:hover
+                background-color: $menu_tools
+                border-color: $menu_tools
+            #menu-profile:hover
+                background-color: $menu_tools!important
+                border-color: $menu_tools
+                .fui-user
+                    color: white
+        .leftMenu:hover, .onload
+            li
+                background-repeat: no-repeat
+                span
+                    opacity: 1
+            li:hover
+                span
+                    opacity: 1
+                    color: white
+                .menuIcon
+                    -webkit-filter: brightness(100%)
+                    filter: brightness(100%)
+                .new
+                    div
+                        color: white
+            .current
+                width: 153px
+        .letsGo
+            li:hover
+                width: 153px
+    .crsItem:hover
+        -webkit-transform: scale(1.1)
+        -ms-transform: scale(1.1)
+        transform: scale(1.1)
+    #profile-arrow-up:hover,
+    #profile-arrow-down:hover,
+    #profile-arrow-left:hover,
+    #profile-arrow-right:hover
+        opacity: 1
+    .photoVideoBlock
+        .photoHeaderBox
+            .photoHeader:hover, .videoHeader:hover
+                background: rgba(0, 0, 0, 0.61)
+                .title
+                    opacity: 1
+                    span
+                        color: white
+            .videoHeader:hover
+                .title
+                    background-image: url('../img/a_video.png')
+            .photoHeader:hover
+                .title
+                    background-image: url('../img/a_photo.png')
+    .profileBox
+        .imgBox:hover
+            .cover
+                display: block
+            span
+                display: inline
+    .droped
+        li:hover
+            background-color: $ti_dd_select
+    .money-icon:hover, .house-icon:hover, .edit:hover, .money-icon-inactive:hover, .wmwt:hover
+        .tooltip
+            visibility: visible
+            opacity: 1
+            transition-delay: 0s
+    .wantToTravelBox
+        .statusBoxCompleted, .statusBoxNotCompleted
+            .statusBox, .statusBoxEdit
+                .comments
+                    .share-comments:hover
+                        color: #eaeaea
+                    .share-comments:first-child:hover
+                        color: $profile_status_text
+    .statusesContainer
+        .filterBlock
+            .title
+                .letsFilter:hover
+                    text-decoration: underline
+
+    .search
+        .gallery            
+            li
+                &:hover             
+                    cursor: default
+                    .info
+                        display: none
+                    .online
+                        display: none       
+                    .shadow     
+                        padding: 10px 0
+                        position: absolute
+                        margin-top: -127px
+                        display: block
+                        width: 125px
+                        height: 125px
+                        background: rgba(0,0,0,0.5)
+                        z-index: 10
+                        text-align: center                              
+                        img
+                            width: 13px
+                            height: 13px
+                            margin-left: 10px
+                        div, a
+                            color: white
+                            display: block
+                            cursor: pointer
+                        a:hover
+                            text-decoration: underline
+                        .invite
+                            margin-top: 30px
+                            line-height: 15px
+    .guests
+        .action-list
+            li
+                a:hover
+                    background-color: white
+                a.active-action:hover
+                    background-color: inherit
+    .letsgoPopup,.popupInfo,.popupLikers
+        .popupHeaderBox
+            .popupHeader:hover
+                background: $popup-lg-header
+                .title
+                    span
+                        color: white
+                        opacity: 1
+    .photoPopup, .videoPopup
+        .arrow-left:hover, .arrow-right:hover
+            opacity: 1
+    .chopPopup
+        form
+            .imgRow
+                .imgBox:hover
+                    .cover
+                        display: block
+                    span
+                        display: inline
+    //iskros
+    .settings
+        .leftBox
+            ul
+                li
+                    &:hover
+                        background: #d8d8d8
+    #searchPhotoVideoBlock
+        .photoHeaderBox
+            .photoHeader:hover, .videoHeader:hover
+                background: rgba(0, 0, 0, 0.61)
+                .title
+                    opacity: 1
+                    span
+                        color: white
+            .videoHeader:hover
+                .title
+                    background-image: url("../img/a_video.png")
+            .photoHeader:hover
+                .title
+                    background-image: url("../img/a_photo.png")
+        
+        .photoBox
+            .photo-wrapper
+                &:hover
+                    .hidden
+                        display: block
+            .imgGrid
+                .hidden
+                    a:hover
+                        color: #fff
+    #searchPhotoVideo
+        .view-back a
+            span:hover
+                color: rgba(255,255,255,1) !important
+    .search 
+        .gallery 
+            li
+                .shadow
+                    .favorite
+                        a.active-action:hover
+                            text-decoration: none
+            li:hover 
+                .info
+                    display: none
+                a
+                    text-decoration: none
+                a:hover
+                    text-decoration: underline
+                .shadow             
+                    margin-top: 0
+                    a 
+                        display: inline
+                    .invite
+                        margin-top: 45px
+    //eddy
+    .photoVideoBlock
+        .photoBox, .videoBox
+            .photo-wrapper
+                img:hover, video:hover
+                    border: 1px solid white
+            .photo-wrapper:hover
+                background-color: white
+                border: 1px solid white
+                color: #777
+                +border-shadow
+                img, video
+                    border: 1px solid white
+                    +no-border-shadow
+                .fui-play
+                    color: white
+                .custom-link
+                    color: $profile_status_text
+                .action-remove-like
+                    color: #9cabae
+                    font-size: 11px
+    .textContent
+        .links
+            a:hover
+                border-bottom: 1px dotted $link
+    header.info-header
+        .navigation
+            li
+                span:hover
+                    background: #eff5f6
+                    border-left: 1px solid $profile_status_border
+                    border-right: 1px solid $profile_status_border
