@@ -2,7 +2,7 @@
   .wrapper(data-anim="base wrapper")
     .circle.c_left(data-anim="base left")
     .circle.c_right(data-anim="base right")
-  img(src='#{item.get('image_url')}')
+  img(src='#{item.get('image_url')}',data-user-id="#{item.get('user')}")
   if item.get('type')=='audio'
     .audio
       audio
@@ -12,7 +12,7 @@
           if caudio=='ogg'
             source(src='#{item.get('url')}', , type="audio/ogg")
           else
-            source(src='#{item.get('url')}', , type="audio/aac")
+            source(src='#{item.get('url')}', , type="audio/m4a")
   if item.get('type')=='video'
     .videoBox
       .frontLayer

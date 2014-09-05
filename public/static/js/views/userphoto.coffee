@@ -8,12 +8,12 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         'click .videoHeader': 'video_header'
         'click .photoHeader': 'photo_header'
 
-    photoload: ->
+    photoload: (event)->
         do event.preventDefault
         $ '.photovideoformfile'
             .trigger 'click'
 
-    changeimg: ->    
+    changeimg: (event)->    
         do event.preventDefault
         form = '.photovideoform'
 
@@ -97,7 +97,7 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
 
 
 
-    video_header: ->
+    video_header: (event)->
         $('.activeHeader').removeClass 'activeHeader'
         if $(event.target).hasClass '.videoHeader'
             $(event.target).addClass 'activeHeader'
@@ -111,7 +111,7 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         $('.addPhoto span').text('Добавить видео')
         
 
-    photo_header: ->
+    photo_header: (event)->
         $('.activeHeader').removeClass 'activeHeader'
         if $(event.target).hasClass '.photoHeader'
             $(event.target).addClass 'activeHeader'

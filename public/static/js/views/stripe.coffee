@@ -3,7 +3,7 @@ app.views.Stripe = Backbone.View.extend
     el: '.mainTopContainer'
 
     events:
-        'click .crsItem': 'clickstripe'
+        'click .crsItem img': 'clickstripe'
         #'click .audio': 'play_audio'
         #'click .video': 'play_video'
 
@@ -21,7 +21,7 @@ app.views.Stripe = Backbone.View.extend
         # priority to aac
         q = true
         if Modernizr.audio.aac
-            $.cookie "audio", "aac", { path: '/' }
+            $.cookie "audio", "m4a", { path: '/' }
             q = false
         #$.cookie "audio", "mp3", { path: '/' } if Modernizr.audio.mp3
         if Modernizr.audio.ogg
@@ -29,7 +29,7 @@ app.views.Stripe = Backbone.View.extend
             q = false
 
         #is_safari = navigator.userAgent.indexOf("Safari") > -1
-        $.cookie "audio", "aac", { path: '/' }  if q
+        $.cookie "audio", "m4a", { path: '/' }  if q
 
         # detect html5 video support
         $.cookie "video", "mp4", { path: '/' } if Modernizr.video.h264

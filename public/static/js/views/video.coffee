@@ -37,7 +37,7 @@ app.views.Video = Backbone.View.extend
             if likes<1 
                 counter_container.text ''
             else
-                counter_container.text likes+'...'
+                counter_container.text likes
             that.$el.find('.action-like').removeClass('action-like').addClass('action-remove-like')
         return false
 

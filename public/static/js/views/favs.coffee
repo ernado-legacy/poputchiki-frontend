@@ -52,12 +52,13 @@ app.views.Favs = Backbone.View.extend
 
     renderFav: (user) ->
         user.updateDate('last_action')
-        listUserView = new app.views.UserListView 
+        listUserView = new app.views.UserListView
             model:user,
             template:jade.templates.fav_user_list
-
+        that = @
         listUserView.on 'user-removed-from-favs', (model)->
             $('#statususer'+model.get('id')).remove()
+            that.$el.find('li[data-user-id="5396de8736c45373c40009ca"]').remove()
         $('.guests .chatLine').append listUserView.render()
         status = user.get 'status'
         $('.guests .chatLine').append jade.templates.fav_status status:status,user_id:user.get('id') if status

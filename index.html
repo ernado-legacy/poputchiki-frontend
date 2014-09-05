@@ -66,6 +66,7 @@
     <script type="text/javascript" src="/static/js/views/terms.js"></script>
     <script type="text/javascript" src="/static/js/views/likers.js"></script>
     <script type="text/javascript" src="/static/js/script/base.js"></script>
+    <script type="text/javascript" src="/static/js/script/LightningTouch.js"></script>
     <!--sources for main page-->
     <link rel="stylesheet" href="/static/css/mainpage/gridrotator.css">
     <link rel="stylesheet" href="/static/css/mainpage/style.css">
@@ -187,7 +188,7 @@
           <div class="changeAvatarBox clearfix"><img src="/static/img/b_userpic.png">
             <div class="popupArrow"></div>
             <div class="controlBox">
-              <div class="mainSelectElement upload-new-ava"><span>Загрузить фотографию</span></div>
+              <div class="mainSelectElement upload-new-ava"><span>Выбрать фото</span></div>
               <input type="file" class="upload-new-ava-input">
               <div id="delete-avatar">Удалить</div>
             </div>
@@ -196,15 +197,7 @@
           <div class="greenDots"></div>
           <p>Загрузите аудио-приветствие, чтобы ваш голос могли услышать ваши друзья и получите еще больше посещений для своего профайла!</p>
           <div class="playerBox clearfix">
-            <div class="audio audio-change-avatar">
-              <audio>
-                <source src="/static/audio/audio.mp3" type="audio/mp3">
-                <source src="/static/audio/audio.ogg" type="audio/ogg">
-              </audio>
-            </div>
-            <div class="timeBar">
-              <div class="progress"></div>
-            </div>
+            <h2>Добавтье аудио-приветствие</h2>
           </div>
           <div class="mainSelectElement upload-new-audio"><span>Загрузить файл</span></div>
           <input type="file" name="file" class="upload-new-audio-input">
@@ -292,34 +285,27 @@
         <form>
           <h1>Рейтинг</h1>
           <div class="greenDots"></div>
-          <p>Тут общий текст про систему рейтинга. Для чего он нужен пользователю и какие преимущества может получить пользователь с высоким рейтингом.</p>
+          <p>На нашем сайте действует система рейтингов, с помощью которой определяется положение вашей страницы в  результатах поиска. Чем выше рейтинг, тем больше шансов, что напишут именно Вам. При регистрации Ваш рейтинг составляет 100 процентов и зависит от активности на сайте.</p>
           <div class="profileBox">
             <div class="imgBox"><img src="/static/img/b_userpic.png"></div>
             <div class="profile-rating">100%</div>
           </div>
           <div class="textBox clearfix">
-            <p>Ваши перимущества от высокого рейтинга:</p>
-            <p class="pnct">- высокая посещаемость</p>
-            <p class="pnct">- больше новых знакомств</p>
-            <p class="pnct">- масса новых впечатлений</p>
-            <p class="pnct">- приглашения в увлекательные поездки</p>
-            <p class="pnct">- еще что-нибудь полезное...</p>
+            <p>Преимущества высокого рейтинга:</p>
+            <p class="pnct">- Принимайте больше гостей на своей страничке</p>
+            <p class="pnct">- Знакомьтесь с новыми людьми</p>
+            <p class="pnct">- Приглашайте «попутчиков» в увлекательные поездки</p>
+            <p class="pnct">- Получайте массу новых впечатлений</p>
           </div>
-          <h2>Бесплатное продвижение</h2>
+          <h2>Поднимайте свой рейтинг в системе: </h2>
           <div class="greenDots"></div>
           <p>Вы можете бесплатно поднять свой рейтинг в нашей системе. Чтобы поднять свой рейтинг бесплатно можно выполнять следующие действия:</p>
-          <p class="pnct">- добавлять свои фото/видео</p>
-          <p class="pnct">- просматривать страницы других пользователей</p>
-          <p class="pnct">- оценивать фотографии пользователей</p>
-          <p class="pnct">- менять статус один раз в день</p>
-          <p class="pnct">- комментировать статусы других пользователей</p>
-          <h2>Платное продвижение</h2>
-          <div class="greenDots"></div>
-          <p>Тут какой-то текст про то, чем черевато платное продвижение.</p>
-          <div class="bilContainer clearfix">
-            <div class="regButton profile-edit-slideup upload-money"><span>повысить рейтинг</span></div>
-            <div class="price">30 <small>рублей</small></div>
-          </div>
+          <p class="pnct">- Добавляйте свое фото или видео-приветствие в промо-ленту* </p>
+          <p class="pnct">- Обновляйте статус </p>
+          <p class="pnct">- Общайтесь с «попутчиками»</p>
+          <p class="pnct">- Выкладывайте свои фото и видео</p>
+          <p class="pnct">- Оценивайте фотографии </p>
+          <p class="pnct">- Просматривайте страницы других пользователей</p>
         </form>
       </div>
       <div class="popup vipPopup"><a href="#" class="closepopup">Закрыть</a>

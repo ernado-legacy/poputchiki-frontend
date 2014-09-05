@@ -43,7 +43,7 @@ app.mixins.UserValidationMixin =
                 errors.name = "Введите имя"
             else unless @validators.minLength(attrs.name, 2)
                 errors.name = "Имя слишком короткое"
-            else unless @validators.maxLength(attrs.name, 15)
+            else unless @validators.maxLength(attrs.name, 25)
                 errors.name = "Имя слишком длинное"
             # else errors.name = "Имя не может содержать спец. символы"  if @validators.hasSpecialCharacter(attrs.name)
         if attrs.email?
@@ -59,7 +59,7 @@ app.mixins.UserValidationMixin =
         if attrs.phone?
             unless attrs.phone
                 errors.phone = "Введите телефон"
-            else errors.phone = "Телефон неверный"  unless @validators.isPhone(attrs.phone)
+            # else errors.phone = "Телефон неверный"  unless @validators.isPhone(attrs.phone)
 
         if attrs.city?
             # console.log attrs.city

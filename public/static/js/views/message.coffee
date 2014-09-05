@@ -70,6 +70,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         input.val ''
         cb.find('.pstMsg.fui-bubble').removeClass 'active'
         user = cb.attr 'data-user'
+        console.log input
         input.click()
         if mess.length > 0
             @render_message cb,
