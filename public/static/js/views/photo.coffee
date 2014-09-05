@@ -9,6 +9,8 @@ app.views.Photo = Backbone.View.extend
         'click .remove-photo': 'removePhoto'
         'click .new-ava': 'removePhoto'
         'click .likes': 'getlikers'
+        'click .remove-media': 'remove_media'
+        'click .cancel-remove-media': 'cancel_remove_media'
 
 
     render: (is_my_user)->
@@ -129,9 +131,18 @@ app.views.Photo = Backbone.View.extend
         return false
 
     removePhoto: ()->
+        @$el.html jade.templates.remove_media()
+        @$el.addClass 'remove-media'
+        return false
+
+    remove_media: ->
         do @model.destroy
         do @remove
         return false
+    cancel_remove_media: ->
+        @render true
+        return false
+
     getlikers: (e)->
         that = @
 

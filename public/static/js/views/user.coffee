@@ -41,6 +41,7 @@ app.views.UserListView = Backbone.View.extend
         if $(e.currentTarget).data('remove-from-fav-clear') == true
             @trigger 'user-removed-from-favs',@model
             do @remove
+            # console.log 'remove'
         else
             $(e.currentTarget).addClass('add_to_fav').removeClass('remove_from_fav')
             $(e.currentTarget).text('в избранное')

@@ -3,14 +3,14 @@ if photo.url
   img(src=photo.url,id=photo.id)
   if (is_my_user)
     .actions
-        a(class="action-like custom-link", data-like = liked_by?'false':'true') Мне нравится
-        span.like-counter-box
-          if likes_size >0
-            span(class=liked_by?'likes fui-heart my-likes liked':'likes fui-heart my-likes',data-likers-url=photo.likers_url) #{likes_size}
-          else 
-            span.likes.fui-heart.my-likes(data-likers-url=photo.likers_url)
-        a(class="custom-blue-link new-ava")
-        a(class="custom-link remove-photo") удалить
+      a(class="action-like custom-link", data-like = liked_by?'false':'true') Мне нравится
+      span.like-counter-box
+        if likes_size >0
+          span(class=liked_by?'likes fui-heart my-likes liked':'likes fui-heart my-likes',data-likers-url=photo.likers_url) #{likes_size}
+        else 
+          span.likes.fui-heart.my-likes(data-likers-url=photo.likers_url)
+      a(class="custom-blue-link new-ava")
+      a(class="custom-link remove-photo") удалить
   else
     a(class="action-like custom-link", data-like = liked_by?'false':'true') Мне нравится
     if likes_size>0

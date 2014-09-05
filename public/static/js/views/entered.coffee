@@ -304,7 +304,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $('.video').parent().children('.videoBox').children('video').each ->
             this.pause()
             #this.currentTime = 0
-            $('.video').parent().parent().children().children('img').removeAttr 'style'
+            $('.video').parent().parent().children().children('a').children('img').removeAttr 'style'
             $('.video').parent().parent().children().children('.videoBox').removeAttr 'style'
         $('.vblck video').each ->
             this.pause()
@@ -338,7 +338,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             @stopMedia()
 
     play_video: (event) ->
-        animImg = $(event.target).parent().children("img")
+        animImg = $(event.target).parent().children("a").children("img")
         animVideo = $(event.target).parent().children(".videoBox")
         if animVideo.children("video").get(0).paused
             @stopMedia()
