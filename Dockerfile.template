@@ -1,0 +1,29 @@
+ROM dockerfile/nodejs
+
+# ssh config
+ADD ssh/known_hosts /root/.ssh/known_hosts
+ADD ssh/id_rsa /root/.ssh/id_rsa
+ADD ssh/id_rsa.pub /root/.ssh/id_rsa.pub
+RUN chmod 700 /root/.ssh/id_rsa
+RUN cp -R /root/.ssh /
+
+ENV PATH /poputchiki/node_modules/.bin:$PATH
+
+# installing saas
+RUN apt-get install ruby -y
+RUN gem install sass
+
+# cloning project
+RUN v=VERSION git clone git@git.onesockteam.com:a/poputchiki-frontend.git /poputchiki
+WORKDIR /poputchiki
+
+# installing deps
+RUN npm install
+RUN npm install sass jade clientjade -g
+
+# compiling static
+RUN ./compile.sh
+RUN mkdir /static
+VOLUME /static
+ADD start.sh /start.sh
+ENTRYPOINT sh /start.sh
