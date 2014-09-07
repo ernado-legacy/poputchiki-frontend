@@ -1,11 +1,4 @@
-ROM dockerfile/nodejs
-
-# ssh config
-ADD ssh/known_hosts /root/.ssh/known_hosts
-ADD ssh/id_rsa /root/.ssh/id_rsa
-ADD ssh/id_rsa.pub /root/.ssh/id_rsa.pub
-RUN chmod 700 /root/.ssh/id_rsa
-RUN cp -R /root/.ssh /
+FROM dockerfile/nodejs
 
 ENV PATH /poputchiki/node_modules/.bin:$PATH
 
@@ -14,7 +7,7 @@ RUN apt-get install ruby -y
 RUN gem install sass
 
 # cloning project
-RUN v=VERSION git clone git@git.onesockteam.com:a/poputchiki-frontend.git /poputchiki
+ADD . /poputchiki
 WORKDIR /poputchiki
 
 # installing deps
