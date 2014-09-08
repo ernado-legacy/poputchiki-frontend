@@ -1,4 +1,4 @@
-    app.views.Setting = Backbone.View.extend
+app.views.Setting = Backbone.View.extend
 
     el: '.mainContentProfile'
     events: 
@@ -43,7 +43,8 @@
             $('#menu-tools').addClass 'current'
 
 
-app.mixins.RenderSettingItem = 
+
+app.mixins.RenderSettingItem =
     tagName: 'div'
     className: 'setting-item'
     events: 
