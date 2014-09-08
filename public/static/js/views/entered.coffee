@@ -69,6 +69,8 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             else
                 wdth = ($('.topContainer').width() - 210).toString() + 'px'
                 $('.carouselBox').css 'width', wdth
+            n = ($(window).width() - $('.photoPopup').width())/2
+            $('.photoPopup').css 'margin-left', n
 
     removetag: ->
         $(document).on "click", ".close", ->
