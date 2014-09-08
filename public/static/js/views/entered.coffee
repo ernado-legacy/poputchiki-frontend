@@ -44,7 +44,6 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .openprofile': 'profilerender'
 
     showMenu: (end) ->
-        console.log '123'
         anim = document.getElementById("left-menu")
         anim.addEventListener(end, ( event ) ->
             if $('.leftMenu li').width() > 60
