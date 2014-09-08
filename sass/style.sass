@@ -185,6 +185,7 @@ body
     color: white
     overflow-x: hidden
     position: relative
+    height: 100%
 .loginRegisterBody
     min-width: 850px
     header
@@ -219,6 +220,7 @@ small
 
 .mainWrapper
     position: relative
+    height: 100%
 .popupWrapper, .popupInnerBack
     position: fixed
     top: 0
@@ -2512,7 +2514,7 @@ footer
         width: 17px
         cursor: pointer
         position: absolute
-        top: 300px
+        top: 46%
         right: 0
         opacity: 0.3
         margin: 0px 1px
@@ -2859,3 +2861,12 @@ a.ldblock
 #ri-grid
     background: url('/static/img/7021734043_31ce932b04_o.jpg')
     background-size: cover
+.resizePopupImg
+    height: auto !important
+    width: 100%
+.resizePopupImgBox
+    height: auto !important
+.resizePopupPhoto
+    width: -moz-calc(100% - 48px)
+    width: -webkit-calc(100% - 48px)
+    width: calc(100% - 48px)
