@@ -7,7 +7,7 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .profile-search': 'dosearchbubuttonclick'
         # 'click .profile-search': 'render'
         'click a.ldblock': 'link'
-        'click .box': 'toogle'
+        #'click .searchBox .box': 'toogle'
         "click #my-folowers .season": 'setSeasons'
         "click .gallery li": 'link_to_user'
     link_to_user: (e)->
