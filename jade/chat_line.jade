@@ -2,9 +2,10 @@ div.icl#profile-arrow-up
 div.icl#profile-arrow-down
 ul.chatLine.inDialogs
   each dialog in dialogs.models
-    li(data-user='#{dialog.get('user').id}')
-      img(src='#{dialog.get('user').avatar_url}')
-      span=dialog.get('user').name
+    if dialog.get('user')
+      li(data-user='#{dialog.get('user').id}')
+        img(src='#{dialog.get('user').avatar_url}')
+        span=dialog.get('user').name
   //
     li
       img(src='/static/img/dialog/userpic.png')

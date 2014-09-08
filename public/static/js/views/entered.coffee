@@ -140,7 +140,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         #$('.choose-promo-photo').click ->
         #    $('.popup').fadeOut('slow')
-        #    $('.promoPopup').fadeIn('slow')
+        #    $('.promoPopup').fadeIn('slow')p
 
         $('.imgRow .imgBox').click ->
             $('.imgRow .imgBox').removeClass 'chosenImg'

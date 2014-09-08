@@ -1,4 +1,7 @@
 $(function() {
+    $('.box').click(function(){
+        $(this).toggleClass('checked');
+    });
 
     $('.search .searchBox input').focus(function() {
         $(this).parent().css('border', '3px solid #52EDC7');
