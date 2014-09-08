@@ -10,6 +10,13 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
         'click .loginbutton': 'loginbutton'
         'click .photo-load button': 'photoload'
         'change #imgfile': 'changeimg'
+        'click .sexBox .box': 'change_sex'
+
+    change_sex: (e)->
+        console.log 123
+        @$el.find('.sexBox .box').removeClass 'checked'
+        $(e.currentTarget).addClass 'checked'
+
 
     render: (n) ->
         switch n
