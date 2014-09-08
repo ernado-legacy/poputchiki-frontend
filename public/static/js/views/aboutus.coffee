@@ -6,3 +6,4 @@ app.views.AboutUs = Backbone.View.extend
         app.views.login.check_status (result) =>
             $ @.$el.html jade.templates.aboutus
                 login: result
+                footerenter: true
