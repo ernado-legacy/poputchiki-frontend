@@ -35,7 +35,10 @@ app.views.GuestProfile = app.views.UserListView.extend
                 if user.get('id') == my_user.get('id')
                     do app.views.profile.render
                     return false
-                is_fav = if my_user.get('favorites').indexOf(user.get('id')) != -1 then true else false
+                if my_user.get('favorites')
+                    is_fav = if my_user.get('favorites').indexOf(user.get('id')) != -1 then true else false
+                else
+                    is_fav = false
                 is_in_blacklist = if my_user.get('blacklist').indexOf(user.get('id')) != -1 then true else false
                 that.model = user
                 app.views.user_photo_block.render(window.location.pathname.split('/').slice(2)[0], false)
