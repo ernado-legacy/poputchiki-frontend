@@ -40,8 +40,16 @@ app.views.Photo = Backbone.View.extend
     changeimg: ->
 
         $('.photoPopup .imgBox img').attr 'src', @model.get 'url'
-        n = ($(window).width() - $('.photoPopup').width())/2
-        $('.photoPopup').css 'margin-left', n
+
+        $('.photoPopup .imgBox img').removeClass 'resizePopupImg'
+        $('.photoPopup .imgBox').removeClass 'resizePopupImgBox'
+        if $(window).width()>= $('.photoPopup').outerWidth()
+            n = ($(window).width() - $('.photoPopup').outerWidth())/2
+            $('.photoPopup').css 'margin-left', n
+        else
+            $('.photoPopup .imgBox img').addClass 'resizePopupImg'
+            $('.photoPopup .imgBox').addClass 'resizePopupImgBox'
+            #$('.photoPopup').addClass 'resizePopupPhoto'
 
         _.each ['.arrow-left', '.arrow-right', 'img'], (item) ->
             do $('.photoPopup ' + item).unbind
