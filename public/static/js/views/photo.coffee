@@ -41,8 +41,8 @@ app.views.Photo = Backbone.View.extend
 
         $('.photoPopup .imgBox img').attr 'src', @model.get 'url'
 
-        $('.photoPopup .imgBox img').removeClass 'resizePopupImg'
-        $('.photoPopup .imgBox').removeClass 'resizePopupImgBox'
+        #$('.photoPopup .imgBox img').removeClass 'resizePopupImg'
+        #$('.photoPopup .imgBox').removeClass 'resizePopupImgBox'
         if $(window).width()>= $('.photoPopup').outerWidth()
             n = ($(window).width() - $('.photoPopup').outerWidth())/2
             $('.photoPopup').css 'margin-left', n
