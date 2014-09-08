@@ -1,4 +1,4 @@
-app.views.Setting = Backbone.View.extend
+    app.views.Setting = Backbone.View.extend
 
     el: '.mainContentProfile'
     events: 
@@ -107,8 +107,6 @@ app.views.SettingsPassword = Backbone.View.extend _.extend app.mixins.RenderSett
             formData = {}
             input = that.$el.find('input[name=pass]')
             input2 = that.$el.find('input[name=passagain]')
-            console.log input.val()
-            console.log input2.val()
             if input.val() and (input.val() == input2.val())
                 formData['password'] = input.val()
                 that.model.set formData
