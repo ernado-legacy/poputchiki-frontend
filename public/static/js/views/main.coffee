@@ -14,6 +14,7 @@ app.views.Main = Backbone.View.extend
     events: 
         'click .aboutInfo li': 'clickfooter'
         'click .clicklogin': 'clicklogin'
+        'click .loginRegisterBlock .terms': 'terms'
         # 'header.info-header .navigation li': 'clickfooter'
 
     init: ->
@@ -21,6 +22,10 @@ app.views.Main = Backbone.View.extend
         app.views.terms = new app.views.Terms
         app.views.rating = new app.views.Rating
         return
+
+    terms: ->
+        history.pushState null, 'poputchiki', '/terms/'
+        do app.views.terms.render
 
     clickfooter: (event) ->
         target = $ event.currentTarget

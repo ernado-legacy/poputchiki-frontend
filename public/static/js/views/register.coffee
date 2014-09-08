@@ -13,7 +13,6 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
         'click .sexBox .box': 'change_sex'
 
     change_sex: (e)->
-        console.log 123
         @$el.find('.sexBox .box').removeClass 'checked'
         $(e.currentTarget).addClass 'checked'
 
@@ -192,21 +191,8 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
                 that.id = data['id']
                 arr = $('form.loginRegisterBlock').serializeArray()
 
-                # date_block = $('#birdth-reg')
-                # d = date_block.find('#day-edit-select').text()
-                # m = date_block.find('#month-edit-select').text()
-                # m = $("li:contains('"+m+"')").attr 'month'
-                # y = date_block.find('#year-edit-select').text()
-                # birthday = y+"-"+m+"-"+d+"T00:00:00Z"
-
                 user = new app.models.User that.updatehash
                 user.set 'id', that.id
-                    # id: $.cookie 'user'
-                    # name: arr[0].value + ' ' + arr[1].value
-                    # birthday: birthday
-                    # city: $('#city-edit-select').text()
-                    # phone: $('#tel').text()
-                # user.set 'avatar', data.id
                 user.save()
                 that.render 3
 # # =======
@@ -275,7 +261,9 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
         #        that.render 4
             # , (data) ->
             #    alert 'Неправильный пароль'
-        @render 4
+        # @render 4
+        # doapp.views.entered.render
+        window.location.href = '/'
 
     bregister: ->
         @render 1

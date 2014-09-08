@@ -166,6 +166,10 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             if not result
                 app.views.login.render()
             else
+                app.models.myuser.get (user)->
+                    if not user.get('avatar')
+                        app.views.register.id = user.get('id')
+                        app.views.register.render(3)
                 do that.render
                 app.views.message = new app.views.Message
                 app.views.messageside = new app.views.MessageSide
