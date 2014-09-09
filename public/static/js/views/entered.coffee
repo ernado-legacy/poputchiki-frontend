@@ -69,17 +69,20 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             else
                 wdth = ($('.topContainer').width() - 210).toString() + 'px'
                 $('.carouselBox').css 'width', wdth
-            if $(window).width()>= $('.photoPopup').outerWidth()
-                #$('.photoPopup .imgBox img').removeClass 'resizePopupImg'
-                #$('.photoPopup .imgBox').removeClass 'resizePopupImgBox'
-                #$('.photoPopup').removeClass 'resizePopupPhoto'
+            h = $('.photoPopup .imgBox img').height()
+            w = $('.photoPopup .imgBox img').width()
+            x = w*500/h + 40
+            if  $(window).width()>= x
+            #$('.photoPopup').outerWidth()
+                $('.photoPopup .imgBox img').removeClass 'resizePopupImg'
+                $('.photoPopup .imgBox').removeClass 'resizePopupImgBox'
+                $('.photoPopup').removeClass 'resizePopupPhoto'
                 n = ($(window).width() - $('.photoPopup').outerWidth())/2
                 $('.photoPopup').css 'margin-left', n
             else
                 $('.photoPopup .imgBox img').addClass 'resizePopupImg'
                 $('.photoPopup .imgBox').addClass 'resizePopupImgBox'
-                #$('.photoPopup').addClass 'resizePopupPhoto'
-
+                $('.photoPopup').addClass 'resizePopupPhoto'
     removetag: ->
         $(document).on "click", ".close", ->
             $(this).parent().remove()  unless $(this).parent().hasClass("newTag")

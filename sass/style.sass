@@ -186,13 +186,14 @@ body
     overflow-x: hidden
     position: relative
     height: 100%
+    width: 100%
 .loginRegisterBody
     min-width: 850px
     header
         background-color: rgba(246, 247, 249, 0.82)
 
 header  
-    min-width: 980px
+    min-width: 1272px
     height: 64px
     border-bottom: 1px solid $header_undercolor
     background-color: #f6f7f9
@@ -221,6 +222,7 @@ small
 .mainWrapper
     position: relative
     height: 100%
+    width: 100%
 .popupWrapper, .popupInnerBack
     position: fixed
     top: 0
@@ -2865,8 +2867,10 @@ a.ldblock
     height: auto !important
     width: 100%
 .resizePopupImgBox
+    width: auto !important
     height: auto !important
 .resizePopupPhoto
     width: -moz-calc(100% - 48px)
     width: -webkit-calc(100% - 48px)
     width: calc(100% - 48px)
+    margin-left: 0px !important
