@@ -201,6 +201,7 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
                     # phone: $('#tel').text()
                 # user.set 'avatar', data.id
                 user.save()
+                app.models.myuser.set user
                 that.render 3
 # # =======
 # #         that = @
