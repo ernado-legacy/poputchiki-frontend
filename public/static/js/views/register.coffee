@@ -277,12 +277,12 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
         app.views.login.render()
         event.preventDefault()
 
-    photoload: ->
+    photoload: (event) ->
         do event.preventDefault
         $ '#imgfile'
             .trigger 'click'
 
-    changeimg: ->    
+    changeimg: (event) ->
         do event.preventDefault
         form = $ '.loginRegisterBlock'
         data = new FormData form.get(0)
