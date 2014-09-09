@@ -41,15 +41,20 @@ app.views.Photo = Backbone.View.extend
 
         $('.photoPopup .imgBox img').attr 'src', @model.get 'url'
 
-        $('.photoPopup .imgBox img').removeClass 'resizePopupImg'
-        $('.photoPopup .imgBox').removeClass 'resizePopupImgBox'
-        if $(window).width()>= $('.photoPopup').outerWidth()
+        h = $('.photoPopup .imgBox img').height()
+        w = $('.photoPopup .imgBox img').width()
+        x = w*500/h + 40
+        if  $(window).width()>= x
+        #$('.photoPopup').outerWidth()
+            $('.photoPopup .imgBox img').removeClass 'resizePopupImg'
+            $('.photoPopup .imgBox').removeClass 'resizePopupImgBox'
+            $('.photoPopup').removeClass 'resizePopupPhoto'
             n = ($(window).width() - $('.photoPopup').outerWidth())/2
             $('.photoPopup').css 'margin-left', n
         else
             $('.photoPopup .imgBox img').addClass 'resizePopupImg'
             $('.photoPopup .imgBox').addClass 'resizePopupImgBox'
-            #$('.photoPopup').addClass 'resizePopupPhoto'
+            $('.photoPopup').addClass 'resizePopupPhoto'
 
         _.each ['.arrow-left', '.arrow-right', 'img'], (item) ->
             do $('.photoPopup ' + item).unbind

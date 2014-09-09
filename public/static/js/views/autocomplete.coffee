@@ -5,7 +5,7 @@ app.views.Autocomplete = Backbone.View.extend
         'focusout input': 'out'
         'click li.dl': 'lc'
         'click .dd': 'press',
-        # 'click .du': 'press'
+        #'click .du': 'hide_list'
 
     getdata: (val, callback) ->
         callback ["1","2","3"]
@@ -13,10 +13,14 @@ app.views.Autocomplete = Backbone.View.extend
     press: (event) ->
         input = @$el.find 'input'
         droped = @$el.find '.droped'
+        #$(event.target).css display: "none"
+        #$(event.target).next().css display: "block"
 
         if event.which==13
             input.val $(droped.find('li')[0]).text()
             droped.css 'display', 'none'
+            $(event.target).parent().find('.du').css display: 'none'
+            $(event.target).parent().find('.dd').css display: 'block'
             @afterchange()
             do event.preventDefault
             return
@@ -28,10 +32,20 @@ app.views.Autocomplete = Backbone.View.extend
                 _.each data, (item,index) ->
                     # if index < 5
                     droped.append '<li class="dl">' + item + '</li>'
-                droped.css 'display', 'block' 
+                droped.css 'display', 'block'
+                $(event.target).parent().find('.dd').css display: 'none'
+                $(event.target).parent().find('.du').css display: 'block'
             else
                 droped.css 'display', 'none'
         true
+
+    hide_list: (event) ->
+        droped = @$el.find '.droped'
+        droped.css 'display', 'none'            
+        $(event.target).css display: "none"
+        $(event.target).prev().css display: "block"
+        do event.preventDefault
+        return
 
     out: ->
         setTimeout (=>
@@ -44,6 +58,8 @@ app.views.Autocomplete = Backbone.View.extend
         text = el.text()
         input = @$el.find 'input'
         input.val text
+        $(input).parent().find('.du').css display: 'none'
+        $(input).parent().find('.dd').css display: 'block'
         @afterchange()
         do @out
 
