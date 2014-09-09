@@ -42,6 +42,10 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .mainCrs .wrapper': 'stopMedia'
         'click .likes': 'likers_popup'
         'click .openprofile': 'profilerender'
+        'click .box': 'check_box'
+
+    check_box: (e)->
+        $(e.currentTarget).toggleClass('checked')
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")

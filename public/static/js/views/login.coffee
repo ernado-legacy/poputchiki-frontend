@@ -6,7 +6,7 @@ app.views.Login = Backbone.View.extend
         "click .blogin": "login"
         "click #header-exit": "logout"
         "click #forgot-password": "forgot_password"
-        'click .box': 'remember'
+        # 'click .box': 'remember'
 
     check_status: (callback) ->
         if Boolean $.cookie 'token'

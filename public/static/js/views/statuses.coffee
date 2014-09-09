@@ -9,16 +9,16 @@ app.views.Statuses = Backbone.View.extend
 
 
     
-    sexfilter: (e)->
-        do @loadingstatuses
-        # @$el.find('.box').removeClass 'checked'
-        box = $(e.currentTarget)
-        box.toggleClass 'checked'
-        if not box.hasClass 'checked'
-            box.addClass 'checked'
-        else
-            box.removeClass 'checked'
-        do @rerender
+    # sexfilter: (e)->
+    #     do @loadingstatuses
+    #     # @$el.find('.box').removeClass 'checked'
+    #     # box = $(e.currentTarget)
+    #     # box.toggleClass 'checked'
+    #     # if not box.hasClass 'checked'
+    #     #     box.addClass 'checked'
+    #     # else
+    #     #     box.removeClass 'checked'
+    #     do @rerender
 
     render: ->
         do @loadingstatuses
@@ -53,12 +53,17 @@ app.views.Statuses = Backbone.View.extend
             offset: offset
             count: 20
 
-        if $('.manBox .checked').length == 1
+        console.log $('.manBox .box').hasClass('checked')
+        if $('.manBox .box').hasClass('checked')
             statusfilterdata.sex = 'male'
-        if $('.womanBox .checked').length == 1
+        if $('.womanBox .box').hasClass('checked')
             statusfilterdata.sex = 'female'
-        if $('.womanBox .checked').length == 1 and $('.manBox .checked').length == 1
+        if $('.womanBox .box').hasClass('checked') and $('.manBox .box').hasClass('checked')
             statusfilterdata.sex = ''
+            delete statusfilterdata.sex
+
+        console.log statusfilterdata
+
         if @$el.find('.searchCountry input').val()
             statusfilterdata.country = @$el.find('.searchCountry input').val()
         if @$el.find('.searchCity input').val()

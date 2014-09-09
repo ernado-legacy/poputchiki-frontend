@@ -13,8 +13,10 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
         'click .sexBox .box': 'change_sex'
 
     change_sex: (e)->
-        @$el.find('.sexBox .box').removeClass 'checked'
-        $(e.currentTarget).addClass 'checked'
+        do e.preventDefault
+        @$el.find('.loginRegisterBlock .sexBox .box').removeClass 'checked'
+        # $(e.currentTarget).addClass 'checked'
+        false
 
 
     render: (n) ->
@@ -117,8 +119,8 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
                         sctv = new app.views.AutocompleteCity
                             el: sct
                         sctv.country = scv
-                        $('.box').click ->
-                            $('.box').toggleClass('checked')
+                        # $('.box').click ->
+                        #     $('.box').toggleClass('checked')
 
     getDate: (date_block)->
         d = date_block.find('#day-edit-select').text()

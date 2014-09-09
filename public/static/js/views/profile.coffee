@@ -208,7 +208,6 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             user: @model.attributes
 
     removeDestinations: (e) ->
-        console.log d
         d = $(e.currentTarget).closest('.withShadow').text()
         destinations = @model.get('destinations')
         destinations =  _.without(destinations, d)
