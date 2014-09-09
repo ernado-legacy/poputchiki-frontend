@@ -7,7 +7,7 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .profile-search': 'dosearchbubuttonclick'
         # 'click .profile-search': 'render'
         'click a.ldblock': 'link'
-        #'click .searchBox .box': 'toogle'
+        # 'click .searchBox .box': 'toogle'
         "click #my-folowers .season": 'setSeasons'
         "click .gallery li": 'link_to_user'
     link_to_user: (e)->
@@ -143,8 +143,8 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         # $('.guests .chatLine').append listUserView.render()
         @$el.find('.gallery ul').append listUserView.render()
 
-    toogle: (event) ->
-        $(event.currentTarget).toggleClass('checked')
+    # toogle: (event) ->
+    #     $(event.currentTarget).toggleClass('checked')
 
     link: (event) ->
         event.preventDefault()

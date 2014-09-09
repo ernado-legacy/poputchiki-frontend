@@ -8,6 +8,7 @@ $header_logo: #44cff7
 
 $footer_background: #a6a6a6
 
+// $menu_border: #9da2a3
 $menu_border: #9da2a3
 $menu_messages: #0ad4e6
 $menu_favorites: #ffa200
@@ -454,12 +455,13 @@ footer
                 display: block
                 top: 26px
                 //opacity: 0
-                color: $menu_border
+                // color: $menu_border
+                color: black
                 //visibility: hidden
             .visibleSpan
                 visibility: visible
         li:before
-            width: 5px
+            width: 10px
             height: 100%
             float: left
             content: ""
@@ -508,7 +510,7 @@ footer
         #menu-tools:before
             background-color: $menu_tools
         #menu-profile
-            width: 80%
+            width: 85%
             .fui-user
                 color: grey
                 font-size: 40px
@@ -2862,8 +2864,9 @@ a.ldblock
             background-color: $menu_photos
 
 // #ri-grid
-//    background: url('/static/img/7021734043_31ce932b04_o.jpg')
-//    background-size: cover
+//     background: url('/static/img/login_back.jpg')
+//     background-size: cover
+// 
 .resizePopupImg
     height: auto !important
     width: 100%
