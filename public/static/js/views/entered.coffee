@@ -42,6 +42,10 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .mainCrs .wrapper': 'stopMedia'
         'click .likes': 'likers_popup'
         'click .openprofile': 'profilerender'
+        'click .box': 'check_box'
+
+    check_box: (e)->
+        $(e.currentTarget).toggleClass('checked')
 
     showMenu: (end) ->
         anim = document.getElementById("left-menu")
@@ -153,7 +157,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         #$('.choose-promo-photo').click ->
         #    $('.popup').fadeOut('slow')
-        #    $('.promoPopup').fadeIn('slow')
+        #    $('.promoPopup').fadeIn('slow')p
 
         $('.imgRow .imgBox').click ->
             $('.imgRow .imgBox').removeClass 'chosenImg'
@@ -169,6 +173,10 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             if not result
                 app.views.login.render()
             else
+                app.models.myuser.get (user)->
+                    if not user.get('avatar')
+                        app.views.register.id = user.get('id')
+                        app.views.register.render(3)
                 do that.render
                 app.views.message = new app.views.Message
                 app.views.messageside = new app.views.MessageSide
