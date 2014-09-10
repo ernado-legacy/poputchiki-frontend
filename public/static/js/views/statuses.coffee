@@ -62,7 +62,6 @@ app.views.Statuses = Backbone.View.extend
             statusfilterdata.sex = ''
             delete statusfilterdata.sex
 
-        console.log statusfilterdata
 
         if @$el.find('.searchCountry input').val()
             statusfilterdata.country = @$el.find('.searchCountry input').val()
@@ -77,6 +76,9 @@ app.views.Statuses = Backbone.View.extend
                 _.each that.$el.find('.statusBlock'), (item) ->
                     view = new app.views.Status 
                         el: item
+                    id =  $(item).data 'status'
+                    view.statusmodel = statuses.get(id)
+                    # console.log view.statusmodel.attributes
                     do view.updatelike
                 callback(statuses) if callback
                 # usersidlist = _.uniq statuses.map (item) ->

@@ -23,6 +23,7 @@ server.get '/followers/', index
 server.get '/guests/', index
 server.get '/search/', index
 server.get '/settings/', index
+server.get '/dialogs/', index
 server.get '/settings/:type', index
 
 

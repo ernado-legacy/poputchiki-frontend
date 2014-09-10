@@ -25,6 +25,7 @@ app.views.Favs = Backbone.View.extend
         that = @
         history.pushState null, 'poputchiki', '/followers/'
         app.models.myuser.get (user) ->
+            user.updateDate 'vip_till'
             collection = new app.models.Followers [], id:user.get('id')
             collection.fetch().done () ->
                 $ that.$el.html jade.templates.favs
@@ -40,6 +41,7 @@ app.views.Favs = Backbone.View.extend
         that = @
         history.pushState null, 'poputchiki', '/favourites/'
         app.models.myuser.get (user) ->
+            user.updateDate 'vip_till'
             app.models.myuser.get_favs (collection) ->
                 $ that.$el.html jade.templates.favs
                         user: user.attributes
