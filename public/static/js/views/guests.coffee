@@ -24,6 +24,7 @@ app.views.Guests = Backbone.View.extend
         that = @
         history.pushState null, 'poputchiki', '/guests/'
         app.views.profile.get_my_user (user) ->
+            user.updateDate 'vip_till'
             collection = new app.models.Guests [], id:user.get('id')
             collection.fetch().done () ->
                 $ that.$el.html jade.templates.guests

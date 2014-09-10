@@ -3,6 +3,12 @@ app.views.Dialogs = Backbone.View.extend
 
     el: '.mainContentProfile'
 
+    events: 
+        'click li':'write'
+
+    write: (e)->
+        $(e.currentTarget).find('.write').click()
+
 
     # get_my_user: (callback) ->
     #     collection = app.models.Guests
