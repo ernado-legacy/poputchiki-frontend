@@ -1,29 +1,29 @@
 .leftBox
-  div(class = user.rating < 70 ? user.rating < 35 ? "profileBox low-rating" : "profileBox middle-rating" : "profileBox")
-    .imgBox
-      img(src=user.avatar_url)
-      .coverfalt
-      span#change-avatar
-        i.fui-photo 
-        | Изменить фото
-    #profile-rating(class = user.rating < 70 ? user.rating < 35 ? "low-rating" : "middle-rating" : "") #{user.rating} %
-  if (user.audio_url)
-    .playerBox.clearfix
-      .audio.audio-change-avatar
-        audio
-          //- source(src='/static/audio/audio.mp3', type="audio/mp3")
-          //- source(src='/static/audio/audio.ogg', type="audio/ogg")
-          source(src=user.audio_url)
-      .timeBar
-        .progress
+  //- div(class = user.rating < 70 ? user.rating < 35 ? "profileBox low-rating" : "profileBox middle-rating" : "profileBox")
+  //-   .imgBox
+  //-     img(src=user.avatar_url)
+  //-     .coverfalt
+  //-     span#change-avatar
+  //-       i.fui-photo 
+  //-       | Изменить фото
+  //-   #profile-rating(class = user.rating < 70 ? user.rating < 35 ? "low-rating" : "middle-rating" : "") #{user.rating} %
+  //- if (user.audio_url)
+  //-   .playerBox.clearfix
+  //-     .audio.audio-change-avatar
+  //-       audio
+  //-         //- source(src='/static/audio/audio.mp3', type="audio/mp3")
+  //-         //- source(src='/static/audio/audio.ogg', type="audio/ogg")
+  //-         source(src=user.audio_url)
+  //-     .timeBar
+  //-       .progress
 
 
-  .searchBox
-    .searchBody.clearfix.balance
-      h1 Ваш баланс:
-        a(class="custom-blue-link menu-settings", data-id="payment") #{user.balance} 
-        .pop-coin
-  .searchBox
+  //- .searchBox
+  //-   .searchBody.clearfix.balance
+  //-     h1 Ваш баланс:
+  //-       a(class="custom-blue-link menu-settings", data-id="payment") #{user.balance} 
+  //-       .pop-coin
+  .searchBox#searchBox
     .searchBody.clearfix#my-wishes
       h1 хочу найти
       .greenDots

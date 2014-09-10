@@ -6,7 +6,7 @@ app.views.Login = Backbone.View.extend
         "click .blogin": "login"
         "click #header-exit": "logout"
         "click #forgot-password": "forgot_password"
-        # 'click .box': 'remember'
+        'click .rememberBox .box': 'remember'
 
     check_status: (callback) ->
         if Boolean $.cookie 'token'
@@ -27,7 +27,7 @@ app.views.Login = Backbone.View.extend
 
     forgot_password: ->
         that = @
-        app.models.login $(".loginRegisterBlock").serialize()
+        app.models.login $(".loginRegisterBlock").serialize().toLowerCase()
             ,(data)=>
                 $('.loginRegisterBlock').toggleClass 'shiv-block'
                 console.log  'имейл уже зарегистрирован'
@@ -60,7 +60,7 @@ app.views.Login = Backbone.View.extend
 
     login: ->
         $('.loginRegisterBlock').removeClass 'shiv-block'
-        app.models.login $(".loginRegisterBlock").serialize()
+        app.models.login $(".loginRegisterBlock").serialize().toLowerCase()
             , (data) ->
                 # $.cookie 'token', data['token']
                 # $.cookie 'user', data['id']
@@ -80,6 +80,7 @@ app.views.Login = Backbone.View.extend
                 return
 
     remember: (event) ->
+        console.log 123
         $(event.target).toggleClass('checked')
 
     seturl: ->

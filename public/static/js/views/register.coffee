@@ -95,7 +95,7 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
 
 
         if _.size(errors) < 1
-            app.models.login $(".loginRegisterBlock").serialize()
+            app.models.login $(".loginRegisterBlock").serialize().toLowerCase()
                 ,(data)=>
                     $('.loginRegisterBlock').toggleClass 'shiv-block'
                     @addErrorToInputContainer $('#email'), 'имейл уже зарегистрирован'
@@ -106,7 +106,7 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
                         @addErrorToInputContainer $('#email'), 'имейл уже зарегистрирован'
                         return
                     else
-                        @reghash = $('form.loginRegisterBlock').serialize()
+                        @reghash = $('form.loginRegisterBlock').serialize().toLowerCase()
                         @render 2
                         @newtag '#year-select'
                         @newtag '#month-select'

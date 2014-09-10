@@ -21,6 +21,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         @get_my_user (user) =>
             app.views.entered.setmenuitem '#menu-profile'
             user.updateDate 'birthday'
+            user.updateDate 'vip_till'
             that.model = user
             app.views.user_photo_block.render(user.id, true)
 
@@ -54,6 +55,14 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 el: sc
 
             $("#edit-profile").click ->
+                $("#about-in-info").css "display", "none"
+                $("#profile-slideup").css "display", "none"
+                $(".profileInfoBox .infoView").css "display", "none"
+                $(".profileInfoBox .infoEdit").slideDown "slow"
+                $("#profile-slidedown").css display: "none"
+                $("#profile-edit-slideup").css "display", "block"
+
+            $(".edit-profile").click ->
                 $("#about-in-info").css "display", "none"
                 $("#profile-slideup").css "display", "none"
                 $(".profileInfoBox .infoView").css "display", "none"
@@ -179,12 +188,12 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     events: 
         "click #profile-edit-slideup span": 'saveProfile'
-        "click #my-profile .money-icon": 'setSponsor'
-        "click #my-profile .house-icon": 'setHost'
+        "click .myProfileContainer .money-icon": 'setSponsor'
+        "click .myProfileContainer .house-icon": 'setHost'
         "click #my-seasons .season": 'setSeasons'
         "click #my-destinations .droped .dl": 'setDestinations'
         "click #my-destinations .close": 'removeDestinations'
-        'click .myProfileContainer .imgBox': 'chava_popup'
+        'click .profileContainer .imgBox': 'chava_popup'
         # 'click #my-profile .money-icon': 'moneyIcon'
         # 'click #my-profile .house-icon': 'houseIcon'
 
@@ -256,17 +265,17 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         do @render
 
     setSponsor: (e)->
-        if $(event.target).hasClass 'money-icon'
-            $(e.currentTarget).toggleClass 'mg-icon'
-            formData = {}
-            formData['is_sponsor'] = @$el.find('.money-icon').hasClass 'mg-icon' 
-            @model.save formData, patch: true
+        # if $(e.currentTarget).hasClass 'mg-icon'
+        $(e.currentTarget).toggleClass 'mg-icon'
+        formData = {}
+        formData['is_sponsor'] = @$el.find('.money-icon').hasClass 'mg-icon' 
+        console.log formData['is_sponsor']
+        @model.save formData, patch: true
     setHost: (e)->
-        if $(event.target).hasClass 'house-icon'
-            $(e.currentTarget).toggleClass 'hg-icon'
-            formData = {}
-            formData['is_host'] = @$el.find('.house-icon').hasClass 'hg-icon'
-            @model.save formData, patch: true
+        $(e.currentTarget).toggleClass 'hg-icon'
+        formData = {}
+        formData['is_host'] = @$el.find('.house-icon').hasClass 'hg-icon'
+        @model.save formData, patch: true
 
 
         # moneyIcon: ->

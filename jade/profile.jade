@@ -1,16 +1,16 @@
 .profileContainer.clearfix.myProfileContainer
-  include leftbox
+  include myleftbox
   .rightBox
     .profileInfoBox.pIBTitle#my-profile
       .name-in-profile #{user.name}, #{user.age} лет
-      div(class = user.is_sponsor === true ? "money-icon mg-icon" : "money-icon")
-        .tooltip.clearfix
-          .tooltip-arrow
-          span Спонсортство
-      div(class = user.is_host === true ? "house-icon hg-icon" : "house-icon")
-        .tooltip.clearfix
-          .tooltip-arrow
-          span Жду&nbsp;в&nbsp;гости
+      //- div(class = user.is_sponsor === true ? "money-icon mg-icon" : "money-icon")
+      //-   .tooltip.clearfix
+      //-     .tooltip-arrow
+      //-     span Спонсортство
+      //- div(class = user.is_host === true ? "house-icon hg-icon" : "house-icon")
+      //-   .tooltip.clearfix
+      //-     .tooltip-arrow
+      //-     span Жду&nbsp;в&nbsp;гости
       .city-in-profile #{user.city}
     .wantToTravelBox.clearfix
       .newStatus Новый статус
