@@ -44,6 +44,11 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .likes': 'likers_popup'
         'click .openprofile': 'profilerender'
         'click .box': 'check_box'
+        'click .letsgoPopup .popupHeader': 'change_letsgo_header'
+
+    change_letsgo_header: (e)->
+        $('.letsgoPopup .popupHeader').removeClass 'activeHeader'
+        $(e.currentTarget).addClass 'activeHeader'
 
     check_box: (e)->
         $(e.currentTarget).toggleClass('checked')

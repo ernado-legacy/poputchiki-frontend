@@ -50,9 +50,9 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 el: sct
             sctv.country = scv
 
-            sc = @$el.find '#my-folowers .searchCountry'
-            scv = new app.views.AutocompleteCountry
-                el: sc
+            # sc = @$el.find '#my-folowers .searchCountry'
+            # scv = new app.views.AutocompleteCountry
+            #     el: sc
 
             $("#edit-profile").click ->
                 $("#about-in-info").css "display", "none"
