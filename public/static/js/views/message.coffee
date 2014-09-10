@@ -111,7 +111,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                                 cb = $ '.chatBlock' + that.du messages.urluser
                                 if not _.size cb
                                     # do playSoundNotification
-                                    li.addClass 'active'
+                                    # li.addClass 'active'
                                     
                                 else
                                     cb.remove()
