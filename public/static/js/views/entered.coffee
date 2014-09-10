@@ -110,7 +110,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
     changemenu: (event) ->
         do @slideHide
         menuhash =
-            'menu-messgaes': app.views.message
+            'menu-messgaes': app.views.dialogs
             'menu-favorites': app.views.favs
             'menu-photos': app.views.guests
             'menu-rating': @rating_popup
@@ -244,6 +244,9 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
                 if window.location.pathname.search('/settings/') != -1
                     do app.views.setting.render
+
+                if window.location.pathname.search('/dialogs/') != -1
+                    do app.views.dialogs.render
 
                 do app.views.stripe.render
 

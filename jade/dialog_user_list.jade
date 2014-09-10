@@ -1,0 +1,42 @@
+a(href="/user/#{user.id}", data-user-id="#{user.id}")
+  img(src=user.avatar_url)
+.info
+  .right
+    .last-date
+      b #{user.timeDay} #{user.timeMonth} 
+    .last-time в 
+      b  #{user.timeTime}
+    br
+    //- ul.action-list
+    //-   li 
+    //-     a.fui-bubble.write
+    //-       span.act-description  написать
+    //-   li
+    //-     if(is_fav)
+    //-       a.fui-star-2.active-action
+    //-     else
+    //-       a.fui-star-2.add_to_fav
+    //-   li
+    //-     a.fui-radio-checked.to_journey
+    .controlLinks.clearfix
+      //- if(is_fav)
+      //-   div(class="like remove_from_fav") убрать из избранных
+      //- else
+      //-   div(class="like add_to_fav") в избранные
+      div(class="note write") ответить
+  .left
+    .name #{user.name}
+    //- .city #{user.age}, #{user.country}
+    br
+    div
+      p.last-message=user.message
+    //- if(user.is_sponsor)
+    //-   div.money-icon.mg-icon
+    //-     .tooltip.clearfix
+    //-       .tooltip-arrow
+    //-       span Спонсортство
+    //- if(user.is_host)
+    //-   div.house-icon.hg-icon
+    //-     .tooltip.clearfix
+    //-       .tooltip-arrow
+    //-       span Жду&nbsp;в&nbsp;гости

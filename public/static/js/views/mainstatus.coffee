@@ -21,7 +21,9 @@ app.views.userMainStatus = app.views.Status.extend
             that = @
             status.fetch
                 success: =>
-                    that.size = status.get 'likes'
+                    that.statusmodel = status
+                    # that.updalike
+                    that.size = status.get('liked_users').length
                     is_mystatus = if app.models.myuser.getid() == user.get 'id' then true else false
                     is_liked = true if app.models.myuser.getid() in status.get 'liked_users'
                     $('.wantToTravelBox').html that.$el.html jade.templates.usermainstatus

@@ -52,13 +52,14 @@ app.views.Status = Backbone.View.extend
         else
             @update_layout @if_like(), ''
 
-    updatelike: ->
-        statusLikes = new app.models.StatusLikes
-        statusLikes.status = @get_status_id()
-        statusLikes.fetch 
-            success: =>
-                myuserid = app.models.myuser.getid()
-                condition = statusLikes.find (item) ->
-                    item.get('id') == myuserid
-                @size = statusLikes.size()
-                @update_layout condition, @size
+    updatelike: ()->
+        # statusLikes = new app.models.StatusLikes
+        # statusLikes.status = @get_status_id()
+        # statusLikes.fetch 
+        #     success: =>
+        myuserid = app.models.myuser.getid()
+        condition = myuserid in @statusmodel.get('liked_users')
+        # condition = @statusmodel.get('liked_users').find (item) ->
+        #     item.get('id') == myuserid
+        @size = @statusmodel.get('liked_users').length
+        @update_layout condition, @size

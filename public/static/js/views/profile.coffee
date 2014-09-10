@@ -208,7 +208,6 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             @model.set 'destinations', destinations
             @model.save
                 success:=>
-                    console.log @model.attributes
                     $('#profile-tags').html jade.templates.user_destinations
                         user: @model.attributes
 
@@ -269,7 +268,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $(e.currentTarget).toggleClass 'mg-icon'
         formData = {}
         formData['is_sponsor'] = @$el.find('.money-icon').hasClass 'mg-icon' 
-        console.log formData['is_sponsor']
+
         @model.save formData, patch: true
     setHost: (e)->
         $(e.currentTarget).toggleClass 'hg-icon'

@@ -14,20 +14,35 @@ app.views.Dialogs = Backbone.View.extend
     render: ()->
         that = @
         history.pushState null, 'poputchiki', '/dialogs/'
-        Dialogs = app.models.Dialogs
-        @dialogs = new Dialogs
+        # Dialogs = app.models.Dialogs
+        # @dialogs = new Dialogs
+        # @dialogs.fetch
+        #     success: () ->
+        #         # console.log  do app.views.messageside.render
+        #         app.views.profile.get_my_user (user) ->
+        #             console.log user.attributes
+        #             $ that.$el.html jade.templates.dialogs
+        #                 dialogs: that.dialogs.models
+        #                 user:user
         app.views.profile.get_my_user (user) ->
-            collection = new app.models.Guests [], id:user.get('id')
+            user.updateDate 'vip_till'
+            Dialogs = app.models.Dialogs
+            collection = new Dialogs
             collection.fetch().done () ->
                 $ that.$el.html jade.templates.dialogs
                     user: user.attributes
-                    guests: collection.toJSON()
-                that.renderGuest guest for guest in collection.models
-                $('#menu-photos').addClass 'current'
+                    # dialogs: collection.toJSON()
+                that.renderDialog dialog for dialog in collection.models
+                $('#menu-messgaes').addClass 'current'
 
-    renderGuest: (user) ->
+    renderDialog: (dialog) ->
+        user = new app.models.User dialog.get('user')
+        user.set 'time', dialog.get('time')
+        user.set 'message', dialog.get('text')
         user.updateDate('time')
         listUserView = new app.views.UserListView 
             model:user,
-            template:jade.templates.guest_user_list
+            template:jade.templates.dialog_user_list
+        if dialog.get('unread')>0
+            listUserView.$el.addClass 'active'
         $('.guests .chatLine').append listUserView.render()

@@ -2,48 +2,47 @@
 
 .profileContainer.clearfix
   include myleftbox
-  .guests
+  .guests#dialogs_list
     .rightBox
       .title Диалоги
-        .title-help-text
-          small
-
-            if (user.vip)
-              |Режим невидики 
-              if (user.invisible)
-                a(class="custom-link menu-settings", data-id="invisible") включен
-              else
-                a(class="custom-link menu-settings", data-id="invisible") выключен
-              |  Вы всегда можете изменить это в 
-              a(class="custom-link menu-settings", data-id="invisible") настройках
-            else
-              | Вы можете
-              a(class="custom-link show-vip")  стать невидимкой
-              |  и вы не будете попадать в список гостей других пользователей
+        //- .title-help-text
+        //-   small диалоги
       .people
         ul.chatLine
-          //- for guest in guests
+          //- for dialog in dialogs
           //-   li
-          //-     a(href="/user/#{guest.id}", data-user-id="#{guest.id}")
-          //-       img(src=guest.avatar_url)
+          //-     a(href="/user/#{dialog.user.id}", data-user-id="#{dialog.user.id}")
+          //-       img(src=dialog.user.avatar_url)
           //-     .info
           //-       .right
-          //-         .last-date Заходил(а) #{guest.time.date}
-          //-         .last-time в #{guest.time.time}
+          //-         //- .last-date Заходил(а) 
+          //-         //-   b #{user.timeDay} #{user.timeMonth}
+          //-         //- .last-time в 
+          //-         //-   b #{user.timeTime}
           //-         br
-          //-         ul.action-list
-          //-           li 
-          //-             a.fui-bubble 
-          //-               span.act-description написать
-          //-           li
-          //-             a.fui-star-2
-          //-           li
-          //-             a.fui-radio-checked
+          //-         //- ul.action-list
+          //-         //-   li 
+          //-         //-     a.fui-bubble.write
+          //-         //-       span.act-description  написать
+          //-         //-   li
+          //-         //-     if(is_fav)
+          //-         //-       a.fui-star-2.active-action
+          //-         //-     else
+          //-         //-       a.fui-star-2.add_to_fav
+          //-         //-   li
+          //-         //-     a.fui-radio-checked.to_journey
+          //-         .controlLinks.clearfix
+          //-           div(class="note write") написать
           //-       .left
-          //-         .name #{guest.name} 
-          //-         .city #{guest.age}, #{guest.country}
-          //-         span
-          //-           if(guest.is_sponsor)
-          //-             img(src='/static/img/money3.png') 
-          //-           if(guest.is_host)
-          //-             img(src='/static/img/house3.png') 
+          //-         .name #{dialog.user.name}
+          //-         .city #{dialog.user.age}, #{dialog.user.country}
+          //-         if(dialog.user.is_sponsor)
+          //-           div.money-icon.mg-icon
+          //-             .tooltip.clearfix
+          //-               .tooltip-arrow
+          //-               span Спонсортство
+          //-         if(dialog.user.is_host)
+          //-           div.house-icon.hg-icon
+          //-             .tooltip.clearfix
+          //-               .tooltip-arrow
+          //-               span Жду&nbsp;в&nbsp;гости
