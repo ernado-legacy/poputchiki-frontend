@@ -1,0 +1,206 @@
+.leftBox#myLeftBox
+  div(class = user.rating < 70 ? user.rating < 35 ? "profileBox low-rating" : "profileBox middle-rating" : "profileBox")
+    .imgBox
+      img(src=user.avatar_url)
+      .coverfalt
+      span#change-avatar
+        i.fui-photo 
+        | Изменить фото
+    #profile-rating(class = user.rating < 70 ? user.rating < 35 ? "low-rating" : "middle-rating" : "") #{user.rating} %
+  if (user.audio_url)
+    .playerBox.clearfix
+      .audio.audio-change-avatar
+        audio
+          //- source(src='/static/audio/audio.mp3', type="audio/mp3")
+          //- source(src='/static/audio/audio.ogg', type="audio/ogg")
+          source(src=user.audio_url)
+      .timeBar
+        .progress
+
+
+  .searchBox
+    .searchBody.clearfix.balance
+      h1 Ваш баланс:
+        a(class="custom-blue-link menu-settings", data-id="payment") #{user.balance} 
+        .pop-coin
+
+  if user.vip
+    .searchBox
+      .searchBody.clearfix.balance
+        h1 вип-статус
+          a(class="custom-blue-link show-vip") активен
+        br
+        .last-action Активен до 
+          b  #{user.vip_tillDay} #{user.vip_tillMonth}
+
+  .searchBox
+    .searchBody.clearfix.balance
+      h1 Найдите новых попутчиков!
+      //- a(class="custom-blue-link open-promo") В фото-ленту!
+      //- .slideDown#search-slideup хочу найти
+
+  if user.balance > 50
+    div
+      span.lp
+      span.rp
+        .profile-button.open-promo
+          span В фото-ленту
+  div
+    span.lp
+    span.rp
+      .profile-button.go-to-statuses
+        span Добавьте новый статус
+
+  if !user.about || !user.age
+    div
+      span.lp
+      span.rp
+        .profile-button.edit-profile
+          span Заполните ваши данные
+
+  .searchBox
+    .searchBody.clearfix.balance
+      .greenDots
+      .nearBox.clearfix.host-search
+        div(class = user.is_sponsor === true ? "money-icon mg-icon" : "money-icon") - 
+          .tooltip.clearfix
+            .tooltip-arrow
+            span Спонсортство
+        .sponsor-search-description Включите иконку, если вы готовы оплатить путешествие!
+      .greenDots
+      .nearBox.clearfix.host-search
+        div(class = user.is_host === true ? "house-icon hg-icon" : "house-icon") - 
+          .tooltip.clearfix
+            .tooltip-arrow
+            span Жду&nbsp;в&nbsp;гости
+        .host-search-description Включите иконку, если вы готовы приянть попутчиков у себя дома!
+  //- .searchBox
+  //-   .searchBody.clearfix#my-wishes
+  //-     h1 хочу найти
+  //-     .greenDots
+  //-     #search-age Возраст
+  //-     .ageBox.clearfix
+  //-       span От
+  //-       .ageFrom
+  //-         input#search-age-from(type='text',  maxlength="2", value=user.likings_age_min)
+  //-       span до
+  //-       .ageTo
+  //-         input#search-age-to(type='text',  maxlength="2", value=user.likings_age_max)
+  //-     .greenDots
+  //-     #search-sex Пол
+  //-     .sexBox.clearfix
+  //-       if user.likings_sex
+  //-         .manBox
+  //-           div(class =  user.likings_sex === 'male' ? 'box checked': 'box')
+  //-           span Мужчины
+  //-         .womanBox
+  //-           div(class =  user.likings_sex === 'female' ? 'box checked': 'box')
+  //-           span Женщины
+  //-       else
+  //-         .manBox
+  //-           div(class =  user.sex === 'female' ? 'box checked': 'box')
+  //-           span Мужчины
+  //-         .womanBox
+  //-           div(class =  user.likings_sex === 'male' ? 'box checked': 'box')
+  //-           span Женщины
+  //-     .greenDots
+  //-     span#search-places Cтраны/города
+  //-     .mainSelectElement.searchCountry.withShadow
+  //-       input.search-select(placeholder='Все страны...', type='text',  maxlength="20", id='search-country-input', value=user.likings_country)
+  //-       .dd
+  //-       .du
+  //-       ul.droped.withShadow
+  //-         //- li.dl Россия
+  //-         //- li.dl Африка
+  //-         //- li.dl Европа
+  //-     .mainSelectElement.searchCity.withShadow
+  //-       input.search-select(placeholder='Все города...', type='text',  maxlength="20", id='search-city-input', value=user.likings_city)
+  //-       .dd
+  //-       .du
+  //-       ul.droped.withShadow
+  //-         //- li.dl Москва
+  //-         //- li.dl Киев
+  //-         //- li.dl Минск
+  //-     //- .nearBox.clearfix
+  //-     //-   .box.checked
+  //-     //-   span Искать рядом
+  //-     .greenDots
+  //-     .nearBox.clearfix.host-search
+  //-         .house-icon - 
+  //-           .tooltip.clearfix
+  //-             .tooltip-arrow
+  //-             span В&nbsp;гости
+  //-         .host-search-description Включите иконку, чтобы найти людей, которые могут принять Вас в гости!
+  //-         //- .house-icon
+  //-         //-   .tooltip.clearfix
+  //-         //-     .tooltip-arrow
+  //-         //-     span Домик
+  //-     .tagsBox.clearfix#tb-s
+
+  //-     .greenDots
+  //-     .slideDown#search-slidedown расширенный поиск
+  //-   .searchBody.clearfix#my-folowers
+  //-     h1 расширенный поиск
+  //-     .greenDots
+  //-     #seasons Выберите сезон:
+  //-       if user.likings_seasons
+  //-         .seasonsBox.clearfix
+  //-           div(id = "spring", class = user.likings_seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
+  //-             span весна
+  //-           div(id = "summer", class = user.likings_seasons.indexOf("summer")>-1 ? "season seasonChecked" : "season")
+  //-             span лето
+  //-           div(id = "autumn", class = user.likings_seasons.indexOf("autumn")>-1 ? "season seasonChecked" : "season")
+  //-             span осень
+  //-           div(id = "winter", class = user.likings_seasons.indexOf("winter")>-1 ? "season seasonChecked" : "season")
+  //-             span зима
+  //-       else 
+  //-         .seasonsBox.clearfix
+  //-           div(id = "spring", class = "season")
+  //-             span весна
+  //-           div(id = "summer", class = "season")
+  //-             span лето
+  //-           div(id = "autumn", class = "season")
+  //-             span осень
+  //-           div(id = "winter", class = "season")
+  //-             span зима
+  //-     .greenDots
+  //-     span#search-places-f Выберите направления
+  //-     .folowersWrapper.clearfix#folowers-tags
+  //-       .mainSelectElement.searchCountry.withShadow
+  //-         input.search-select(placeholder='...', type='text',  maxlength="20", id="folowers-new-tag")
+  //-         .dd
+  //-         .du
+  //-         ul.droped.withShadow
+  //-           li.dl Россия
+  //-           li.dl Африка
+  //-           li.dl Европа
+  //-       .tagsBox.clearfix#tb-f
+
+  //-     .greenDots
+  //-     div(class = user.vip === true ? 'nearBox clearfix sponsor-search' : 'nearBox clearfix sponsor-search show-vip')
+  //-         .inactiveblock
+  //-         if (user.vip)
+  //-           .money-icon - 
+  //-             .tooltip.clearfix
+  //-               .tooltip-arrow
+  //-               span Спонсорство
+  //-         else
+  //-           .money-icon-inactive - 
+  //-             .tooltip.clearfix
+  //-               .tooltip-arrow
+  //-               span Спонсорство
+  //-         .sponsor-search-description Включите иконку, чтобы искать только тех, кто готов взять все расходы!
+  //-         //- .house-icon
+  //-         //-   .tooltip.clearfix
+  //-         //-     .tooltip-arrow
+  //-         //-     span Домик
+      
+  //-     .greenDots
+  //-     .slideDown#search-slideup хочу найти
+  //- div
+  //-   span.lp
+  //-   span.rp
+  //-     .profile-search
+  //-       span 
+  //-         span.fui-search 
+  //-         | Найти

@@ -230,12 +230,15 @@ $profile_status_text: #4b4b4b
   .online
     background-image: url('../img/circle.png')
     background-repeat: no-repeat
-    position: absolute
-    right: 12px
-    top: 10px
-    width: 18px
+    // position: absolute
+    margin: 0 auto
+    // right: 12px
+    // top: 10px
+    width: 65px
     height: 18px
     z-index: 100
+    text-align: left
+    background-position: right
   .profileGuest 
     .imgBox
       cursor: pointer
@@ -366,3 +369,13 @@ header.info-header
 .likes.fui-heart::before
   padding-left: 4px
   padding-right: 4px
+#myLeftBox
+  .profile-button.open-promo
+    background-color: rgba(255, 162, 0, 0.6)
+  .profile-button.go-to-statuses
+    background-color: rgba(10, 212, 230, 0.6)
+  .last-action
+    color: $title_text
+    font-size: 11px
+    margin: 0px 0px 12px 1px
+    // text-align: right

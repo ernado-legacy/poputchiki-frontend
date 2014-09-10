@@ -7,6 +7,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click #header-journeys': 'search'
         # 'click .header-profile-statuses': 'guests'
         'click .header-profile-statuses': 'statuses'
+        'click .go-to-statuses': 'statuses'
         'click .audio': 'play_audio'
         'click .video': 'play_video'
         'click .leftMenu li': 'changemenu'
@@ -26,8 +27,8 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click #search-slideup': 'left_sup'
         'click #search-slidedown': 'left_sdown'
         # 'click .season': 'season'
-        'click .nearBox .money-icon': 'moneyIcon'
-        'click .nearBox .house-icon': 'houseIcon'
+        'click #searchBox .nearBox .money-icon': 'moneyIcon'
+        'click #searchBox .nearBox .house-icon': 'houseIcon'
         # 'click .searchBody .dd': 'open_box'
         'click .searchBody .du': 'close_box'
         #'click .searchBody .dl': 'select_box'
@@ -43,6 +44,11 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .likes': 'likers_popup'
         'click .openprofile': 'profilerender'
         'click .box': 'check_box'
+        'click .letsgoPopup .popupHeader': 'change_letsgo_header'
+
+    change_letsgo_header: (e)->
+        $('.letsgoPopup .popupHeader').removeClass 'activeHeader'
+        $(e.currentTarget).addClass 'activeHeader'
 
     check_box: (e)->
         $(e.currentTarget).toggleClass('checked')
@@ -193,6 +199,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.rating = app.views.Rating
                 app.views.setting = new app.views.Setting
 
+                app.views.dialogs = new app.views.Dialogs
                 app.views.guests = new app.views.Guests
                 app.views.favs = new app.views.Favs
                 app.views.popupphoto = new app.views.PopupPhoto
