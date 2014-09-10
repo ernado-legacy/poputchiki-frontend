@@ -25,7 +25,7 @@
   //-       .pop-coin
   .searchBox#searchBox
     .searchBody.clearfix#my-wishes
-      h1 хочу найти
+      h1 1. Сначала выбери себе попутчика
       .greenDots
       #search-age Возраст
       .ageBox.clearfix
@@ -53,7 +53,7 @@
             div(class =  user.likings_sex === 'male' ? 'box checked': 'box')
             span Женщины
       .greenDots
-      span#search-places Cтраны/города
+      span#search-places Откуда: страны/города
       .mainSelectElement.searchCountry.withShadow
         input.search-select(placeholder='Все страны...', type='text',  maxlength="20", id='search-country-input', value=user.likings_country)
         .dd
@@ -87,9 +87,9 @@
       .tagsBox.clearfix#tb-s
 
       .greenDots
-      .slideDown#search-slidedown расширенный поиск
+      .slideDown#search-slidedown 2. Далее определитесь с направлением
     .searchBody.clearfix#my-folowers
-      h1 расширенный поиск
+      h1 2. Определитесь с направлением
       .greenDots
       #seasons Выберите сезон:
         if user.likings_seasons
@@ -145,7 +145,7 @@
           //-     span Домик
       
       .greenDots
-      .slideDown#search-slideup хочу найти
+      .slideDown#search-slideup Вернуться
   div
     span.lp
     span.rp
