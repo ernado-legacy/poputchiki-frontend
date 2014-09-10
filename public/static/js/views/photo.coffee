@@ -81,7 +81,7 @@ app.views.Photo = Backbone.View.extend
             react @, 'right'
 
         $('.photoPopup img').click =>
-            react @, 'left'
+            react @, 'right'
 
         
         if @model.get 'user_object'
