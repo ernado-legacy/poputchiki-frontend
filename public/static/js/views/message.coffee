@@ -145,9 +145,9 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         get_cb = ->
             $ '.chatBlock' + that.du user
 
-        #if _.size get_cb()
-        #    get_cb().remove()
-        #    return
+        if _.size get_cb()
+            get_cb().remove()
+            return
 
         dialog = @dialogs.find (item) -> user == item.get 'id'
         $('.chatContainer').append jade.templates.dialog_item
