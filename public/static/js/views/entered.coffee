@@ -58,14 +58,12 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         ,false)
 
     resizeonload: ->
-        $(window).load ->
-            if $(window).width() >= 1730
-                $('.carouselBox').css 'width', '1440px'
-            else
-                wdth = ($('.topContainer').width() - 210).toString() + 'px'
-                $('.carouselBox').css 'width', wdth
-            cw = ($('.mainCrs').length * 160).toString() + 'px'
-            $(".carousel").css "width", cw
+        #$(window).load ->
+        #    if $(window).width() >= 1730
+        #        $('.carouselBox').css 'width', '1440px'
+        #    else
+        #        wdth = ($('.topContainer').width() - 210).toString() + 'px'
+        #        $('.carouselBox').css 'width', wdth
 
         $(window).resize ->
             if $(window).width() >= 1730
