@@ -1,6 +1,6 @@
 if photo.url
   div.photo-time #{photo.timeDay} #{photo.timeMonth} #{photo.timeYear}
-  img(src=photo.thumbnail_url,id=photo.id)
+  img(src=photo.url,id=photo.id)
   if (is_my_user)
     .actions
       a(class="action-like custom-link", data-like = liked_by?'false':'true') Мне нравится

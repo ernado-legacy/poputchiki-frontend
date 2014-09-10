@@ -1,0 +1,49 @@
+
+
+.profileContainer.clearfix
+  include myleftbox
+  .guests
+    .rightBox
+      .title Диалоги
+        .title-help-text
+          small
+
+            if (user.vip)
+              |Режим невидики 
+              if (user.invisible)
+                a(class="custom-link menu-settings", data-id="invisible") включен
+              else
+                a(class="custom-link menu-settings", data-id="invisible") выключен
+              |  Вы всегда можете изменить это в 
+              a(class="custom-link menu-settings", data-id="invisible") настройках
+            else
+              | Вы можете
+              a(class="custom-link show-vip")  стать невидимкой
+              |  и вы не будете попадать в список гостей других пользователей
+      .people
+        ul.chatLine
+          //- for guest in guests
+          //-   li
+          //-     a(href="/user/#{guest.id}", data-user-id="#{guest.id}")
+          //-       img(src=guest.avatar_url)
+          //-     .info
+          //-       .right
+          //-         .last-date Заходил(а) #{guest.time.date}
+          //-         .last-time в #{guest.time.time}
+          //-         br
+          //-         ul.action-list
+          //-           li 
+          //-             a.fui-bubble 
+          //-               span.act-description написать
+          //-           li
+          //-             a.fui-star-2
+          //-           li
+          //-             a.fui-radio-checked
+          //-       .left
+          //-         .name #{guest.name} 
+          //-         .city #{guest.age}, #{guest.country}
+          //-         span
+          //-           if(guest.is_sponsor)
+          //-             img(src='/static/img/money3.png') 
+          //-           if(guest.is_host)
+          //-             img(src='/static/img/house3.png') 

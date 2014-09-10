@@ -193,7 +193,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         "click #my-seasons .season": 'setSeasons'
         "click #my-destinations .droped .dl": 'setDestinations'
         "click #my-destinations .close": 'removeDestinations'
-        'click .profileContainer .imgBox': 'chava_popup'
+        'click #myLeftBox .imgBox': 'chava_popup'
         # 'click #my-profile .money-icon': 'moneyIcon'
         # 'click #my-profile .house-icon': 'houseIcon'
 

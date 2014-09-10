@@ -201,6 +201,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.rating = app.views.Rating
                 app.views.setting = new app.views.Setting
 
+                app.views.dialogs = new app.views.Dialogs
                 app.views.guests = new app.views.Guests
                 app.views.favs = new app.views.Favs
                 app.views.popupphoto = new app.views.PopupPhoto

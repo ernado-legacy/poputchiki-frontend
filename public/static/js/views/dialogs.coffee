@@ -1,4 +1,4 @@
-app.views.Guests = Backbone.View.extend
+app.views.Dialogs = Backbone.View.extend
 
 
     el: '.mainContentProfile'
@@ -11,22 +11,15 @@ app.views.Guests = Backbone.View.extend
     #         success: ->
     #             callback user
 
-    initialize: ->
-        $.get '/api/updates?type=guests',
-            (data)->
-                # console.log 'new guests'
-                # console.log data.length
-            ,
-            'json'
-        # do $('#menu-photos .menuIcon.new div').show
-
     render: ()->
         that = @
-        history.pushState null, 'poputchiki', '/guests/'
+        history.pushState null, 'poputchiki', '/dialogs/'
+        Dialogs = app.models.Dialogs
+        @dialogs = new Dialogs
         app.views.profile.get_my_user (user) ->
             collection = new app.models.Guests [], id:user.get('id')
             collection.fetch().done () ->
-                $ that.$el.html jade.templates.guests
+                $ that.$el.html jade.templates.dialogs
                     user: user.attributes
                     guests: collection.toJSON()
                 that.renderGuest guest for guest in collection.models
