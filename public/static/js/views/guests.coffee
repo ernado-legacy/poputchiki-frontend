@@ -12,10 +12,10 @@ app.views.Guests = Backbone.View.extend
     #             callback user
 
     initialize: ->
-        $.get '/api/updates?type=guests',
+        $.get '/api/updates/counters',
             (data)->
-                # console.log 'new guests'
-                # console.log data.length
+                console.log 'new guests'
+                console.log item for item in  data
             ,
             'json'
         # do $('#menu-photos .menuIcon.new div').show
