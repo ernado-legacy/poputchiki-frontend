@@ -12,15 +12,39 @@ app.views.Guests = Backbone.View.extend
     #             callback user
 
     initialize: ->
-        $.get '/api/updates/counters',
+        @new_guests = []
+        # do @ask_for_new_guests
+
+    ask_for_new_guests: ->
+        that = @
+        $.get '/api/updates?type=guests',
             (data)->
-                console.log 'new guests'
-                console.log item for item in  data
+                for item in  data
+                    that.new_guests.push item.id
+                    # if item.type== 'guests' and item.count>0
+                $('#menu-photos .menuIcon.new div').text that.new_guests.length
+                do $('#menu-photos .menuIcon.new div').show
             ,
             'json'
-        # do $('#menu-photos .menuIcon.new div').show
+
+    mark_new_guests: ->
+        $.get '/api/updates?type=guests',
+            (data)->
+                # for item in  data
+                #     if item.type== 'guests' and item.count>0
+                #         $('#menu-photos .menuIcon.new div').text item.count
+                for i in data
+                    console.log i
+            ,
+            'json'
+
+        
 
     render: ()->
+        # do @mark_new_guests
+        # do $('#menu-photos .menuIcon.new div').hide
+        app.models.myuser.mark_notifications @new_guests
+
         that = @
         history.pushState null, 'poputchiki', '/guests/'
         app.views.profile.get_my_user (user) ->
