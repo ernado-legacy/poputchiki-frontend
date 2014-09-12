@@ -3,11 +3,17 @@ app.views.Dialogs = Backbone.View.extend
 
     el: '.mainContentProfile'
 
-    events: 
-        'click #dialogs_list li':'write'
+    # events: 
+    #     'click #dialogs_list li':'write'
+        
 
-    write: (e)->
-        $(e.currentTarget).find('.write').click()
+
+    # remove_dialog: ->
+    #     console.log 'remove dialog'
+    #     false
+
+    # write: (e)->
+    #     $(e.currentTarget).find('.write').click()
 
 
     # get_my_user: (callback) ->

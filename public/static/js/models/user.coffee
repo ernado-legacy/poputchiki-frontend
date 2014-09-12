@@ -5,16 +5,138 @@ app.models.User = Backbone.Model.extend
 
 
     # initialize: ()->
-    #     if @.get 'last_action'
-    #         @updateDate {}, 'last_action'
-    #     @listenTo @, 'change:birthday', (object)->
-    #         @updateDate object, 'birthday'
+    #     @listenTo @, 'sync', (o)=>
+    #         @set 'zodiac', @get_zodiac_sign(new Date o.get 'birthday').eng
+    #         @set 'zodiac_rus', @get_zodiac_sign(new Date o.get 'birthday').rus
 
-    #     @listenTo @, 'change:last_action', (object)->
-    #         @updateDate object, 'last_action'
-            
+    update_zodiac_sign: ()->
+        if @get 'birthday'
+            @set 'zodiac', @get_zodiac_sign(new Date @get 'birthday').eng
+            @set 'zodiac_rus', @get_zodiac_sign(new Date @get 'birthday').rus
+            console.log @attributes
 
 
+    get_zodiac_sign: (date)->
+        zod_signs = [
+          "capricorn"
+          "aquarius"
+          "pisces"
+          "aries"
+          "taurus"
+          "gemini"
+          "cancer"
+          "leo"
+          "virgo"
+          "libra"
+          "scorpio"
+          "sagittarius"
+        ]
+        zod_signs_rus = [
+            "Козерог",
+            "Водолей",
+            "Рыбы",
+            "Овен",
+            "Телец",
+            "Близнецы",
+            "Рак",
+            "Лев",
+            "Дева",
+            "Весы",
+            "Скорпион",
+            "Стрелец",
+        ]
+        day = date.getDate()
+        month = date.getMonth()
+        zodiacSign = ""
+        switch month
+          when 0 #January
+            if day < 20
+              zodiacSign = zod_signs[0]
+              zodiacSignRus = zod_signs_rus[0]
+            else
+              zodiacSign = zod_signs[1]
+              zodiacSignRus = zod_signs_rus[1]
+          when 1 #February
+            if day < 19
+              zodiacSign = zod_signs[1]
+              zodiacSignRus = zod_signs_rus[1]
+            else
+              zodiacSign = zod_signs[2]
+              zodiacSignRus = zod_signs_rus[2]
+          when 2 #March
+            if day < 21
+              zodiacSign = zod_signs[2]
+              zodiacSignRus = zod_signs_rus[2]
+            else
+              zodiacSign = zod_signs[3]
+              zodiacSignRus = zod_signs_rus[3]
+          when 3 #April
+            if day < 20
+              zodiacSign = zod_signs[3]
+              zodiacSignRus = zod_signs_rus[3]
+            else
+              zodiacSign = zod_signs[4]
+              zodiacSignRus = zod_signs_rus[4]
+          when 4 #May
+            if day < 21
+              zodiacSign = zod_signs[4]
+              zodiacSignRus = zod_signs_rus[4]
+            else
+              zodiacSign = zod_signs[5]
+              zodiacSignRus = zod_signs_rus[5]
+          when 5 #June
+            if day < 21
+              zodiacSign = zod_signs[5]
+              zodiacSignRus = zod_signs_rus[5]
+            else
+              zodiacSign = zod_signs[6]
+              zodiacSignRus = zod_signs_rus[6]
+          when 6 #July
+            if day < 23
+              zodiacSign = zod_signs[6]
+              zodiacSignRus = zod_signs_rus[6]
+            else
+              zodiacSign = zod_signs[7]
+              zodiacSignRus = zod_signs_rus[7]
+          when 7 #August
+            if day < 23
+              zodiacSign = zod_signs[7]
+              zodiacSignRus = zod_signs_rus[7]
+            else
+              zodiacSign = zod_signs[8]
+              zodiacSignRus = zod_signs_rus[8]
+          when 8 #September
+            if day < 23
+              zodiacSign = zod_signs[8]
+              zodiacSignRus = zod_signs_rus[8]
+            else
+              zodiacSign = zod_signs[9]
+              zodiacSignRus = zod_signs_rus[9]
+          when 9 #October
+            if day < 23
+              zodiacSign = zod_signs[9]
+              zodiacSignRus = zod_signs_rus[9]
+            else
+              zodiacSign = zod_signs[10]
+              zodiacSignRus = zod_signs_rus[10]
+          when 10 #November
+            if day < 22
+              zodiacSign = zod_signs[10]
+              zodiacSignRus = zod_signs_rus[10]
+            else
+              zodiacSign = zod_signs[11]
+              zodiacSignRus = zod_signs_rus[1]
+          when 11 #December
+            if day < 22
+              zodiacSign = zod_signs[11]
+              zodiacSignRus = zod_signs_rus[11]
+            else
+              zodiacSign = zod_signs[0]
+              zodiacSignRus = zod_signs_rus[0]
+        eng: zodiacSign,
+        rus: zodiacSignRus
+
+              
     updateDate:  (time_param_name)->
         time_param = new Date @get time_param_name
         # user.time = 
@@ -89,6 +211,15 @@ app.models.User = Backbone.Model.extend
             dataType: "json"
             success: (data) ->
 
+    remove_messeges_with_this_user: (callback) ->
+        $.ajax
+            url: '/api/user/'+@.get('id')+'/messages'
+            type: 'DELETE'
+            # data: "target="+@.get('id')
+            dataType: "json"
+            success: (data) ->
+              do callback
+
                 
 
     parse: (response)->
@@ -103,11 +234,11 @@ app.models.Users = Backbone.Collection.extend
     model: User
     url: '/api/user/'
     # initialize: ->
-    # 	console.log 'Before bind events how is our model?', this.toJSON()
-    # 	this.on("change", this.changeHandler)
+    #   console.log 'Before bind events how is our model?', this.toJSON()
+    #   this.on("change", this.changeHandler)
 
     # fetch: (options)->
-    # 	this.constructor.__super__.fetch.apply @, arguments
+    #   this.constructor.__super__.fetch.apply @, arguments
 
 id  = $.cookie "user"
 
@@ -136,8 +267,8 @@ app.models.FavUsers = Backbone.Collection.extend
     #         time: time_param.getHours()+":"+time_param.getMinutes()
     #     user
     # initialize: ->
-    # 	console.log 'Before bind events how is our model?', this.toJSON()
-    # 	this.on("change", this.changeHandler)
+    #   console.log 'Before bind events how is our model?', this.toJSON()
+    #   this.on("change", this.changeHandler)
 
 app.models.Guests = Backbone.Collection.extend
     initialize: (models,options) ->

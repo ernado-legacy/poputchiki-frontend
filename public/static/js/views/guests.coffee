@@ -12,38 +12,35 @@ app.views.Guests = Backbone.View.extend
     #             callback user
 
     initialize: ->
-        @new_guests = []
-        # do @ask_for_new_guests
+        @new_guests = false
+        do @ask_for_new_guests
 
     ask_for_new_guests: ->
         that = @
-        $.get '/api/updates?type=guests',
+        $.get '/api/updates/counters',
             (data)->
                 for item in  data
-                    that.new_guests.push item.id
-                    # if item.type== 'guests' and item.count>0
-                $('#menu-photos .menuIcon.new div').text that.new_guests.length
-                do $('#menu-photos .menuIcon.new div').show
+                    if item.type== 'guests' and item.count>0
+                        that.new_guests = true
+                        $('#menu-photos .menuIcon.new div').text item.count
+                        do $('#menu-photos .menuIcon.new div').show
             ,
             'json'
 
-    mark_new_guests: ->
-        $.get '/api/updates?type=guests',
+    mark_new_guests: (callback)->
+        $.post '/api/updates?type=guests',
             (data)->
-                # for item in  data
-                #     if item.type== 'guests' and item.count>0
-                #         $('#menu-photos .menuIcon.new div').text item.count
-                for i in data
-                    console.log i
+                do callback
             ,
             'json'
 
         
 
     render: ()->
-        # do @mark_new_guests
-        # do $('#menu-photos .menuIcon.new div').hide
-        app.models.myuser.mark_notifications @new_guests
+        console.log @new_guests
+        if @new_guests
+            @mark_new_guests ->
+                $('#menu-photos .menuIcon.new div').hide("drop")
 
         that = @
         history.pushState null, 'poputchiki', '/guests/'

@@ -7,6 +7,9 @@ app.views.Autocomplete = Backbone.View.extend
         'click .dd': 'press',
         #'click .du': 'hide_list'
 
+    initialize: (options)->
+        @all_tags =  Boolean options.all_tags
+
     getdata: (val, callback) ->
         callback ["1","2","3"]
 
@@ -20,7 +23,7 @@ app.views.Autocomplete = Backbone.View.extend
             if input.val.length>0
                 input.val $(droped.find('li')[0]).text()
             else
-            input.val ''
+                input.val ''
             droped.css 'display', 'none'
             $(event.target).parent().find('.du').css display: 'none'
             $(event.target).parent().find('.dd').css display: 'block'
@@ -29,9 +32,11 @@ app.views.Autocomplete = Backbone.View.extend
             return
 
         val = input.val()
-        @getdata val, (data) ->
+        @getdata val, (data) =>
             if _.size(data) != 0
                 droped.html ''
+                if @all_tags
+                    droped.append '<li class="dl">Все страны</li>'
                 _.each data, (item,index) ->
                     # if index < 5
                     droped.append '<li class="dl">' + item + '</li>'

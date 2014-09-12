@@ -1,12 +1,26 @@
 app.views.UserListView = Backbone.View.extend
 
     tagName: 'li'
+    className: 'user-item'
 
     events:
         'click .write': 'write'
         'click .add_to_fav': 'add_to_fav'
         'click .remove_from_fav': 'remove_from_fav'
         'click .to_journey': 'to_journey'
+        'click':'liwrite'
+        'click .remove_dialog':'remove_dialog'
+        # 'click .remove_dialog':'write'
+
+    liwrite: (e)->
+        $(e.currentTarget).parents('#dialogs_list').length
+        if $(e.currentTarget).parents('#dialogs_list').length > 0
+            @write e
+
+    remove_dialog: ->
+        @model.remove_messeges_with_this_user ->
+            console.log 123
+        false
 
     initialize: (options)->
         @template = options.template

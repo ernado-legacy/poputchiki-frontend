@@ -83,8 +83,10 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 $(".statusBoxEdit").slideUp "slow"
 
             sc = @$el.find '.newTagBox .newCountry'
+            console.log 'tag countie'
             scv = new app.views.AutocompleteCountry
-                el: sc
+                el: sc,
+                all_tags: true
             scv.oldtags = '#profile-tags'
             scv.afterchange = () ->
                 newCountry = @$el.find('input').val()

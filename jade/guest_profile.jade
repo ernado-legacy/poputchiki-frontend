@@ -81,9 +81,17 @@
       .greenDots
       p.description#about-in-info #{user.about}
       .infoBox.infoView
-        #birtday-in-info.clearfix
-          span.lp День рождения:
-          span.rp #{user.birthdayDay} #{user.birthdayMonth} 
+        if user.birthday
+          #birtday-in-info.clearfix
+            span.lp День рождения:
+            span.rp #{user.birthdayDay} #{user.birthdayMonth} 
+          br
+          #zodiac-in-info.clearfix
+            span.lp Знак зодиака
+            span.rp 
+              img.zodiac-icon(src="/static/img/zodiac/"+user.zodiac+".png")
+              span.custom-blue-link #{user.zodiac_rus}
+
         //- #zodiac-in-info.clearfix
         //-   span.lp Знак зодиака:
         //-   span.rp лев
