@@ -4,7 +4,7 @@ app.views.Dialogs = Backbone.View.extend
     el: '.mainContentProfile'
 
     events: 
-        'click li':'write'
+        'click #dialogs_list li':'write'
 
     write: (e)->
         $(e.currentTarget).find('.write').click()
@@ -44,7 +44,10 @@ app.views.Dialogs = Backbone.View.extend
     renderDialog: (dialog) ->
         user = new app.models.User dialog.get('user')
         user.set 'time', dialog.get('time')
-        user.set 'message', dialog.get('text')
+        message_text = dialog.get('text')
+        if message_text.length > 45 
+            message_text = message_text.substring(0,45)+'...'
+        user.set 'message', message_text
         user.updateDate('time')
         listUserView = new app.views.UserListView 
             model:user,
