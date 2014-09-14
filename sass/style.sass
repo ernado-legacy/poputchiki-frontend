@@ -677,8 +677,8 @@ footer
     margin-top: 28px
     padding-right: 16px
     padding-bottom: 7px
-    width: 144px
-    height: 144px
+    width: 120px
+    height: 120px
     z-index: 100
     cursor: pointer
     .videoBox
@@ -686,15 +686,15 @@ footer
         top: 0
         left: 0
         z-index: 99
-        width: 144px
-        height: 144px
+        width: 120px
+        height: 120px
         .frontLayer
             position: absolute
             top: -1px
             left: 0
             z-index: 98
-            width: 144px
-            height: 145px
+            width: 120px
+            height: 121px
             background-image: url('../img/front-layer.png')
             background-repeat: no-repeat
             background-size: cover
@@ -703,12 +703,14 @@ footer
             top: 0
             left: 0
             z-index: 97
-            width: 144px
-            height: 144px
+            width: 120px
+            height: 120px
+    .audio, .video
+        z-index: 2048
     img
         opacity: 1
-        width: 144px
-        height: 144px
+        width: 120px
+        height: 120px
         position: absolute
         top: 0
         left: 0
@@ -1172,6 +1174,11 @@ footer
             width: calc(100% - 140px)
         #zodiac-in-info, #skype-in-info, #interests-in-info, #films-in-info
             margin-bottom: 15px
+        #zodiac-in-info
+            .custom-blue-link
+                float: left
+                margin-right: 10px
+                padding-top: 5px
     .infoEdit
         display: none
         textarea, input
@@ -1945,7 +1952,7 @@ footer
                     float: left
                     text-decoration: underline
                     color: $chat_grey
-                    font-size: 11px
+                    font-size: 12px
                     margin-right: 10px
                     font-weight: bold
                     cursor: pointer
@@ -2316,7 +2323,7 @@ footer
                 float: right
                 text-decoration: underline
                 color: $chat_grey
-                font-size: 11px
+                font-size: 12px
                 margin-right: 10px
                 font-weight: bold
                 cursor: pointer
@@ -2363,7 +2370,7 @@ footer
         .write
             background: url("../img/profile_messages_blue.png") no-repeat
         .add
-            background: url("../img/profile_favorites_blue.png") no-repeat
+            background: url("../img/profile_chorites_blue.png") no-repeat
             margin-left: -3px
             padding-left: 43px
         .show

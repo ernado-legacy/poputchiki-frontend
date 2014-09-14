@@ -8,6 +8,7 @@ app.models.search = (data, callback) ->
                 str += "seasons" + "=" + season
 
     if data.destinations_list
+        data.destinations_list.push 'Все страны'
         for dest in data.destinations_list
             str += "&"  unless str is ""
             str += "destinations" + "=" + dest
@@ -29,6 +30,12 @@ app.models.searchphoto = (data, callback) ->
             for season in data.seasons_list
                 str += "&"  unless str is ""
                 str += "seasons" + "=" + season
+
+    if data.destinations_list
+        data.destinations_list.push 'Все страны'
+        for dest in data.destinations_list
+            str += "&"  unless str is ""
+            str += "destinations" + "=" + dest
 
     for key of data
         if key!='seasons_list'

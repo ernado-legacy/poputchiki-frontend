@@ -83,8 +83,10 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 $(".statusBoxEdit").slideUp "slow"
 
             sc = @$el.find '.newTagBox .newCountry'
+            console.log 'tag countie'
             scv = new app.views.AutocompleteCountry
-                el: sc
+                el: sc,
+                all_tags: true
             scv.oldtags = '#profile-tags'
             scv.afterchange = () ->
                 newCountry = @$el.find('input').val()
@@ -208,7 +210,6 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             @model.set 'destinations', destinations
             @model.save
                 success:=>
-                    console.log @model.attributes
                     $('#profile-tags').html jade.templates.user_destinations
                         user: @model.attributes
 
@@ -269,7 +270,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $(e.currentTarget).toggleClass 'mg-icon'
         formData = {}
         formData['is_sponsor'] = @$el.find('.money-icon').hasClass 'mg-icon' 
-        console.log formData['is_sponsor']
+
         @model.save formData, patch: true
     setHost: (e)->
         $(e.currentTarget).toggleClass 'hg-icon'

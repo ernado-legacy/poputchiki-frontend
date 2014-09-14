@@ -132,6 +132,25 @@ $profile_status_text: #4b4b4b
 .guests
   li
     border-right: 1px solid $menu_photos!important
+#dialogs_list
+  li
+    border-right: 1px solid $menu_messages!important
+    cursor: pointer
+    p.last-message
+      +italic-font
+      color: $chat_grey
+  li.active
+    background-color: #d5f0f8
+    .right 
+      .last-date
+        text-align: left
+  li:hover
+    background-color: #d5f0f8
+    .right 
+      .last-date
+        text-align: left
+
+
 .favs
   li
     border-right: 1px solid $menu_favorites!important
@@ -378,4 +397,8 @@ header.info-header
     color: $title_text
     font-size: 11px
     margin: 0px 0px 12px 1px
+  .infoBox
+    background: none
+    h1 
+      font-size: 13px
     // text-align: right

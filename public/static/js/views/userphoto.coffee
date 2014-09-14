@@ -10,7 +10,7 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
 
     photoload: (event)->
         do event.preventDefault
-        $ '.photovideoformfile'
+        @$el.find '.photovideoformfile'
             .trigger 'click'
 
     changeimg: (event)->    

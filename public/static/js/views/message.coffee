@@ -33,7 +33,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         @messages = {}
         app.views.entered.setmenuitem '#menu-messgaes'
         $ @$el.html jade.templates.dialog()
-        do @reupdate
+        #do @reupdate
         iduser = window.location.pathname.split('/').slice(2)[0]
         if _.size iduser
             user = new app.models.User
@@ -42,10 +42,18 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 success: =>
                     $('.chatContainer').append jade.templates.dialog_item
                         dialog: 
-                            get: () ->
+                            get: ->
                                 user.attributes
-                    $('.leftMenu li').removeClass 'current'
-                    $('#menu-messgaes').addClass 'current'
+                    #$('.leftMenu li').removeClass 'current'
+                    #$('#menu-messgaes').addClass 'current'
+                    #@updatedialog user.get 'id'
+                    @updatemess 1
+                    #cb = $ '.chatBlock' + @du user.get 'id'
+                    #do cb.remove
+                    #@updatedialog user.get 'id'
+                    @reupdate false
+        else
+            @reupdate true
 
     new_massage: (id, mess) ->
         url = '/api/user/' + id + '/messages'
@@ -110,7 +118,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                                     that.updatedialog messages.urluser
                             #console.log messages
 
-    reupdate: ->
+    reupdate: (now) ->
         that = @
         count = 0
         run = ->
@@ -122,7 +130,8 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         @interval = setInterval ->
             do run
         , 500
-        do run
+        if now
+            do run
 
     newdialog: (event) ->
 
@@ -137,7 +146,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $ '.chatBlock' + that.du user
 
         if _.size get_cb()
-            get_cb.remove()
+            get_cb().remove()
             return
 
         dialog = @dialogs.find (item) -> user == item.get 'id'

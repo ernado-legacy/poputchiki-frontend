@@ -13,7 +13,7 @@
       //-     span Жду&nbsp;в&nbsp;гости
       .city-in-profile #{user.city}
     .wantToTravelBox.clearfix
-      .newStatus Новый статус
+      //- .newStatus Новый статус
       .statusBoxCompleted.clearfix
         img(src='/static/img/searchpreloader.GIF', class="loading-gif")
         .statusBoxEdit.clearfix
@@ -23,7 +23,7 @@
           .writeBtn#write-new-main-status
     .tagBox
       h1 Сезоны 
-        small  Укажите  сезоны, когда бы Вы хотели поехать отдыхать   
+        small  Укажите  сезоны, когда бы Вы хотели поехать отдыхать. Если вы ввыберите "Все страны", пользователи будут находить вас всегда когда будут искать себе попутчика куда0либо
           i.fui-question  
       if user.seasons
         .seasonsBox.clearfix#my-seasons

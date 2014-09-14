@@ -25,15 +25,16 @@
         .pop-coin
 
   if user.vip
+    h1=user.vip
     .searchBox
       .searchBody.clearfix.balance
-        h1 вип-статус
+        h1 VIP-статус
           a(class="custom-blue-link show-vip") активен
         br
         .last-action Активен до 
           b  #{user.vip_tillDay} #{user.vip_tillMonth}
 
-  .searchBox
+  .searchBox.infoBox
     .searchBody.clearfix.balance
       h1 Найдите новых попутчиков!
       //- a(class="custom-blue-link open-promo") В фото-ленту!
@@ -73,7 +74,7 @@
           .tooltip.clearfix
             .tooltip-arrow
             span Жду&nbsp;в&nbsp;гости
-        .host-search-description Включите иконку, если вы готовы приянть попутчиков у себя дома!
+        .host-search-description Включите иконку, если вы готовы принять попутчиков у себя дома!
   //- .searchBox
   //-   .searchBody.clearfix#my-wishes
   //-     h1 хочу найти

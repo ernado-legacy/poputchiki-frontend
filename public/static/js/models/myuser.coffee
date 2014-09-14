@@ -42,5 +42,9 @@ app.models.myuser =
     getid: () ->
         @user
 
+    mark_notifications: (id_list) ->
+        for id in id_list
+            $.post '/api/updates/'+id
+
     clear: (callback) ->
         @usermodel = false

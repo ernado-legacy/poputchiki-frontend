@@ -154,7 +154,7 @@ app.views.StripePopup = Backbone.View.extend
                 box = @$el.find '.playerBox'
                 audio = box.find 'audio'
                 audio.html ''
-                audio.html '<source type="audio/ogg" src="' + user.get('audio_url') + '">'
+                audio.html '<source src="' + user.get('audio_url') + '">'
                 #source.attr 'src', user.get 'audio_url'
                 box.css 'display', 'block'
                 $('.promoPopup .changeAvatarBox #promo-add-photo').attr 'src',user.get 'avatar_url'

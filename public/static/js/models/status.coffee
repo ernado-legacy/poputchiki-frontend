@@ -1,6 +1,5 @@
 StatusLikersUrl =
     likers_url: ()->
-        console.log @
         '/api/status/'+@.get('id')+'/like'
 
 

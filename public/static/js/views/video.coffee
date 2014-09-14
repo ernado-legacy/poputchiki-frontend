@@ -25,7 +25,6 @@ app.views.Video = Backbone.View.extend
             else
                 liked_by = false
             that.model.updateDate 'time'
-            console.log that.model.attributes
             $ that.$el.html jade.templates.video 
                 video: that.model.toJSON(),
                 liked_by: liked_by,
@@ -62,7 +61,6 @@ app.views.Video = Backbone.View.extend
         @model.fetch
             success:->
                 if that.model.get('url')
-                    console.log 'okay'
                     clearInterval that.interval
 
     video_block: ->
