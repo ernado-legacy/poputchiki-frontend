@@ -394,12 +394,12 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     carousel_left: ->
         $(".carouselBox").animate
-            scrollLeft: "+=480"
+            scrollLeft: "+=544"
             , "slow"
 
     carousel_right: ->
         $(".carouselBox").animate
-            scrollLeft: "-=480"
+            scrollLeft: "-=544"
             , "slow"
 
     carousel_up: ->
