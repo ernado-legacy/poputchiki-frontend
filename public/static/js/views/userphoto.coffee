@@ -57,6 +57,8 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
             that.renderPhoto photo for photo in collection.models
             videocollection = new app.models.Videos id
             videocollection.fetch().done () ->
+                if videocollection.length
+                    $('.photoHeaderBox .videoHeader').show()
                 $('.videoBox .photoBoxWrapper .pb-wr').empty()
                 that.renderVideo video for video in videocollection.models
                 that.slideHideAndShow ()->
