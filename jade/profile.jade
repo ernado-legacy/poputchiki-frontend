@@ -23,7 +23,7 @@
           .writeBtn#write-new-main-status
     .tagBox
       h1 Сезоны 
-        small  Укажите  сезоны, когда бы Вы хотели поехать отдыхать. Если вы ввыберите "Все страны", пользователи будут находить вас всегда когда будут искать себе попутчика куда0либо
+        small  Укажите  сезоны, когда бы Вы хотели поехать отдыхать.
           i.fui-question  
       if user.seasons
         .seasonsBox.clearfix#my-seasons
@@ -46,8 +46,8 @@
           div(id = "winter", class = "season")
             span зима
     .tagBox#my-destinations
-      h1 Мои направления
-        small  Укажите напрвления, в которые Вы хотели бы поехать 
+      h1 Мои страны
+        small  Укажите страны, в которые Вы хотели бы поехать 
           i.fui-question
       .tagsLine#profile-tags
         if user.destinations
