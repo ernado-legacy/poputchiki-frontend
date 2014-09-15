@@ -160,7 +160,7 @@ app.models.User = Backbone.Model.extend
         @set(time_param_name+'Day',time_param.getDate())
         @set(time_param_name+'Month',n)
         @set(time_param_name+'Year',(time_param.getYear()*1+1900))
-        @set(time_param_name+'Time',time_param.getHours()+":"+time_param.getMinutes())
+        @set(time_param_name+'Time',("0" + time_param.getHours()).slice(-2)+":"+("0" + time_param.getMinutes()).slice(-2))
 
     visit_user_by: () ->
         $.ajax
