@@ -29,7 +29,8 @@ app.views.Video = Backbone.View.extend
                 video: that.model.toJSON(),
                 liked_by: liked_by,
                 is_my_user: is_my_user
-
+                cvideo: $.cookie "video"
+                cwebp: $.cookie "webp"
 
     like: ()->
         that = @
@@ -63,7 +64,7 @@ app.views.Video = Backbone.View.extend
                 if that.model.get('url')
                     clearInterval that.interval
 
-    video_block: ->
+    video_block: (event) ->
         if event.target.paused
             do app.views.entered.stopMedia
             animVideo = $(event.target)
