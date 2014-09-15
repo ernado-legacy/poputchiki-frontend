@@ -8,12 +8,12 @@
     .audio
       audio
         if caudio=='mp3'
-          source(src='#{item.get('url')}', type="audio/mp3")
+          source(src='#{item.get('url')}',)
         else
           if caudio=='ogg'
-            source(src='#{item.get('url')}',type="audio/ogg")
+            source(src='#{item.get('url')}',)
           else
-            source(src='#{item.get('url')}',type="audio/m4a")
+            source(src='#{item.get('url')}',)
   if item.get('type')=='video'
     .videoBox
       .frontLayer
