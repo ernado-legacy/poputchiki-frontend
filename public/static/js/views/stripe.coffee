@@ -131,7 +131,6 @@ app.views.Stripe = Backbone.View.extend
                     $(".carousel").css "width", cw
 
     clickstripe: (event) ->
-        console.log  123
         do $(event.currentTarget).parent('a').click
         # app.views.guestprofile.set_user $(event.currentTarget).attr 'data-user-id'
         # do app.views.guestprofile.render
