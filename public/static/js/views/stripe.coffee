@@ -123,11 +123,11 @@ app.views.Stripe = Backbone.View.extend
                             cvideo: $.cookie "video"
                             cwebp: $.cookie "webp"
                     if $(window).width() >= 1730
-                        $('.carouselBox').css 'width', '1440px'
+                        $('.carouselBox').css 'width', '1496px'
                     else
                         wdth = ($('.topContainer').width() - 210).toString() + 'px'
                         $('.carouselBox').css 'width', wdth
-                    cw = ($('.mainCrs').length * 160 - 480).toString() + 'px'
+                    cw = ($('.mainCrs').length * 136 - 408).toString() + 'px'
                     $(".carousel").css "width", cw
 
     clickstripe: (event) ->
