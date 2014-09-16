@@ -4,7 +4,7 @@ app.views.userMainStatus = app.views.Status.extend
     events:
         'keyup input': 'press'
         # 'click #edit-status': 'openeditstatus'
-        # 'click .newStatus': 'opennewstatus'
+        'click .newStatus': 'opennewstatus'
         'click #edit-status': 'opennewstatus'
         'click #write-new-main-status': 'updatestatus'
         'click .like': 'like'

@@ -19,16 +19,18 @@ app.views.Stripe = Backbone.View.extend
         # detect html5 audio format support
 
         # priority to aac
-        q = true
+        #q = true
         #$.cookie "audio", "mp3", { path: '/' } if Modernizr.audio.mp3
         if Modernizr.audio.ogg
             $.cookie "audio", "ogg", { path: '/' }
-            q = false
-        if Modernizr.audio.m4a
-            $.cookie "audio", "m4a", { path: '/' }
-            q = false
+        else
+            $.removeCookie 'audio',  path: '/' 
+            #q = false
+        #if Modernizr.audio.m4a
+            #$.cookie "audio", "m4a", { path: '/' }
+            #q = false
         #is_safari = navigator.userAgent.indexOf("Safari") > -1
-        $.cookie "audio", "m4a", { path: '/' }  if q
+        #$.cookie "audio", "m4a", { path: '/' }  if q
 
         # detect html5 video support
         $.cookie "video", "mp4", { path: '/' } if Modernizr.video.h264
@@ -131,7 +133,6 @@ app.views.Stripe = Backbone.View.extend
                     $(".carousel").css "width", cw
 
     clickstripe: (event) ->
-        console.log  123
         do $(event.currentTarget).parent('a').click
         # app.views.guestprofile.set_user $(event.currentTarget).attr 'data-user-id'
         # do app.views.guestprofile.render
