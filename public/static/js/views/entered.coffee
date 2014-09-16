@@ -371,7 +371,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     play_video: (event) ->
         do event.preventDefault
-        animImg = $(event.target).parent().children("a").children("img")
+        animImg = $(event.target).parent().children("div").children("img")
         animVideo = $(event.target).parent().children(".videoBox")
         if animVideo.children("video").get(0).paused
             @stopMedia()
