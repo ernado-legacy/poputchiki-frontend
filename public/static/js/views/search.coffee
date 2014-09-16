@@ -131,9 +131,9 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 @$el.find('.results small').first().text('Нет пользователей удовлетворяющих запросу')
                 @$el.find('.results span.count').text('')
             else
-                @$el.find('.results small').text(' попутчик')
-                @$el.find('.results small').first().text('найден ')
-                @$el.find('.results span.count').text(data.count)
+                # @$el.find('.results small').text(' попутчик')
+                # @$el.find('.results small').first().text('найден ')
+                # @$el.find('.results span.count').text(data.count)
             callback(data) if callback
 
     renderSearchingUser: (user) ->
