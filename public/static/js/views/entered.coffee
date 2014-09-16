@@ -501,7 +501,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
     deactiveAgeBox: ->
         $(event.target).parent().removeClass 'activeAgeBox'
 
-    activeChat: ->
+    activeChat: (event)->
         if !($(event.target).parent().parent().hasClass 'darkBlock')
             $('.chatBlock').removeClass 'darkBlock'
             $(event.target).parent().parent().addClass 'darkBlock'
