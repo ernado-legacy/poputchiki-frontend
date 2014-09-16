@@ -20,10 +20,11 @@ app.views.Autocomplete = Backbone.View.extend
         #$(event.target).next().css display: "block"
 
         if event.which==13
-            if input.val.length>0
-                input.val $(droped.find('li')[0]).text()
-            else
-                input.val ''
+            # console.log input.val.length
+            # if input.val.length>0
+            #     input.val $(droped.find('li')[0]).text()
+            # else
+            input.val ''
             droped.css 'display', 'none'
             $(event.target).parent().find('.du').css display: 'none'
             $(event.target).parent().find('.dd').css display: 'block'
