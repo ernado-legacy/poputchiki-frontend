@@ -45,6 +45,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .openprofile': 'profilerender'
         'click .box': 'check_box'
         'click .letsgoPopup .popupHeader': 'change_letsgo_header'
+        'click .carousel > div': 'play_audio'
 
     change_letsgo_header: (e)->
         $('.letsgoPopup .popupHeader').removeClass 'activeHeader'
@@ -369,6 +370,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             @stopMedia()
 
     play_video: (event) ->
+        do event.preventDefault
         animImg = $(event.target).parent().children("a").children("img")
         animVideo = $(event.target).parent().children(".videoBox")
         if animVideo.children("video").get(0).paused
