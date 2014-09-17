@@ -133,7 +133,6 @@ app.views.Stripe = Backbone.View.extend
                     $(".carousel").css "width", cw
 
     clickstripe: (event) ->
-        # console.log 123
         et = $(event.target)
         if et.hasClass('audio') or et.hasClass('video')
             return true

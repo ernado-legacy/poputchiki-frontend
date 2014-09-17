@@ -125,7 +125,7 @@ app.models.User = Backbone.Model.extend
               zodiacSignRus = zod_signs_rus[10]
             else
               zodiacSign = zod_signs[11]
-              zodiacSignRus = zod_signs_rus[1]
+              zodiacSignRus = zod_signs_rus[11]
           when 11 #December
             if day < 22
               zodiacSign = zod_signs[11]

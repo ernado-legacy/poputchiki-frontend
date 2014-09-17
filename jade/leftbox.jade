@@ -55,7 +55,7 @@
       .greenDots
       span#search-places Откуда: страны/города
       .mainSelectElement.searchCountry.withShadow
-        input.search-select(placeholder='Все страны...', type='text',  maxlength="20", id='search-country-input', value=user.likings_country)
+        input.search-select(placeholder='Все страны...', type='text',  maxlength="20", id='search-country-input', value='')
         .dd
         .du
         ul.droped.withShadow
@@ -63,7 +63,7 @@
           //- li.dl Африка
           //- li.dl Европа
       .mainSelectElement.searchCity.withShadow
-        input.search-select(placeholder='Все города...', type='text',  maxlength="20", id='search-city-input', value=user.likings_city)
+        input.search-select(placeholder='Все города...', type='text',  maxlength="20", id='search-city-input', value='')
         .dd
         .du
         ul.droped.withShadow
@@ -92,26 +92,26 @@
       h1 2. Определитесь с направлением
       .greenDots
       #seasons Выберите сезон:
-        if user.likings_seasons
-          .seasonsBox.clearfix
-            div(id = "spring", class = user.likings_seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
-              span весна
-            div(id = "summer", class = user.likings_seasons.indexOf("summer")>-1 ? "season seasonChecked" : "season")
-              span лето
-            div(id = "autumn", class = user.likings_seasons.indexOf("autumn")>-1 ? "season seasonChecked" : "season")
-              span осень
-            div(id = "winter", class = user.likings_seasons.indexOf("winter")>-1 ? "season seasonChecked" : "season")
-              span зима
-        else 
-          .seasonsBox.clearfix
-            div(id = "spring", class = "season")
-              span весна
-            div(id = "summer", class = "season")
-              span лето
-            div(id = "autumn", class = "season")
-              span осень
-            div(id = "winter", class = "season")
-              span зима
+        //- if user.likings_seasons
+        //-   .seasonsBox.clearfix
+        //-     div(id = "spring", class = user.likings_seasons.indexOf("spring")>-1 ? "season seasonChecked" : "season")
+        //-       span весна
+        //-     div(id = "summer", class = user.likings_seasons.indexOf("summer")>-1 ? "season seasonChecked" : "season")
+        //-       span лето
+        //-     div(id = "autumn", class = user.likings_seasons.indexOf("autumn")>-1 ? "season seasonChecked" : "season")
+        //-       span осень
+        //-     div(id = "winter", class = user.likings_seasons.indexOf("winter")>-1 ? "season seasonChecked" : "season")
+        //-       span зима
+        //- else 
+        .seasonsBox.clearfix
+          div(id = "spring", class = "season")
+            span весна
+          div(id = "summer", class = "season")
+            span лето
+          div(id = "autumn", class = "season")
+            span осень
+          div(id = "winter", class = "season")
+            span зима
       .greenDots
       span#search-places-f Выберите направления
       .folowersWrapper.clearfix#folowers-tags

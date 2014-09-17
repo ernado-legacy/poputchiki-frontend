@@ -52,6 +52,7 @@ app.views.GuestProfile = app.views.UserListView.extend
                 user.updateDate 'birthday'
                 # user.set 'zodiac', user.get_zodiac_sign(new Date user.get 'birthday').eng
                 do user.update_zodiac_sign
+                console.log user.get('zodiac_rus')
                 $ that.$el.html jade.templates.guest_profile
                     user: user.attributes,
                     is_fav: is_fav
