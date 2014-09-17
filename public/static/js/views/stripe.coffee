@@ -134,8 +134,13 @@ app.views.Stripe = Backbone.View.extend
 
     clickstripe: (event) ->
         # console.log 123
+        et = $(event.target)
+        if et.hasClass('audio') or et.hasClass('video')
+            return true
         link = $(event.currentTarget).find('.link-to-user').data 'href'
-        window.location.href = link
+        #window.location.href = link
+        history.pushState null, 'poputchiki', link
+        do app.views.guestprofile.render
 
         # app.views.guestprofile.set_user $(event.currentTarget).attr 'data-user-id'
         # do app.views.guestprofile.render
