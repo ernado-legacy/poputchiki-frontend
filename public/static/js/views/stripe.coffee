@@ -3,7 +3,7 @@ app.views.Stripe = Backbone.View.extend
     el: '.mainTopContainer'
 
     events:
-        'click .crsItem a img': 'clickstripe'
+        'click .crsItem': 'clickstripe'
     #     #'click .audio': 'play_audio'
     #     #'click .video': 'play_video'
 
@@ -133,7 +133,10 @@ app.views.Stripe = Backbone.View.extend
                     $(".carousel").css "width", cw
 
     clickstripe: (event) ->
-        do $(event.currentTarget).parent('a').click
+        # console.log 123
+        link = $(event.currentTarget).find('.link-to-user').data 'href'
+        window.location.href = link
+
         # app.views.guestprofile.set_user $(event.currentTarget).attr 'data-user-id'
         # do app.views.guestprofile.render
 
