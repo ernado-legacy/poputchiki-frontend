@@ -18,8 +18,11 @@ app.views.UserListView = Backbone.View.extend
             @write e
 
     remove_dialog: ->
+        that = @
         @model.remove_messeges_with_this_user ->
-            console.log 123
+            $('#dialogs_list li[data-user-id="'+that.model.get('id')+'"]').remove()
+            # do that.
+
         false
 
     initialize: (options)->
