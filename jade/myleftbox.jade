@@ -10,10 +10,11 @@
   if (user.audio_url)
     .playerBox.clearfix
       .audio.audio-change-avatar
-        audio
+        audio#my-audio
           //- source(src='/static/audio/audio.mp3', type="audio/mp3")
           //- source(src='/static/audio/audio.ogg', type="audio/ogg")
           source(src=user.audio_url)
+
       .timeBar
         .progress
 

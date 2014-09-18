@@ -29,3 +29,4 @@ server.get '/settings/:type', index
 
 
 server.listen(5000)
+# server.listen(5000,'192.168.1.41')
