@@ -266,7 +266,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         do @slideHide
         app.views.setting.render e
                 
-    addSearchTag: -> 
+    addSearchTag: (event)->
         newCountry = $(event.target).text()
         #$(this).val ""
         z = "<div class='mainSelectElement searcTagPlaces withShadow'><span class='tagCountry'>" + newCountry + "</span><div class='close'></div></div>"
@@ -277,11 +277,11 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $(event.target).parent().prev().prev().css 'display', 'block'
 
 
-    moneyIcon: ->
+    moneyIcon: (event)->
         if $(event.target).hasClass 'money-icon'
             $(event.target).toggleClass 'mg-icon'
 
-    houseIcon: ->
+    houseIcon: (event)->
         if $(event.target).hasClass 'house-icon'
             $(event.target).toggleClass 'hg-icon'
 
@@ -293,19 +293,19 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
     guests: ->
         do app.views.guests.render
 
-    open_box: ->
+    open_box: (event)->
         $(event.target).css display: "none"
         $(event.target).next().css display: "block"
         $(event.target).next().next().slideDown "slow"
         $(event.target).parent().addClass "opened"
 
-    close_box: ->
+    close_box: (event)->
         $(event.target).css display: "none"
         $(event.target).prev().css display: "block"
         $(event.target).next().slideUp "slow"
         $(event.target).parent().removeClass "opened"
 
-    select_box: ->
+    select_box: (event)->
         text = $(event.target).text()
         country = $(event.target).parent().parent().children("input")
         country.val text
@@ -317,12 +317,12 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         country.focus ->
             @selectionStart = @selectionEnd = @value.length
 
-    show_about: ->
+    show_about: (event)->
         $(event.target).css "display", "none"
         $(".profileInfoBox .infoView").slideDown "slow"
         $("#profile-slideup").css "display", "block"
 
-    hide_about: ->
+    hide_about: (event)->
         $(event.target).css display: "none"
         $("#profile-slidedown").css display: "block"
         $(".profileInfoBox .infoView").slideUp "slow"
@@ -495,10 +495,10 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $("#my-folowers").slideDown "slow"
         $("#my-wishes").slideUp "slow"
 
-    activeAgeBox: ->
+    activeAgeBox: (event)->
         $(event.target).parent().addClass 'activeAgeBox'
         
-    deactiveAgeBox: ->
+    deactiveAgeBox: (event)->
         $(event.target).parent().removeClass 'activeAgeBox'
 
     activeChat: (event)->
@@ -506,17 +506,17 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             $('.chatBlock').removeClass 'darkBlock'
             $(event.target).parent().parent().addClass 'darkBlock'
 
-    _filters: ->
+    _filters: (event)->
         $(event.target).toggleClass 'open-filters'
         if $(event.target).hasClass 'open-filters'
             do @show_filters
         else
             do @hide_filters
 
-    show_filters: ->
+    show_filters: (event)->
         $(event.target).parent().parent().children('.filters').slideDown('slow')
 
-    hide_filters: ->
+    hide_filters: (event)->
         $(event.target).parent().parent().children('.filters').slideUp('slow')
     profilerender: ->
         @closepopuprun()
