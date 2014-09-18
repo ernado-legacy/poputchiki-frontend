@@ -249,3 +249,28 @@
                     background: #eff5f6
                     border-left: 1px solid $profile_status_border
                     border-right: 1px solid $profile_status_border
+
+    #dialogs_list
+        li:hover
+            background-color: #d5f0f8
+            .right 
+                .last-date
+                    text-align: left
+
+    .photoVideoBlock
+        .photoBox, .videoBox
+            .photo-wrapper:hover
+                background-color: white
+                border: 1px solid white
+                color: #777
+                +border-shadow
+                img, video
+                    border: 1px solid white
+                    +no-border-shadow
+                .fui-play
+                    color: white
+                .custom-link
+                    color: $profile_status_text
+                .action-remove-like
+                    color: #9cabae
+                    font-size: 11px
