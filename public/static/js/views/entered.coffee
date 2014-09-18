@@ -350,17 +350,25 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $(button).parent().children('.wrapper').children('.c_right').addClass('circle2')
 
     play_audio: (event) ->
-        console.log('play audio')
-        z = $(event.target)
+        # var audio = document.getElementById('my-audio');audio.play();
+        if not $(event.target).hasClass 'audio'
+            target = $(event.target).parents('.audio')[0] 
+        else
+            target = event.target
+        # console.log($(event.target).parents('.audio')[0])
+        # console.log event.target
+        z = $(target)
         if z.children()[0].paused
+            console.log 'play'
+            z.children().get(0).play()
             @stopMedia()
-            @showProgress event.target
+            @showProgress target
             if z.hasClass('audio-change-avatar')
                 z.children().bind 'timeupdate', ->
-                    track_length = $(event.target).children().get(0).duration
-                    secs = $(event.target).children().get(0).currentTime
+                    track_length = $(target).children().get(0).duration
+                    secs = $(target).children().get(0).currentTime
                     progress = (secs/track_length) * 100
-                    $(event.target).next().children().css 'width', progress + '%'
+                    $(target).next().children().css 'width', progress + '%'
             setTimeout (->
                     z.children().get(0).play()
                     return

@@ -3,7 +3,7 @@ app.views.Stripe = Backbone.View.extend
     el: '.mainTopContainer'
 
     events:
-        'click .crsItem': 'clickstripe'
+        'click .crsItem img': 'clickstripe'
     #     #'click .audio': 'play_audio'
     #     #'click .video': 'play_video'
 
@@ -133,16 +133,24 @@ app.views.Stripe = Backbone.View.extend
                     $(".carousel").css "width", cw
 
     clickstripe: (event) ->
+        console.log $(event.target)
+        crsItem = $($(event.target).parents('.crsItem')[0])
+        
         et = $(event.target)
-        if et.hasClass('audio') or et.hasClass('video')
-            return true
-        link = $(event.currentTarget).find('.link-to-user').data 'href'
-        #window.location.href = link
+        # if et.hasClass('audio') or et.hasClass('video')
+        #     return true
+        link = crsItem.find('.link-to-user').data 'href'
+        console.log link
+        # window.location.href = link
         history.pushState null, 'poputchiki', link
-        do app.views.guestprofile.render
-
-        # app.views.guestprofile.set_user $(event.currentTarget).attr 'data-user-id'
         # do app.views.guestprofile.render
+
+        app.views.guestprofile.set_user crsItem.attr 'data-user-id'
+        do app.views.guestprofile.render
+        if crsItem.hasClass 'crs-item-audio'
+            crsItem.find('.audio').click()
+        if crsItem.hasClass 'crs-item-video'
+            crsItem.find('.video').click()
 
 app.views.StripePopup = Backbone.View.extend
 

@@ -1,4 +1,4 @@
-.crsItem.mainCrs(data-user-id="#{item.get('user')}")
+.crsItem.mainCrs(data-user-id="#{item.get('user')}",class = item.get('type')=='audio' ? "crs-item-audio" : item.get('type')=='video' ? "crs-item-video":"crs-item-photo")
   .wrapper(data-anim="base wrapper")
     .circle.c_left(data-anim="base left")
     .circle.c_right(data-anim="base right")
