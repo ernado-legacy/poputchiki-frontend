@@ -36,7 +36,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             that.newtag '#month-select'
             that.newtag '#day-select'
             #that.newtag '#city-select'
-            that.newtag '.select-input'
+            that.newtag '.orientation-input'
             that.showInputDrop '.newCountry'
             that.hideInputDrop '.newCountry'
             that.openTagWithInput '.newCountry'

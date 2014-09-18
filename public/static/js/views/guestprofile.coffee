@@ -28,6 +28,10 @@ app.views.GuestProfile = app.views.UserListView.extend
     set_user: (id) ->
         history.pushState null, 'poputchiki', '/user/' + id
 
+    renderWithCallback: (callback)->
+        @render
+        do callback
+
     render: ->
         that = @
         @get_user (user) ->
