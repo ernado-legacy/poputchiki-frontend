@@ -103,39 +103,46 @@
         #city-in-info.clearfix
           span.lp Город:
           span.rp #{user.city}
-        if #{user.country}
-        br
-        .in-info.clearfix
-          span.lp Ориентация:
-          span.rp 
-        br
-        .in-info.clearfix
-          span.lp Отношения:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Дети:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Образование:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Отношение к курению:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Отношение к алкоголю:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Доход:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Я живу:
-          span.rp
+        if user.orientation
+          br
+          .in-info.clearfix
+            span.lp Ориентация:
+            span.rp=user.orientation
+        if user.relations
+          br
+          .in-info.clearfix
+            span.lp Отношения:
+            span.rp=user.relations
+        if user.children
+          br
+          .in-info.clearfix
+            span.lp Дети:
+            span.rp=user.children
+        if user.education
+          br
+          .in-info.clearfix
+            span.lp Образование:
+            span.rp=user.education
+        if user.attitude_to_smoking
+          br
+          .in-info.clearfix
+            span.lp Отношение к курению:
+            span.rp=user.attitude_to_smoking
+        if user.attitude_to_alcohol
+          br
+          .in-info.clearfix
+            span.lp Отношение к алкоголю:
+            span.rp=user.attitude_to_alcohol
+        if user.wealth
+          br
+          .in-info.clearfix
+            span.lp Доход:
+            span.rp=user.wealth
+        if user.accommodation
+          br
+          .in-info.clearfix
+            span.lp Я живу:
+            span.rp=user.accommodation
         //- #interests-in-info.clearfix
         //-   span.lp Интересы:
         //-   span.rp Велотуризм, яхтинг, скалолазание, серфинг, виндсерфинг, дайвинг, воздухоплавание, конный спорт, теннис, путешествия, музыка, йога, общение

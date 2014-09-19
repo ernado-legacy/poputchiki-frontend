@@ -276,6 +276,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             'attitude_to_alcohol': 'attitude_to_alcohol-edit-select',
             'wealth': 'wealth-edit-select',
             'accommodation': 'accommodation-edit-select',
+            'children':'children-edit-select'
         for key in  _.keys(additional_fields)
             console.log $('#'+additional_fields[key]).text()
             formData[key] = $('#'+additional_fields[key]).text()
