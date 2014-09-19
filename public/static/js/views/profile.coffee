@@ -37,6 +37,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             that.newtag '#day-select'
             that.newtag '#orientation-select'
             that.newtag '#relation-select'
+            that.newtag '#children-select'
             that.newtag '#education-select'
             that.newtag '#attitude_to_smoking-select'
             that.newtag '#attitude_to_alcohol-select'
