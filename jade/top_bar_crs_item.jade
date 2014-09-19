@@ -1,28 +1,28 @@
-.crsItem.mainCrs(data-user-id="#{item.get('user')}",class = item.get('type')=='audio' ? "crs-item-audio" : item.get('type')=='video' ? "crs-item-video":"crs-item-photo")
-  .wrapper(data-anim="base wrapper")
-    .circle.c_left(data-anim="base left")
-    .circle.c_right(data-anim="base right")
-  div.link-to-user(data-href="/user/"+item.get('user'))
-    img(src='#{item.get('image_url')}')
-  if item.get('type')=='audio'
-    .audio
-      audio
-        if caudio=='mp3'
-          source(src='#{item.get('url')}', type="audio/mp3")
-        else
-          if caudio=='ogg'
-            source(src='#{item.get('url')}',type="audio/ogg")
+.stripeItem.clearfix
+  .crsItem.mainCrs(data-user-id="#{item.get('user')}",class = item.get('type')=='audio' ? "crs-item-audio" : item.get('type')=='video' ? "crs-item-video":"crs-item-photo")
+    .wrapper(data-anim="base wrapper")
+      .circle.c_left(data-anim="base left")
+      .circle.c_right(data-anim="base right")
+    div.link-to-user(data-href="/user/"+item.get('user'))
+      img(src='#{item.get('image_url')}')
+    if item.get('type')=='audio'
+      .audio
+        audio
+          if caudio=='mp3'
+            source(src='#{item.get('url')}', type="audio/mp3")
           else
-            source(src='#{item.get('url')}')
-  if item.get('type')=='video'
-    .videoBox
-      .frontLayer
-      video
-        if cvideo=='mp4'
-          source(src='#{item.get('url')}', type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")
-        else
-          source(src='#{item.get('url')}', type="video/webm", codecs="vp8, vorbis")
-    .video
-
-div.name(style="position:absolute;")
-  | Имя человека
+            if caudio=='ogg'
+              source(src='#{item.get('url')}',type="audio/ogg")
+            else
+              source(src='#{item.get('url')}')
+    if item.get('type')=='video'
+      .videoBox
+        .frontLayer
+        video
+          if cvideo=='mp4'
+            source(src='#{item.get('url')}', type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")
+          else
+            source(src='#{item.get('url')}', type="video/webm", codecs="vp8, vorbis")
+      .video
+  .stripeName
+    | Имя человека
