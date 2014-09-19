@@ -84,38 +84,46 @@
         #city-in-info.clearfix
           span.lp Город:
           span.rp #{user.city}
-        br
-        .in-info.clearfix
-          span.lp Ориентация:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Дети:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Отношения:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Образование:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Отношение к курению:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Отношение к алкоголю:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Доход:
-          span.rp
-        br
-        .in-info.clearfix
-          span.lp Я живу:
-          span.rp
+        if user.orientation
+          br
+          .in-info.clearfix
+            span.lp Ориентация:
+            span.rp=user.orientation
+        if user.relations
+          br
+          .in-info.clearfix
+            span.lp Отношения:
+            span.rp=user.relations
+        if user.children
+          br
+          .in-info.clearfix
+            span.lp Дети:
+            span.rp=user.children
+        if user.education
+          br
+          .in-info.clearfix
+            span.lp Образование:
+            span.rp=user.education
+        if user.attitude_to_smoking
+          br
+          .in-info.clearfix
+            span.lp Отношение к курению:
+            span.rp=user.attitude_to_smoking
+        if user.attitude_to_alcohol
+          br
+          .in-info.clearfix
+            span.lp Отношение к алкоголю:
+            span.rp=user.attitude_to_alcohol
+        if user.wealth
+          br
+          .in-info.clearfix
+            span.lp Доход:
+            span.rp=user.wealth
+        if user.accommodation
+          br
+          .in-info.clearfix
+            span.lp Я живу:
+            span.rp=user.accommodation
         //- #skype-in-info.clearfix.hide
         //-   span.lp Skype:
         //-   span.rp skype
@@ -252,7 +260,7 @@
               .du
               ul.droped.withShadow
                 li.dl Гетеро
-                li.dl Без предупреждений
+                li.dl Без предубеждений
                 li.dl Би
                 li.dl Гей/лесби
 
@@ -292,7 +300,7 @@
                 li.dl Ученая степень
 
         #attitude_to_smoking-edit.clearfix
-          span.lp Отношения к курению:
+          span.lp Курение:
           span.rp
             .mainSelectElement.zodiacEdit.withShadow.select-input#attitude_to_smoking-select
               span#attitude_to_smoking-edit-select=user.attitude_to_smoking
@@ -304,7 +312,7 @@
                 li.dl В компании
 
         #attitude_to_alcohol-edit-edit.clearfix
-          span.lp Отноение к алкоголю:
+          span.lp Алкоголь:
           span.rp
             .mainSelectElement.zodiacEdit.withShadow.select-input#attitude_to_alcohol-select
               span#attitude_to_alcohol-edit-select=user.attitude_to_alcohol

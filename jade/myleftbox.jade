@@ -53,12 +53,12 @@
       .profile-button.go-to-statuses
         span Добавьте новый статус
 
-  if !user.about || !user.age
+  if !user.about || !user.age || !user.orientation || !user.relations || !user.children || !user.education || !user.wealth || !user.accommodation
     div
       span.lp
       span.rp
         .profile-button.edit-profile
-          span Заполните ваши данные
+          span Заполните больше информации о себе
 
   .searchBox
     .searchBody.clearfix.balance
