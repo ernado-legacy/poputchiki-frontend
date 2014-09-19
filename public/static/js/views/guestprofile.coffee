@@ -32,12 +32,14 @@ app.views.GuestProfile = app.views.UserListView.extend
         @render
         do callback
 
-    render: ->
+    render: (after) ->
         that = @
         @get_user (user) ->
             app.models.myuser.get (my_user)->
                 if user.get('id') == my_user.get('id')
                     do app.views.profile.render
+                    if after
+                        do after
                     return false
                 if my_user.get('favorites')
                     is_fav = if my_user.get('favorites').indexOf(user.get('id')) != -1 then true else false
@@ -63,6 +65,8 @@ app.views.GuestProfile = app.views.UserListView.extend
                     is_in_blacklist: is_in_blacklist
                 app.views.main_status.render user
                 do $('#profile-slidedown').click
+                if after
+                    do after
 
     add_to_fav: ->
         do @model.add_to_fav 

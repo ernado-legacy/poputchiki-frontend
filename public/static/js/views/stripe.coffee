@@ -148,13 +148,11 @@ app.views.Stripe = Backbone.View.extend
         app.views.guestprofile.set_user crsItem.attr 'data-user-id'
         # do app.views.guestprofile.render
         
-
-        if crsItem.hasClass 'crs-item-audio'
-            crsItem.find('.audio').click()
-        if crsItem.hasClass 'crs-item-video'
-            crsItem.find('.video').click()
-        do app.views.guestprofile.render
-            
+        app.views.guestprofile.render ->
+            if crsItem.hasClass 'crs-item-audio'
+                crsItem.find('.audio').click()
+            if crsItem.hasClass 'crs-item-video'
+                crsItem.find('.video').click()            
 
 app.views.StripePopup = Backbone.View.extend
 
