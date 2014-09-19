@@ -281,7 +281,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             console.log $('#'+additional_fields[key]).text()
             formData[key] = $('#'+additional_fields[key]).text()
         console.log formData
-        @model.save formData
+        @model.save formData, patch: true
         do @render
 
     setSponsor: (e)->

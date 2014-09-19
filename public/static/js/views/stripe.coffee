@@ -133,6 +133,7 @@ app.views.Stripe = Backbone.View.extend
                     $(".carousel").css "width", cw
 
     clickstripe: (event) ->
+        console.log 'sclick stripe'
         console.log $(event.target)
         crsItem = $($(event.target).parents('.crsItem')[0])
         
@@ -147,7 +148,7 @@ app.views.Stripe = Backbone.View.extend
 
         app.views.guestprofile.set_user crsItem.attr 'data-user-id'
         # do app.views.guestprofile.render
-        
+        console.log 'render '
         app.views.guestprofile.render ->
             if crsItem.hasClass 'crs-item-audio'
                 crsItem.find('.audio').click()
