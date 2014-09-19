@@ -103,6 +103,35 @@
         #city-in-info.clearfix
           span.lp Город:
           span.rp #{user.city}
+        if #{user.country}
+        br
+        .in-info.clearfix
+          span.lp Ориентация:
+          span.rp 
+        br
+        .in-info.clearfix
+          span.lp Отношения:
+          span.rp
+        br
+        .in-info.clearfix
+          span.lp Образование:
+          span.rp
+        br
+        .in-info.clearfix
+          span.lp Отношение к курению:
+          span.rp
+        br
+        .in-info.clearfix
+          span.lp Отношение к алкоголю:
+          span.rp
+        br
+        .in-info.clearfix
+          span.lp Доход:
+          span.rp
+        br
+        .in-info.clearfix
+          span.lp Я живу:
+          span.rp
         //- #interests-in-info.clearfix
         //-   span.lp Интересы:
         //-   span.rp Велотуризм, яхтинг, скалолазание, серфинг, виндсерфинг, дайвинг, воздухоплавание, конный спорт, теннис, путешествия, музыка, йога, общение
@@ -118,8 +147,8 @@
         //-     p если существует несколько логически непротиворечивых объяснений какого-либо явления, объясняющих его одинаково хорошо, то следует, при прочих равных условиях, считать верным самое простое из них
         //-     p ------
         //-     p бритва Оккама
-      .slideDown#profile-slidedown(style='display:none') показать все
-      .slideUp#profile-slideup(style='display:none!important') скрыть
+      .slideDown#profile-slidedown() показать все
+      .slideUp#profile-slideup() скрыть
 
     //- .statuses.wantToTravelBox.clearfix        
     //-     .title СТАТУСЫ

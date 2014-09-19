@@ -84,6 +84,34 @@
         #city-in-info.clearfix
           span.lp Город:
           span.rp #{user.city}
+        br
+        .in-info.clearfix
+          span.lp Ориентация:
+          span.rp
+        br
+        .in-info.clearfix
+          span.lp Отношения:
+          span.rp
+        br
+        .in-info.clearfix
+          span.lp Образование:
+          span.rp
+        br
+        .in-info.clearfix
+          span.lp Отношение к курению:
+          span.rp
+        br
+        .in-info.clearfix
+          span.lp Отношение к алкоголю:
+          span.rp
+        br
+        .in-info.clearfix
+          span.lp Доход:
+          span.rp
+        br
+        .in-info.clearfix
+          span.lp Я живу:
+          span.rp
         //- #skype-in-info.clearfix.hide
         //-   span.lp Skype:
         //-   span.rp skype
@@ -211,93 +239,92 @@
             else
               input(type='text', value='', name='weight')
 
-        //- #orientation-edit.clearfix
-        //-   span.lp Знак зодиака:
-        //-   span.rp
-        //-     .mainSelectElement.zodiacEdit.withShadow#orientation-input
-        //-       span#orientation-edit-select Лев
-        //-       .dd
-        //-       .du
-        //-       ul.droped.withShadow
-        //-         li.dl Дева
-        //-         li.dl Весы
-        //-         li.dl Скорпион
-        //-         li.dl Стрелец
+        #orientation-edit.clearfix
+          span.lp Ориентация:
+          span.rp
+            .mainSelectElement.withShadow.select-input#orientation-select
+              span#orientation-edit-select
+              .dd
+              .du
+              ul.droped.withShadow
+                li.dl Гетеро
+                li.dl Без предупреждений
+                li.dl Би
+                li.dl Гей/лесби
 
-        //- #zodiac-edit.clearfix
-        //-   span.lp Ориентация:
-        //-   span.rp
-        //-     .mainSelectElement.zodiacEdit.withShadow.select-input
-        //-       span#zodiac-edit-select Гетеро
-        //-       .dd
-        //-       .du
-        //-       ul.droped.withShadow
-        //-         li.dl Гетеро
-        //-         li.dl Не гетеро
+        #relation-edit.clearfix
+          span.lp Отношения:
+          span.rp
+            .mainSelectElement.withShadow.select-input#relation-select
+              span#relation-edit-select
+              .dd
+              .du
+              ul.droped.withShadow
+                li.dl Свободен
+                li.dl Занят
+                li.dl В свободных отношениях
 
-        //- #zodiac-edit.clearfix
-        //-   span.lp Отношения:
-        //-   span.rp
-        //-     .mainSelectElement.zodiacEdit.withShadow.select-input
-        //-       span#zodiac-edit-select Не женат
-        //-       .dd
-        //-       .du
-        //-       ul.droped.withShadow
-        //-         li.dl Не женат
-        //-         li.dl В отношениях
-        //-         li.dl Свободен
+        #education-edit.clearfix
+          span.lp Образование:
+          span.rp
+            .mainSelectElement.withShadow.select-input#education-select
+              span#education-edit-select
+              .dd
+              .du
+              ul.droped.withShadow
+                li.dl Высшее
+                li.dl Среднее
+                li.dl Ученая степень
 
-        //- #zodiac-edit.clearfix
-        //-   span.lp Отношения к курению:
-        //-   span.rp
-        //-     .mainSelectElement.zodiacEdit.withShadow.select-input
-        //-       span#zodiac-edit-select негативное
-        //-       .dd
-        //-       .du
-        //-       ul.droped.withShadow
-        //-         li.dl не курю
-        //-         li.dl курю
-        //-         li.dl Безразлично
+        #attitude_to_smoking-edit.clearfix
+          span.lp Отношения к курению:
+          span.rp
+            .mainSelectElement.zodiacEdit.withShadow.select-input#attitude_to_smoking-select
+              span#attitude_to_smoking-edit-select
+              .dd
+              .du
+              ul.droped.withShadow
+                li.dl Нет
+                li.dl Да
+                li.dl В компании
 
-        //- #zodiac-edit.clearfix
-        //-   span.lp Отноение к алкоголю:
-        //-   span.rp
-        //-     .mainSelectElement.zodiacEdit.withShadow.select-input
-        //-       span#zodiac-edit-select негативное
-        //-       .dd
-        //-       .du
-        //-       ul.droped.withShadow
-        //-         li.dl не пью
-        //-         li.dl пью
-        //-         li.dl Безразлично
+        #attitude_to_alcohol-edit-edit.clearfix
+          span.lp Отноение к алкоголю:
+          span.rp
+            .mainSelectElement.zodiacEdit.withShadow.select-input#attitude_to_alcohol-select
+              span#attitude_to_alcohol-edit-select
+              .dd
+              .du
+              ul.droped.withShadow
+                li.dl Нет
+                li.dl Да
+                li.dl В компании
 
-        //- #zodiac-edit.clearfix
-        //-   span.lp Материальное положение:
-        //-   span.rp
-        //-     .mainSelectElement.zodiacEdit.withShadow.select-input
-        //-       span#zodiac-edit-select Студент
-        //-       .dd
-        //-       .du
-        //-       ul.droped.withShadow
-        //-         li.dl Обеспечен
-        //-         li.dl Не обеспечен
-        //-         li.dl Студент
-        //- #zodiac-edit.clearfix
-        //-   span.lp Проживание:
-        //-   span.rp
-        //-     .mainSelectElement.zodiacEdit.withShadow.select-input
-        //-       span#zodiac-edit-select Отдельная квартира
-        //-       .dd
-        //-       .du
-        //-       ul.droped.withShadow
-        //-         li.dl Отдельная квартира
-        //-         li.dl Снимаю
-        //-         li.dl Живу с родителями
-        //-         li.dl Другое
-        //- #quote-edit.clearfix
-        //-   span.lp Любимые цитаты:
-        //-   span.rp
-        //-     textarea если существует несколько логически непротиворечивых объяснений какого-либо явления, объясняющих его одинаково хорошо, то следует, при прочих равных условиях, считать верным самое простое из них ------ бритва Оккама
+        #wealth-edit.clearfix
+          span.lp Доход:
+          span.rp
+            .mainSelectElement.zodiacEdit.withShadow.select-input#wealth-select
+              span#wealth-edit-select
+              .dd
+              .du
+              ul.droped.withShadow
+                li.dl Высокий
+                li.dl Средний
+                li.dl Низкий
+
+        #accommodation-edit.clearfix
+          span.lp Я живу:
+          span.rp
+            .mainSelectElement.zodiacEdit.withShadow.select-input#accommodation-select
+              span#accommodation-edit-select
+              .dd
+              .du
+              ul.droped.withShadow
+                li.dl Один
+                li.dl С родителями
+                li.dl С друзьями
+                li.dl Общежитие
+                li.dl С партнером
         div
           span.lp
           span.rp

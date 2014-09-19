@@ -35,8 +35,13 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             that.newtag '#year-select'
             that.newtag '#month-select'
             that.newtag '#day-select'
-            #that.newtag '#city-select'
-            that.newtag '.orientation-input'
+            that.newtag '#orientation-select'
+            that.newtag '#relation-select'
+            that.newtag '#education-select'
+            that.newtag '#attitude_to_smoking-select'
+            that.newtag '#attitude_to_alcohol-select'
+            that.newtag '#wealth-select'
+            that.newtag '#accommodation-select'
             that.showInputDrop '.newCountry'
             that.hideInputDrop '.newCountry'
             that.openTagWithInput '.newCountry'
@@ -261,8 +266,20 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         formData['city'] = $('#city-select input').val()
         formData['birthday'] = @getDate $('#birtday-edit')
         formData['about'] = about_text
-        # @model.set()
-        @model.save formData, patch: true
+        additional_fields = 
+            'orientation': 'orientation-edit-select',
+            'relations': 'relation-edit-select',
+            'children': 'relation-edit-select',
+            'education': 'education-edit-select',
+            'attitude_to_smoking': 'attitude_to_smoking-edit-select',
+            'attitude_to_alcohol': 'attitude_to_alcohol-edit-select',
+            'wealth': 'wealth-edit-select',
+            'accommodation': 'accommodation-edit-select',
+        for key in  _.keys(additional_fields)
+            console.log $('#'+additional_fields[key]).text()
+            formData[key] = $('#'+additional_fields[key]).text()
+        console.log formData
+        @model.save formData
         do @render
 
     setSponsor: (e)->
