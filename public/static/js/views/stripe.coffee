@@ -4,6 +4,7 @@ app.views.Stripe = Backbone.View.extend
 
     events:
         'click .crsItem img': 'clickstripe'
+        'click .stripeName': 'stripeName'
     #     #'click .audio': 'play_audio'
     #     #'click .video': 'play_video'
 
@@ -154,6 +155,13 @@ app.views.Stripe = Backbone.View.extend
                 crsItem.find('.audio').click()
             if crsItem.hasClass 'crs-item-video'
                 crsItem.find('.video').click()            
+
+    stripeName: (event) ->
+        link = $(event.currentTarget).data 'href'
+        history.pushState null, 'poputchiki', link
+        userid = $(event.currentTarget).data 'user-id'
+        app.views.guestprofile.set_user userid
+        do app.views.guestprofile.render
 
 app.views.StripePopup = Backbone.View.extend
 

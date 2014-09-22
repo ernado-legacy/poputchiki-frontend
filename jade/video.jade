@@ -5,7 +5,7 @@ else
   div.photo-time загрузка...
 if video.url
   .vblck
-    video(poster=video.thumbnail_url)
+    video(poster=video.thumbnail_url,controls)
       if cvideo=='mp4'
         source(src=video.url, type="video/mp4", cosdecs="avc1.42E01E, mp4a.40.2")
       else
