@@ -26,3 +26,6 @@
       .video
   .stripeName(data-href="/user/"+item.get('user'), data-user-id="#{item.get('user')}")
     =item.get('name')
+    if item.get('age')
+      | , 
+      b=item.get('age')

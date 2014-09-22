@@ -189,7 +189,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.messageside = new app.views.MessageSide
 
                 app.views.profile = new app.views.Profile
-                app.views.guestprofile = new app.views.GuestProfile
+                
                 app.views.search = new app.views.Search
 
                 app.views.searchside = new app.views.SearchSide
@@ -201,7 +201,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 # app.views.photo = app.views.Photo
                 app.views.rating = app.views.Rating
                 app.views.setting = new app.views.Setting
-
+                app.views.guestprofile = new app.views.GuestProfile
                 app.views.dialogs = new app.views.Dialogs
                 app.views.guests = new app.views.Guests
                 app.views.favs = new app.views.Favs
