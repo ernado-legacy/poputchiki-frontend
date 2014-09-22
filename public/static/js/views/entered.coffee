@@ -98,11 +98,13 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     scrollmenu: ->
         $(window).scroll ->
+            $(".menuBox").css "left", "-" + window.pageXOffset + "px"
             if window.pageYOffset >= 270
                 $(".menuBox").css "top", "30px"
                 $(".menuBox").css "position", "fixed"
             else
                 $(".menuBox").removeAttr "style"
+
 
     setmenuitem: (item) ->
         $('.leftMenu li').removeClass('current');
