@@ -533,10 +533,10 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             do @hide_filters
 
     show_filters: (event)->
-        $(event.target).parent().parent().children('.filters').slideDown('slow')
+        $('.statusesContainer .filters').slideDown('slow')
 
     hide_filters: (event)->
-        $(event.target).parent().parent().children('.filters').slideUp('slow')
+        $('.statusesContainer .filters').slideUp('slow')
     profilerender: ->
         @closepopuprun()
         do app.views.profile.render
