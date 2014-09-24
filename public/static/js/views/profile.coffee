@@ -301,7 +301,6 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         @model.save formData, patch: true
 
     setInvisible: (e)->
-        do app.views.entered.vip_popup
         if @model.get('vip')
             $(e.currentTarget).toggleClass 'ig-icon'
             formData = {}
