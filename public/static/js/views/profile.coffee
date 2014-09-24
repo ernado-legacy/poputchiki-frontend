@@ -301,6 +301,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         @model.save formData, patch: true
 
     setInvisible: (e)->
+        do app.views.entered.vip_popup
         if @model.get('vip')
             $(e.currentTarget).toggleClass 'ig-icon'
             formData = {}
@@ -308,12 +309,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
             @model.save formData, patch: true
         else
-            $('.show-vip').click()
-
-
-        # moneyIcon: ->
-        # if $(event.target).hasClass 'money-icon'
-        #     $(event.target).toggleClass 'mg-icon'
+            do app.views.entered.vip_popup
 
     getDate: (date_block)->
         d = date_block.find('#day-edit-select').text()
