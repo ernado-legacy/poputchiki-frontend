@@ -110,3 +110,96 @@ app.views.GuestProfile = app.views.UserListView.extend
 
 
 
+app.views.GuestProfileUnsigned = app.views.UserListView.extend
+
+    el: '.mainContentProfile'
+
+    events:
+        'click #guest_profile .write': 'write'
+        'click #guest_profile .add_to_fav': 'add_to_fav'
+        'click #guest_profile .remove_from_fav': 'remove_from_fav'
+        'click #guest_profile .to_journey': 'to_journey'
+        'click #guest_profile .to_blacklist': 'to_blacklist'
+        'click .profileGuest .imgBox': 'avatar_open'
+
+
+    avatar_open: ->
+        do $('img#'+@model.get('avatar')).click
+
+    initialize: ->
+        @custom_tag_id = "guest_profile"
+
+    get_user: (callback) ->
+        user = new app.models.User 
+            id: window.location.pathname.split('/').slice(2)[0]
+        user.fetch
+            success: ->
+                @model = user
+                callback user
+
+    set_user: (id) ->
+        history.pushState null, 'poputchiki', '/user/' + id
+
+    renderWithCallback: (callback)->
+        @render
+        do callback
+
+    render: () ->
+        that = @
+        do app.views.stripe_unsigned.render
+        @get_user (user) ->
+            is_fav = false
+            is_in_blacklist = false
+            that.model = user
+            app.views.user_photo_block_unsigned.render(window.location.pathname.split('/').slice(2)[0], false)
+            user.updateDate 'last_action'
+            user.updateDate 'birthday'
+            # user.set 'zodiac', user.get_zodiac_sign(new Date user.get 'birthday').eng
+            do user.update_zodiac_sign
+            $ that.$el.html jade.templates.guest_profile
+                user: user.attributes,
+                is_fav: is_fav
+                is_in_blacklist: is_in_blacklist
+            app.views.main_status_unsigned.render user
+            do $('#profile-slidedown').click
+
+    add_to_fav: ->
+        do @model.add_to_fav 
+        @$el.find('.fav-action .fui-star-2.act').css('color','grey')
+        @$el.find('.fav-action .myaction').removeClass 'add_to_fav'
+        # @$el.find('.fav-action').removeClass 'add_to_fav'
+        # @$el.find('.fav-action').addClass 'remove_from_fav'
+        @$el.find('.fav-action .myaction').empty()
+        @$el.find('.fav-action .myaction').append '<a class="remove_from_fav custom-link">Убрать из избранных</a>'
+
+
+    remove_from_fav: ->
+        do @model.remove_from_fav
+        @$el.find('.fav-action .fui-star-2.act').css 'color','#03aada'
+        do @$el.find('.fav-action .myaction').empty
+        @$el.find('.fav-action .myaction').removeClass 'remove_from_fav'
+        @$el.find('.fav-action .myaction').addClass 'add_to_fav'
+        # @$el.find('.fav-action').addClass 'add_to_fav'
+        @$el.find('.fav-action .myaction').text 'Добавить в избранное'
+
+
+    to_blacklist: (e)->
+        that = @
+        app.models.myuser.get (my_user)->
+            if my_user.get('blacklist').indexOf(@model.get('id')) != -1
+                @model.add_to_blacklist true
+                $(e.currentTarget).closest('.add').first().removeClass('in_blacklist').addClass('not_in_blacklist')
+                $(e.currentTarget).text('добавить в черный список')
+                # console.log $(e.currentTarget).closest('add').remove()
+                # $('.add.in_blacklist').removeClass('in_blacklist').addClass('not_in_blacklist')
+            else
+               @model.add_to_blacklist false
+               $(e.currentTarget).closest('.add').first().removeClass('not_in_blacklist').addClass('in_blacklist')
+               $(e.currentTarget).text('убрать из черного списка')
+               # console.log $(e.currentTarget).closest('add').remove()
+               # $('.add.not_in_blacklist').removeClass('not_in_blacklist').addClass('in_blacklist')
+
+    to_journey: ->
+        do @model.invite_to_travel
+        @$el.find('.to_journey').text 'Вы пригласили '+ @model.get('name') + ' в путешествие'
+        @$el.find('.to_journey').removeClass('to_journey')

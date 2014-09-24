@@ -15,7 +15,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
     get_my_user: (callback) ->
         app.models.myuser.get callback
 
-    render: ->
+    render: (after)->
         that = @
         history.pushState null, 'poputchiki', '/profile/'
         @get_my_user (user) =>
@@ -105,13 +105,15 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                     #    $(@oldtags).prepend z
                     @$el.find('input').val ''
                 #$(newtag).val("")
-
+            if after
+                do after
             # sc = @$el.find '.searchCountry'
             # scv = new app.views.AutocompleteCountry
             #     el: sc
             # sct = @$el.find '.searchCity'
             # sctv = new app.views.AutocompleteCity
             #     el: sct
+            do $('#profile-slidedown').click
 
     addSearchTag: (list, newtag, oldtags, variant) ->
         $(list).click ->
@@ -198,6 +200,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         "click #profile-edit-slideup span": 'saveProfile'
         "click .myProfileContainer .money-icon": 'setSponsor'
         "click .myProfileContainer .house-icon": 'setHost'
+        "click .myProfileContainer .invisible-icon": 'setInvisible'
         "click #my-seasons .season": 'setSeasons'
         "click #my-destinations .droped .dl": 'setDestinations'
         "click #my-destinations .close": 'removeDestinations'
@@ -296,6 +299,16 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         formData = {}
         formData['is_host'] = @$el.find('.house-icon').hasClass 'hg-icon'
         @model.save formData, patch: true
+
+    setInvisible: (e)->
+        if @model.get('vip')
+            $(e.currentTarget).toggleClass 'ig-icon'
+            formData = {}
+            formData['invisible'] = @$el.find('.invisible-icon').hasClass 'ig-icon' 
+
+            @model.save formData, patch: true
+        else
+            $('.show-vip').click()
 
 
         # moneyIcon: ->

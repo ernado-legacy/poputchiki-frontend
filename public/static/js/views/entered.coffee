@@ -178,7 +178,15 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         that = this
         app.views.login.check_status (result) ->
             if not result
-                app.views.login.render()
+                if window.location.pathname.search('/user/') != -1
+                    app.views.user_photo_block_unsigned = new app.views.UserPhotoBlockUnsigned
+                    app.views.guestprofile_unsigned = new app.views.GuestProfileUnsigned
+                    app.views.stripe_unsigned = new app.views.StripeUnsigned
+                    app.views.main_status_unsigned =  new app.views.userMainStatusUnsigned
+                    app.views.popupphoto = new app.views.PopupPhoto
+                    do app.views.guestprofile_unsigned.render
+                else
+                    app.views.login.render()
             else
                 app.models.myuser.get (user)->
                     if not user.get('avatar')
@@ -352,6 +360,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         $(button).parent().children('.wrapper').children('.c_right').addClass('circle2')
 
     play_audio: (event) ->
+        console.log (event.currentTarget)
         # var audio = document.getElementById('my-audio');audio.play();
         if not $(event.target).hasClass 'audio'
             target = $(event.target).parents('.audio')[0] 

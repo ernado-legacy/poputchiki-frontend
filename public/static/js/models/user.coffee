@@ -13,7 +13,6 @@ app.models.User = Backbone.Model.extend
         if @get 'birthday'
             @set 'zodiac', @get_zodiac_sign(new Date @get 'birthday').eng
             @set 'zodiac_rus', @get_zodiac_sign(new Date @get 'birthday').rus
-            console.log @attributes
 
 
     get_zodiac_sign: (date)->

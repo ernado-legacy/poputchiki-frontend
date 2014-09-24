@@ -75,6 +75,13 @@ app.views.SettingsProfile = Backbone.View.extend _.extend app.mixins.RenderSetti
     # clck: ->
     #     # "subscriptions": ["likes_photo", "likes_status", "messages", "invites", "guests", "news"]
     #     console.log 'save profile'
+    events: 
+        'click .profile-edit-slideup span': 'clck',
+        'click .edit-profile': 'edit_profile'
+
+    edit_profile:->
+        do app.views.profile.render ->
+            $('#edit-profile').click()
     clck: ->
         that = @
         @changeUserSettings (aftersavefunction)=>

@@ -1,9 +1,16 @@
 .topContainer.clearfix
-  div(class = user.get('rating') < 70 ? user.get('rating') < 35 ? "userBox low-rating" : "userBox middle-rating" : "userBox")
-    #nick-name Хочу сюда!
-    img(src='#{user.get("avatar_url")}', width=100)
-    #rating(class = user.get('rating') < 70 ? user.get('rating') < 35 ? "low-rating" : "middle-rating" : "") #{user.get("rating")}%
-    //- #name=user.get('name')
+  if user
+    div(class = user.get('rating') < 70 ? user.get('rating') < 35 ? "userBox low-rating" : "userBox middle-rating" : "userBox")
+      #nick-name Хочу сюда!
+      img(src='#{user.get("avatar_url")}', width=100)
+      #rating(class = user.get('rating') < 70 ? user.get('rating') < 35 ? "low-rating" : "middle-rating" : "") #{user.get("rating")}%
+      //- #name=user.get('name')
+  else
+    div(class ="userBox")
+      #nick-name Хочу сюда!
+      img(src='https://poputchiki.cydev.ru/static/img/defaultavatars/no_avatar_m.gif', width=100)
+      #rating(class ="")
+      //- #name=user.get('name')
   #profile-arrow-left
   .carouselBox
     .carousel

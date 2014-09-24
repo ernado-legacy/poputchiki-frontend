@@ -163,6 +163,97 @@ app.views.Stripe = Backbone.View.extend
         app.views.guestprofile.set_user userid
         do app.views.guestprofile.render
 
+app.views.StripeUnsigned = Backbone.View.extend
+
+    el: '.mainTopContainer'
+
+    events:
+        'click .crsItem img': 'clickstripe'
+        'click .stripeName': 'stripeName'
+    #     #'click .audio': 'play_audio'
+    #     #'click .video': 'play_video'
+
+    set_coockie: ->
+        # detect webp support
+        if Modernizr.webp
+            $.cookie "webp", "1",
+                path: '/'
+        else
+            $.cookie "webp", "0",
+                path: '/'
+        if Modernizr.audio.ogg
+            $.cookie "audio", "ogg", { path: '/' }
+        else
+            $.removeCookie 'audio',  path: '/' 
+        $.cookie "video", "mp4", { path: '/' } if Modernizr.video.h264
+
+        $.cookie "video", "webm", { path: '/' } if Modernizr.video.webm
+
+    render: ->
+        @set_coockie()
+        stripes = new app.models.Stripes()
+        stripes.fetch
+            success: =>
+                @$el.html jade.templates.top_bar
+                    items: stripes.models
+                    user: undefined
+                    caudio: $.cookie "audio"
+                    cvideo: $.cookie "video"
+                    cwebp: $.cookie "webp"
+                # console.log 'stripe item'
+                # console.log stripes.models[2]
+                $('.promoPopup .changeAvatarBox .crsItem').remove()
+                # $('.promoPopup .changeAvatarBox #promo-add-photo').attr 'src',user.get 'avatar_url'
+                # $('.promoPopup .price span').text user.get 'balance'
+                $('.carouselBox .crsItem').first().hide()
+                $('.carouselBox .crsItem').first().show('slide',{dicrection:'left'})
+                $('.promoPopup .choose-photo').addClass('active')
+                $('.promoPopup .choose-audio').addClass('active')
+                $('.promoPopup .choose-video').addClass('active')
+                for i in [0..2]
+                    $('.promoPopup .changeAvatarBox').append jade.templates.top_bar_crs_item
+                        item:stripes.models[i]
+                        caudio: $.cookie "audio"
+                        cvideo: $.cookie "video"
+                        cwebp: $.cookie "webp"
+                if $(window).width() >= 1730
+                    $('.carouselBox').css 'width', '1496px'
+                else
+                    wdth = ($('.topContainer').width() - 210).toString() + 'px'
+                    $('.carouselBox').css 'width', wdth
+                cw = ($('.mainCrs').length * 136 - 408).toString() + 'px'
+                $(".carousel").css "width", cw
+
+    clickstripe: (event) ->
+        console.log 'sclick stripe'
+        console.log $(event.target)
+        crsItem = $($(event.target).parents('.crsItem')[0])
+        
+        et = $(event.target)
+        # if et.hasClass('audio') or et.hasClass('video')
+        #     return true
+        link = crsItem.find('.link-to-user').data 'href'
+        console.log link
+        # window.location.href = link
+        history.pushState null, 'poputchiki', link
+        # do app.views.guestprofile.render
+
+        app.views.guestprofile_unsigned.set_user crsItem.attr 'data-user-id'
+        # do app.views.guestprofile.render
+        console.log 'render '
+        app.views.guestprofile_unsigned.render ->
+            if crsItem.hasClass 'crs-item-audio'
+                crsItem.find('.audio').click()
+            if crsItem.hasClass 'crs-item-video'
+                crsItem.find('.video').click()            
+
+    stripeName: (event) ->
+        link = $(event.currentTarget).data 'href'
+        history.pushState null, 'poputchiki', link
+        userid = $(event.currentTarget).data 'user-id'
+        app.views.guestprofile_unsigned.set_user userid
+        do app.views.guestprofile_unsigned.render
+
 app.views.StripePopup = Backbone.View.extend
 
     el: '.promoPopup'

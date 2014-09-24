@@ -19,6 +19,9 @@ app.models.myuser =
                     @usermodel = user
                     # @usermodel.favs = @favs
                     callback @usermodel
+                # error: =>
+                #     console.log 'unauth user'
+                #     callback @usermodel
 
     
     get_favs: (callback, options) ->

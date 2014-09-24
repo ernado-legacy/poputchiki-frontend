@@ -251,7 +251,7 @@ small
 .bodyPopup
     padding-right: 8px
     overflow-x: hidden
-    overflow-y: hidden
+    // overflow-y: hidden
 
 .right 
     float: right
@@ -261,6 +261,7 @@ small
     max-width: 1500px
     min-height: 200px
     margin: 0 auto
+    margin-bottom: 50px
 
 .mainContainer
     float: left
@@ -400,7 +401,7 @@ footer
 .menuBox
     position: absolute
     left: 0
-    top: 300px
+    top: 350px
     z-index: 2000
     .leftMenu, .letsGo
         width: 143px
@@ -1028,7 +1029,7 @@ footer
                 padding-left: 50px
                 line-height: 20px
                 padding-right: 15px
-            .house-icon, .money-icon, .money-icon-inactive 
+            .house-icon, .money-icon, .money-icon-inactive, .invisible-icon
                 margin-top: 0px
                 margin-right: 15px
                 color: #4b4b4b
@@ -1144,7 +1145,7 @@ footer
     padding: 11px 15px 15px 15px
     font-size: 14px
     max-width: 1060px
-    .money-icon, .house-icon, .edit, .money-icon-inactive
+    .money-icon, .house-icon, .edit, .money-icon-inactive, .invisible-icon
         .tooltip
             bottom: -19px
     h1
@@ -1159,7 +1160,7 @@ footer
         margin-right: 8px
         color: $title_text
     .city-in-profile
-        font-size: 13px
+        font-size: 16px
         margin: 0px 0px 12px 1px
         float: left
         width: 100%
@@ -1433,7 +1434,7 @@ footer
 #edit-profile
     right: 10px
 
-.money-icon, .house-icon, .money-icon-inactive
+.money-icon, .house-icon, .money-icon-inactive, .invisible-icon
     float: left
     background-image: url('../img/money3.png')
     background-repeat: no-repeat
@@ -1445,10 +1446,10 @@ footer
 
 
 .searchContainer, .myProfileContainer
-    .money-icon, .house-icon, .money-icon-inactive
+    .money-icon, .house-icon, .money-icon-inactive, .invisible-icon
         cursor: pointer
 
-.money-icon, .house-icon, .edit, .money-icon-inactive, .wmwt
+.money-icon, .house-icon, .edit, .money-icon-inactive, .wmwt, .invisible-icon
     .tooltip
         visibility: hidden
         opacity: 0
@@ -1484,6 +1485,11 @@ footer
     background-image: url('../img/house3.png')
 .hg-icon
     background-image: url('../img/house_active2.png')
+
+.invisible-icon
+    background-image: url('../img/invisible2.png')
+.ig-icon
+    background-image: url('../img/invisible_active.png')
 
 .wantToTravelBox
     float: left
@@ -2386,7 +2392,10 @@ footer
 
 .profileGuest
     .profileBox
-        background: none
+        #profile-rating
+            font-weight: bold
+        &.no-vip
+            background: none
     .profileAction
         color: $title_text
         div
@@ -2659,6 +2668,7 @@ footer
         .changeAvatarBox
             // margin-bottom: 50px
             margin-top: 10px
+            margin-bottom: 40px
             img
                 float: left
                 width: 155px
@@ -2751,7 +2761,7 @@ footer
                 .frontLayer
 
                     width: 95px
-                    height: 94px
+                    height: 95px
                     left: -1px
                 video
                     width: 94px
@@ -2762,7 +2772,7 @@ footer
                 width: 94px
                 height: 94px
         .changeAvatarBox
-            margin-bottom: 10px
+            margin-bottom: 40px
         .chooseBox
             width: 100%
             float: left
