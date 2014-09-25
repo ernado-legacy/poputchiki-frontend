@@ -109,7 +109,7 @@ app.views.Stripe = Backbone.View.extend
                         caudio: $.cookie "audio"
                         cvideo: $.cookie "video"
                         cwebp: $.cookie "webp"
-                        ipad: (navigator.userAgent.search('iPad')!=-1) 
+                        ipad: (navigator.userAgent.search('iPad')!=-1) or (navigator.userAgent.search('Android')!=-1)
                     # console.log 'stripe item'
                     # console.log stripes.models[2]
                     $('.promoPopup .changeAvatarBox .crsItem').remove()
@@ -126,7 +126,7 @@ app.views.Stripe = Backbone.View.extend
                             caudio: $.cookie "audio"
                             cvideo: $.cookie "video"
                             cwebp: $.cookie "webp"
-                            ipad: (navigator.userAgent.search('iPad')!=-1)
+                            ipad: (navigator.userAgent.search('iPad')!=-1) or (navigator.userAgent.search('Android')!=-1)
                     if $(window).width() >= 1730
                         $('.carouselBox').css 'width', '1496px'
                     else
