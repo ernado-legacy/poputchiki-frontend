@@ -1914,11 +1914,6 @@ footer
                     margin-left: 10px
                     float: left
                     +search-checkboxes
-            .rightPart
-                width: -moz-calc(100% - 400px)
-                width: -webkit-calc(100% - 400px)
-                width: calc(100% - 400px)
-                float: left
                 .sexBox
                     margin: 15px 0px 0px 10px
                     float: left
@@ -1926,6 +1921,36 @@ footer
                         width: 95px
                         float: left
                         +search-checkboxes
+            .rightPart
+                width: -moz-calc(100% - 400px)
+                width: -webkit-calc(100% - 400px)
+                width: calc(100% - 400px)
+                float: left
+                .title
+                    float: left
+                    margin-left: 15px
+                    color: $status_filter_text
+                    font-size: 12px
+                    width: 100%
+                .sexBox
+                    margin: 15px 0px 0px 10px
+                    float: left
+                    .manBox, .womanBox
+                        width: 95px
+                        float: left
+                        +search-checkboxes
+                input
+                    width: 203px
+                    border: 1px solid $tag_input_border
+                    background: white
+                    float: left
+                    padding: 7px 8px
+                    color: $profile_status_text
+                    +border-radius(4px, 4px, 4px, 4px)
+                    margin-bottom: 0px
+                    margin-left: 15px
+                input:focus
+                    outline: none
     .statusBlock
         width: -moz-calc(100% - 31px) !important
         width: -webkit-calc(100% - 31px) !important
@@ -2392,10 +2417,15 @@ footer
 
 .profileGuest
     .profileBox
+        background: none
         #profile-rating
             font-weight: bold
         &.no-vip
             background: none
+        &.vip-avatar
+            .imgBox
+                border: 10px dashed #ffa200
+                margin: 0px
     .profileAction
         color: $title_text
         div

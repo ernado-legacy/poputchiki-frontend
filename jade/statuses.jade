@@ -30,7 +30,7 @@
     //-     .du
     .filters.clearfix
       .leftPart.clearfix
-        .title Поиск по городам:
+        .title Откуда:
         //- .tagsBox.clearfix
         //-   .mainSelectElement.searcTagPlaces.withShadow
         //-     span.tagCountry Россия
@@ -51,11 +51,6 @@
             //- li.dl Москва
             //- li.dl Киев
             //- li.dl Минск
-        .nearBox.clearfix
-          //- .box.checked
-          //- span Искать рядом
-          a.custom-blue-link.search_by_place Искать
-      .rightPart.clearfix
         .sexBox.clearfix
           .manBox
             .box
@@ -63,7 +58,19 @@
           .womanBox
             .box
             span Женщины
+        .nearBox.clearfix
+          //- .box.checked
+          //- span Искать рядом
+          a.custom-blue-link.search_by_place Искать
+      .rightPart.clearfix
+        .title Поиск по тексту статусов:
+        #status-text.clearfix
+          span.rp
+            input(type='text', value='', name = 'name',placeholder='Введите текст...')
+        
+
   .statusBlockWrap
     img(src='/static/img/searchpreloader.GIF',class="loading-gif")
-  .pagination
+  .paginationInfinite
+    a(class="more custom-blue-link",data-page=2,href="#") Еще...
 a(style="display:none", class="show-vip")

@@ -1,9 +1,10 @@
 .leftBox.profileGuest
-  .profileBox(class= user.vip?"":"no-vip")
+  h1 Vip-статус
+  .profileBox(class= user.vip?"vip-avatar":"no-vip")
     .imgBox
       img(src=user.avatar_url)
-    if user.vip
-      #profile-rating VIP-статус
+    //- if user.vip
+    //-   #profile-rating VIP-статус
   if (user.audio_url)
     .playerBox.clearfix
       .audio.audio-change-avatar

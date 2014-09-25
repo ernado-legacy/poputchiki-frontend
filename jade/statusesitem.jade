@@ -1,5 +1,5 @@
 each status in statuses.models
-  .statusBlock(data-status='#{status.get('id')}')
+  .statusBlock.justLoadedStatus(data-status='#{status.get('id')}')
     a(href="/user/#{status.get('user_object').id}")
       img(src=status.get('user_object').avatar_url)
     .profileInfoBox.leftPart     

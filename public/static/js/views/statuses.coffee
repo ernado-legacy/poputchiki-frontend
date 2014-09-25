@@ -6,6 +6,24 @@ app.views.Statuses = Backbone.View.extend
         # 'click .like': 'like'
         'click .statusesContainer .filterBlock .box': 'sexfilter'
         'click .statusesContainer .filterBlock .search_by_place': 'getstatuses'
+        'keyup input': 'press'
+        'click .more': 'loadmore'
+
+    loadmore: ->
+        i = @$el.find('.more').data 'page'
+        i+=1
+        @$el.find('.more').data 'page', i
+        @getstatuses i, (statuses)=>
+            if statuses.length==0
+                do @$el.find('.more').hide
+        return false
+
+
+    press: (event)->
+        $('')
+        if event.which==13
+            do @getstatuses
+
 
 
     
@@ -40,7 +58,7 @@ app.views.Statuses = Backbone.View.extend
 
     rerender: ->
         @getstatuses 1, (statuses) =>
-            @pagination.render 1 + statuses.size()/20
+            @pagination.render 1 + statuses.size()/10
             @pagination.setreaction (i) => @getstatuses i
 
     getstatuses: (i, callback) ->
@@ -48,12 +66,11 @@ app.views.Statuses = Backbone.View.extend
         that = @
         statuses = new app.models.Statuses
         i = i - 1
-        offset = i * 20
+        offset = i * 10
         statusfilterdata = 
             offset: offset
-            count: 20
+            count: 10
 
-        console.log $('.manBox .box').hasClass('checked')
         if $('.manBox .box').hasClass('checked')
             statusfilterdata.sex = 'male'
         if $('.womanBox .box').hasClass('checked')
@@ -61,6 +78,9 @@ app.views.Statuses = Backbone.View.extend
         if $('.womanBox .box').hasClass('checked') and $('.manBox .box').hasClass('checked')
             statusfilterdata.sex = ''
             delete statusfilterdata.sex
+
+        text = $('#status-text input').val()
+        statusfilterdata.text = text if text
 
 
         if @$el.find('.searchCountry input').val()
@@ -71,9 +91,17 @@ app.views.Statuses = Backbone.View.extend
             data: statusfilterdata
             processData: true
             success: ->
-                that.$el.find('.statusBlockWrap').html jade.templates.statusesitem
-                    statuses: statuses
-                _.each that.$el.find('.statusBlock'), (item) ->
+                
+                do that.$el.find('.loading-gif').remove
+                that.$el.find('.statusBlock').removeClass 'justLoadedStatus'
+                if i==0
+                    that.$el.find('.statusBlockWrap').html jade.templates.statusesitem
+                        statuses: statuses,
+                else
+                    that.$el.find('.statusBlockWrap').append jade.templates.statusesitem
+                        statuses: statuses
+                
+                _.each that.$el.find('.statusBlock.justLoadedStatus'), (item) ->
                     view = new app.views.Status 
                         el: item
                     id =  $(item).data 'status'
@@ -101,5 +129,5 @@ app.views.Statuses = Backbone.View.extend
                 #                     view = new app.views.Status 
                 #                         el: item
                 #                     do view.updatelike
-    loadingstatuses: ->
-        $('.statusBlockWrap').html("<img src='http://poputchiki/static/img/searchpreloader.GIF' class='loading-gif')'>")
+    loadingstatuses: ()->
+        $('.statusBlockWrap').append("<img src='http://poputchiki/static/img/searchpreloader.GIF' class='loading-gif')'>")
