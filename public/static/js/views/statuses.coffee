@@ -71,8 +71,6 @@ app.views.Statuses = Backbone.View.extend
             offset: offset
             count: 10
 
-            
-
         if $('.manBox .box').hasClass('checked')
             statusfilterdata.sex = 'male'
         if $('.womanBox .box').hasClass('checked')
