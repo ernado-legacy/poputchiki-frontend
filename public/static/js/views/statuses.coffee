@@ -5,7 +5,7 @@ app.views.Statuses = Backbone.View.extend
     events: 
         # 'click .like': 'like'
         'click .statusesContainer .filterBlock .box': 'sexfilter'
-        'click .statusesContainer .filterBlock .search_by_place': 'getstatuses'
+        'click .statusesContainer .filterBlock .search_by_place': 'rerender'
         'keyup input': 'press'
         'click .more': 'loadmore'
 
