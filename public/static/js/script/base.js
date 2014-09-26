@@ -117,6 +117,7 @@ function WS() {
 
       self.connection.onmessage = function (event) {
         data = JSON.parse(event.data);
+        console.log(data);
         // angular.forEach(self.callbacks, function(value) {
         //   value(data);
         // });
