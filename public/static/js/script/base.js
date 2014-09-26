@@ -117,9 +117,9 @@ function WS() {
 
       self.connection.onmessage = function (event) {
         data = JSON.parse(event.data);
-        angular.forEach(self.callbacks, function(value) {
-          value(data);
-        });
+        // angular.forEach(self.callbacks, function(value) {
+        //   value(data);
+        // });
       };
 
       self.connection.onclose = function () {
