@@ -20,7 +20,6 @@ app.views.Statuses = Backbone.View.extend
 
 
     press: (event)->
-        $('')
         if event.which==13
             do @getstatuses
 

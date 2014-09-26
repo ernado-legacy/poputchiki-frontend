@@ -78,3 +78,61 @@ Share = {
         window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
     }
 };
+function WS() {
+    var self = this;
+    self.timeout = 1000;
+    self.accounts = [];
+    var host = window.location.hostname;
+    self.callbacks = [
+      function(data) {
+        console.log('got event', data.type);
+      },
+      function(data) {
+        console.log('from user', data.user);
+      }
+    ]
+    self.setAccounts = function(accounts) {
+      self.accounts = accounts;
+      self.connection.close();
+    }
+    self.addCallback = function(callback) {
+      console.log('adding callback');
+      self.callbacks.push(callback);
+    }
+    self.reconnect = function() {
+      self.timeout *= 2;
+      var url = 'ws://' + host + '/api/realtime';
+      if (self.accounts && self.accounts.length > 0) {
+        url = url + '?id=' + self.accounts.join(',');
+      }
+      try {
+        self.connection = new WebSocket(url);
+      } catch(e) {
+        console.log("ws error", e);
+        return setTimeout(self.reconnect, self.timeout);
+      }
+      self.connection.onopen = function () {
+        console.log('ws connected');
+      };
+
+      self.connection.onmessage = function (event) {
+        data = JSON.parse(event.data);
+        angular.forEach(self.callbacks, function(value) {
+          value(data);
+        });
+      };
+
+      self.connection.onclose = function () {
+        console.log('ws closed; reconnecting');
+        return setTimeout(self.reconnect, self.timeout);
+      };
+    };
+
+    self.connect = function() {
+      self.reconnect();
+    };
+
+    return self;
+  }
+
+  
