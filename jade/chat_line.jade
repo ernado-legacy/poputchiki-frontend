@@ -3,9 +3,11 @@ div.icl#profile-arrow-down
 ul.chatLine.inDialogs
   each dialog in dialogs.models
     if dialog.get('user')
-      li(data-user='#{dialog.get('user').id}')
+      li(data-user='#{dialog.get('user').id}',class=dialog.get('unread')>0?"active":"")
         img(src='#{dialog.get('user').avatar_url}')
         span=dialog.get('user').name
+            br
+            | #{dialog.get('unread')}
   //
     li
       img(src='/static/img/dialog/userpic.png')

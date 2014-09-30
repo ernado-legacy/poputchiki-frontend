@@ -299,6 +299,15 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
                 user.set 'avatar', data.id
                 user.save()
                 $('.img img').attr 'src', data.url
+                id = data.id
+                type = 'photo'
+                model = new app.models.Stripe
+                    id: id
+                    type: type
+                model.url = -> "/api/stripe"
+                model.save {},
+                    success: ->
+                        do app.views.stripe.render
 
     newtag: (box) ->
         hide = (box) ->

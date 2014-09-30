@@ -1,4 +1,17 @@
+
 .chatContainer.clearfix
+  .chatBlock(data-user="#{user.id}")
+    a(href='/user/'+user.id)
+      img(src='#{user.avatar_url}')
+    .topPart
+      .chatName #{user.name}, 
+          small=user.age
+      //- .invite пригласить в путешествие
+      .closeChat закрыть
+    .centerPart
+    .bottomPart.clearfix
+      input(type='text')
+      .pstMsg.fui-bubble
   // .chatBlock
     img(src='/static/img/dialog/userpic.png')
     .topPart

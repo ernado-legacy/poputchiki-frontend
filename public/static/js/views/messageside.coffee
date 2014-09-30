@@ -1,4 +1,4 @@
-app.views.MessageSide = Backbone.View.extend
+app.views.MessageSide = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     el: '.photoVideoBlock'
 
@@ -6,37 +6,38 @@ app.views.MessageSide = Backbone.View.extend
         'click ul.chatLine li': 'newdialog'
         'click #profile-arrow-up': 'carousel_up'
         'click #profile-arrow-down': 'carousel_down'
-    initialize: ->
-        do @check_unread
-        that = @
-        @message_interval = setInterval ->
-                do that.check_unread
-            , 4000
-
-    check_unread: ->
-        app.models.myuser.get (user)->
-
-            $.get '/api/user/'+user.get('id')+'/unread',
-                (data)->
-                    if isNaN(parseInt($('#menu-messgaes .menuIcon.new div').text())) 
-                        $('#menu-messgaes .menuIcon.new div').text data.count
-                    else 
-                        if (parseInt($('#menu-messgaes .menuIcon.new div').text()) < data.count)
-                            do playSoundNotification
-                            $('#menu-messgaes .menuIcon.new div').text data.count
-                    if data.count==0
-                        do $('#menu-messgaes .menuIcon.new div').hide
-                    else
-                        do $('#menu-messgaes .menuIcon.new div').show
-                ,
-                'json'
 
     render: ->
-        $ @$el.html jade.templates.chat_line
-            dialogs: app.views.message.dialogs
+        that = @
+        app.views.dialogs.get_dialogs (dialogs)->
+            that.slideHideAndShow ()->
+                $ that.$el.html jade.templates.chat_line
+                    dialogs: dialogs
+
+    update_dialogs: (target)->
+        console.log target
+        li = @$el.find('li[data-user="'+target.origin+'"]')
+        if li.length
+            if not li.hasClass 'opened'
+                li.addClass 'active'
+        else
+            app.views.dialogs.dialogs = undefined
+            @render
+        # that = @
+        # app.views.dialogs.get_dialogs (dialogs)->
+        #     $ that.$el.html jade.templates.chat_line
+        #         dialogs: dialogs
 
     newdialog: (event) ->
-        app.views.message.newdialog event
+        app.views.dialogs.get_dialogs (dialogs)->
+            for dialog in dialogs.models
+                dialog.set('unread',0)
+        $(event.currentTarget).removeClass 'active'
+        $(event.currentTarget).addClass 'opened'
+        user_id =  $(event.currentTarget).data 'user'
+        app.views.message.set_url user_id
+        do app.views.message.render
+        # app.views.message.newdialog event
 
     carousel_up: ->
         $('.chatLine').animate

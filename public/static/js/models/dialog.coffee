@@ -8,4 +8,9 @@ app.models.Dialogs = Backbone.Collection.extend
     url: ->
         '/api/user/' + app.models.myuser.getid() + '/chats'
 
+    comparator: (m)->
+        date = new Date m.get('time')
+        # -m.get('time').getTime();
+        -date
+
 Dialogs = app.models.Dialogs

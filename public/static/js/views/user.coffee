@@ -46,6 +46,8 @@ app.views.UserListView = Backbone.View.extend
         app.views.message.set_url @model.get('id')
         do app.views.message.render
         do app.views.messageside.render
+        # do app.views.messageside.render
+        # do app.views.messageside.render
 
     add_to_fav: (e)->
         do e.preventDefault

@@ -5,8 +5,17 @@
   .guests#dialogs_list
     .rightBox
       .title Диалоги
-        //- .title-help-text
-        //-   small диалоги
+        .title-help-text
+          small
+            if unread_only
+              a(class="custom-link", id='get-all')  Все
+              |  / 
+              a(class="",id='get-unread')   Нерпочитанные
+            else
+              a(class="", id='get-all')  Все
+              |  / 
+              a(class="custom-link",id='get-unread')   Нерпочитанные
+
       .people
         ul.chatLine
           //- for dialog in dialogs

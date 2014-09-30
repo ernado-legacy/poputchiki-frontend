@@ -84,12 +84,12 @@ function WS() {
     self.accounts = [];
     var host = window.location.hostname;
     self.callbacks = [
-      function(data) {
-        console.log('got event', data.type);
-      },
-      function(data) {
-        console.log('from user', data.user);
-      }
+      // function(data) {
+      //   console.log('got event', data.type);
+      // },
+      // function(data) {
+      //   console.log('from user', data.user);
+      // }
     ]
     self.setAccounts = function(accounts) {
       self.accounts = accounts;
@@ -118,6 +118,9 @@ function WS() {
       self.connection.onmessage = function (event) {
         data = JSON.parse(event.data);
         console.log(data);
+        _.each(self.callbacks,function(value){
+            value(data)
+        })
         // angular.forEach(self.callbacks, function(value) {
         //   value(data);
         // });
@@ -136,4 +139,5 @@ function WS() {
     return self;
   }
 
-  
+  var ws_connection = new WS();
+  ws_connection.connect();

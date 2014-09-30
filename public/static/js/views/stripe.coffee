@@ -389,7 +389,6 @@ app.views.StripechopPopup = Backbone.View.extend _.extend app.mixins.UploadPhoto
                             id = @$el.attr 'data-id'
                             img_src = @$el.data 'media-url'
                             $(".promoPopup #promo-add-photo").attr 'src', img_src
-                            console.log @$el
                             $('.promoPopup .changeAvatarBox').attr 'data-id', id
                             $('.popup').fadeOut('slow')
                             $('.promoPopup').fadeIn('slow')

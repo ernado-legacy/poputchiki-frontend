@@ -8,17 +8,8 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'keyup .chatBlock input': 'press'
 
 
-    chatting_with_user: (ws_message_target)->
-        if @get_cb().data('user')
-            app.views.messageside.update_dialogs(ws_message_target)
-            if @user 
-                if @get_cb().data('user') == ws_message_target.origin or @get_cb().data('user') == ws_message_target.destination
-                    do @updatedialogbox
-                    return true
-            else
-                false
-        else
-            false
+    chatting_with_user: (user_id)->
+        $('.chatBlock').data('user') == user_id
 
 
     press: (event)->
@@ -38,34 +29,26 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         url = '/message/' + url
         history.pushState null, 'poputchiki', url
 
-    read_messages_in_dialog: ->
-        that = @
-        app.views.dialogs.get_dialogs (dialogs)->
-            dialog = dialogs.find (item) -> that.user.get('id') == item.get 'id'
-            if dialog
-                app.views.dialogs.decr_unread dialog.get 'unread'
-
     render: ->
         if window.location.pathname.search('message') == -1
             @set_url ''
             #do app.views.messageside.render
+        Dialogs = app.models.Dialogs
+        @dialogs = new Dialogs
+        @messages = {}
         app.views.entered.setmenuitem '#menu-messgaes'
-
+        $ @$el.html jade.templates.dialog()
         #do @reupdate
         iduser = window.location.pathname.split('/').slice(2)[0]
-        @user = new app.models.User
-        @user.set 'id', iduser
-
-        do @read_messages_in_dialog
-        @user.fetch
-            success: =>
-                $ @$el.html jade.templates.dialog
-                    user:@user.attributes
-                do @updatedialogbox
-                # $('.chatContainer').append jade.templates.dialog_item
-                #     dialog: 
-                #         get: ->
-                #             user.attributes
+        if _.size iduser
+            user = new app.models.User
+            user.set 'id', iduser
+            user.fetch
+                success: =>
+                    $('.chatContainer').append jade.templates.dialog_item
+                        dialog: 
+                            get: ->
+                                user.attributes
                     #$('.leftMenu li').removeClass 'current'
                     #$('#menu-messgaes').addClass 'current'
                     #@updatedialog user.get 'id'
@@ -79,9 +62,9 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                     # @reupdate false
                     # this was used
 
-                    
-        # else
-        #     @reupdate true
+                    @updatedialogbox user.get('id')
+        else
+            @reupdate true
 
     new_massage: (id, mess) ->
         url = '/api/user/' + id + '/messages'
@@ -109,10 +92,10 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         console.log input
         input.click()
         if mess.length > 0
-            # @render_message cb,
-            #     text: mess
-            #     author: 'Вы',
-            #     invite: false
+            @render_message cb,
+                text: mess
+                author: 'Вы',
+                invite: false
             @new_massage user, mess
 
     du: (id) ->
@@ -146,8 +129,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                             that.updatedialog messages.urluser
                     #console.log messages
 
-
-    updatedialogbox: ->
+    updatedialogbox: (user_id) ->
         that = @
         # @olddialogssize = _.size @dialogs.models
         # @dialogs.fetch
@@ -157,24 +139,70 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         #             #     do app.views.messageside.render
         #             # that.slideHideAndShow ()->
         #             #     do app.views.messageside.render
-        messages = new app.models.Messages
-        messages.urluser = @user.get('id')
-        messages.fetch
-            success: ->
-                if messages.length
-                    that.updatemessages messages
-                # # # that.messages[messages.urluser] = messages
-                # if not that.messages[messages.urluser] or _.size(that.messages[messages.urluser].models) < _.size messages.models
-                #     that.messages[messages.urluser] = messages
-                #     li = $ '.chatLine li' + that.du messages.urluser
-                #     cb = $ '.chatBlock' + that.du messages.urluser
-                #     if not _.size cb
-                #         # do playSoundNotification
-                #         # li.addClass 'active'
-                        
-                #     else
-                #         cb.remove()
-                #         that.updatemessages messages.urluser
+        app.views.dialogs.get_dialogs (dialogs)->
+            that.dialogs = dialogs
+            messages = new app.models.Messages
+            messages.urluser = user_id
+            messages.fetch
+                success: ->
+                    if messages.length
+                        # # that.messages[messages.urluser] = messages
+                        if not that.messages[messages.urluser] or _.size(that.messages[messages.urluser].models) < _.size messages.models
+                            that.messages[messages.urluser] = messages
+                            li = $ '.chatLine li' + that.du messages.urluser
+                            cb = $ '.chatBlock' + that.du messages.urluser
+                            if not _.size cb
+                                # do playSoundNotification
+                                # li.addClass 'active'
+                                
+                            else
+                                cb.remove()
+                                that.updatedialog messages.urluser
+
+
+    updatedialogbox2: (user_id) ->
+        that = @
+        # @olddialogssize = _.size @dialogs.models
+        # @dialogs.fetch
+        #     success: () ->
+        #         # if that.olddialogssize < _.size that.dialogs.models
+        #             # that.slideHideAndShow ()->
+        #             #     do app.views.messageside.render
+        #             # that.slideHideAndShow ()->
+        #             #     do app.views.messageside.render
+        app.views.dialogs.get_dialogs (dialogs)->
+            that.dialogs = dialogs
+            messages = new app.models.Messages
+            messages.urluser = user_id
+            messages.fetch
+                success: ->
+                    # # that.messages[messages.urluser] = messages
+                    if not that.messages[messages.urluser] or _.size(that.messages[messages.urluser].models) < _.size messages.models
+                        that.messages[messages.urluser] = messages
+                        li = $ '.chatLine li' + that.du messages.urluser
+                        cb = $ '.chatBlock' + that.du messages.urluser
+                        if not _.size cb
+                            # do playSoundNotification
+                            # li.addClass 'active'
+                            
+                        else
+                            cb.remove()
+                            that.updatemessages messages.urluser
+
+    reupdate: (now) ->
+        that = @
+        count = 0
+        run = ->
+            if window.location.pathname.search('/message/') != -1
+                that.updatemess count
+                count += 1
+            else
+                clearInterval @interval
+        @interval = setInterval ->
+            do run
+        , 500
+        if now
+            do run
 
     newdialog: (event) ->
 
@@ -191,6 +219,9 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         if _.size get_cb()
             get_cb().remove()
             return
+
+        dialog = @dialogs.find (item) -> user == item.get 'id'
+        # app.views.dialogs.decr_unread dialog.get 'unread'
         $('.chatContainer').append jade.templates.dialog_item
             dialog: dialog
         get_cb().addClass 'darkBlock'
@@ -199,36 +230,26 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 text: mess.get 'text'
                 author: if mess.get('origin')==user then dialog.get('name') else 'Вы'
                 invite: mess.get 'invite'
-
-    get_cb: ->
-        $ '.chatBlock'
-    updatemessages: (messages) ->
+    updatemessages: (user) ->
 
         that = @
         get_cb = ->
             $ '.chatBlock' + that.du user
 
-        # # if _.size get_cb()
-        # #     get_cb().remove()
-        # #     return
+        # if _.size get_cb()
+        #     get_cb().remove()
+        #     return
 
-
-        # # $('.chatContainer').append jade.templates.dialog_item
-        # #     dialog: dialog
-        # get_cb().addClass 'darkBlock'
-        @get_cb().addClass 'darkBlock'
-        app.views.message.$el.find('.record').remove()
-        _.each messages.models, (mess) =>
-            @render_message @get_cb(),
+        dialog = @dialogs.find (item) -> user == item.get 'id'
+        app.views.dialogs.decr_unread dialog.get 'unread'
+        # $('.chatContainer').append jade.templates.dialog_item
+        #     dialog: dialog
+        get_cb().addClass 'darkBlock'
+        @messages[user].each (mess) =>
+            @render_message get_cb(),
                 text: mess.get 'text'
-                author: if mess.get('origin')==@user.get('id') then @user.get('name') else 'Вы'
+                author: if mess.get('origin')==user then dialog.get('name') else 'Вы'
                 invite: mess.get 'invite'
-        last =  (_.last messages.models)
-        if not (last.get('read')) and (last.get('destination')==@user.get('id'))
-            @render_message @get_cb(),
-                text: ''
-                author: @user.get('name')+' еще не прочитал(а) ваше сообщение'
-                invite: false
 
     closechat: (event) ->
         do $(event.currentTarget).parent().parent().remove
