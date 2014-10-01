@@ -1,6 +1,10 @@
 .profileContainer.clearfix#guest_profile
   include guest_leftbox
   .rightBox
+    .search-comback
+        a(href="/search/")
+          span.fui-arrow-left
+          |  назад к поиску
     .profileInfoBox.pIBTitle
       .user-last-action
         if user.online

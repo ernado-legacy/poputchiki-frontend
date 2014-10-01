@@ -22,6 +22,7 @@ app.views.UserListView = Backbone.View.extend
         @model.remove_messeges_with_this_user ->
             $('#dialogs_list li[data-user-id="'+that.model.get('id')+'"]').remove()
             # do that.
+        app.views.dialogs.dialogs = undefined
 
         false
 

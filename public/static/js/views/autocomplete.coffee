@@ -24,6 +24,7 @@ app.views.Autocomplete = Backbone.View.extend
             # if input.val.length>0
             #     input.val $(droped.find('li')[0]).text()
             # else
+            @trigger 'clearCountry'
             input.val ''
             droped.css 'display', 'none'
             $(event.target).parent().find('.du').css display: 'none'
@@ -82,9 +83,34 @@ app.views.AutocompleteCountry = app.views.Autocomplete.extend
             start: val
         , callback
 
+    lc: (event) ->
+        el = $ event.currentTarget
+        text = el.text()
+        input = @$el.find 'input'
+        input.val text
+        $(input).parent().find('.du').css display: 'none'
+        $(input).parent().find('.dd').css display: 'block'
+        @afterchange()
+        @trigger 'addCountry'
+        do @out
+
 
 
 app.views.AutocompleteCity = app.views.Autocomplete.extend
+
+    initialize: (options)->
+        if options.country
+            country = options.country
+            @$el.hide()
+            @country = country
+            show_callback = ()=>
+                @$el.show()
+            hide_callback = ()=>
+                console.log 'hide callback'
+                @$el.hide()
+            @listenTo(country,'addCountry',show_callback)
+            @listenTo(country,'clearCountry',hide_callback)
+        
     
     getdata: (val, callback) ->
 

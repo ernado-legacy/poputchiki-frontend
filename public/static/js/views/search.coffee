@@ -1,4 +1,6 @@
 app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
+    initialize: ()->
+        @current_page=1
 
     el: '.mainContentProfile'
 
@@ -6,14 +8,22 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         # 'click .searchBox button': 'search'
         'click .profile-search': 'dosearchbubuttonclick'
         # 'click .profile-search': 'render'
-        'click a.ldblock': 'link'
+        # 'click a.ldblock': 'link'
         # 'click .searchBox .box': 'toogle'
         "click #my-folowers .season": 'setSeasons'
         "click .gallery li": 'link_to_user'
+        "click .invite a": 'link_to_user'
     link_to_user: (e)->
-        window.location.href = "/user/"+$(e.currentTarget).data 'user-id'
+        e.preventDefault()
+        link = "/user/"+$(e.currentTarget).data 'user-id'
+        console.log link
+        history.pushState null, 'poputchiki', link
+        app.views.guestprofile.set_user $(e.currentTarget).data 'user-id'
+        app.views.guestprofile.render ->
+            do $('.search-comback').show
 
     dosearchbubuttonclick: ->
+        @current_page=1
         if $('.pagination').length==0 
             do @render
         else 
@@ -70,7 +80,6 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         host =  $('#my-wishes .house-icon').hasClass 'hg-icon'
         sponsor =  $('#my-folowers .money-icon').hasClass 'mg-icon'
-        console.log sponsor
         if host
             query.host = true
         if sponsor
@@ -101,7 +110,7 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         query.avatar = true
         @query = query
-        @research 1, (data) =>
+        @research @current_page, (data) =>
             @pagination.render 1 + data.count/20
             @pagination.setreaction (i) => @research i
 
@@ -169,7 +178,10 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             sct = @$el.find '#my-wishes .searchCity'
             sctv = new app.views.AutocompleteCity
                 el: sct
-            sctv.country = scv
+                ,
+                country: scv
+            # sctv.country = scv
+            # sctv.setCountry scv
 
             sc = @$el.find '#my-folowers .searchCountry'
             scv = new app.views.AutocompleteCountry

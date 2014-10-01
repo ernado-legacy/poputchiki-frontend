@@ -39,11 +39,12 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         history.pushState null, 'poputchiki', url
 
     read_messages_in_dialog: ->
-        that = @
-        app.views.dialogs.get_dialogs (dialogs)->
-            dialog = dialogs.find (item) -> that.user.get('id') == item.get 'id'
-            if dialog
-                app.views.dialogs.decr_unread dialog.get 'unread'
+        # that = @
+        # app.views.dialogs.get_dialogs (dialogs)->
+        #     dialog = dialogs.find (item) -> that.user.get('id') == item.get 'id'
+        #     if dialog
+        #         app.views.dialogs.decr_unread dialog.get 'unread'
+        do app.views.dialogs.decr_unread
 
     render: ->
         if window.location.pathname.search('message') == -1
@@ -56,7 +57,6 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         @user = new app.models.User
         @user.set 'id', iduser
 
-        do @read_messages_in_dialog
         @user.fetch
             success: =>
                 $ @$el.html jade.templates.dialog
@@ -162,6 +162,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         messages.fetch
             success: ->
                 if messages.length
+                    do that.read_messages_in_dialog
                     that.updatemessages messages
                 # # # that.messages[messages.urluser] = messages
                 # if not that.messages[messages.urluser] or _.size(that.messages[messages.urluser].models) < _.size messages.models
@@ -231,7 +232,9 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 invite: false
 
     closechat: (event) ->
-        do $(event.currentTarget).parent().parent().remove
+        do @slideHide
+        do app.views.dialogs.render
+        # do $(event.currentTarget).parent().parent().remove
 
 $ ->
     app.views.message = new app.views.Message

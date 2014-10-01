@@ -144,14 +144,12 @@ app.views.Stripe = Backbone.View.extend
         # if et.hasClass('audio') or et.hasClass('video')
         #     return true
         link = crsItem.find('.link-to-user').data 'href'
-        console.log link
         # window.location.href = link
         history.pushState null, 'poputchiki', link
         # do app.views.guestprofile.render
 
         app.views.guestprofile.set_user crsItem.attr 'data-user-id'
         # do app.views.guestprofile.render
-        console.log 'render '
         app.views.guestprofile.render ->
             if crsItem.hasClass 'crs-item-audio'
                 crsItem.find('.audio').click()

@@ -22,6 +22,7 @@ app.views.Photo = Backbone.View.extend
                 liked_by = if (user.get('id') in that.model.get('liked_users')) then true else false
             else
                 liked_by = false
+            that.liked_by = liked_by
             that.model.updateDate 'time'
             $ that.$el.html jade.templates.photo 
                 photo: that.model.toJSON(),
@@ -87,15 +88,16 @@ app.views.Photo = Backbone.View.extend
         if @model.get 'user_object'
             do app.views.popupphoto.clearuser
             user = new app.models.User @model.get 'user_object'
-            app.views.popupphoto.changeuser user
+            app.views.popupphoto.changeuser user, @
         else
             user = new app.models.User
             $('.photoPopup .infoBox').addClass 'loading'
             user.set 'id', @model.get 'user'
+            that = @
             user.fetch
                 success: ->
                     $('.photoPopup .infoBox').removeClass 'loading'
-                    app.views.popupphoto.changeuser user
+                    app.views.popupphoto.changeuser user, that
             do app.views.popupphoto.clearuser
 
     get_like_el: ->
@@ -119,6 +121,7 @@ app.views.Photo = Backbone.View.extend
 
                 that.$el.find('.action-like').attr 'data-like', 'false'
                 counter_container.addClass 'liked'
+            @liked_by = true
         else
             @model.unlike (likes)->
                 counter_container = that.$el.find('.likes')
@@ -127,9 +130,9 @@ app.views.Photo = Backbone.View.extend
                     counter_container.text that.size
                 else
                     counter_container.text ''
-                console.log likes
                 that.$el.find('.action-like').attr 'data-like', 'true'
                 counter_container.removeClass 'liked'
+            @liked_by = false
         return false
 
     unlike: ()->
@@ -250,15 +253,16 @@ app.views.PhotoUnsigned = Backbone.View.extend
         if @model.get 'user_object'
             do app.views.popupphoto.clearuser
             user = new app.models.User @model.get 'user_object'
-            app.views.popupphoto.changeuser user
+            app.views.popupphoto.changeuser user, @
         else
             user = new app.models.User
             $('.photoPopup .infoBox').addClass 'loading'
             user.set 'id', @model.get 'user'
+            that = @
             user.fetch
                 success: ->
                     $('.photoPopup .infoBox').removeClass 'loading'
-                    app.views.popupphoto.changeuser user
+                    app.views.popupphoto.changeuser user, that
             do app.views.popupphoto.clearuser
 
     get_like_el: ->

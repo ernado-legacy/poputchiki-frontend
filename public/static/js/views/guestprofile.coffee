@@ -9,6 +9,12 @@ app.views.GuestProfile = app.views.UserListView.extend
         'click #guest_profile .to_journey': 'to_journey'
         'click #guest_profile .to_blacklist': 'to_blacklist'
         'click .profileGuest .imgBox': 'avatar_open'
+        'click .search-comback a': 'back_to_search'
+
+    back_to_search: (e)->
+        e.preventDefault()
+        do app.views.search.render
+
 
 
     avatar_open: ->

@@ -1,8 +1,14 @@
+
+img(src='#{user.get("avatar_url")}')
 a(href="/user/#{user.get('id')}")
-  img(src='#{user.get("avatar_url")}')
   .leftPart
     .name-in-profile=user.get('name')
     .city-in-profile=user.get('city')
-  .rightPart
-    //- span.custom-link.remove-photo='удалить'
-    //- span.custom-blue-link.make-avatar='сделать аватаркой'
+.rightPart
+  .likeBox
+      if liked_by
+          .fui-heart(class=liked_by?"unlike":"like")
+      else
+          .fui-heart.like
+  //- span.custom-link.remove-photo='удалить'
+  //- span.custom-blue-link.make-avatar='сделать аватаркой'

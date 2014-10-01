@@ -7,34 +7,31 @@ app.views.Pagination = Backbone.View.extend
         
     page_prev: (event)->
         t = $ event.currentTarget
-        console.log t
         @$el.find('button').removeClass 'active'
         t.addClass 'active'
         int = t.data 'page'
-        console.log int
         @$el.find('.page-prev').data 'page', int-1
         @$el.find('.page-next').data 'page', int+1
         @$el.find('.page-next').addClass 'active'
         t.removeClass 'active' if int==1
+        app.views.search.current_page = int
         @reaction int
     page_next: (event)->
         t = $ event.currentTarget
-        console.log t
         @$el.find('button').removeClass 'active'
         t.addClass 'active'
         int = t.data 'page'
-        console.log int
         @$el.find('.page-prev').data 'page', int-1
         @$el.find('.page-next').data 'page', int+1
         @$el.find('.page-prev').addClass 'active'
         t.removeClass 'active' if int==@count-1
+        app.views.search.current_page = int
         @reaction int
     change: (event) ->
         t = $ event.currentTarget
         @$el.find('button').removeClass 'active'
         t.addClass 'active'
         int = parseInt t.text()
-        console.log int
         @reaction int
 
     setreaction: (callback) ->
