@@ -8,10 +8,10 @@ ul.chatLine.inDialogs
         img(src='#{dialog.get('user').avatar_url}')
         span
             if dialog.get('unread')>0
-              i.unread_count +
+              div.unread_count
                 b #{dialog.get('unread')} 
             else
-              i.unread_count(style="display:none") +
+              div.unread_count(style="display:none")
                 b 0
             |  #{dialog.get('user').name}
   //

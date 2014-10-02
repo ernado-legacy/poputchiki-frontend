@@ -54,7 +54,8 @@ app.views.Statuses = Backbone.View.extend
         sct = @$el.find '.searchCity'
         sctv = new app.views.AutocompleteCity
             el: sct
-
+            ,
+            country: scv
     rerender: ->
         @getstatuses 1, (statuses) =>
             @pagination.render 1 + statuses.size()/10

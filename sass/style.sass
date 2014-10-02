@@ -257,7 +257,7 @@ small
     float: right
 
 .mainTopContainer
-    min-width: 1272px
+    min-width: 960px
     max-width: 1500px
     min-height: 200px
     margin: 0 auto
@@ -328,8 +328,11 @@ a.blue-link
         text-decoration: none
     span.small
         +italic-font
-        font-size: 12px
+        font-size: 15px
+        text-transform: lowercase
         color: $chat_grey
+        font-weight: normal
+        padding-left: 0px
 
 .navigation
     height: 64px
@@ -1674,6 +1677,18 @@ footer
     max-height: 612px
     margin-bottom: 50px
     margin-top: 70px
+    li
+        .unread_count
+            font-size: 12px
+            position: absolute
+            top: 14px
+            right: 3px
+            font-weight: bold
+            background-color: red
+            border-radius: 8px
+            padding: 3px 7px 3px 7px
+            color: white
+            line-height: 12px
 .inDialogs::-webkit-scrollbar
     height: 1px
     width: 1px
