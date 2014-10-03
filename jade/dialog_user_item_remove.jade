@@ -1,0 +1,47 @@
+a(href="/user/#{user.id}", data-user-id="#{user.id}")
+  img(src=user.avatar_url)
+.info
+  //- .right
+  //-   .last-date
+  //-     b Да
+  //-   .last-time в 
+  //-     b  Нет
+  //-   br
+  //-   //- ul.action-list
+  //-   //-   li 
+  //-   //-     a.fui-bubble.write
+  //-   //-       span.act-description  написать
+  //-   //-   li
+  //-   //-     if(is_fav)
+  //-   //-       a.fui-star-2.active-action
+  //-   //-     else
+  //-   //-       a.fui-star-2.add_to_fav
+  //-   //-   li
+  //-   //-     a.fui-radio-checked.to_journey
+  //-   .controlLinks.clearfix
+  //-     //- if(is_fav)
+  //-     //-   div(class="like remove_from_fav") убрать из избранных
+  //-     //- else
+  //-     //-   div(class="like add_to_fav") в избранные
+  //-     div(class="note remove_dialog") удалить диалог
+  .left
+    .name Вы действительно хотите удалить диалог?
+    //- .city #{user.age}, #{user.country}
+    br
+    .controlLinks.clearfix
+      //- if(is_fav)
+      //-   div(class="like remove_from_fav") убрать из избранных
+      //- else
+      //-   div(class="like add_to_fav") в избранные
+      div(class="note remove_dialog_accept left", style="float:left")  удалить
+      div(class="note remove_dialog_cancel right") отмена
+    //- if(user.is_sponsor)
+    //-   div.money-icon.mg-icon
+    //-     .tooltip.clearfix
+    //-       .tooltip-arrow
+    //-       span Спонсортство
+    //- if(user.is_host)
+    //-   div.house-icon.hg-icon
+    //-     .tooltip.clearfix
+    //-       .tooltip-arrow
+    //-       span Жду&nbsp;в&nbsp;гости

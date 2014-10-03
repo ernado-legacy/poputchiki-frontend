@@ -144,4 +144,5 @@ app.views.Dialogs = Backbone.View.extend
             template:jade.templates.dialog_user_list
         if dialog.get('unread')>0
             listUserView.$el.addClass 'active'
-        $('.guests .chatLine').append listUserView.render()
+        console.log  $('.guests .chatLine')
+        $('#dialogs_list .chatLine').append listUserView.render()

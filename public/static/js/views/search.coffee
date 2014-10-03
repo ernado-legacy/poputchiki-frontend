@@ -16,7 +16,6 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
     link_to_user: (e)->
         e.preventDefault()
         link = "/user/"+$(e.currentTarget).data 'user-id'
-        console.log link
         history.pushState null, 'poputchiki', link
         app.views.guestprofile.set_user $(e.currentTarget).data 'user-id'
         app.views.guestprofile.render ->
@@ -87,7 +86,6 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
         destinations = []
         _.each $('.searchBox .tagCountry'), (value, key, list)=>
-            console.log value
             destinations.push($(value).text())
 
         if _.size(destinations) > 0
@@ -111,7 +109,7 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         query.avatar = true
         @query = query
         @research @current_page, (data) =>
-            @pagination.render 1 + data.count/20
+            @pagination.render 1 + data.count/20, @current_page
             @pagination.setreaction (i) => @research i
 
         that = @

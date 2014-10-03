@@ -10,21 +10,26 @@ app.views.UserListView = Backbone.View.extend
         'click .to_journey': 'to_journey'
         'click':'liwrite'
         'click .remove_dialog':'remove_dialog'
+        'click .remove_dialog_accept':'remove_dialog_accept'
+        'click .remove_dialog_cancel':'render'
         # 'click .remove_dialog':'write'
 
     liwrite: (e)->
-        $(e.currentTarget).parents('#dialogs_list').length
-        if $(e.currentTarget).parents('#dialogs_list').length > 0
+        if $(e.currentTarget).parents('#dialogs_list').length > 0 and not @$el.hasClass 'remove-request'
             @write e
 
     remove_dialog: ->
+        @$el.addClass 'remove-request'
+        @$el.html jade.templates.dialog_user_item_remove
+            user: @model.attributes
+        false
+    remove_dialog_accept: ->
         that = @
-        @model.remove_messeges_with_this_user ->
-            $('#dialogs_list li[data-user-id="'+that.model.get('id')+'"]').remove()
-            # do that.
+        @model.remove_messeges_with_this_user =>
+            @$el.remove()
         app.views.dialogs.dialogs = undefined
 
-        false
+
 
     initialize: (options)->
         @template = options.template

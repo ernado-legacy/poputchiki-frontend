@@ -24,7 +24,7 @@ app.views.Pagination = Backbone.View.extend
         @$el.find('.page-prev').data 'page', int-1
         @$el.find('.page-next').data 'page', int+1
         @$el.find('.page-prev').addClass 'active'
-        t.removeClass 'active' if int==@count-1
+        t.removeClass 'active' if int >= @count
         app.views.search.current_page = int
         @reaction int
     change: (event) ->
@@ -37,12 +37,20 @@ app.views.Pagination = Backbone.View.extend
     setreaction: (callback) ->
         @reaction = callback
 
-    render: (count) ->
-        @count = count
-        @current = 1
+    render: (count,current_page) ->
+        @count = parseInt(count) 
+        @current = current_page
         @$el.html ''
-        @$el.append '<button class="page-prev" data-page='+(@current-1)+'><span class="fui-arrow-left"></span></button>'
-        @$el.append '<button class="page-next active" data-page='+(@current+1)+'><span class="fui-arrow-right"></span></button>'
+        if @current <= 1
+            @$el.append '<button class="page-prev" data-page='+(@current-1)+'><span class="fui-arrow-left"></span></button>'
+        else
+            @$el.append '<button class="page-prev active" data-page='+(@current-1)+'><span class="fui-arrow-left"></span></button>'
+        
+        if @current >= @count
+            @$el.append '<button class="page-next" data-page='+(@current+1)+'><span class="fui-arrow-right"></span></button>'
+        else
+            @$el.append '<button class="page-next active" data-page='+(@current+1)+'><span class="fui-arrow-right"></span></button>'
+            
         # _.each _.range(1, count), (item) =>
         #     @$el.append '<button>'+item+'</button>'
         @$el.find('button').addClass 'paginationitem custom-blue-link'

@@ -109,10 +109,10 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         console.log input
         input.click()
         if mess.length > 0
-            # @render_message cb,
-            #     text: mess
-            #     author: 'Вы',
-            #     invite: false
+            @render_message cb,
+                text: mess
+                author: 'Вы',
+                invite: false
             @new_massage user, mess
 
     du: (id) ->
