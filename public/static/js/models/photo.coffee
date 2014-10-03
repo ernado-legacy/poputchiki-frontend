@@ -23,8 +23,9 @@ app.models.Photo = Backbone.Model.extend
             type: query_type
             # data: "target="+@.get('id')
             dataType: "json"
-            success: (data) ->
+            success: (data) =>
                 callback _.size(data.liked_users)
+                console.log @.set 'liked_users', data.liked_users
 
     parse: (response)->
         # time_param = new Date response.time

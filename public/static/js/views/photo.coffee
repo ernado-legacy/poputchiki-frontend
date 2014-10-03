@@ -1,4 +1,8 @@
 app.views.Photo = Backbone.View.extend
+    initialize: ->
+        @listenTo @model, 'change:liked_users', (i)=>
+            # console.log i.attributes
+            @render @is_my_user
 
     tagName: 'div'
     className: 'photo-wrapper'
@@ -14,6 +18,7 @@ app.views.Photo = Backbone.View.extend
 
 
     render: (is_my_user)->
+        @is_my_user = is_my_user
         @size = _.size(@model.get('liked_users'))
         @listenTo @model, 'changeimg', @changeimg
         that = @
@@ -276,27 +281,27 @@ app.views.PhotoUnsigned = Backbone.View.extend
         that = @
         if @if_like()
             @model.like (likes)->
-                counter_container = that.$el.find('.likes')
-                that.size += 1
+                # counter_container = that.$el.find('.likes')
+                # that.size += 1
 
-                if that.size>0
-                    counter_container.text that.size
-                else
-                    counter_container.text ''
+                # if that.size>0
+                #     counter_container.text that.size
+                # else
+                #     counter_container.text ''
 
-                that.$el.find('.action-like').attr 'data-like', 'false'
-                counter_container.addClass 'liked'
+                # that.$el.find('.action-like').attr 'data-like', 'false'
+                # counter_container.addClass 'liked'
         else
             @model.unlike (likes)->
-                counter_container = that.$el.find('.likes')
-                that.size += -1
-                if that.size>0
-                    counter_container.text that.size
-                else
-                    counter_container.text ''
-                console.log likes
-                that.$el.find('.action-like').attr 'data-like', 'true'
-                counter_container.removeClass 'liked'
+                # counter_container = that.$el.find('.likes')
+                # that.size += -1
+                # if that.size>0
+                #     counter_container.text that.size
+                # else
+                #     counter_container.text ''
+                # console.log likes
+                # that.$el.find('.action-like').attr 'data-like', 'true'
+                # counter_container.removeClass 'liked'
         return false
 
     unlike: ()->

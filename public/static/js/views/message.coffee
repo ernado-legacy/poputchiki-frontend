@@ -95,6 +95,9 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         if (cp.children().last().find('.recordAuthor').text() == "Вы")
             cp.children().last().find('.recordAuthor').addClass 'myMessage'
             cp.children().last().find('.recordText').addClass 'myMessage'
+            cp.children().last().find('.recordTime').addClass 'myMessage'
+        if not h.time
+            do cp.children().last().find('.recordTime').remove
         div = cp[0]
         div.scrollTop = div.scrollHeight;
 
@@ -112,39 +115,12 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             @render_message cb,
                 text: mess
                 author: 'Вы',
-                invite: false
+                invite: false,
+                time: ''
             @new_massage user, mess
 
     du: (id) ->
         '[data-user="' + id + '"]'
-
-    updatemess: (count) ->
-        # that = @
-        # @olddialogssize = _.size @dialogs.models
-        # @dialogs.fetch
-        #     success: () ->
-        if that.olddialogssize < _.size that.dialogs.models
-            that.slideHideAndShow ()->
-                do app.views.messageside.render
-        _.each that.dialogs.models, (dialog) ->
-            messages = new app.models.Messages
-            messages.urluser = dialog.get 'id'
-            messages.fetch
-                success: ->
-                    if count == 0
-                        that.messages[messages.urluser] = messages
-                    if not that.messages[messages.urluser] or _.size(that.messages[messages.urluser].models) < _.size messages.models
-                        that.messages[messages.urluser] = messages
-                        li = $ '.chatLine li' + that.du messages.urluser
-                        cb = $ '.chatBlock' + that.du messages.urluser
-                        if not _.size cb
-                            # do playSoundNotification
-                            # li.addClass 'active'
-                            
-                        else
-                            cb.remove()
-                            that.updatedialog messages.urluser
-                    #console.log messages
 
 
     updatedialogbox: ->
@@ -183,24 +159,6 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         user = $(event.currentTarget).attr 'data-user'
         @updatedialog user
 
-    updatedialog: (user) ->
-
-        that = @
-        get_cb = ->
-            $ '.chatBlock' + that.du user
-
-        if _.size get_cb()
-            get_cb().remove()
-            return
-        $('.chatContainer').append jade.templates.dialog_item
-            dialog: dialog
-        get_cb().addClass 'darkBlock'
-        @messages[user].each (mess) =>
-            @render_message get_cb(),
-                text: mess.get 'text'
-                author: if mess.get('origin')==user then dialog.get('name') else 'Вы'
-                invite: mess.get 'invite'
-
     get_cb: ->
         $ '.chatBlock'
     updatemessages: (messages) ->
@@ -224,12 +182,14 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 text: mess.get 'text'
                 author: if mess.get('origin')==@user.get('id') then @user.get('name') else 'Вы'
                 invite: mess.get 'invite'
+                time: mess.get 'time'
         last =  (_.last messages.models)
         if not (last.get('read')) and (last.get('destination')==@user.get('id'))
             @render_message @get_cb(),
                 text: ''
                 author: @user.get('name')+' еще не прочитал(а) ваше сообщение'
                 invite: false
+                time: false
 
     closechat: (event) ->
         do @slideHide

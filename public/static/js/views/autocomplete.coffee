@@ -106,7 +106,7 @@ app.views.AutocompleteCity = app.views.Autocomplete.extend
             show_callback = ()=>
                 @$el.show()
             hide_callback = ()=>
-                console.log 'hide callback'
+                @$el.find('input').val('')
                 @$el.hide()
             @listenTo(country,'addCountry',show_callback)
             @listenTo(country,'clearCountry',hide_callback)
