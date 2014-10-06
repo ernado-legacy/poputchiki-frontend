@@ -103,9 +103,9 @@ app.views.Login = Backbone.View.extend
                 do $('span.error').show
                 return
 
-    remember: (event) ->
-        console.log 123
-        $(event.target).toggleClass('checked')
+    # remember: (event) ->
+    #     console.log 123
+    #     $(event.target).toggleClass('checked')
 
     seturl: ->
 
