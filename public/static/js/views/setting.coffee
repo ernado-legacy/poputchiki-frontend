@@ -60,7 +60,7 @@ app.mixins.RenderSettingItem =
         @$el.find('.profile-edit-slideup').addClass('loading')
         aftersavefunction = ->
             f = ->
-                $('.profile-edit-slideup').removeClass('loading');
+                $('.profile-edit-slideup').text 'Данныу успешно изменены'
             setTimeout f, 1000
         callback aftersavefunction
         do app.models.myuser.clear

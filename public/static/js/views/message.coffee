@@ -96,13 +96,17 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             cp.children().last().find('.recordAuthor').addClass 'myMessage'
             cp.children().last().find('.recordText').addClass 'myMessage'
             cp.children().last().find('.recordTime').addClass 'myMessage'
+            cp.children().last().find('.fui-radio-checked').addClass 'myMessage'
+
+        if h.invite and (cp.children().last().find('.recordAuthor').text() == "Вы")
+            cp.children().last().find('.recordText').text 'Вы пригласили в путешествие'
+            cp.children().last().find('.recordAuthor').remove()
         if not h.time
             do cp.children().last().find('.recordTime').remove
         div = cp[0]
         div.scrollTop = div.scrollHeight;
 
     postmsg: (event) ->
-
         cb = $(event.currentTarget).parents('.chatBlock')
         input = cb.find('input')
         mess = input.val()
