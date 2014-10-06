@@ -8,7 +8,9 @@ a(href="/user/#{user.get('id')}")
   .likeBox
       if liked_by
           .fui-heart(class=liked_by?"unlike":"like")
+            span мне нравиться
       else
           .fui-heart.like
+            span мне нравиться
   //- span.custom-link.remove-photo='удалить'
   //- span.custom-blue-link.make-avatar='сделать аватаркой'

@@ -21,7 +21,7 @@ body
             span.error-info error-text
         .form-line.clearfix#birdth-reg
           .mainSelectElement.yearEdit.withShadow#year-select
-            span#year-edit-select 1983
+            span#year-edit-select --
             .dd
             .du
             ul.droped.withShadow
@@ -29,7 +29,7 @@ body
                 li.dl #{i}
               - }
           .mainSelectElement.monthEdit.withShadow#month-select
-            span#month-edit-select Январь
+            span#month-edit-select --
             .dd
             .du
             ul.droped.withShadow
@@ -47,7 +47,7 @@ body
               li(class="dl", month="12") Декабрь
             .statusDrop
           .mainSelectElement.dayEdit.withShadow#day-select
-            span#day-edit-select 01
+            span#day-edit-select --
             .dd
             .du
             ul.droped.withShadow
@@ -84,10 +84,10 @@ body
               li.dl 31
           span.d-r День рождения:
         .form-line
-          span Пол:
+          span Ваш пол:
           .sexBox.clearfix
             .man.clearfix
-              .box.checked
+              .box
               span Мужчина
             .woman.clearfix
               .box

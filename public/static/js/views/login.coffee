@@ -54,16 +54,15 @@ app.views.Login = Backbone.View.extend
         app.models.login $(".loginRegisterBlock").serialize().toLowerCase()
             ,(data)=>
                 $('.loginRegisterBlock').toggleClass 'shiv-block'
-                console.log  'имейл уже зарегистрирован'
                 return
             ,(data)=>
                 if data.status!=404
-                    console.log 'forgor'
+                    that.$el.find('.enterContainer').html jade.templates.forgot_password_success()
                     forgotemail = new app.models.ForgotEmail
                     forgotemail.set 'email', $('#login').val()
                     forgotemail.save {},
                         success: ->
-                            that.$el.find('.enterContainer').html jade.templates.forgot_password_success()
+                            # that.$el.find('.enterContainer').html jade.templates.forgot_password_success()
                             # $('span.error .error-text').text 'Вам на почту должно уведомление'
                             # do $('span.error').show
                 else
