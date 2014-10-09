@@ -23,7 +23,7 @@ app.views.Login = Backbone.View.extend
     render: ->
         $ @.$el.html jade.templates.login()
         $('body').addClass 'loginRegisterBody'
-        history.pushState null, 'poputchiki', '/login/'
+        history.pushState null, 'poputchiki', '/'
         $("#ri-grid").gridrotator
             rows: 6
             columns: 8

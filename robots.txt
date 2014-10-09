@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /*openstat*
+Disallow: /*utm*
+Disallow: /*from*
+Disallow: /*gclid*
+Disallow: /register
+Disallow: /login
+Disallow: /search
+
+Host: poputchiki.ru
+Sitemap: http://poputchiki.ru/sitemap.xml

@@ -17,6 +17,7 @@ app.views.Search = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         e.preventDefault()
         link = "/user/"+$(e.currentTarget).data 'user-id'
         history.pushState null, 'poputchiki', link
+        console.log $(e.currentTarget).data 'user-id'
         app.views.guestprofile.set_user $(e.currentTarget).data 'user-id'
         app.views.guestprofile.render ->
             do $('.search-comback').show

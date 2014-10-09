@@ -20,8 +20,15 @@ app.views.UserListView = Backbone.View.extend
         e.preventDefault()
         e.stopPropagation()
         link = "/user/"+$(e.currentTarget).data 'user-id'
+        from_search = false
+        if window.location.pathname.search('/search/') != -1
+            from_search = true
         history.pushState null, 'poputchiki', link
         app.views.guestprofile.set_user $(e.currentTarget).data 'user-id'
+
+        app.views.guestprofile.render ->
+            if from_search
+                do $('.search-comback').show
 
     liwrite: (e)->
         if $(e.currentTarget).parents('#dialogs_list').length > 0 and not @$el.hasClass 'remove-request'
