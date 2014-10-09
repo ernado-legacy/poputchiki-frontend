@@ -139,10 +139,13 @@ app.views.Dialogs = Backbone.View.extend
             message_text = message_text.substring(0,45)+'...'
         user.set 'message', message_text
         user.updateDate('time')
+        if message_text == 'Вас пригласили в путешествие'
+            user.set 'invite', true
+        else
+            user.set 'invite', false
         listUserView = new app.views.UserListView 
             model:user,
             template:jade.templates.dialog_user_list
         if dialog.get('unread')>0
             listUserView.$el.addClass 'active'
-        console.log  $('.guests .chatLine')
         $('#dialogs_list .chatLine').append listUserView.render()

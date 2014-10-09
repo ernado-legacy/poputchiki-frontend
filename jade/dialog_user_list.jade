@@ -30,7 +30,14 @@ a(href="/user/#{user.id}", data-user-id="#{user.id}")
     //- .city #{user.age}, #{user.country}
     br
     div
-      p.last-message=user.message
+      if user.invite
+        
+        p.last-message 
+          span.invite
+            i.fui-radio-checked 
+            | В путешествие
+      else
+        p.last-message=user.message
     //- if(user.is_sponsor)
     //-   div.money-icon.mg-icon
     //-     .tooltip.clearfix

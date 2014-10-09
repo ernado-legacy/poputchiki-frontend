@@ -8,11 +8,20 @@ app.views.UserListView = Backbone.View.extend
         'click .add_to_fav': 'add_to_fav'
         'click .remove_from_fav': 'remove_from_fav'
         'click .to_journey': 'to_journey'
+        'click a':'link_to_user'
         'click':'liwrite'
         'click .remove_dialog':'remove_dialog'
         'click .remove_dialog_accept':'remove_dialog_accept'
         'click .remove_dialog_cancel':'render'
+        
         # 'click .remove_dialog':'write'
+
+    link_to_user: (e)->
+        e.preventDefault()
+        e.stopPropagation()
+        link = "/user/"+$(e.currentTarget).data 'user-id'
+        history.pushState null, 'poputchiki', link
+        app.views.guestprofile.set_user $(e.currentTarget).data 'user-id'
 
     liwrite: (e)->
         if $(e.currentTarget).parents('#dialogs_list').length > 0 and not @$el.hasClass 'remove-request'
