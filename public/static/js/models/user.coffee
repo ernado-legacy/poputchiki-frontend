@@ -223,6 +223,10 @@ app.models.User = Backbone.Model.extend
 
     parse: (response)->
         response.rating = Math.round(response.rating)
+        if response.country == 'undefined'
+            response.country = ''
+        if response.city == 'undefined'
+            response.city = ''
         return response
 
 
