@@ -72,7 +72,6 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                     message_btn =  $ '.chatBlock.darkBlock .pstMsg.fui-bubble'
                     message_btn.addClass 'active'
                 initEmoticons $('#emoticons'),@$el.find('.input'),click_fn
-                
                 do @updatedialogbox
                 # $('.chatContainer').append jade.templates.dialog_item
                 #     dialog: 
