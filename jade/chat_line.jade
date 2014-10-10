@@ -5,7 +5,7 @@ ul.chatLine.inDialogs
     if dialog.get('user')
       li(data-user='#{dialog.get('user').id}',
         class=iduser == dialog.get('user').id?"opened":dialog.get('unread')>0?"active":"")
-        img(src='#{dialog.get('user').avatar_url}')
+        img.chat-ava-img(src='#{dialog.get('user').avatar_url}')
         span
             if dialog.get('unread')>0
               div.unread_count

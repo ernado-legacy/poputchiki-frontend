@@ -2,7 +2,7 @@
   
   .chatBlock(data-user="#{user.id}")
     a(href='/user/'+user.id)
-      img(src='#{user.avatar_url}')
+      img(src='#{user.avatar_url}', class="chat-ava-img")
     .topPart
       .chatName #{user.name}, 
           small=user.age
@@ -10,8 +10,17 @@
       .closeChat закрыть
     .centerPart
     .bottomPart.clearfix
-      input(type='text')
+      //- input(type='text')
+      .input(contenteditable="true")
+      .smiles.fui-list-small-thumbnails
+        .tooltip.clearfix
+          #emoticons
+          .tooltip-arrow
       .pstMsg.fui-bubble
+
+        
+
+
   // .chatBlock
     img(src='/static/img/dialog/userpic.png')
     .topPart

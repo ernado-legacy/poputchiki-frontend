@@ -6,7 +6,13 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'click .pstMsg': 'postmsg'
         'click .closeChat': 'closechat'
         'keyup .chatBlock input': 'press'
+        'keyup .chatBlock .input': 'press'
+        'click .emoticon': 'press'
+        'click .smiles': 'opensmiles'
 
+
+    opensmiles: ->
+        @$el.find('.smiles').toggleClass 'active'
 
     chatting_with_user: (ws_message_target)->
         if @get_cb().data('user')
@@ -23,9 +29,10 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
     press: (event)->
         message_btn =  $ '.chatBlock.darkBlock .pstMsg.fui-bubble'
-        has_text = if $(event.currentTarget).val().length > 0 then true else false
+        has_text = if $(event.currentTarget).html().length > 0 then true else false
         if has_text
             message_btn.addClass 'active'
+            @$el.find('.smiles').removeClass 'active'
         else
             message_btn.removeClass 'active'
         if event.which==13 and has_text
@@ -61,6 +68,10 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             success: =>
                 $ @$el.html jade.templates.dialog
                     user:@user.attributes
+                click_fn = ->
+                    message_btn =  $ '.chatBlock.darkBlock .pstMsg.fui-bubble'
+                    message_btn.addClass 'active'
+                initEmoticons $('#emoticons'),@$el.find('.input'),click_fn
                 do @updatedialogbox
                 # $('.chatContainer').append jade.templates.dialog_item
                 #     dialog: 
@@ -103,17 +114,21 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             cp.children().last().find('.recordAuthor').remove()
         if not h.time
             do cp.children().last().find('.recordTime').remove
+
+        text = cp.children().last().find('.recordText').text()
+        cp.children().last().find('.recordText').html($.emoticons.replace(text))
         div = cp[0]
         div.scrollTop = div.scrollHeight;
 
     postmsg: (event) ->
         cb = $(event.currentTarget).parents('.chatBlock')
-        input = cb.find('input')
-        mess = input.val()
-        input.val ''
+        input = cb.find('.input')
+
+        mess = $.emoticons.replaceIconsWithCodes($('.input'))
+        input.text ''
         cb.find('.pstMsg.fui-bubble').removeClass 'active'
+        cb.find('.smiles').removeClass 'active'
         user = cb.attr 'data-user'
-        console.log input
         input.click()
         if mess.length > 0
             @render_message cb,

@@ -1,4 +1,148 @@
-$(function() {
+(function($, exports, window, name) {
+
+
+    if (!exports) {
+        exports = {};
+
+        if ($) {
+            $[name] = exports;
+        } else {
+            window[name] = exports;
+        }
+    }
+
+    var emoticons,
+        codesMap = {},
+        primaryCodesMap = {},
+        regexp,
+        metachars = /[[\]{}()*+?.\\|^$\-,&#\s]/g,
+        entityMap;
+
+    entityMap = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+        '/': '&#x2F;'
+    };
+
+    function escape(string) {
+        return String(string).replace(/[&<>"'\/]/g, function(s) {
+            return entityMap[s];
+        });
+    }
+
+    /**
+     * Define emoticons set.
+     *
+     * @param {Object} data
+     */
+    exports.define = function(data) {
+        var name, i, codes, code,
+            patterns = [];
+
+        for (name in data) {
+            codes = data[name].codes;
+            for (i in codes) {
+                code = codes[i];
+                codesMap[code] = name;
+
+                // Create escaped variants, because mostly you want to parse escaped
+                // user text.
+                codesMap[escape(code)] = name;
+                if (i == 0) {
+                    primaryCodesMap[code] = name;
+                }
+            }
+        }
+
+        for (code in codesMap) {
+            patterns.push('(' + code.replace(metachars, "\\$&") + ')');
+        }
+
+        regexp = new RegExp(patterns.join('|'), 'g');
+        emoticons = data;
+    };
+
+    /**
+     * Replace emoticons in text.
+     *
+     * @param {String} text
+     * @param {Function} [fn] optional template builder function.
+     */
+    exports.replace = function(text, fn) {
+        return text.replace(regexp, function(code) {
+            var name = codesMap[code];
+            return (fn || exports.tpl)(name, code, emoticons[name].title);
+        });
+    };
+
+    exports.replaceIconsWithCodes = function(iconsContainer, fn) {
+        icon_tags = iconsContainer.find('img');
+        icon_tags.each(function(i) {
+            icon_tag = $(icon_tags[i]);
+            icon_tag.html(icon_tag.data('icon-code'));
+            console.log(icon_tag.text());
+        });
+        return iconsContainer.text();
+        // return text.replace(regexp, function(code) {
+        //     var name = codesMap[code];
+        //     return (fn || exports.tpl)(name, code, emoticons[name].title);
+        // });
+    };
+
+    /**
+     * Get primary emoticons as html string in order to display them later as overview.
+     *
+     * @param {Function} [fn] optional template builder function.
+     * @return {String}
+     */
+    exports.toString = function(fn) {
+        var code,
+            str = '',
+            name;
+
+        for (code in primaryCodesMap) {
+            name = primaryCodesMap[code];
+            str += (fn || exports.tpl)(name, code, emoticons[name].title);
+        }
+        return str;
+    };
+
+    exports.toList = function(fn) {
+        var code,
+            str = '',
+            name;
+
+        var icon_class_list = [];
+        for (code in primaryCodesMap) {
+            name = primaryCodesMap[code];
+            icon_class_list.push("emoticon-" + name);
+        }
+
+        return icon_class_list;
+    };
+
+    /**
+     * Build html string for emoticons.
+     *
+     * @param {String} name
+     * @param {String} code
+     * @param {String} title
+     * @return {String}
+     */
+    exports.tpl = function(name, code, title) {
+        return '<img class="emoticon emoticon-' + name + '" src="/static/img/tp.png" data-icon-code=' + code + '>';
+    };
+
+}(typeof jQuery != 'undefined' ? jQuery : null,
+    typeof exports != 'undefined' ? exports : null,
+    window,
+    'emoticons'));
+
+
+function initEmoticons(showEmots, inputEmots, click_callback) {
     var definition = {
         smile: {
             title: "Smile",
@@ -357,149 +501,22 @@ $(function() {
             codes: ["(priidu)"]
         }
     };
+
     $.emoticons.define(definition);
-
-
-    $('.box').click(function() {
-        $(this).toggleClass('checked');
+    showEmots.html($.emoticons.toString());
+    $('.emoticon').on('click', function(e) {
+        click_callback(inputEmots);
+        e.stopPropagation();
+        inputEmots.append($(e.currentTarget).clone());
     });
-
-    $('.search .searchBox input').focus(function() {
-        $(this).parent().css('border', '3px solid #52EDC7');
-    });
-    $('.search .searchBox input').focusout(function() {
-        $(this).parent().css('border', '3px solid #eee');
-    });
-
-    //code for registration form 2 (choose sex)
-    //registration 3st step photo upload
-    $('.photo-load .button button').click(function() {
-        $('.photo-load .button input').click();
-    });
-
-    $('.addPhoto').click(function() {
-        $('.addPhoto input').click();
-    });
-    $('#accordion').find('.accordion-toggle').click(function() {
-        $(this).next().slideToggle('fast');
-        $(".accordion-content").not($(this).next()).slideUp('fast');
-    });
-});
-
-function get_user_id() {
-    return $.cookie('user');
 }
 
-function playSoundNotification() {
-    filename = '/static/audio/message';
-    document.getElementById("notification-sound").innerHTML = '<audio autoplay="autoplay"><source src="' + filename + '.mp3" type="audio/mpeg" /><embed hidden="true" autostart="true" loop="false" src="' + filename + '.mp3" /></audio>';
+function prepareTextWithIcons(text) {
+    icons_classname_list = $.emoticons.toList();
+    for (var i = 0; i < icons_classname_list.length; i++) {
+        console.log(icons_classname_list[i]);
+    }
+    // for (i in icons_classname_list) {
+    //     console.log(icons_classname_list[i]);
+    // }
 }
-
-Share = {
-    vkontakte: function(purl, ptitle, pimg, text) {
-        url = 'http://vkontakte.ru/share.php?';
-        url += 'url=' + encodeURIComponent(purl);
-        url += '&title=' + encodeURIComponent(ptitle);
-        url += '&description=' + encodeURIComponent(text);
-        url += '&image=' + encodeURIComponent(pimg);
-        url += '&noparse=true';
-        Share.popup(url);
-    },
-    odnoklassniki: function(purl, text) {
-        url = 'http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1';
-        url += '&st.comments=' + encodeURIComponent(text);
-        url += '&st._surl=' + encodeURIComponent(purl);
-        Share.popup(url);
-    },
-    facebook: function(purl, ptitle, pimg, text) {
-        url = 'http://www.facebook.com/sharer.php?s=100';
-        url += '&p[title]=' + encodeURIComponent(ptitle);
-        url += '&p[summary]=' + encodeURIComponent(text);
-        url += '&p[url]=' + encodeURIComponent(purl);
-        url += '&p[images][0]=' + encodeURIComponent(pimg);
-        Share.popup(url);
-    },
-    twitter: function(purl, ptitle) {
-        url = 'http://twitter.com/share?';
-        url += 'text=' + encodeURIComponent(ptitle);
-        url += '&url=' + encodeURIComponent(purl);
-        url += '&counturl=' + encodeURIComponent(purl);
-        Share.popup(url);
-    },
-    mailru: function(purl, ptitle, pimg, text) {
-        url = 'http://connect.mail.ru/share?';
-        url += 'url=' + encodeURIComponent(purl);
-        url += '&title=' + encodeURIComponent(ptitle);
-        url += '&description=' + encodeURIComponent(text);
-        url += '&imageurl=' + encodeURIComponent(pimg);
-        Share.popup(url);
-    },
-
-    popup: function(url) {
-        window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
-    }
-};
-
-function WS() {
-    var self = this;
-    self.timeout = 1000;
-    self.accounts = [];
-    var host = window.location.hostname;
-    self.callbacks = [
-        // function(data) {
-        //   console.log('got event', data.type);
-        // },
-        // function(data) {
-        //   console.log('from user', data.user);
-        // }
-    ]
-    self.setAccounts = function(accounts) {
-        self.accounts = accounts;
-        self.connection.close();
-    }
-    self.addCallback = function(callback) {
-        console.log('adding callback');
-        self.callbacks.push(callback);
-    }
-    self.reconnect = function() {
-        self.timeout *= 2;
-        var url = 'ws://' + host + '/api/realtime';
-        if (self.accounts && self.accounts.length > 0) {
-            url = url + '?id=' + self.accounts.join(',');
-        }
-        try {
-            self.connection = new WebSocket(url);
-        } catch (e) {
-            console.log("ws error", e);
-            return setTimeout(self.reconnect, self.timeout);
-        }
-        self.connection.onopen = function() {
-            console.log('ws connected');
-        };
-
-        self.connection.onmessage = function(event) {
-            data = JSON.parse(event.data);
-            console.log(data);
-            _.each(self.callbacks, function(value) {
-                value(data)
-            })
-            // angular.forEach(self.callbacks, function(value) {
-            //   value(data);
-            // });
-        };
-
-        self.connection.onclose = function() {
-            console.log('ws closed; reconnecting');
-            return setTimeout(self.reconnect, self.timeout);
-        };
-    };
-
-    self.connect = function() {
-        self.reconnect();
-    };
-
-    return self;
-}
-
-var ws_connection = new WS();
-ws_connection.connect();

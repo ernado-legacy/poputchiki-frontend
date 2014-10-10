@@ -137,7 +137,8 @@ app.views.Dialogs = Backbone.View.extend
         message_text = dialog.get('text')
         if message_text.length > 45 
             message_text = message_text.substring(0,45)+'...'
-        user.set 'message', message_text
+        console.log $.emoticons.replace(message_text)
+        user.set 'message', $.emoticons.replace(message_text)
         user.updateDate('time')
         if message_text == 'Вас пригласили в путешествие'
             user.set 'invite', true

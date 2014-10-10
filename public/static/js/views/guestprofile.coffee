@@ -96,7 +96,7 @@ app.views.GuestProfile = app.views.UserListView.extend
     to_blacklist: (e)->
         that = @
         app.models.myuser.get (my_user)->
-            if my_user.get('blacklist').indexOf(@model.get('id')) != -1
+            if my_user.get('blacklist') and my_user.get('blacklist').indexOf(@model.get('id')) != -1
                 @model.add_to_blacklist true
                 $(e.currentTarget).closest('.add').first().removeClass('in_blacklist').addClass('not_in_blacklist')
                 $(e.currentTarget).text('добавить в черный список')
