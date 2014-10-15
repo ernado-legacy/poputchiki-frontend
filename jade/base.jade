@@ -1,6 +1,8 @@
 doctype html
 html
   head
+    title Попутчики.ру
+    meta(name="description",content="")
     meta(http-equiv='Content-type', content='text/html;charset=UTF-8')
     meta(name="viewport", content="width=device-width")
     meta(name="google-site-verification",content="16PNwrZdy4A4z6TCjaeozywovay3bsBvnIxOjimaH8M")
@@ -14,6 +16,7 @@ html
     link(rel='shortcut icon', href='/static/ico/favicon_new.ico')
     script(type='text/javascript', src='/static/js/lib/underscore-min.js')
     script(type='text/javascript', src='/static/js/lib/jquery-1.8.2.min.js')
+    script(type='text/javascript', src="/static/js/lib/jquery-ui.min.js")
     script(type='text/javascript', src='/static/js/lib/jquery.cookie.js')
     script(type='text/javascript', src='/static/js/lib/backbone-min.js')
     script(type='text/javascript', src='/static/js/lib/jquery.hoverfold.js')
@@ -38,6 +41,7 @@ html
     script(type='text/javascript', src='/static/js/mixins/uploadphoto.js')
     script(type='text/javascript', src='/static/js/mixins/sideblock.js')
     script(type='text/javascript', src='/static/js/mixins/validateuser.js')
+    script(type='text/javascript', src='/static/js/mixins/meta_tags.js')
     script(type='text/javascript', src='/static/js/script/base.js')
     script(type='text/javascript', src='/static/js/views/login.js')
     script(type='text/javascript', src='/static/js/views/register.js')
@@ -72,7 +76,9 @@ html
     script(type='text/javascript', src='/static/js/views/main.js')
     script(type='text/javascript', src='/static/js/views/rating.js')
     script(type='text/javascript', src='/static/js/views/aboutus.js')
+    script(type='text/javascript', src='/static/js/views/404.js')
     script(type='text/javascript', src='/static/js/views/terms.js')
+    script(type='text/javascript', src='/static/js/views/contacts.js')
     script(type='text/javascript', src='/static/js/views/likers.js')
     
     script(type='text/javascript', src='/static/js/script/LightningTouch.js')
@@ -83,8 +89,6 @@ html
     script(src='/static/js/mainpage/jquery.gridrotator.js')
     script(src='/static/js/mainpage/gridrotator-init.js')
     script(src='/static/js/mainpage/scripts.js')
-    script(type='text/javascript', src="//code.jquery.com/ui/1.11.0/jquery-ui.js")
-    script(type="text/javascript",src="http://vkontakte.ru/js/api/share.js?9",charset="windows-1251")
   block bodyMain
   //- body
   //-   audio#testClip(name='testClip', controls='', preload='auto')

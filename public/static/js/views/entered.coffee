@@ -174,6 +174,38 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         scv = new app.views.AutocompleteCountry
             el: sc
 
+
+    routes: ->
+        if window.location.pathname == '/guests/'
+            do @init
+        if window.location.pathname == '/' or window.location.pathname == '/profile/'
+            do @init
+        if window.location.pathname.search('/message/') != -1
+            do @init
+        if window.location.pathname.search('/user/') != -1
+            do @init
+
+        if window.location.pathname == '/guests/'
+            do @init
+        if window.location.pathname.search('/statuses/') != -1
+            do @init
+
+        if window.location.pathname.search('/favourites/') != -1
+            do @init
+
+        if window.location.pathname.search('/followers/') != -1
+            do @init
+
+        if window.location.pathname.search('/search/') != -1
+            do @init
+            # do app.views.searchside.render
+
+        if window.location.pathname.search('/settings/') != -1
+            do @init
+
+        if window.location.pathname.search('/dialogs/') != -1
+            do @init
+
     init: ->
         that = this
         app.views.login.check_status (result) ->
@@ -543,4 +575,4 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
 $ ->
     app.views.entered = new app.views.Entered
-    app.views.entered.init()
+    app.views.entered.routes()

@@ -100,14 +100,15 @@ app.views.AutocompleteCity = app.views.Autocomplete.extend
 
     initialize: (options)->
         if options.country
+            city_container = options.city_container || @$el
             country = options.country
-            @$el.hide()
+            city_container.hide()
             @country = country
             show_callback = ()=>
-                @$el.show()
+                city_container.show('blind')
             hide_callback = ()=>
-                @$el.find('input').val('')
-                @$el.hide()
+                city_container.find('input').val('')
+                city_container.hide('blind')
             @listenTo(country,'addCountry',show_callback)
             @listenTo(country,'clearCountry',hide_callback)
         

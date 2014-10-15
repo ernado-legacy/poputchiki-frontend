@@ -1,8 +1,9 @@
-app.views.Terms = Backbone.View.extend
+app.views.Terms = Backbone.View.extend _.extend app.mixins.MetaTagsMixin,
 
     el: 'body'
 
     render: ->
-        app.views.login.check_status (result) =>
-            $ @.$el.html jade.templates.terms
-                login: result
+        @trigger 'render'
+        @$el.html jade.templates.terms()
+    meta_title: "Правила сайта"
+    # meta_description: 'Социальная сеть «Попутчики.ru» - это поиск новых знакомств для совместных путешествий. О нас.'

@@ -118,7 +118,9 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
                         sct = @$el.find '.cityEdit'
                         sctv = new app.views.AutocompleteCity
                             el: sct
-                        sctv.country = scv
+                            ,
+                            country: scv,
+                            city_container: $('#city-reg')
                         # $('.box').click ->
                         #     $('.box').toggleClass('checked')
 
@@ -132,11 +134,15 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
     regsteptwo: ->
         arr = $('form.loginRegisterBlock').serializeArray()
         date_block = $('#birdth-reg')
-        d = date_block.find('#day-edit-select').text()
-        m = date_block.find('#month-edit-select').text()
-        m = $("li:contains('"+m+"')").attr 'month'
-        y = date_block.find('#year-edit-select').text()
-        birthday = y+"-"+m+"-"+d+"T00:00:00Z"
+        d = if date_block.find('#day-edit-select').text() != '--' then date_block.find('#day-edit-select').text() else undefined
+        m = if date_block.find('#month-edit-select').text() != '--' then date_block.find('#month-edit-select').text() else undefined
+        if m
+            m = $("li:contains('"+m+"')").attr 'month'
+        y = if date_block.find('#year-edit-select').text()!='--' then date_block.find('#year-edit-select').text() else undefined
+        if d && m && y
+            birthday = y+"-"+m+"-"+d+"T00:00:00Z"
+        else
+            birthday = ''
 
         user = new app.models.User
         attrs =
@@ -146,7 +152,7 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
             phone: $('#tel').val()
             country: $('#country-reg input').val()
             city: $('#city-select input').val()
-            sex: if $('form.loginRegisterBlock .man .box').hasClass('checked') then 'male' else 'female'
+            sex: if $('form.loginRegisterBlock .man .box').hasClass('checked') then 'male' else if $('form.loginRegisterBlock .woman .box').hasClass('checked') then 'female' else ''
 
         @validate attrs
         errors = @validate attrs
@@ -164,16 +170,25 @@ app.views.Register = Backbone.View.extend _.extend app.mixins.UserValidationMixi
                 @removeErrorToFormLine $('#tel')
 
             if 'city' in _.keys(errors)
-                console.log 'city errors'
                 @addErrorToFormLine $('#city-select'), errors.city
             else
                 @removeErrorToFormLine $('#city-select')
 
             if 'country' in _.keys(errors)
-                console.log 'country errors'
                 @addErrorToFormLine $('#country-select'), errors.country
             else
                 @removeErrorToFormLine $('#country-select')
+
+            if 'birthday' in _.keys(errors)
+                @addErrorToFormLine $('#year-select'), errors.birthday
+            else
+                @removeErrorToFormLine $('#year-select')
+
+            if 'sex' in _.keys(errors)
+                @addErrorToFormLine $('.sexBox'), errors.sex
+            else
+                @removeErrorToFormLine $('.sexBox')
+
 
             # if 'password' in _.keys(errors)
             #     @addErrorToInputContainer $('#password-reg'), errors.password

@@ -25,6 +25,10 @@ server.get '/search/', index
 server.get '/settings/', index
 server.get '/dialogs/', index
 server.get '/settings/:type', index
+server.get '/about/', index
+server.get '/terms/', index
+server.get '/contacts/', index
+
 
 
 

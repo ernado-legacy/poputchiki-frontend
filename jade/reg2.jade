@@ -83,6 +83,9 @@ body
               li.dl 30
               li.dl 31
           span.d-r День рождения:
+          p.error-text 
+            span.fui-alert 
+            span.error-info error-text
         .form-line
           span Ваш пол:
           .sexBox.clearfix
@@ -92,6 +95,9 @@ body
             .woman.clearfix
               .box
               span Женщина
+          p.error-text 
+            span.fui-alert 
+            span.error-info error-text
         .form-line.clearfix#country-reg
           .mainSelectElement.countryEdit.withShadow#country-select
             input.search-select(placeholder='Страна', type='text',  maxlength="20")

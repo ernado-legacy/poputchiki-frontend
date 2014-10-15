@@ -30,6 +30,8 @@ app.views.GuestProfile = app.views.UserListView.extend
             success: ->
                 @model = user
                 callback user
+            error: ->
+                app.views.main.trigger('main:404','Пользователен не существует либо удален!')
 
     set_user: (id) ->
         history.pushState null, 'poputchiki', '/user/' + id

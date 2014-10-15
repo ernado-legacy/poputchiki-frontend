@@ -1,0 +1,45 @@
+extends ./static
+
+block static
+  .textContent(itemscope='', itemtype='http://schema.org/Organization')
+    h1 Контакты 
+        span.contact-name(itemprop='name')  Poputchiki.ru
+    .layout
+        .address(itemprop='address', itemscope='', itemtype='http://schema.org/PostalAddress')
+            h2 Адрес
+            .greenDots
+            .desc 
+                p(itemprop='streetAddress') Ул. Вавилова д. 83
+                p(itemprop='addressLocality') Москва
+        h2 Телефон
+            .greenDots
+            .desc 
+                p(itemprop='telephone') +7 495 233-72-15
+        h2 Факс
+            .greenDots
+            .desc 
+                p(itemprop='faxNumber') +7 495 233-72-15
+        h2 Электронная почта
+            .greenDots
+            .desc 
+                span(itemprop='email') info@poputchiki.ru
+
+        
+
+            //- div(itemscope='', itemtype='http://schema.org/Organization')
+            //-   span(itemprop='name') Яндекс
+            //-   | Контакты:
+            //-   div(itemprop='address', itemscope='', itemtype='http://schema.org/PostalAddress')
+            //-     | Адрес:
+            //-     span(itemprop='streetAddress') Льва Толстого, 16
+            //-     span(itemprop='postalCode')  119021
+            //-     span(itemprop='addressLocality') Москва
+            //-     | ,
+            //-   | Телефон:
+            //-   span(itemprop='telephone') +7 495 739–70–00
+            //-   | ,
+            //-   | Факс:
+            //-   span(itemprop='faxNumber') +7 495 739–70–70
+            //-   | ,
+            //-   | Электронная почта:
+            //-   span(itemprop='email') pr@yandex-team.ru
