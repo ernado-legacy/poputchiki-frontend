@@ -211,6 +211,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         app.views.login.check_status (result) ->
             if not result
                 if window.location.pathname.search('/user/') != -1
+                    do that.render
                     app.views.user_photo_block_unsigned = new app.views.UserPhotoBlockUnsigned
                     app.views.guestprofile_unsigned = new app.views.GuestProfileUnsigned
                     app.views.stripe_unsigned = new app.views.StripeUnsigned
