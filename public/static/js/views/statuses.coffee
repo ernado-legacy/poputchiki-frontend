@@ -8,6 +8,17 @@ app.views.Statuses = Backbone.View.extend
         'click .statusesContainer .filterBlock .search_by_place': 'rerender'
         'keyup input': 'press'
         'click .more': 'loadmore'
+        'click .statusBlock a' : 'link_to_user'
+
+    link_to_user: (e)->
+        e.preventDefault()
+        console.log e.currentTarget
+        link = "/user/"+$(e.currentTarget).data 'user-id'
+        history.pushState null, 'poputchiki', link
+        console.log $(e.currentTarget).data 'user-id'
+        app.views.guestprofile.set_user $(e.currentTarget).data 'user-id'
+        app.views.guestprofile.render ->
+            # do $('.search-comback').show
 
     loadmore: ->
         i = @$el.find('.more').data 'page'

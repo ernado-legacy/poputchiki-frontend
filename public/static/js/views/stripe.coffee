@@ -136,7 +136,6 @@ app.views.Stripe = Backbone.View.extend
                     $(".carousel").css "width", cw
 
     clickstripe: (event) ->
-        console.log 'sclick stripe'
         console.log $(event.target)
         crsItem = $($(event.target).parents('.crsItem')[0])
         

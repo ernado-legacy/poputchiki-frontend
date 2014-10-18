@@ -1,3 +1,4 @@
+
 $profile_status_text: #4b4b4b
 =border-shadow
   -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.04),0 1px 5px rgba(0,0,0,.1)
@@ -289,8 +290,9 @@ img.loading-gif
   //margin-right: auto!important
 
 .textContent
-  margin: 50px auto 0 auto
-  width: 960px
+  // margin: 50px auto 0 auto
+  padding: 50px
+  // width: 960px
   color: $text_color
   height: -moz-calc(100% - 91px)
   height: -webkit-calc(100% - 91px)
@@ -299,14 +301,14 @@ img.loading-gif
   a
     color: $link
     text-decoration: none
-  h1, h2
+  h1, h2, .h1, .h2
     font-weight: bold
     opacity: 0.9
-  h1
+  h1, .h1
     font-size: 20px
     span.contact-name
       color: $menu_messages
-  h1, .links, .desc 
+  h1, .links, .desc, .h1
     margin: 30px 0
   .links
     img
@@ -314,7 +316,7 @@ img.loading-gif
   .desc
     color: #4b4b4b
     font-size: 14px
-    h4
+    h4, .h4
       font-weight: bold
       margin-bottom: 25px
     p
@@ -437,3 +439,13 @@ header.info-header
   display: block
   text-align: center
 
+.page-container
+  .site-title
+    position: absolute
+    top: 150px
+    font-size: 40px
+    background: rgb(246, 247, 249)
+    width: 560px
+    padding: 20px
+    h1
+      color: #403f3f
