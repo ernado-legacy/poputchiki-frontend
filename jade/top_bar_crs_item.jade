@@ -1,5 +1,9 @@
 .stripeItem.clearfix
-  .crsItem.mainCrs(data-user-id="#{item.get('user')}",class = item.get('type')=='audio' ? "crs-item-audio" : item.get('type')=='video' ? "crs-item-video":"crs-item-photo")
+  if ipad
+    - var mobile_class = ' mobile'
+  else
+    - var mobile_class = ''
+  .crsItem.mainCrs(data-user-id="#{item.get('user')}",class = item.get('type')=='audio' ? "crs-item-audio"+mobile_class : item.get('type')=='video' ? "crs-item-video"+mobile_class:"crs-item-photo"+mobile_class)
     .wrapper(data-anim="base wrapper")
       .circle.c_left(data-anim="base left")
       .circle.c_right(data-anim="base right")
@@ -20,11 +24,12 @@
       .videoBox
         .frontLayer
         if ipad
-          video(controls="controls")
-            if cvideo=='mp4'
-              source(src='#{item.get('url')}', type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")              
-            else
-              source(src='#{item.get('url')}', type="video/webm", codecs="vp8, vorbis")
+          //- video(controls="controls")
+          //-   if cvideo=='mp4'
+          //-     source(src='#{item.get('url')}', type="video/mp4", codecs="avc1.42E01E, mp4a.40.2")              
+          //-   else
+          //-     source(src='#{item.get('url')}', type="video/webm", codecs="vp8, vorbis")
+          .videosource(data-src=item.get('url'))
         else
           video
             if cvideo=='mp4'

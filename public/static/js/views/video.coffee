@@ -80,7 +80,6 @@ app.views.Video = Backbone.View.extend
             do app.views.entered.stopMedia
 
     refreshSource: ->
-        console.log 'clear interval'
         clearInterval @interval
         @render @is_my_user
 
@@ -166,3 +165,21 @@ app.views.VideoUnsigned = Backbone.View.extend
         console.log 'clear interval'
         clearInterval @interval
         @render @is_my_user
+
+
+app.views.VideoPopup = Backbone.View.extend
+    el: '.videoPopup'
+    initialize: ->
+        @on 'video:popup', (model)->
+            @render model
+
+    render: (model)->
+        @$el.find('.videocontainer').html jade.templates.videotag
+            video:model.toJSON()
+        app.views.entered.showpopup('.videoPopup')
+
+    testpopup: ->
+        m = new app.models.Video({id:'541af79106bdd60001000023'})
+        m.fetch
+            success: =>
+                @trigger 'video:popup', m

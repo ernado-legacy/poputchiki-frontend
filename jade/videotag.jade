@@ -1,0 +1,5 @@
+video(poster=video.thumbnail_url,controls)
+  if video.cvideo=='mp4'
+    source(src=video.url, type="video/mp4", cosdecs="avc1.42E01E, mp4a.40.2")
+  else
+    source(src=video.url, type="video/webm", codecs="vp8, vorbis")

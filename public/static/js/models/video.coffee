@@ -1,6 +1,11 @@
 
 
 app.models.Video = Backbone.Model.extend 
+    initialize: ->
+        @set 'cvideo', $.cookie "video"
+        @set 'cwebp', $.cookie "webp"
+        # cvideo: $.cookie "video"
+        # cwebp: $.cookie "webp"
     updateDate:  (time_param_name)->
         time_param = new Date @get time_param_name
         # user.time = 

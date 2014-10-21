@@ -255,6 +255,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.likers = new app.views.Likers
                 app.views.main_status = new app.views.userMainStatus
                 app.views.lets_go = new app.views.LetsGo
+                app.views.videopopup = new app.views.VideoPopup
                 
 
                 
