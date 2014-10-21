@@ -10,6 +10,7 @@
     if !ipad || item.get('type')!='video'
       div.link-to-user(data-href="/user/"+item.get('user'))
         img(src='#{item.get('image_url')}')
+          
     if item.get('type')=='audio'
       .audio
         audio
