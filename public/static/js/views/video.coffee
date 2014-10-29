@@ -171,9 +171,9 @@ app.views.VideoPopup = Backbone.View.extend
     el: '.videoPopup'
     initialize: ->
         @on 'video:popup', (model)->
-            @render model
+            @popupVideo model
 
-    render: (model)->
+    popupVideo: (model)->
         @$el.find('.videocontainer').html jade.templates.videotag
             video:model.toJSON()
         app.views.entered.showpopup('.videoPopup')

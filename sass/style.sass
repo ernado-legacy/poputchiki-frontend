@@ -656,7 +656,7 @@ footer
     .userBox.low-rating
         background-image: url('../img/b_ellips_low.png')
     #profile-arrow-left, #profile-arrow-right
-        float: left
+        float: right
         margin: 84px 0 0 7px
         background-image: url('../img/profile_arrow_l.png')
         background-repeat: no-repeat
@@ -664,9 +664,14 @@ footer
         width: 25px
         cursor: pointer
     #profile-arrow-right
-        float: right
         background-image: url('../img/profile_arrow_r.png')
         margin: 84px -182px 0px 0px
+        margin-right: -5px 
+    .fui-plus
+        color: grey
+        margin: 84px -182px 0px 10px
+        position: absolute
+        cursor: pointer
 
     .carouselBox
         position: absolute
@@ -1805,6 +1810,13 @@ footer
             overflow-y: scroll
             .record
                 margin-bottom: 20px
+                .messageimg
+                    position: relative
+                    width: 100%
+                    height: 135px
+                    img
+                        height: 120px
+                        cursor: pointer
                 .recordAuthor
                     color: $chat_grey
                     +italic-font
@@ -1829,6 +1841,10 @@ footer
                     &.recordTime
                         float: left
                         padding-left: 0px
+                .myMessageImage
+                    img
+                        position: absolute
+                        right: 10px
             .record.invite
                 min-height: 30px
                 padding: 10px 20px 10px 20px
@@ -1874,7 +1890,7 @@ footer
                 margin-left: 10px
                 height: 28px
                 // width: 286px
-                width: 80%
+                width: 70%
                 background-color: white
                 border: 1px solid $chat_input_border
                 +border-radius(4px, 4px, 4px, 4px)
@@ -1922,6 +1938,20 @@ footer
                 color: $chat_grey
                 transition: color 0.5s linear
             .smiles.active
+                color: black
+            .addPhotoToMessage
+                display: none
+                float: right
+                margin-right: 10px
+                // width: 30px
+                width: 5%
+                height: 30px
+                // background-image: url('../img/dialog/chat.png')
+                font-size: 25px
+                padding-top: 5px
+                color: $chat_grey
+                transition: color 0.5s linear
+            .addPhotoToMessage.active
                 color: black
 
                 
@@ -3046,6 +3076,7 @@ a.ldblock
     form
         border: none
         .pnct
+            float: none
             margin-left: 40px
         .profileBox
             width: 150px

@@ -22,6 +22,7 @@ app.views.PopupAudio = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         app.views.stripechoppopup.update false, true
         $('.popup').fadeOut('slow')
         $('.chopPopup').fadeIn('slow')
+        app.views.entered.showpopup('.chopPopup')
         #@$el.find '.upload-new-avatar-input'
         #    .trigger 'click'
 

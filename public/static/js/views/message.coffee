@@ -9,6 +9,19 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
         'keyup .chatBlock .input': 'press'
         'click .emoticon': 'press'
         'click .smiles': 'opensmiles'
+        'click .messageimg img':'popupphoto'
+        'click .addPhotoToMessage':'addPhoto'
+
+
+
+    addPhoto: ()->
+        app.views.stripechoppopup.update(false, true,true)
+        $('.popup').fadeOut('slow')
+        $('.chopPopup').fadeIn('slow')
+        app.views.entered.showpopup('.chopPopup')
+
+    popupphoto: (e,i)->
+        app.views.popupphoto.trigger('photo:popup', $(e.currentTarget).attr('src'))
 
 
     opensmiles: ->
@@ -107,6 +120,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             cp.children().last().find('.recordAuthor').addClass 'myMessage'
             cp.children().last().find('.recordText').addClass 'myMessage'
             cp.children().last().find('.recordTime').addClass 'myMessage'
+            cp.children().last().find('.messageimg').addClass 'myMessageImage'
             cp.children().last().find('.fui-radio-checked').addClass 'myMessage'
 
         if h.invite and (cp.children().last().find('.recordAuthor').text() == "Вы")
@@ -135,7 +149,8 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 text: mess
                 author: 'Вы',
                 invite: false,
-                time: ''
+                time: '',
+                photo_url: false
             @new_massage user, mess
 
     du: (id) ->
@@ -202,6 +217,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 author: if mess.get('origin')==@user.get('id') then @user.get('name') else 'Вы'
                 invite: mess.get 'invite'
                 time: mess.get 'time'
+                photo_url: if mess.get('photo_url') then mess.get('photo_url') else false
         last =  (_.last messages.models)
         if not (last.get('read')) and (last.get('destination')==@user.get('id'))
             @render_message @get_cb(),
@@ -209,6 +225,7 @@ app.views.Message = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 author: @user.get('name')+' еще не прочитал(а) ваше сообщение'
                 invite: false
                 time: false
+                photo_url: false
 
     closechat: (event) ->
         do @slideHide

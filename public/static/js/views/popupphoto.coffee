@@ -8,6 +8,10 @@ app.views.PopupPhoto = Backbone.View.extend
         'click .infoBox a':'preventlink'
         'click .infoBox a img':'link_to_user'
 
+    initialize: ->
+        @on 'photo:popup', (photo_url)->
+            @popupPhoto photo_url
+
 
     preventlink: (e)->
         do e.preventDefault
@@ -26,6 +30,7 @@ app.views.PopupPhoto = Backbone.View.extend
         else
             attrs.liked_by = false
         @$el.find('.infoBox').html jade.templates.popup_photo_infobox attrs
+        @trigger 'infoToPhotoPopup'
 
     clearuser: (user) ->
         @$el.find('.infoBox').html ''
@@ -42,3 +47,11 @@ app.views.PopupPhoto = Backbone.View.extend
             @$el.find('.fui-heart').addClass('like')
             @$el.find('.fui-heart').removeClass('unlike')
         return false
+
+    popupPhoto: (photo_url)->
+        m = new app.models.Photo()
+        m.set('url',photo_url)
+        v = new app.views.Photo({model:m})
+        v.clck()
+        @once 'infoToPhotoPopup', ()->
+            app.views.popupphoto.$el.find('.infoBox').children().remove()

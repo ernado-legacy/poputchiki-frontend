@@ -5,6 +5,10 @@ app.views.Stripe = Backbone.View.extend
     events:
         'click .crsItem img': 'clickstripe'
         'click .stripeName': 'stripeName'
+        'click .fui-plus':'promopopup'
+
+    promopopup: ->
+        app.views.entered.trigger('popup:promo')
     #     #'click .audio': 'play_audio'
     #     #'click .video': 'play_video'
 
@@ -311,7 +315,7 @@ app.views.StripePopup = Backbone.View.extend
 
                     error: (data, textStatus, jqXHR) =>
                         element = @$el.find('.price')
-                        element.html('Недостаточно <small>попиков</small>')
+                        element.html('Недостаточно <small>монет</small>')
                         element.addClass 'alert'
 
         photoatr = $('.promoPopup .changeAvatarBox').attr 'data-id'
@@ -357,7 +361,7 @@ app.views.StripechopPopup = Backbone.View.extend _.extend app.mixins.UploadPhoto
         @uploadphoto url, '.uplfrm', (data) =>
             @update @param.video, @param.ava
 
-    update: (video, ava) ->
+    update: (video, ava, message) ->
         @param =
             video: video
             ava: ava
@@ -387,27 +391,31 @@ app.views.StripechopPopup = Backbone.View.extend _.extend app.mixins.UploadPhoto
                     #    $('.popup').fadeIn('slow')
                     #    $('.chopPopup').fadeOut('slow')
                 if not video
-                    if not ava
-                        view.change = ->
-                            do app.views.stripepopup.clearpromo
-                            id = @$el.attr 'data-id'
-                            img_src = @$el.data 'media-url'
-                            $(".promoPopup #promo-add-photo").attr 'src', img_src
-                            $('.promoPopup .changeAvatarBox').attr 'data-id', id
-                            $('.popup').fadeOut('slow')
-                            $('.promoPopup').fadeIn('slow')
-                            activaPromoChoice 'choose-photo'
+                    if not message
+                        if not ava
+                            view.change = ->
+                                do app.views.stripepopup.clearpromo
+                                id = @$el.attr 'data-id'
+                                img_src = @$el.data 'media-url'
+                                $(".promoPopup #promo-add-photo").attr 'src', img_src
+                                $('.promoPopup .changeAvatarBox').attr 'data-id', id
+                                $('.popup').fadeOut('slow')
+                                $('.promoPopup').fadeIn('slow')
+                                activaPromoChoice 'choose-photo'
+                        else
+                            view.change = ->
+                                app.models.myuser.get (user) =>
+                                    id = @$el.attr 'data-id'
+                                    user.set 'avatar', id
+                                    user.save {},
+                                        success: ->
+                                            user.fetch
+                                                success: ->
+                                                    do app.views.profile.render
+                                    do app.views.entered.closepopuprun
                     else
                         view.change = ->
-                            app.models.myuser.get (user) =>
-                                id = @$el.attr 'data-id'
-                                user.set 'avatar', id
-                                user.save {},
-                                    success: ->
-                                        user.fetch
-                                            success: ->
-                                                do app.views.profile.render
-                                do app.views.entered.closepopuprun
+                            console.log 'add ohiti to message'
                 else
                     view.change = ->
                         do app.views.stripepopup.clearpromo

@@ -295,6 +295,12 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
                 do app.views.stripe.render
 
+                #triggets
+                that.on 'popup:promo', ->
+                    do that.promo_popup
+                that.on 'popup:vip', ->
+                    do that.vip_popup
+
     search: ->
         # app.models.search
         #    offset: 0
