@@ -16,8 +16,8 @@ app.views.PopupPhoto = Backbone.View.extend
     preventlink: (e)->
         do e.preventDefault
         return false
-    # link_to_user: (e)->
-    #     window.location.href = $('.infoBox a').attr 'href'
+    link_to_user: (e)->
+        window.location.href = $('.infoBox a').attr 'href'
 
 
     changeuser: (user,photoView) ->
@@ -35,18 +35,18 @@ app.views.PopupPhoto = Backbone.View.extend
     clearuser: (user) ->
         @$el.find('.infoBox').html ''
 
-    like: ->
+    like: (e)->
+        do e.preventDefault
         @photoView.model.like (likes)=>
             @$el.find('.fui-heart').removeClass('like')
             @$el.find('.fui-heart').addClass('unlike')
 
-        return false
 
-    unlike: ->
+    unlike: (e)->
+        do e.preventDefault
         @photoView.model.unlike (likes)=>
             @$el.find('.fui-heart').addClass('like')
             @$el.find('.fui-heart').removeClass('unlike')
-        return false
 
     popupPhoto: (photo_url)->
         m = new app.models.Photo()

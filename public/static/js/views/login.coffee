@@ -57,9 +57,9 @@ app.views.Login = Backbone.View.extend
                 return
             ,(data)=>
                 if data.status!=404
-                    that.$el.find('.enterContainer').html jade.templates.forgot_password_success()
                     forgotemail = new app.models.ForgotEmail
                     forgotemail.set 'email', $('#login').val()
+                    that.$el.find('.enterContainer').html jade.templates.forgot_password_success()
                     forgotemail.save {},
                         success: ->
                             # that.$el.find('.enterContainer').html jade.templates.forgot_password_success()

@@ -85,7 +85,7 @@ app.views.userMainStatus = app.views.Status.extend
         #status.user = app.models.myuser.getid()
         status.save null,
             success: =>
-                do app.views.statuses.getstatuses
+                @trigger 'status:new'
                 @status = status
                 app.models.myuser.get (myuser) =>
                     @render myuser
@@ -93,6 +93,7 @@ app.views.userMainStatus = app.views.Status.extend
                 $("#main-status").slideDown "slow"
                 $(".statusBoxEdit").slideUp "slow"
             error: =>
+                @trigger 'status:new'
                 app.models.myuser.get (myuser) =>
                     if myuser.get 'vip'
                         do @$el.find('.popup-info').click

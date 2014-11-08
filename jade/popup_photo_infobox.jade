@@ -1,9 +1,10 @@
 
-img(src='#{user.get("avatar_url")}')
+
 a(href="/user/#{user.get('id')}")
-  .leftPart
-    .name-in-profile=user.get('name')
-    .city-in-profile=user.get('city')
+  img(src='#{user.get("avatar_url")}')
+.leftPart
+  .name-in-profile=user.get('name')
+  .city-in-profile=user.get('city')
 .rightPart
   .likeBox
       if liked_by

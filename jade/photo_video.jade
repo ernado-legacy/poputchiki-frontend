@@ -9,7 +9,12 @@ div#profile-arrow-down
       span видео
   if (is_my_user)
     .addPhoto
-      span Добавить фото
+      span.addphoto-text
+        .fui-plus 
+        |  Добавить фото
+      span.addvideo-text
+        .fui-plus 
+        |  Добавить видео
     form.photovideoform(style="display:none")
         span Добавить фото
         .photo-load

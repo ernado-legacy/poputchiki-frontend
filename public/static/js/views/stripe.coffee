@@ -415,7 +415,7 @@ app.views.StripechopPopup = Backbone.View.extend _.extend app.mixins.UploadPhoto
                                     do app.views.entered.closepopuprun
                     else
                         view.change = ->
-                            console.log 'add ohiti to message'
+                            console.log @$el.attr 'data-id'
                 else
                     view.change = ->
                         do app.views.stripepopup.clearpromo

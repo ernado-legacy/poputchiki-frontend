@@ -112,7 +112,8 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         $('.photoBox').hide()
         $('.videoBox').show()
         $('.photovideoform input[name=loading_url]').val('/api/video')
-        $('.addPhoto span').text('Добавить видео')
+        do $('.addPhoto span.addvideo-text').show
+        do $('.addPhoto span.addphoto-text').hide
         
 
     photo_header: (event)->
@@ -126,7 +127,8 @@ app.views.UserPhotoBlock = Backbone.View.extend _.extend app.mixins.UploadPhoto,
         $('.videoBox').hide()
         $('.photoBox').show()
         $('.photovideoform input[name=loading_url]').val('/api/photo')
-        $('.addPhoto span').text('Добавить фото')
+        do $('.addPhoto span.addvideo-text').hide
+        do $('.addPhoto span.addphoto-text').show
 
 
 app.views.UserPhotoBlockUnsigned = Backbone.View.extend _.extend app.mixins.UploadPhoto,app.mixins.SlideRigtBlock,

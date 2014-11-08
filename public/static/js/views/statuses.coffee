@@ -68,6 +68,8 @@ app.views.Statuses = Backbone.View.extend
             ,
             country: scv
     rerender: ->
+        @listenToOnce app.views.main_status, 'status:new', =>
+            do @render
         @getstatuses 1, (statuses) =>
             @pagination.render 1 + statuses.size()/10
             @pagination.setreaction (i) => @getstatuses i

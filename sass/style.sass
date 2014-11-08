@@ -1119,7 +1119,7 @@ footer
     float: right
 #search-slidedown
     float: none
-.profile-edit-slideup, .profile-search, .profile-button
+.profile-edit-slideup, .profile-search, .profile-button, .simple-button
     width: 112px
     margin-left: 15px
     height: 37px
@@ -1134,6 +1134,14 @@ footer
         opacity: 1
         font-size: 15px
         line-height: 37px
+
+.simple-button
+    width: initial!important
+    height: initial
+    span
+        font-size: 12px
+        padding: 10px 10px
+
 .profile-search, .profile-button
     width: 220px
     margin-top: 10px
@@ -1940,7 +1948,6 @@ footer
             .smiles.active
                 color: black
             .addPhotoToMessage
-                display: none
                 float: right
                 margin-right: 10px
                 // width: 30px
@@ -2285,8 +2292,12 @@ footer
             width: 212px
 
 .loginRegisterBlock.step    
-    position: static
+    position: absolute
     margin: 70px auto
+    left: 0
+    right: 0
+    margin-left: auto
+    margin-right: auto
     width: 490px
     color: $title_text
     .topWrap
@@ -3073,6 +3084,14 @@ a.ldblock
     text-decoration: none
 
 .ratingPopup, .vipPopup
+    .button-container
+        width: 100%
+        height: 40px
+        .regButton
+            background-color: $menu_favorites
+            width: 50%
+            margin-left: 25%
+
     form
         border: none
         .pnct
@@ -3096,7 +3115,7 @@ a.ldblock
         .textBox
             float: left
             width: 365px
-            margin-top: 25px
+            margin-top: 45px
             p
                 margin-bottom: 5px
                 width: 100%
@@ -3152,3 +3171,7 @@ a.ldblock
 .videoPopup
     video
         width: 100%
+
+
+.addvideo-text
+    display: none
