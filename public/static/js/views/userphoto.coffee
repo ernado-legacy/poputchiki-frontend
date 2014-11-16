@@ -245,7 +245,7 @@ app.views.UserPhotoBlockUnsigned = Backbone.View.extend _.extend app.mixins.Uplo
         $('.photoBox').hide()
         $('.videoBox').show()
         $('.photovideoform input[name=loading_url]').val('/api/video')
-        $('.addPhoto span').text('Добавить видео')
+        
         
 
     photo_header: (event)->
@@ -259,4 +259,3 @@ app.views.UserPhotoBlockUnsigned = Backbone.View.extend _.extend app.mixins.Uplo
         $('.videoBox').hide()
         $('.photoBox').show()
         $('.photovideoform input[name=loading_url]').val('/api/photo')
-        $('.addPhoto span').text('Добавить фото')

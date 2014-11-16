@@ -28,6 +28,7 @@ server.get '/settings/:type', index
 server.get '/about/', index
 server.get '/terms/', index
 server.get '/contacts/', index
+server.get '/contacts', index
 
 
 

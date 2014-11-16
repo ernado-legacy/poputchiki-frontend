@@ -1,0 +1,7 @@
+each array in arrays
+  .imgRow.clearfix
+    each item in array
+      .imgBox.clearfix(data-id="#{item.get('id')}", data-present-cost="#{item.get('cost')}")
+        img(src='#{item.get('url')}')
+        .cover
+        span #{item.get('cost')} монет

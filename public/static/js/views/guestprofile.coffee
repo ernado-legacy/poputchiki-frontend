@@ -10,6 +10,12 @@ app.views.GuestProfile = app.views.UserListView.extend
         'click #guest_profile .to_blacklist': 'to_blacklist'
         'click .profileGuest .imgBox': 'avatar_open'
         'click .search-comback a': 'back_to_search'
+        'click .send-present': 'send_present_to_this_user'
+        'click .user-present img': 'send_present_to_this_user'
+
+    send_present_to_this_user: ->
+        app.views.presents.trigger('presents:popup', @model.get('id'))
+        
 
     back_to_search: (e)->
         e.preventDefault()
@@ -71,6 +77,7 @@ app.views.GuestProfile = app.views.UserListView.extend
                     is_fav: is_fav
                     is_in_blacklist: is_in_blacklist
                 app.views.main_status.render user
+                # do app.views.presents.renderUserPresents
                 do $('#profile-slidedown').click
                 if after
                     do after

@@ -17,11 +17,8 @@ app.views.VipStatus = Backbone.View.extend
             success: (data) ->
                 that.$el.find('.bilContainer').remove()
                 that.$el.find('form').append jade.templates.popup_vip_success()
-                console.log data
                 app.models.myuser.clear ->
             error: (data, textStatus, jqXHR) ->
                 that.$el.find('.bilContainer').remove()
                 that.$el.find('form').append jade.templates.popup_vip_error()
-                console.log 'error'
-                console.log jqXHR
                     

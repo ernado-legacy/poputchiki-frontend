@@ -176,34 +176,35 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
 
     routes: ->
-        if window.location.pathname == '/guests/'
+        if window.location.pathname == '/guests'
             do @init
-        if window.location.pathname == '/' or window.location.pathname == '/profile/'
+        if window.location.pathname == '/' or window.location.pathname.search('/profile')
             do @init
-        if window.location.pathname.search('/message/') != -1
+        if window.location.pathname.search('/message') != -1
             do @init
-        if window.location.pathname.search('/user/') != -1
-            do @init
-
-        if window.location.pathname == '/guests/'
-            do @init
-        if window.location.pathname.search('/statuses/') != -1
+        if window.location.pathname.search('/user') != -1
             do @init
 
-        if window.location.pathname.search('/favourites/') != -1
+        if window.location.pathname.search('/guests')
             do @init
 
-        if window.location.pathname.search('/followers/') != -1
+        if window.location.pathname.search('/statuses') != -1
             do @init
 
-        if window.location.pathname.search('/search/') != -1
+        if window.location.pathname.search('/favourites') != -1
+            do @init
+
+        if window.location.pathname.search('/followers') != -1
+            do @init
+
+        if window.location.pathname.search('/search') != -1
             do @init
             # do app.views.searchside.render
 
-        if window.location.pathname.search('/settings/') != -1
+        if window.location.pathname.search('/settings') != -1
             do @init
 
-        if window.location.pathname.search('/dialogs/') != -1
+        if window.location.pathname.search('/dialogs') != -1
             do @init
 
     init: ->
@@ -256,6 +257,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                 app.views.main_status = new app.views.userMainStatus
                 app.views.lets_go = new app.views.LetsGo
                 app.views.videopopup = new app.views.VideoPopup
+                app.views.presents = new app.views.Presents
                 
 
                 
