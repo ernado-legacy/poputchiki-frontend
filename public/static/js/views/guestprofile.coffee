@@ -77,7 +77,7 @@ app.views.GuestProfile = app.views.UserListView.extend
                     is_fav: is_fav
                     is_in_blacklist: is_in_blacklist
                 app.views.main_status.render user
-                # do app.views.presents.renderUserPresents
+                do app.views.presents.renderUserPresents
                 do $('#profile-slidedown').click
                 if after
                     do after

@@ -7,7 +7,6 @@ app.models.Present = Backbone.Model.extend
         '/api/present/'
 
     send_present: (user_id)->
-        console.log @
         $.ajax
             url: '/api/user/'+user_id+'/present/'+@get('title')
             type: 'POST'

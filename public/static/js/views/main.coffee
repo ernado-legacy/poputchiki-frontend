@@ -49,7 +49,7 @@ app.views.Main = Backbone.View.extend
         if window.location.pathname.search('/terms/') != -1
             app.views.main.trigger('main:terms')
 
-        if window.location.pathname.search('/contacts') != -1
+        if window.location.pathname.search('/contacts/') != -1
             app.views.main.trigger('main:contacts')
 
         return
