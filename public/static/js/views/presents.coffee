@@ -41,6 +41,16 @@ app.views.Presents = Backbone.View.extend
 
 
 
-    renderUserPresents: ()->
-        $('.userPresentsBox .presents-container').html jade.templates.user_presents
-            presents: 2
+    renderUserPresents: (user_id)->
+        collection = new app.models.Presents 
+        collection.user_id = user_id
+        @userpresentscollection = collection
+        collection.fetch().done () =>
+            $('.userPresentsBox .presents-container').html jade.templates.user_presents
+                presents: collection.toJSON()
+
+    updateUserPresents: ()->
+        collection = @userpresentscollection
+        collection.fetch().done () ->
+            $('.userPresentsBox .presents-container').html jade.templates.user_presents
+                presents: collection.toJSON()

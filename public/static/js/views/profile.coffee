@@ -104,7 +104,7 @@ app.views.Profile = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
                     #    $(@oldtags).prepend z
                     @$el.find('input').val ''
                 #$(newtag).val("")
-            do app.views.presents.renderUserPresents
+            app.views.presents.renderUserPresents user.get "id"
             if after
                 do after
             # sc = @$el.find '.searchCountry'

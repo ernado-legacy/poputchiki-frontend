@@ -13,7 +13,8 @@ app.models.Present = Backbone.Model.extend
             # data: "target="+@.get('id')
             dataType: "json"
             success: (data) =>
-                console.log 'present was succesfult sentd'
+                app.views.presents.updateUserPresents()
+                do app.views.entered.closepopuprun
 
 
 
@@ -25,3 +26,5 @@ app.models.Presents = Backbone.Collection.extend
         else
             '/api/present'
     model: Present
+    comparator: (model)->
+        -new Date(model.get('time'));

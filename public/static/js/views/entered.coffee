@@ -176,16 +176,19 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
 
 
     routes: ->
+        ifpageexists = false
         if window.location.pathname == '/guests'
             do @init
+
         if (window.location.pathname == '/') or ((window.location.pathname.search('/profile'))!= -1)
             do @init
+
         if window.location.pathname.search('/message') != -1
             do @init
         if window.location.pathname.search('/user') != -1
             do @init
 
-        if window.location.pathname.search('/guests')
+        if window.location.pathname.search('/guests') != -1
             do @init
 
         if window.location.pathname.search('/statuses') != -1
@@ -208,6 +211,7 @@ app.views.Entered = Backbone.View.extend _.extend app.mixins.SlideRigtBlock,
             do @init
 
     init: ->
+        
         that = this
         app.views.login.check_status (result) ->
             if not result
